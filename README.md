@@ -2,7 +2,7 @@
 
 ## What is this repository?
 
-This is a project to make a website applicatcation for the HADA subject.
+This is a project to make a website applicatcation.
 
 ## Who we are?
 
