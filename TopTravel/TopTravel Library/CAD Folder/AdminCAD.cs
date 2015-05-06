@@ -4,10 +4,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TopTravel.CAD_Folder
+namespace TopTravel
 {
     class AdminCAD
     {
-        // To-do make this when all changes are according to database scheme
+        public void register_admin(AdminEN a)
+        {
+        }
+
+        public void delete_admin(AdminEN a)
+        {
+        }
+
+        public void update_admin(AdminEN a)
+        {
+        }
+
+        public void login_admin(AdminEN a)
+        {
+        }
     }
 }

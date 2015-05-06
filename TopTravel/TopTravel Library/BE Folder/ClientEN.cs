@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace HadaProject.Models
+namespace TopTravel
 {
     public class ClientEN
     {
@@ -21,7 +21,7 @@ namespace HadaProject.Models
        public void register_user()
        {
            m_cc = new ClientCAD();
-           m_cc.add_user(this);
+           m_cc.register_user(this);
        }
 
        public void delete_user()
@@ -39,7 +39,7 @@ namespace HadaProject.Models
        public void login_user()
        {
            m_cc = new ClientCAD();
-           m_cc.search_user(this);
+           m_cc.login_user(this);
        }
 
         // PROPERTIES

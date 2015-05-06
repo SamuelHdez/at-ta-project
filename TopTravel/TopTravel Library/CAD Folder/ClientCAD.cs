@@ -4,10 +4,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TopTravel.CAD_Folder
+namespace TopTravel
 {
     class ClientCAD
     {
-        // To-do make this when all changes are according to database scheme
+        public void register_user(ClientEN c)
+        {
+        }
+
+        public void delete_user(ClientEN c)
+        {
+        }
+
+        public void update_user(ClientEN c)
+        {
+        }
+
+        public void login_user(ClientEN c)
+        {
+        }
     }
 }

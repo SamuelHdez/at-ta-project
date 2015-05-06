@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace HadaProject.Models
+namespace TopTravel
 {
     public class AdminEN
     {
@@ -18,25 +18,25 @@ namespace HadaProject.Models
        public void register_Admin()
        {
            m_cc = new AdminCAD();
-           m_cc.add_Admin(this);
+           m_cc.register_admin(this);
        }
 
        public void delete_Admin()
        {
            m_cc = new AdminCAD();
-           m_cc.delete_Admin(this);
+           m_cc.delete_admin(this);
        }
 
        public void update_Admin()
        {
            m_cc = new AdminCAD();
-           m_cc.update_Admin(this);
+           m_cc.update_admin(this);
        }
 
        public void login_Admin()
        {
            m_cc = new AdminCAD();
-           m_cc.search_Admin(this);
+           m_cc.login_admin(this);
        }
 
         // PROPERTIES
