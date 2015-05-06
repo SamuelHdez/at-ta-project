@@ -5,10 +5,10 @@ using System.Web;
 
 namespace HadaProject.Models
 {
-    public class UserEN
+    public class ClientEN
     {
 
-        public UserEN(int ID, int dni, string name, int phone, string address, string gender)
+        public ClientEN(int ID, int dni, string name, int phone, string address, string gender)
         {
             UserId = ID;
             UserIDDocument = dni;
@@ -20,25 +20,25 @@ namespace HadaProject.Models
 
        public void register_user()
        {
-           m_cc = new UserCAD();
+           m_cc = new ClientCAD();
            m_cc.add_user(this);
        }
 
        public void delete_user()
        {
-           m_cc = new UserCAD();
+           m_cc = new ClientCAD();
            m_cc.delete_user(this);
        }
 
        public void update_user()
        {
-           m_cc = new UserCAD();
+           m_cc = new ClientCAD();
            m_cc.update_user(this);
        }
 
        public void login_user()
        {
-           m_cc = new UserCAD();
+           m_cc = new ClientCAD();
            m_cc.search_user(this);
        }
 
@@ -51,6 +51,6 @@ namespace HadaProject.Models
         public string UserGender { get; set; }
 
         //Data
-        private UserCAD m_cc;
+        private ClientCAD m_cc;
     }
 }

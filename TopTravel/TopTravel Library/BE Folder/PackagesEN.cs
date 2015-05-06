@@ -6,9 +6,9 @@ using System.Web;
 namespace HadaProject.Models
 {
     // o PackageTour o Packageholiday o VacationPackage ...
-    public class PackageTourEN
+    public class PackagesEN
     {
-        public PackageTourEN(int id, string dt, int p, string dp, DateTime d, int nd)
+        public PackagesEN(int id, string dt, int p, string dp, DateTime d, int nd)
         {
             ID = id;
             Destination = dt;
@@ -20,13 +20,13 @@ namespace HadaProject.Models
 
         public void add_pack()
         {
-            m_cc = new PackageTourCAD();
+            m_cc = new PackagesCAD();
             m_cc.add_pack(this);
         }
 
         public void delete_pack()
         {
-            m_cc = new PackageTourCAD();
+            m_cc = new PackagesCAD();
             m_cc.add_pack(this);
         }
 
@@ -48,6 +48,6 @@ namespace HadaProject.Models
         public virtual BusEN Bus { get; set; } //-------------> crear entidad BusEN
 
         // DATA
-        private PackageTourCAD m_cc;
+        private PackagesCAD m_cc;
     }
 }

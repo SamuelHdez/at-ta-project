@@ -5,15 +5,15 @@ using System.Web;
 
 namespace HadaProject.Models
 {
-    public class PackageTourCAD
+    public class PackagesCAD
     {
 
-        public void add_pack(PackageTourEN pt)
+        public void add_pack(PackagesEN pt)
         {
 
         }
 
-        public void delete_pack(PackageTourEN pt)
+        public void delete_pack(PackagesEN pt)
         {
 
         }
