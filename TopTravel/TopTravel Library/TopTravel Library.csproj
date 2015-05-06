@@ -39,13 +39,38 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BE Folder\AdminEN.cs" />
+    <Compile Include="BE Folder\BusEN.cs" />
+    <Compile Include="BE Folder\CarRentalEN.cs" />
+    <Compile Include="BE Folder\CompanyEN.cs" />
+    <Compile Include="BE Folder\CruiseEN.cs" />
+    <Compile Include="BE Folder\ExtrasEN.cs" />
+    <Compile Include="BE Folder\OrderEN.cs" />
+    <Compile Include="BE Folder\ProductEN.cs" />
+    <Compile Include="BE Folder\SpaceTravelEN.cs" />
+    <Compile Include="CAD Folder\ExtrasCAD.cs" />
+    <Compile Include="BE Folder\FlightEN.cs" />
+    <Compile Include="BE Folder\HotelEN.cs" />
+    <Compile Include="BE Folder\PackagesEN.cs" />
+    <Compile Include="BE Folder\TrainEN.cs" />
+    <Compile Include="BE Folder\ClientEN.cs" />
+    <Compile Include="CAD Folder\AdminCAD.cs" />
+    <Compile Include="CAD Folder\BusCAD.cs" />
+    <Compile Include="CAD Folder\CarRentalCAD.cs" />
+    <Compile Include="CAD Folder\ClientCAD.cs" />
+    <Compile Include="CAD Folder\CompanyCAD.cs" />
+    <Compile Include="CAD Folder\CruiseCAD.cs" />
+    <Compile Include="CAD Folder\FlightCAD.cs" />
+    <Compile Include="CAD Folder\HotelCAD.cs" />
+    <Compile Include="CAD Folder\OrderCAD.cs" />
+    <Compile Include="CAD Folder\PackagesCAD.cs" />
+    <Compile Include="CAD Folder\ProductCAD.cs" />
+    <Compile Include="CAD Folder\SpaceTravelCAD.cs" />
+    <Compile Include="CAD Folder\TrainCAD.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="BE Folder\" />
-    <Folder Include="CAD Folder\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
