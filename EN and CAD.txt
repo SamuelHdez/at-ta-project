@@ -1,9 +1,9 @@
-Client:
+Client: Hecho en Membership
 Admin:
 Order:
-Product:
+Product: 
 Company: Samuel
-Extras: 
+Extras: Samuel
 Hotel: Samuel
 Flight: Kate
 Bus: Maxim 
