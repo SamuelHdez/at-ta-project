@@ -127,9 +127,9 @@
     <Content Include="Account\OpenAuthProviders.ascx" />
     <Content Include="Account\Register.aspx" />
     <Content Include="Account\RegisterExternalLogin.aspx" />
-    <Content Include="App_Data\aspnet-TopTravel-20150506160445.mdf" />
-    <Content Include="App_Data\aspnet-TopTravel-20150506160445_log.ldf">
-      <DependentUpon>aspnet-TopTravel-20150506160445.mdf</DependentUpon>
+    <Content Include="App_Data\TopTravel.mdf" />
+    <Content Include="App_Data\TopTravel_log.ldf">
+      <DependentUpon>TopTravel.mdf</DependentUpon>
     </Content>
     <Content Include="Contact.aspx" />
     <Content Include="Content\Site.css" />
