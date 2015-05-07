@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,58 +9,130 @@ namespace TopTravel
     public class HotelEN
     {
 
-        public HotelEN(int ID, string ci, string co, int number, string at, string dt, int r, int pr, int stars, string serv)
+        public HotelEN(int ID=-1, string na="", string ci="", int dy=0, int number=0, string ad="", string e="", int s=0, string b="", string d="")
         {
-            hotelID = ID;
+            id = ID;
+            name = na;
             city = ci;
-            country = co;
+            days = dy;
             phone = number;
-            arrivalTime = at;
-            departureTime = dt;
-            rooms = r;
-            price = pr;
-            category = stars;
-            services = serv;
+            address = ad;
+            email = e;
+            stars = s;
+            bedrooms = b;
+            date = d;
         }
 
        public void add_hotel()
        {
-           m_cc = new HotelCAD();
-           m_cc.add_hotel(this);
+           HotelCAD c = new HotelCAD();
+           c.addHotel(this);
        }
 
        public void delete_hotel()
        {
-           m_cc = new HotelCAD();
-           m_cc.delete_hotel(this);
+           HotelCAD c = new HotelCAD();
+           c.deleteHotel(this);
        }
 
        public void update_hotel()
        {
-           m_cc = new HotelCAD();
-           m_cc.update_hotel(this);
+           HotelCAD c = new HotelCAD();
+           c.updateHotel(this);
        }
 
-       public void search_hotel()
+       public ArrayList search_hotel()
        {
-           m_cc = new HotelCAD();
-           m_cc.search_hotel(this);
+           ArrayList a = new ArrayList();
+           HotelCAD c = new HotelCAD();
+           a = c.searchHotel(this);
+
+           return a;
+       }
+
+       public ArrayList showAllHotels()
+       {
+           ArrayList a = new ArrayList();
+           HotelCAD c = new HotelCAD();
+           a = c.showHotels();
+
+           return a;
        }
 
         // PROPERTIES
-        public int hotelID { get; set; }
-        public string city { get; set; }
-        public string country { get; set; }
-        public int phone { get; set; }
-        public string arrivalTime { get; set; }
-        public string departureTime { get; set; }
-        public int rooms { get; set; }
-        public int price { get; set; }
-        public int category { get; set; } //stars
-        public string services { get; set; }
+        private int id;
+        private string name;
+        private string city;
+        private int days;
+        private int phone;
+        private string address;
+        private string email;
+        private int stars;
+        private string bedrooms;
+        private string date;
 
         //Data
         private HotelCAD m_cc;
 
+        //Getters and setters
+        public int Id
+        {
+            get { return id; }
+            set { id = value; }
+        }
+
+        public string Name
+        {
+            get { return name; }
+            set { name = value; }
+        }
+
+        public string City
+        {
+            get { return city; }
+            set { city = value; }
+        }
+
+        public int Days
+        {
+            get { return days; }
+            set { days = value; }
+        }
+
+        public int Phone
+        {
+            get { return phone; }
+            set { phone = value; }
+        }
+
+        public string Address
+        {
+            get { return address; }
+            set { address = value; }
+        }
+
+        public string Email
+        {
+            get { return email; }
+            set { email = value; }
+        }
+
+        public int Stars
+        {
+            get { return stars; }
+            set { stars = value; }
+        }
+
+        public string Bedrooms
+        {
+            get { return bedrooms; }
+            set { bedrooms = value; }
+        }
+
+        public string Date
+        {
+            get { return date; }
+            set { date = value; }
+        }
     }
 }

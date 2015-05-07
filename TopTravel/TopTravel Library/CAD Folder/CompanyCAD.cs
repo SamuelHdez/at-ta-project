@@ -46,11 +46,13 @@ namespace TopTravel
 
         public void addCompany(CompanyEN cen)
         {
+            string s;
+            s = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
             CompanyEN co = cen;
             SqlConnection c = new SqlConnection(s);
-            c.Open();
             try
             {
+                c.Open();
                 SqlCommand com = new SqlCommand("Insert Into Company (ID,Name,Type,Phone,Email,Country,Website,Description) VALUES ('" + co.Id + "','" + co.Name + "','" + co.Type + "','" +
                     co.Phone + "','" + co.Email + "','" + co.Country + "','" + co.Website + "','" + co.Description + "')", c);
 
@@ -70,11 +72,14 @@ namespace TopTravel
 
         public void delete_Company(CompanyEN cen)
         {
+            string s;
+            s = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
             CompanyEN co = cen;
             SqlConnection c = new SqlConnection(s);
-            c.Open();
+            
             try
             {
+                c.Open();
                 SqlCommand com = new SqlCommand("Delete From Company Where id = " + co.Id , c);
                 com.ExecuteNonQuery();
             }
@@ -91,11 +96,13 @@ namespace TopTravel
 
         public void update_Company(CompanyEN cen)
         {
+            string s;
+            s = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
             CompanyEN co = cen;
             SqlConnection c = new SqlConnection(s);
-            c.Open();
             try
             {
+                c.Open();
                 SqlCommand com = new SqlCommand("Update Company Set Name = '" + co.Name + "', Type = '" + co.Type + "', Phone ='" +
                     co.Phone + "', Email = '" + co.Email + "', County = '" + co.Country + "', Website = '" + co.Website + "', Description = '" + 
                     co.Description + "' Where ID = " + co.Id, c);
