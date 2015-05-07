@@ -46,11 +46,13 @@ namespace TopTravel
 
         public void add_Bus(BusEN b)
         {
+            string s;
+            s = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
             BusEN bus = b;
             SqlConnection c = new SqlConnection(s);
-            c.Open();
             try
             {
+                c.Open();
                 SqlCommand com = new SqlCommand("Insert Into Bus (ID,departureTime,arrivalTime,departureCity,destinationCity,Bonus) VALUES ('" + bus.BusID + "','" + bus.departureTime + "','" + bus.arrivalTime + "','" +
                     bus.departureCity + "','" + bus.destinationCity + "','" + bus.Bonus + "')", c);
 
@@ -71,11 +73,13 @@ namespace TopTravel
 
         public void delete_Bus(BusEN b)
         {
+            string s;
+            s = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
             BusEN bus = b;
             SqlConnection c = new SqlConnection(s);
-            c.Open();
             try
             {
+                c.Open();
                 SqlCommand com = new SqlCommand("Delete From Bus Where ID = " + bus.BusID, c);
                 com.ExecuteNonQuery();
             }
@@ -93,11 +97,13 @@ namespace TopTravel
 
         public void update_Bus(BusEN b)
         {
+            string s;
+            s = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
             BusEN bus = b;
             SqlConnection c = new SqlConnection(s);
-            c.Open();
             try
             {
+                c.Open();
                 SqlCommand com = new SqlCommand("Update Bus Set departureTime = '" + bus.departureTime + "', arrivalTime = '" + bus.arrivalTime + "', departureCity ='" +
                     bus.departureCity + "', destinationCity = '" + bus.destinationCity + "', Bonus = '" + bus.Bonus + "' Where ID = " + bus.BusID, c);
                 com.ExecuteNonQuery();
@@ -116,11 +122,13 @@ namespace TopTravel
 
         public void search_Bus(BusEN b)
         {
+            string s;
+            s = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
             BusEN bus = b;
             SqlConnection c = new SqlConnection(s);
-            c.Open();
             try
             {
+                c.Open();
                 SqlCommand com = new SqlCommand("Select * from Bus Where ID = '" + bus.BusID, c);
                 com.ExecuteNonQuery();
             }

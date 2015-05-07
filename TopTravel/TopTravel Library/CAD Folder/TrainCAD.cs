@@ -45,11 +45,12 @@ namespace TopTravel
 
         public void add_train(TrainEN t)
         {
+            string s = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
             TrainEN train = t;
-            SqlConnection c = new SqlConnection(s);
-            c.Open();
+            SqlConnection c = new SqlConnection(s);     
             try
             {
+                c.Open();
                 SqlCommand com = new SqlCommand("Insert Into Train (ID,departureTime,arrivalTime,departureCity,destinationCity,Bonus) VALUES ('" + train.trainID + "','" + train.departureTime + "','" + train.arrivalTime + "','" +
                    train.departureCity + "','" + train.destinationCity + "','" + train.Bonus + "')", c);
 
@@ -69,11 +70,12 @@ namespace TopTravel
 
         public void delete_train(TrainEN t)
         {
+            string s = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
             TrainEN train = t;
             SqlConnection c = new SqlConnection(s);
-            c.Open();
             try
             {
+                c.Open();
                 SqlCommand com = new SqlCommand("Delete From Train Where ID = " + train.trainID, c);
                 com.ExecuteNonQuery();
             }
@@ -91,11 +93,12 @@ namespace TopTravel
 
         public void update_train(TrainEN t)
         {
+            string s = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
             TrainEN train = t;
             SqlConnection c = new SqlConnection(s);
-            c.Open();
             try
             {
+                c.Open();
                 SqlCommand com = new SqlCommand("Update Train Set departureTime = '" + train.departureTime + "', arrivalTime = '" + train.arrivalTime + "', departureCity ='" +
                    train.departureCity + "', destinationCity = '" + train.destinationCity + "', Bonus = '" + train.Bonus + "' Where ID = " + train.trainID, c);
                 com.ExecuteNonQuery();
@@ -114,11 +117,12 @@ namespace TopTravel
 
         public void search_train(TrainEN t)
         {
+            string s = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
             TrainEN train = t;
             SqlConnection c = new SqlConnection(s);
-            c.Open();
             try
             {
+                c.Open();
                 SqlCommand com = new SqlCommand("Select * from Train Where ID = '" + train.trainID, c);
                 com.ExecuteNonQuery();
             }
