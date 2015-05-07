@@ -4,10 +4,10 @@ Order:
 Product:
 Company: Samuel
 Extras:
-Hotel:
-Flight:
+Hotel: Samuel
+Flight: Kate
 Bus:
-Train: Flight
+Train:
 Space Travel:
 Car Rental:
 Package:
