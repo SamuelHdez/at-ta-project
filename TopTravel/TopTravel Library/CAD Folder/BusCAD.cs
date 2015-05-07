@@ -51,7 +51,7 @@ namespace TopTravel
             c.Open();
             try
             {
-                SqlCommand com = new SqlCommand("Insert Into Company (ID,departureTime,arrivalTime,departureCity,destinationCity,Bonus) VALUES ('" + bus.BusID + "','" + bus.departureTime + "','" + bus.arrivalTime + "','" +
+                SqlCommand com = new SqlCommand("Insert Into Bus (ID,departureTime,arrivalTime,departureCity,destinationCity,Bonus) VALUES ('" + bus.BusID + "','" + bus.departureTime + "','" + bus.arrivalTime + "','" +
                     bus.departureCity + "','" + bus.destinationCity + "','" + bus.Bonus + "')", c);
 
                 com.ExecuteNonQuery();

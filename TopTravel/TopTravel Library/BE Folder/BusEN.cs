@@ -16,6 +16,7 @@ namespace TopTravel
             departureCity = dc;
             arrivalTime = at;
             destinationCity = dtc;
+
         }
 
         public void add_Bus()
