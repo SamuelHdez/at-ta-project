@@ -70,7 +70,7 @@ namespace TopTravel
 
         }
 
-        public void delete_Company(CompanyEN cen)
+        public void deleteCompany(CompanyEN cen)
         {
             string s;
             s = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
@@ -94,7 +94,7 @@ namespace TopTravel
             }
         }
 
-        public void update_Company(CompanyEN cen)
+        public void updateCompany(CompanyEN cen)
         {
             string s;
             s = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();

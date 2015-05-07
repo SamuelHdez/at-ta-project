@@ -116,7 +116,7 @@ namespace TopTravel
             {
                 c.Close();
             }
-            return lista;
+            return search;
         }
 
         public ArrayList showHotels()

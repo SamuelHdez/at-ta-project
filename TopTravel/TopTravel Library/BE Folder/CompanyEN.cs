@@ -29,30 +29,14 @@ namespace TopTravel
 
         public void delete_Company()
         {
-            m_cc = new CompanyCAD();
-            try
-            {
-                m_cc.delete_Company(this);
-            }
-            catch (Exception e)
-            {
-                e.ToString();
-                Console.WriteLine("Error: Delete company");
-            }
+            CompanyCAD c = new CompanyCAD();
+            c.deleteCompany(this);
         }
 
         public void update_Company()
         {
-            m_cc = new CompanyCAD();
-            try
-            {
-                m_cc.update_Company(this);
-            }
-            catch (Exception e)
-            {
-                e.ToString();
-                Console.WriteLine("Error: Update company");
-            }
+            CompanyCAD c = new CompanyCAD();
+            c.updateCompany(this);
         }
 
         public ArrayList showCompanies()

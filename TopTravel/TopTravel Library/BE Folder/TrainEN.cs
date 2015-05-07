@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -7,51 +8,102 @@ namespace TopTravel
 {
     public class TrainEN
     {
-        
-       public TrainEN(int ID, string dt, string dc, string at, string dtc, string b)
+
+        public TrainEN(int ID = -1, string b = "", string dt = "", string dc = "", string at = "", string dtc = "")
         {
-            trainID = ID;
-            departureTime = dt;
-            departureCity = dc;
-            arrivalTime = at;
-            destinationCity = dtc;
+            id = ID;
             Bonus = b;
+            departureDay = dt;
+            departureCity = dc;
+            arrivalDay = at;
+            destinationCity = dtc;
+
         }
 
-       public void add_train()
-       {
-           m_cc = new TrainCAD();
-           m_cc.add_train(this);
-       }
+        public void add_Train()
+        {
+            TrainCAD c = new TrainCAD();
+            c.addTrain(this);
+        }
 
-       public void delete_train()
-       {
-           m_cc = new TrainCAD();
-           m_cc.delete_train(this);
-       }
+        public void delete_Train()
+        {
+            TrainCAD c = new TrainCAD();
+            c.deleteTrain(this);
+        }
 
-       public void update_train()
-       {
-           m_cc = new TrainCAD();
-           m_cc.update_train(this);
-       }
+        public void update_Train()
+        {
+            TrainCAD c = new TrainCAD();
+            c.updateTrain(this);
+        }
 
-        public void search_train()
-       {
-           m_cc = new TrainCAD();
-           m_cc.search_train(this);
-       }
+        public ArrayList search_Train()
+        {
+            ArrayList a = new ArrayList();
+            TrainCAD c = new TrainCAD();
+            a = c.searchTrain(this);
 
+            return a;
+        }
+
+        public ArrayList showTrains()
+        {
+            ArrayList a = new ArrayList();
+            TrainCAD c = new TrainCAD();
+            a = c.showTrains();
+
+            return a;
+        }
 
         // PROPERTIES
-        public int trainID { get; set; }
-        public string departureTime { get; set; }
-        public string departureCity { get; set; }
-        public string arrivalTime { get; set; }
-        public string destinationCity { get; set; }
-        public string Bonus { get; set; }
+        public int id;
+        public string departureDay;
+        public string departureCity;
+        public string arrivalDay;
+        public string destinationCity;
+        public string bonus;
 
         //Data
-        private TrainCAD m_cc;
+        private BusCAD m_cc;
+
+        //getters and setters
+
+        public int Id
+        {
+            get { return id; }
+            set { id = value; }
+        }
+
+        public string DepartureDay
+        {
+            get { return departureDay; }
+            set { departureDay = value; }
+        }
+
+        public string ArrivalDay
+        {
+            get { return arrivalDay; }
+            set { arrivalDay = value; }
+        }
+
+        public string DepartureCity
+        {
+            get { return departureCity; }
+            set { departureCity = value; }
+        }
+
+        public string DestinationCity
+        {
+            get { return destinationCity; }
+            set { destinationCity = value; }
+        }
+
+        public string Bonus
+        {
+            get { return bonus; }
+            set { bonus = value; }
+        }
+
     }
 }

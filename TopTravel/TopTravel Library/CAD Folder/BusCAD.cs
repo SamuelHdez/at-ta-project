@@ -14,6 +14,7 @@ namespace TopTravel
     public class BusCAD
     {
         ArrayList lista = new ArrayList();
+        ArrayList search = new ArrayList();
 
         public ArrayList showBuses()
         {
@@ -27,7 +28,7 @@ namespace TopTravel
                 SqlDataReader dr = com.ExecuteReader();
                 while (dr.Read())
                 {
-                    lista.Add(dr["ID"].ToString());
+                    lista.Add(dr["Id"].ToString());
                 }
                 dr.Close();
             }
@@ -44,7 +45,7 @@ namespace TopTravel
         }
 
 
-        public void add_Bus(BusEN b)
+        public void addBus(BusEN b)
         {
             string s;
             s = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
@@ -53,7 +54,7 @@ namespace TopTravel
             try
             {
                 c.Open();
-                SqlCommand com = new SqlCommand("Insert Into Bus (ID,departureTime,arrivalTime,departureCity,destinationCity,Bonus) VALUES ('" + bus.BusID + "','" + bus.departureTime + "','" + bus.arrivalTime + "','" +
+                SqlCommand com = new SqlCommand("Insert Into Bus (Id,departureDate,arrivalDate,departureCity,destinationCity,bonus) VALUES ('" + bus.Id + "','" + bus.DepartureDate + "','" + bus.ArrivalDate + "','" +
                     bus.departureCity + "','" + bus.destinationCity + "','" + bus.Bonus + "')", c);
 
                 com.ExecuteNonQuery();
@@ -71,7 +72,7 @@ namespace TopTravel
         }
 
 
-        public void delete_Bus(BusEN b)
+        public void deleteBus(BusEN b)
         {
             string s;
             s = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
@@ -80,7 +81,7 @@ namespace TopTravel
             try
             {
                 c.Open();
-                SqlCommand com = new SqlCommand("Delete From Bus Where ID = " + bus.BusID, c);
+                SqlCommand com = new SqlCommand("Delete From Bus Where ID = " + bus.Id, c);
                 com.ExecuteNonQuery();
             }
             catch (Exception ex)
@@ -95,7 +96,7 @@ namespace TopTravel
         }
 
 
-        public void update_Bus(BusEN b)
+        public void updateBus(BusEN b)
         {
             string s;
             s = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
@@ -104,8 +105,8 @@ namespace TopTravel
             try
             {
                 c.Open();
-                SqlCommand com = new SqlCommand("Update Bus Set departureTime = '" + bus.departureTime + "', arrivalTime = '" + bus.arrivalTime + "', departureCity ='" +
-                    bus.departureCity + "', destinationCity = '" + bus.destinationCity + "', Bonus = '" + bus.Bonus + "' Where ID = " + bus.BusID, c);
+                SqlCommand com = new SqlCommand("Update Bus Set departureDate = '" + bus.DepartureDate + "', arrivalDate = '" + bus.ArrivalDate + "', departureCity ='" +
+                    bus.departureCity + "', destinationCity = '" + bus.destinationCity + "', Bonus = '" + bus.Bonus + "' Where ID = " + bus.Id, c);
                 com.ExecuteNonQuery();
             }
             catch (Exception ex)
@@ -120,27 +121,32 @@ namespace TopTravel
         }
 
 
-        public void search_Bus(BusEN b)
+        public ArrayList searchBus(BusEN b)
         {
             string s;
             s = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
-            BusEN bus = b;
             SqlConnection c = new SqlConnection(s);
             try
             {
                 c.Open();
-                SqlCommand com = new SqlCommand("Select * from Bus Where ID = '" + bus.BusID, c);
-                com.ExecuteNonQuery();
+                SqlCommand com = new SqlCommand("Select * from Bus where departureCite = " + b.DepartureCity + " and destinationCity = " + b.DestinationCity, c);
+                SqlDataReader dr = com.ExecuteReader();
+                while (dr.Read())
+                {
+                    search.Add(dr["Id"].ToString());
+                }
+                dr.Close();
             }
             catch (Exception ex)
             {
                 ex.ToString();
-                Console.WriteLine("ERROR: Search bus");
+                Console.WriteLine("ERROR: Show buses");
             }
             finally
             {
                 c.Close();
             }
+            return search;
         }
     }
 }

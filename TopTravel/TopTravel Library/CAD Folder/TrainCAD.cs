@@ -14,6 +14,7 @@ namespace TopTravel
     public class TrainCAD
     {
         ArrayList lista = new ArrayList();
+        ArrayList search = new ArrayList();
 
         public ArrayList showTrains()
         {
@@ -27,7 +28,7 @@ namespace TopTravel
                 SqlDataReader dr = com.ExecuteReader();
                 while (dr.Read())
                 {
-                    lista.Add(dr["ID"].ToString());
+                    lista.Add(dr["Id"].ToString());
                 }
                 dr.Close();
             }
@@ -43,16 +44,18 @@ namespace TopTravel
             return lista;
         }
 
-        public void add_train(TrainEN t)
+
+        public void addTrain(TrainEN t)
         {
-            string s = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
+            string s;
+            s = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
             TrainEN train = t;
-            SqlConnection c = new SqlConnection(s);     
+            SqlConnection c = new SqlConnection(s);
             try
             {
                 c.Open();
-                SqlCommand com = new SqlCommand("Insert Into Train (ID,departureTime,arrivalTime,departureCity,destinationCity,Bonus) VALUES ('" + train.trainID + "','" + train.departureTime + "','" + train.arrivalTime + "','" +
-                   train.departureCity + "','" + train.destinationCity + "','" + train.Bonus + "')", c);
+                SqlCommand com = new SqlCommand("Insert Into Train (Id,departureDay,arrivalDay,departureCity,destinationCity,Bonus) VALUES ('" + train.Id + "','" + train.DepartureDay + "','" + train.ArrivalDay + "','" +
+                    train.departureCity + "','" + train.destinationCity + "','" + train.Bonus + "')", c);
 
                 com.ExecuteNonQuery();
             }
@@ -65,18 +68,20 @@ namespace TopTravel
             {
                 c.Close();
             }
+
         }
 
 
-        public void delete_train(TrainEN t)
+        public void deleteTrain(TrainEN t)
         {
-            string s = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
+            string s;
+            s = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
             TrainEN train = t;
             SqlConnection c = new SqlConnection(s);
             try
             {
                 c.Open();
-                SqlCommand com = new SqlCommand("Delete From Train Where ID = " + train.trainID, c);
+                SqlCommand com = new SqlCommand("Delete From Train Where ID = " + train.Id, c);
                 com.ExecuteNonQuery();
             }
             catch (Exception ex)
@@ -91,16 +96,17 @@ namespace TopTravel
         }
 
 
-        public void update_train(TrainEN t)
+        public void updateTrain(TrainEN t)
         {
-            string s = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
+            string s;
+            s = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
             TrainEN train = t;
             SqlConnection c = new SqlConnection(s);
             try
             {
                 c.Open();
-                SqlCommand com = new SqlCommand("Update Train Set departureTime = '" + train.departureTime + "', arrivalTime = '" + train.arrivalTime + "', departureCity ='" +
-                   train.departureCity + "', destinationCity = '" + train.destinationCity + "', Bonus = '" + train.Bonus + "' Where ID = " + train.trainID, c);
+                SqlCommand com = new SqlCommand("Update Train Set departureDay = '" + train.DepartureDay + "', arrivalDay = '" + train.ArrivalDay + "', departureCity ='" +
+                    train.departureCity + "', destinationCity = '" + train.destinationCity + "', Bonus = '" + train.Bonus + "' Where ID = " + train.Id, c);
                 com.ExecuteNonQuery();
             }
             catch (Exception ex)
@@ -114,27 +120,32 @@ namespace TopTravel
             }
         }
 
-
-        public void search_train(TrainEN t)
+        public ArrayList searchTrain(TrainEN t)
         {
-            string s = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
-            TrainEN train = t;
+            string s;
+            s = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
             SqlConnection c = new SqlConnection(s);
             try
             {
                 c.Open();
-                SqlCommand com = new SqlCommand("Select * from Train Where ID = '" + train.trainID, c);
-                com.ExecuteNonQuery();
+                SqlCommand com = new SqlCommand("Select * from Train where departureCite = " + t.DepartureCity + " and destinationCity = " + t.DestinationCity, c);
+                SqlDataReader dr = com.ExecuteReader();
+                while (dr.Read())
+                {
+                    search.Add(dr["Id"].ToString());
+                }
+                dr.Close();
             }
             catch (Exception ex)
             {
                 ex.ToString();
-                Console.WriteLine("ERROR: Search train");
+                Console.WriteLine("ERROR: Show train");
             }
             finally
             {
                 c.Close();
             }
+            return search;
         }
     }
 }
