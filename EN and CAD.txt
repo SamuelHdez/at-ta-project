@@ -9,7 +9,7 @@ Flight: Kate
 Bus:
 Train:
 Space Travel:
-Car Rental:
+Car Rental: Luke
 Package:
-Cruise:
+Cruise: Luke
 Contact: (De momento no, falta base de datos)
