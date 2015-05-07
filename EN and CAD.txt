@@ -3,13 +3,13 @@ Admin:
 Order:
 Product:
 Company: Samuel
-Extras:
+Extras: 
 Hotel: Samuel
 Flight: Kate
-Bus:
-Train:
-Space Travel:
+Bus: Maxim 
+Train: Maxim
+Space Travel: 
 Car Rental: Luke
-Package:
+Package: 
 Cruise: Luke
 Contact: (De momento no, falta base de datos)
