@@ -1,0 +1,15 @@
+Client:
+Admin:
+Order:
+Product:
+Company: Samuel
+Extras:
+Hotel:
+Flight:
+Bus:
+Train: Flight
+Space Travel:
+Car Rental:
+Package:
+Cruise:
+Contact: (De momento no, falta base de datos)
