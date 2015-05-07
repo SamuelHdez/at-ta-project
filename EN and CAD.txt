@@ -1,15 +1,21 @@
-Client: Hecho en Membership
+
 Admin:
 Order:
 Product: 
-Company: Samuel
-Extras: Samuel
-Hotel: Samuel
 Flight: Kate
-Bus: Maxim 
-Train: Maxim
 Space Travel: 
 Car Rental: Luke
 Package: 
 Cruise: Luke
 Contact: (De momento no, falta base de datos)
+
+
+---------
+   DONE
+---------
+Company: Samuel
+Extras: Samuel
+Hotel: Samuel
+Bus: Maxim 
+Train: Maxim
+Client: Hecho en Membership
