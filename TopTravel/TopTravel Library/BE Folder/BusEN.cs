@@ -8,15 +8,14 @@ namespace TopTravel
     public class BusEN
     {
 
-        public BusEN(int ID, int maxP, int p, string dt, string dc, string at, string d)
+        public BusEN(int ID, string b, string dt, string dc, string at, string dtc)
         {
             BusID = ID;
-            maxpassengers = maxP;
-            price = p;
+            Bonus = b;
             departureTime = dt;
             departureCity = dc;
             arrivalTime = at;
-            destination = d;
+            destinationCity = dtc;
         }
 
         public void add_Bus()
@@ -43,21 +42,13 @@ namespace TopTravel
             m_cc.search_Bus(this);
         }
 
-        public void show_timetable()
-        {
-            m_cc = new BusCAD();
-            m_cc.show_timetable(this);
-        }
-
-
         // PROPERTIES
         public int BusID { get; set; }
         public string departureTime { get; set; }
         public string departureCity { get; set; }
         public string arrivalTime { get; set; }
-        public string destination { get; set; }
-        public int maxpassengers { get; set; }
-        public int price { get; set; }
+        public string destinationCity { get; set; }
+        public string Bonus { get; set; }
 
         //Data
         private BusCAD m_cc;
