@@ -1,5 +1,0 @@
-C:\Users\Samuel\Documents\at-ta-project\TopTravel\TopTravel Library\bin\Debug\TopTravel.dll
-C:\Users\Samuel\Documents\at-ta-project\TopTravel\TopTravel Library\bin\Debug\TopTravel.pdb
-C:\Users\Samuel\Documents\at-ta-project\TopTravel\TopTravel Library\obj\Debug\TopTravel Library.csprojResolveAssemblyReference.cache
-C:\Users\Samuel\Documents\at-ta-project\TopTravel\TopTravel Library\obj\Debug\TopTravel.dll
-C:\Users\Samuel\Documents\at-ta-project\TopTravel\TopTravel Library\obj\Debug\TopTravel.pdb
