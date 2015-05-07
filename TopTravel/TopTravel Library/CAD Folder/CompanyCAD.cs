@@ -14,10 +14,12 @@ namespace TopTravel
     public class CompanyCAD
     {
         ArrayList lista = new ArrayList();
-        string s = "Data Source=(LocalDB)\v11.0;AttachDbFilename=| DataDirectory|\\Database.mdf;Integrated Security=True";
-
+       // string s = "Data Source=(LocalDB)\v11.0;AttachDbFilename=| DataDirectory|\\Database.mdf;Integrated Security=True";
+ 
         public ArrayList showCompanies()
         {
+             string s;
+             s = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
             SqlConnection c = new SqlConnection(s);
             try
             {
