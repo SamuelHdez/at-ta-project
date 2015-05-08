@@ -9,7 +9,6 @@ namespace TopTravel
 {
     public class AdminEN
     {
-
         public AdminEN(int i, string n, string d, string e, string p)
         {
             Id = i;
@@ -21,20 +20,20 @@ namespace TopTravel
 
        public void register_Admin()
        {
-           m_cc = new AdminCAD();
-           m_cc.register_admin(this);
+           AdminCAD c = new AdminCAD();
+           c.register_admin(this);
        }
 
        public void delete_Admin()
        {
-           m_cc = new AdminCAD();
-           m_cc.delete_admin(this);
+           AdminCAD c = new AdminCAD();
+           c.delete_admin(this);
        }
 
        public void update_Admin()
        {
-           m_cc = new AdminCAD();
-           m_cc.update_admin(this);
+           AdminCAD c = new AdminCAD();
+           c.update_admin(this);
        }
 
        public ArrayList login_Admin()
@@ -51,7 +50,5 @@ namespace TopTravel
         public string dni { get; set; }
         public string email { get; set; }
         public string password { get; set; }
-        //Data
-        private AdminCAD m_cc;
     }
 }

@@ -20,20 +20,20 @@ namespace TopTravel
 
         public void add_CarRental()
 		{
-			m_cc = new CarRentalCAD();
-			m_cc.add_CarRental(this);
+			CarRentalCAD c = new CarRentalCAD();
+			c.add_CarRental(this);
 		}
 
         public void update_CarRental()
 		{
-			m_cc = new CarRentalCAD();
-			m_cc.update_CarRental(this);
+            CarRentalCAD c = new CarRentalCAD();
+			c.update_CarRental(this);
 		}
 
         public void delete_CarRental()
 		{
-			m_cc = new CarRentalCAD();
-			m_cc.delete_CarRental(this);
+            CarRentalCAD c = new CarRentalCAD();
+			c.delete_CarRental(this);
 		}
 
         public ArrayList showAllCarRental()
@@ -59,8 +59,5 @@ namespace TopTravel
         public string Model { get; set; }
         public int Days { get; set; }
         public string Date { get; set; }
-
-        //Data
-        private CarRentalCAD m_cc;
     }
 }

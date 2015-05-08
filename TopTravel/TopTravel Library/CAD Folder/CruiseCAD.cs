@@ -13,19 +13,15 @@ namespace TopTravel
 {
     public class CruiseCAD
     {
-        ArrayList lista = new ArrayList();
-
-        public void add_Cruise(CruiseEN cen)
+        public void add_Cruise(CruiseEN cr)
         {
-            string s;
-            s = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
-            CruiseEN co = cen;
+            string s = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
             SqlConnection c = new SqlConnection(s);
             try
             {
                 c.Open();
-                SqlCommand com = new SqlCommand("Insert Into Cruise (ID,departureTime,arrivaleTime,City,Route) VALUES ('" + co.Id + "','" + co.departureDate + "','" + co.arrivalDate + "','" +
-                    co.City + "','" + co.Route + "')", c);
+                SqlCommand com = new SqlCommand("Insert Into Cruise (ID,departureTime,arrivaleTime,City,Route) VALUES ('" + cr.Id + "','" + cr.departureDate + "','" + cr.arrivalDate + "','" +
+                    cr.City + "','" + cr.Route + "')", c);
 
                 com.ExecuteNonQuery();
             }
@@ -40,23 +36,21 @@ namespace TopTravel
             }
         }
 
-        public void delete_Cruise(CruiseEN cen)
+        public void delete_Cruise(CruiseEN cr)
         {
-            string s;
-            s = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
-            CruiseEN co = cen;
+            string s = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
             SqlConnection c = new SqlConnection(s);
             try
             {
                 c.Open();
-                SqlCommand com = new SqlCommand("Delete from Cruise where ID = " + co.Id , c);
+                SqlCommand com = new SqlCommand("Delete from Cruise where ID = " + cr.Id , c);
 
                 com.ExecuteNonQuery();
             }
             catch (Exception ex)
             {
                 ex.ToString();
-                Console.WriteLine("ERROR: Delete from Cruise");
+                Console.WriteLine("ERROR: Delete Cruise");
             }
             finally
             {
@@ -64,25 +58,23 @@ namespace TopTravel
             }
         }
 
-        public void update_Cruise(CruiseEN cen)
+        public void update_Cruise(CruiseEN cr)
         {
-            string s;
-            s = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
-            CruiseEN co = cen;
+            string s = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
             SqlConnection c = new SqlConnection(s);
             try
             {
                 c.Open();
-                SqlCommand com = new SqlCommand("Update Cruise where ID = " + co.Id + ", departureTime = "
-                    + co.departureDate + ", arrivalTime = " + co.arrivalDate + " , City =" + co.City +
-                    ", Route = " + co.Route + " )", c);
+                SqlCommand com = new SqlCommand("Update Cruise where ID = '" + cr.Id + "', departureTime = '"
+                    + cr.departureDate + "', arrivalTime = '" + cr.arrivalDate + "' , City ='" + cr.City +
+                    "', Route = '" + cr.Route + "')", c);
 
                 com.ExecuteNonQuery();
             }
             catch (Exception ex)
             {
                 ex.ToString();
-                Console.WriteLine("ERROR: Delete from Cruise");
+                Console.WriteLine("ERROR: Update Cruise");
             }
             finally
             {
@@ -92,8 +84,8 @@ namespace TopTravel
 
         public ArrayList show_All_Cruises()
         {
-            string s;
-            s = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
+            ArrayList a = new ArrayList();
+            string s = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
             SqlConnection c = new SqlConnection(s);
             try
             {
@@ -102,7 +94,7 @@ namespace TopTravel
                 SqlDataReader dr = com.ExecuteReader();
                 while (dr.Read())
                 {
-                    lista.Add(dr["Id"].ToString());
+                    a.Add(dr["Id"].ToString());
                 }
                 dr.Close();
             }
@@ -115,22 +107,22 @@ namespace TopTravel
             {
                 c.Close();
             }
-            return lista;
+            return a;
         }
 
-        public ArrayList searchCruises(CruiseEN aux)
+        public ArrayList searchCruises(CruiseEN cr)
         {
-            string s;
-            s = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
+            ArrayList a = new ArrayList();
+            string s = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
             SqlConnection c = new SqlConnection(s);
             try
             {
                 c.Open();
-                SqlCommand com = new SqlCommand("Select * from Cruise where Id = " + aux.Id , c);
+                SqlCommand com = new SqlCommand("Select * from Cruise where Id = " + cr.Id , c);
                 SqlDataReader dr = com.ExecuteReader();
                 while (dr.Read())
                 {
-                    lista.Add(dr["Id"].ToString());
+                    a.Add(dr["Id"].ToString());
                 }
                 dr.Close();
             }
@@ -143,7 +135,7 @@ namespace TopTravel
             {
                 c.Close();
             }
-            return lista;
+            return a;
         }
     }
 }

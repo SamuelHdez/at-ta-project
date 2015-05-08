@@ -20,20 +20,20 @@ namespace TopTravel
 
         public void add_Cruise()
         {
-            m_cc = new CruiseCAD();
-            m_cc.add_Cruise(this);
+            CruiseCAD c = new CruiseCAD();
+            c.add_Cruise(this);
         }
 
         public void delete_Cruise()
         {
-            m_cc = new CruiseCAD();
-            m_cc.delete_Cruise(this);
+            CruiseCAD c = new CruiseCAD();
+            c.delete_Cruise(this);
         }
 
         public void update_Cruise()
         {
-            m_cc = new CruiseCAD();
-            m_cc.update_Cruise(this);
+            CruiseCAD c = new CruiseCAD();
+            c.update_Cruise(this);
         }
 
         public ArrayList show_All()
@@ -58,9 +58,5 @@ namespace TopTravel
         public string Route { get; set; }
         public string City { get; set; }
         public string arrivalDate { get; set; }
-
-        //Data
-        private CruiseCAD m_cc;
-
     }
 }
