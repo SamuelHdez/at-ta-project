@@ -8,5 +8,6 @@
 *.userosscache
 *.cache
 obj/
-*.mdf
-*.ldf
+# en la base de datos solo puede estar trabajando una persona. Varias personas puede dar conflicto.
+# *.mdf
+# *.ldf

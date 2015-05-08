@@ -1,18 +1,22 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Threading.Tasks;
 
 namespace TopTravel
 {
     public class AdminEN
     {
 
-        public AdminEN(int ID, string UN, string PW)
+        public AdminEN(int i, string n, string d, string e, string p)
         {
-            AdminId = ID;
-            AdminUsername = UN;
-            AdminPassword = PW;
+            Id = i;
+            name = n;
+            dni = d;
+            email = e;
+            password = p;
         }
 
        public void register_Admin()
@@ -33,16 +37,20 @@ namespace TopTravel
            m_cc.update_admin(this);
        }
 
-       public void login_Admin()
+       public ArrayList login_Admin()
        {
-           m_cc = new AdminCAD();
-           m_cc.login_admin(this);
+           ArrayList a = new ArrayList();
+           AdminCAD c = new AdminCAD();
+           a = c.login_admin(this);
+           return a;
        }
 
         // PROPERTIES
-        public int AdminId { get; set; }
-        public string AdminUsername { get; set; }
-        public string AdminPassword { get; set; }
+        public int Id { get; set; }
+        public string name { get; set; }
+        public string dni { get; set; }
+        public string email { get; set; }
+        public string password { get; set; }
         //Data
         private AdminCAD m_cc;
     }

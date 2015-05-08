@@ -44,8 +44,8 @@ namespace TopTravel
             try
             {
                 c.Open();
-                SqlCommand com = new SqlCommand("Update CarRental Set departureDate = '" + cr.City + "', arrivalDate = '" + cr.Brand + "', departureCity ='" +
-                    cr.Model + "', destinationCity = '" + cr.Days + "', Bonus = '" + cr.Date + "' Where ID = " + cr.Id, c);
+                SqlCommand com = new SqlCommand("Update CarRental Set City = '" + cr.City + "', Brand = '" + cr.Brand + "', Model ='" +
+                    cr.Model + "', Days = '" + cr.Days + "', Sate = '" + cr.Date + "' Where ID = " + cr.Id, c);
                 com.ExecuteNonQuery();
             }
             catch (Exception ex)
