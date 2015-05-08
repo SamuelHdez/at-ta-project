@@ -1,92 +1,104 @@
-﻿<%@ Page Title="Página principal" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="TopTravel._Default" %>
+﻿<%@ Page Title="Home" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="TopTravel._Default" %>
 
 <asp:Content runat="server" ID="FeaturedContent" ContentPlaceHolderID="FeaturedContent">
     <section>
         <div class="apps">
-                <div class="app">
+            <a class="app" href="Product.aspx">
                     <img src="images/cities/Berlin.jpg" height=100% width=100%>
                     <div class="footerImg">
-                        <div class="place">Berl&iacute;n</div>
+                        <div class="place">Berlin</div>
                         <div class="price">120 &euro;</div>
+                        <p>Description here</p>
                     </div>
-                </div>
-                <div class="app">
+            </a>
+                <a class="app" href="Product.aspx">
                     <img src="images/cities/Florence.jpg" height=100% width=100%>
                     <div class="footerImg">
                         <div class="place">Florence</div>
                         <div class="price">90 &euro;</div>
+                        <p>Description here</p>
                     </div>
-                </div>
-                <div class="app">
+                </a>
+                <a class="app" href="#">
                     <img src="images/cities/Istanbul.jpg" height=100% width=100%>
                     <div class="footerImg">
                         <div class="place">Istanbul</div>
                         <div class="price">60 &euro;</div>
+                        <p>Description here</p>
                     </div>
-                </div>
-                <div class="app">
+                </a>
+                <a class="app" href="#">
                     <img src="images/cities/New-York.jpg" height=100% width=100%>
                     <div class="footerImg">
                         <div class="place">New York</div>
                         <div class="price">200 &euro;</div>
+                        <p>Description here</p>
                     </div>
-                </div>
-                <div class="app">
+                </a>
+                <a class="app" href="#">
                     <img src="images/cities/Rio-de-Janeiro.jpg" height=100% width=100%>
                     <div class="footerImg">
                         <div class="place">R&iacute;o de Janeiro</div>
                         <div class="price">70 &euro;</div>
+                        <p>Description here</p>
                     </div>
-                </div>
-                <div class="app">
+                </a>
+                <a class="app" href="#">
                     <img src="images/cities/Rome.jpg" height=100% width=100%>
                     <div class="footerImg">
-                        <div class="place">Rome</div>
-                        <div class="price">120 &euro;</div>
+                        <div class="place">Rome   </div>
+                        <div class="price">110 &euro;</div>
+                        <p>Description here</p>
                     </div>
-                </div>
-                <div class="app">
+                </a>
+                <a class="app" href="#">
                     <img src="images/cities/San-Francisco.jpg" height=100% width=100%>
                     <div class="footerImg">
                         <div class="place">San Francisco</div>
                         <div class="price">150 &euro;</div>
+                        <p>Description here</p>
                     </div>
-                </div>
-                <div class="app">
+                </a>
+                <a class="app" href="#">
                     <img src="images/cities/Seville.jpg" height=100% width=100%>
                     <div class="footerImg">
-                        <div class="place">Seville</div>
+                        <div class="place">Seville </div>
                         <div class="price">40 &euro;</div>
+                        <p>Description here</p>
                     </div>
-                </div>
-                <div class="app">
+                </a>
+                <a class="app" href="#">
                     <img src="images/cities/Sydney.jpg" height=100% width=100%>
                     <div class="footerImg">
                         <div class="place">Sydney</div>
                         <div class="price">130 &euro;</div>
+                        <p>Description here</p>
                     </div>
-                </div>
-                <div class="app">
+                </a>
+                <a class="app" href="#">
                     <img src="images/cities/Tokyo.jpg" height=100% width=100%>
                     <div class="footerImg">
                         <div class="place">Tokyo</div>
                         <div class="price">170 &euro;</div>
+                        <p>Description here</p>
                     </div>
-                </div>
-                <div class="app">
+                </a>
+                <a class="app" href="#">
                     <img src="images/cities/Venice.jpg" height=100% width=100%>
                     <div class="footerImg">
                         <div class="place">Venice</div>
                         <div class="price">100 &euro;</div>
+                        <p>Description here</p>
                     </div>
-                </div>
-                <div class="app">
+                </a>
+                <a class="app" href="#">
                     <img src="images/cities/Vienna.jpg" height=100% width=100%>
                     <div class="footerImg">
-                        <div class="place">Vienna</div>
+                        <div class="place">Vienna </div>
                         <div class="price">80 &euro;</div>
+                        <p>Description here</p>
                     </div>
-                </div>
+                </a>
             </div>
     </section>
 

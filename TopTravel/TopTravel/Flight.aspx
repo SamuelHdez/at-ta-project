@@ -1,16 +1,26 @@
-﻿<%@ Page Title="Hotels" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Hotel.aspx.cs" Inherits="TopTravel.Hotel" %>
+﻿<%@ Page Title="Flights" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Flight.aspx.cs" Inherits="TopTravel.Flight" %>
+
+
+
+
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 </asp:Content>
+
+
 <asp:Content ID="Content2" ContentPlaceHolderID="FeaturedContent" runat="server">
 </asp:Content>
-<asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
 
+
+
+
+
+<asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
     <hgroup class="title">
         <h1><%: Title %></h1>
     </hgroup>
 
     <section id="Form">
-        <h3>Look up for your hotel</h3>
+        <h3>Estas dentro de vuelos</h3>
 
         <!--<ol class="round">
             <li class="one">
@@ -31,26 +41,36 @@
             </li>
         </ol>-->
 
+
+
          <fieldset>
-            <legend>Search your hotel</legend>
+             <legend>Search your flight</legend>
 
-            <label>Place/hotel</label>
-            <asp:TextBox id="place" TextMode="SingleLine" Columns="30" runat="server" CssClass="input" />
 
-            <label>Date</label>
-            <asp:Calendar ID="Date" runat="server" CssClass="inputCal"></asp:Calendar>
+            <!--<asp:Label ID="Label2" runat="server" Text="Label">Flying from: </asp:Label>--><label>From</label>
+            <asp:TextBox id="userTextBox" TextMode="SingleLine" Columns="30" runat="server" CssClass="inputCal" />
 
-            <label>Nights</label>
-            <input class="input" type="number" min="0" max="10" step="1" value="5">
+            <!--<asp:Label ID="Label3" runat="server" Text="Label">Going to:</asp:Label>--><label>Going to</label>
+            <asp:TextBox id="TextBox1" TextMode="SingleLine" Columns="30" runat="server" CssClass="inputCal" />
 
-            <label>Adults</label>
-            <input class="input" type="number" min="0" max="20" step="1" value="2">
+            <!--<asp:Label ID="Label4" runat="server" Text="Label">Outbound:</asp:Label>--><label>Outbound</label>
+            <asp:Calendar ID="FechaIda" runat="server" CssClass="input"></asp:Calendar>
+             <br />
 
-            <label>Children</label>
+            <!--<asp:CheckBox ID="VueltaCheck" runat="server" />-->
+            <!--<asp:Label ID="Label5" runat="server" Text="Label">Return:</asp:Label>--><label>Return</label>
+            <asp:Calendar ID="FechaVuelta" runat="server" CssClass="input"></asp:Calendar>
+             <br />
+
+            <!--<asp:Label ID="Label6" runat="server" Text="Label">Adults:</asp:Label>--><label>Adults</label>
+            <input class="input" type="number" min="0" max="20" step="1" value="1">
+
+
+            <!--<asp:Label ID="Label7" runat="server" Text="Label">Children:</asp:Label>--><label>Children</label>
             <input class="input" type="number" min="0" max="20" step="1" value="0">
 
-            <asp:Button ID="SendButton" runat="server" Text="Button" OnClick="send" CssClass="inputBottom" />
-            <asp:Label id="ProcessHotel" runat="server" Text="" />
+            <asp:Button ID="Button1" runat="server" Text="Button" OnClick="aaaa" CssClass="inputBottom" />
+            <asp:Label id="Label1" runat="server" Text="Label" />
         </fieldset>
 
     </section>
@@ -85,7 +105,5 @@
                 </div>
             </div>
     </section>
-
-
 
 </asp:Content>

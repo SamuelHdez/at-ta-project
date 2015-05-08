@@ -10,25 +10,25 @@
 namespace TopTravel {
     
     
-    public partial class Hotel {
+    public partial class Cruise {
         
         /// <summary>
-        /// Control place.
+        /// Control region.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox place;
+        protected global::System.Web.UI.WebControls.DropDownList region;
         
         /// <summary>
-        /// Control Date.
+        /// Control Departure.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Calendar Date;
+        protected global::System.Web.UI.WebControls.Calendar Departure;
         
         /// <summary>
         /// Control SendButton.
@@ -40,12 +40,12 @@ namespace TopTravel {
         protected global::System.Web.UI.WebControls.Button SendButton;
         
         /// <summary>
-        /// Control ProcessHotel.
+        /// Control ProcessCruise.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label ProcessHotel;
+        protected global::System.Web.UI.WebControls.Label ProcessCruise;
     }
 }

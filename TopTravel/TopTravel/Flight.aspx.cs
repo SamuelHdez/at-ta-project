@@ -7,16 +7,16 @@ using System.Web.UI.WebControls;
 
 namespace TopTravel
 {
-    public partial class Hotel : Page
+    public partial class Flight : Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
 
         }
 
-        protected void send(object sender, EventArgs e)
+        protected void aaaa(object sender, EventArgs e)
         {
-            ProcessHotel.Text = "We are processing your search request";
+            Label1.Text = "We are processing your search request";
         }
     }
 }

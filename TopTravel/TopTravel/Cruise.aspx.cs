@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace TopTravel
 {
-    public partial class Hotel : Page
+    public partial class Cruise : Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -16,7 +16,8 @@ namespace TopTravel
 
         protected void send(object sender, EventArgs e)
         {
-            ProcessHotel.Text = "We are processing your search request";
+            ProcessCruise.Text = "We are processing your search request";
+            ProcessCruise.Text = Departure.SelectedDate.ToShortDateString();
         }
     }
 }

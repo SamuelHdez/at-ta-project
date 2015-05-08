@@ -1,5 +1,5 @@
 ﻿html {
-    background-color: #EEE;
+    background-color: #FFF;
     margin: 0;
     padding: 0;
 }
@@ -14,7 +14,7 @@ body {
 }
 
 a {
-    color: #333;
+    color: #FF706C;
     outline: none;
     padding-left: 3px;
     padding-right: 3px;
@@ -59,7 +59,7 @@ mark {
 
 h1, h2, h3,
 h4, h5, h6 {
-    color: #000;
+    color: #666;
     margin-bottom: 0;
     padding-bottom: 0;
 }
@@ -131,24 +131,28 @@ footer {
 /* site title
 ----------------------------------------------------------*/
 .site-title {
-    color: #c8c8c8;
     font-family: sans-serif;
     font-size: 2.3em;
     margin: 0;
+    letter-spacing: 1px;
 }
 
-.site-title a, .site-title a:hover, .site-title a:active {
-    color: #c8c8c8;
+.site-title a, .site-title a:active {
+    color: #FFF;
     outline: none;
     text-decoration: none;
 }
+
+    .site-title a:hover {
+        color: #FF706C;
+    }
 
 
 /* login
 ----------------------------------------------------------*/
 #login {
     display: block;
-    margin: 0 0 10px;
+    margin-top: 10px ;
     text-align: right;
 }
 
@@ -178,9 +182,9 @@ footer {
 /* menu
 ----------------------------------------------------------*/
 ul#menu {
-    font-size: 1.3em;
+    font-size: 1.5em;
     font-weight: 600;
-    margin-top: 50px;
+    margin-top: 75px;
     margin-bottom: 0px;
     margin-right: auto;
     margin-left: auto;
@@ -245,6 +249,13 @@ hgroup.title h1, hgroup.title h2 {
 hgroup.title h2 {
     font-weight: normal;
     margin-left: 3px;
+}
+
+.imgBack {
+    opacity: 0.5;
+    filter: grayscale(100%);
+    height: 200px;
+    object-fit: cover;
 }
 
 /* features */
@@ -314,7 +325,14 @@ article {
 aside {
     float: right;
     width: 25%;
+    background-color: #353E49;
+    color: #FFF;
+    padding: 20px;
 }
+    aside h3 {
+        color: #FFF;
+        margin: 10px 0px;
+    }
 
     aside ul {
         list-style: none;
@@ -574,19 +592,19 @@ tr.pager td {
 
     /* header
     ----------------------------------------------------------*/
-    header .float-left,
+  /*  header .float-left,
     header .float-right {
         float: none;
-    }
+    }*/
 
     /* logo */
-    header .site-title {
+   /* header .site-title {
         margin: 10px;
         text-align: center;
-    }
+    }*/
 
     /* login */
-    #login {
+   /* #login {
         font-size: .85em;
         margin: 0 0 12px;
         text-align: center;
@@ -614,7 +632,7 @@ tr.pager td {
 
             #login a:hover {
                 color: #333;
-            }
+            }*/
 
     /* menu */
     nav {
@@ -625,12 +643,25 @@ tr.pager td {
         margin: 0;
         padding: 0;
         text-align: center;
+    margin-top: 50px;
     }
 
         ul#menu li {
             margin: 0;
             padding: 0;
+   display: block;
+   border-top: 1px solid #888;
+   padding: 10px;
         }
+
+            ul#menu li a {
+                display: block;
+            }
+
+            ul#menu li:hover {
+  background-color: #272F38;
+  color: #FF706C;
+}
 
 
     /* main layout
@@ -751,7 +782,7 @@ ul#menuFooter {
         }
 
         ul#menuFooter li a:hover {
-            color: #333;
+            color: #FF706C;
             text-decoration: none;
         }
 
@@ -776,13 +807,14 @@ ul#menuFooter {
 
 
 
-/*------------------------------------------------------------*/
+/* default page -----------------------------------------------------------*/
 
 .apps {
   display: table-cell;
   text-align: center;
   vertical-align: middle;
   padding: 50px;
+  padding-left: 60px
  /* margin: 0px auto;*/
 }
 
@@ -807,6 +839,7 @@ ul#menuFooter {
   background: #fff;
   box-shadow: 2px 2px 4px 1px rgba(0, 0, 0, 0.08);
   margin: 0px 20px 20px 0px;
+  padding: 0px;
 }
 
 .footerImg {
@@ -816,8 +849,18 @@ ul#menuFooter {
   background: rgba(0, 0, 0, 0.5);
   z-index: 1;
   position: absolute;
-  color: #D8D8D8;
+  color: #CCC;
+  /*font-size: 1.5em;*/
+  font-weight: 600;
   font-size: 20px;
+  overflow: hidden;
+  transition: height 1s;
+  -moz-transition: height 1s;
+  -webkit-transition: height 1s;
+}
+
+.app:hover .footerImg {
+  height: 150px;
 }
 
 .place {
@@ -828,6 +871,14 @@ ul#menuFooter {
 .price {
   float: right;
   padding: 10px 20px;
+}
+
+.footerImg p {
+    margin: 0px;
+    padding-left: 20px;
+    font-weight: 400;
+    font-size: 18px;
+    float: left;
 }
 
 /********************
@@ -843,4 +894,106 @@ ul#menuFooter {
         width: 100%;
         height: auto;
     }
+
+    .footerImg {
+      bottom: 5px;
+      height: 20%;
+    }
+
+    .footerImg p {
+        display: none;
+}
+}
+
+
+
+
+
+/* form page --------------------------------------------------------------*/
+
+#Form {
+    border-right: solid 2px #c8c8c8;
+    float: left;
+    width: 50%;
+}
+
+label {
+    float: left;
+    width: 20%;
+    text-align: right;
+    padding-right: 10px;
+    margin-top: 10px;
+    color: #888;
+}
+
+.input {
+        border: 1px solid #DADADA;
+    color: #888;
+    height: 30px;
+    margin-bottom: 16px;
+    margin-right: 6px;
+    margin-top: 2px;
+    outline: 0 none;
+    padding: 3px 3px 3px 5px;
+    width: 70%;
+    font-size: 12px;
+    line-height:15px;
+    box-shadow: inset 0px 1px 4px #ECECEC;
+    -moz-box-shadow: inset 0px 1px 4px #ECECEC;
+    -webkit-box-shadow: inset 0px 1px 4px #ECECEC;
+}
+
+.inputCal {
+    width: 70%;
+}
+
+
+select {
+    appearance:none;
+    -webkit-appearance:none; 
+    -moz-appearance: none;
+    text-indent: 0.01px;
+    text-overflow: '';
+    width: 70%;
+    height: 35px;
+    line-height: 25px;
+}
+
+.inputBottom {
+    float: right;
+}
+
+#Results {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    padding: 0px;
+
+    width: 50%;
+}
+
+#Results .app {
+    width: 400px;
+    height: auto;
+}
+
+/********************
+*   Mobile Styles   *
+********************/
+@media only screen and (max-width: 850px) {
+#Form {
+    float: none;
+    width: 100%;
+    max-width: 600px;
+    margin: 0px auto;
+    border-right: none;
+}
+#Results {
+
+    width: 100%;
+}
+
+#Results .app {
+    width: 100%;
+}
 }
