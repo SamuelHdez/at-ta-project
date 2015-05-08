@@ -1,18 +1,17 @@
 
-Admin:
+Admin: Luke
 Order:
 Product: 
 Flight: Kate
-Space Travel: 
-Car Rental: Luke
+Space Travel: Luke
 Package: 
-Cruise: Luke
 Contact: (De momento no, falta base de datos)
-
 
 ---------
    DONE
 ---------
+Car Rental: Luke
+Cruise: Luke
 Company: Samuel
 Extras: Samuel
 Hotel: Samuel
