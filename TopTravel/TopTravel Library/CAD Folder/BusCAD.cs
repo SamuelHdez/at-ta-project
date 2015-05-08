@@ -13,11 +13,9 @@ namespace TopTravel
 {
     public class BusCAD
     {
-        ArrayList lista = new ArrayList();
-        ArrayList search = new ArrayList();
-
         public ArrayList showBuses()
         {
+            ArrayList a = new ArrayList();  
             string s;
             s = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
             SqlConnection c = new SqlConnection(s);
@@ -28,7 +26,7 @@ namespace TopTravel
                 SqlDataReader dr = com.ExecuteReader();
                 while (dr.Read())
                 {
-                    lista.Add(dr["Id"].ToString());
+                    a.Add(dr["Id"].ToString());
                 }
                 dr.Close();
             }
@@ -41,21 +39,19 @@ namespace TopTravel
             {
                 c.Close();
             }
-            return lista;
+            return a;
         }
 
 
         public void addBus(BusEN b)
         {
-            string s;
-            s = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
-            BusEN bus = b;
+            string s = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
             SqlConnection c = new SqlConnection(s);
             try
             {
                 c.Open();
-                SqlCommand com = new SqlCommand("Insert Into Bus (Id,departureDate,arrivalDate,departureCity,destinationCity,bonus) VALUES ('" + bus.Id + "','" + bus.DepartureDate + "','" + bus.ArrivalDate + "','" +
-                    bus.departureCity + "','" + bus.destinationCity + "','" + bus.Bonus + "')", c);
+                SqlCommand com = new SqlCommand("Insert Into Bus (Id,departureDate,arrivalDate,departureCity,destinationCity,bonus) VALUES ('" + b.Id + "','" + b.departureDate + "','" + b.arrivalDate + "','" +
+                    b.departureCity + "','" + b.destinationCity + "','" + b.bonus + "')", c);
 
                 com.ExecuteNonQuery();
             }
@@ -74,14 +70,12 @@ namespace TopTravel
 
         public void deleteBus(BusEN b)
         {
-            string s;
-            s = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
-            BusEN bus = b;
+            string s = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
             SqlConnection c = new SqlConnection(s);
             try
             {
                 c.Open();
-                SqlCommand com = new SqlCommand("Delete From Bus Where ID = " + bus.Id, c);
+                SqlCommand com = new SqlCommand("Delete From Bus Where ID = " + b.Id, c);
                 com.ExecuteNonQuery();
             }
             catch (Exception ex)
@@ -98,15 +92,14 @@ namespace TopTravel
 
         public void updateBus(BusEN b)
         {
-            string s;
-            s = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
-            BusEN bus = b;
+            string s = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
             SqlConnection c = new SqlConnection(s);
             try
             {
                 c.Open();
-                SqlCommand com = new SqlCommand("Update Bus Set departureDate = '" + bus.DepartureDate + "', arrivalDate = '" + bus.ArrivalDate + "', departureCity ='" +
-                    bus.departureCity + "', destinationCity = '" + bus.destinationCity + "', Bonus = '" + bus.Bonus + "' Where ID = " + bus.Id, c);
+                SqlCommand com = new SqlCommand("Update Bus Set departureDate = '" + b.departureDate + "', arrivalDate = '" + b.arrivalDate + "', departureCity ='" +
+                    b.departureCity + "', destinationCity = '" + b.destinationCity + "', Bonus = '" + b.bonus + "' Where ID = " + b.Id, c);
+
                 com.ExecuteNonQuery();
             }
             catch (Exception ex)
@@ -123,17 +116,17 @@ namespace TopTravel
 
         public ArrayList searchBus(BusEN b)
         {
-            string s;
-            s = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
+            ArrayList a = new ArrayList();
+            string s = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
             SqlConnection c = new SqlConnection(s);
             try
             {
                 c.Open();
-                SqlCommand com = new SqlCommand("Select * from Bus where departureCity = " + b.DepartureCity + " and destinationCity = " + b.DestinationCity, c);
+                SqlCommand com = new SqlCommand("Select * from Bus where departureCity = " + b.departureCity + " and destinationCity = " + b.destinationCity, c);
                 SqlDataReader dr = com.ExecuteReader();
                 while (dr.Read())
                 {
-                    search.Add(dr["Id"].ToString());
+                    a.Add(dr["Id"].ToString());
                 }
                 dr.Close();
             }
@@ -146,7 +139,7 @@ namespace TopTravel
             {
                 c.Close();
             }
-            return search;
+            return a;
         }
     }
 }

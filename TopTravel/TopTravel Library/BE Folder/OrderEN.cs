@@ -38,7 +38,7 @@ namespace TopTravel
         }
 
 
-        public ArrayList showAllProducts()
+        public ArrayList showAllOrders()
         {
             ArrayList a = new ArrayList();
             OrderCAD c = new OrderCAD();
@@ -46,7 +46,7 @@ namespace TopTravel
             return a;
         }
 
-        public ArrayList searchProduct()
+        public ArrayList searchOrder()
         {
             ArrayList a = new ArrayList();
             OrderCAD c = new OrderCAD();

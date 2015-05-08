@@ -9,16 +9,15 @@ namespace TopTravel
 {
     public class CompanyEN
     {
-
         public CompanyEN (int id=-1, string n="", string t="", string e="", string c="", string url="", string d="", int number=0) {
-            this.id = id;
-            name = n;
-			type = t; //Flight, Train, Bus, Space, Hotel, Car, Cruise
-			email = e;
-            country = c;
-            website = url;
-            description = d;
-            phone = number;
+            ID = id;
+            Name = n;
+			Type = t; //Flight, Train, Bus, Space, Hotel, Car, Cruise
+			Email = e;
+            Country = c;
+            Website = url;
+            Description = d;
+            Phone = number;
 		}
 
         public void add_Company()
@@ -44,10 +43,20 @@ namespace TopTravel
             ArrayList a = new ArrayList();
             CompanyCAD c = new CompanyCAD();
             a = c.showCompanies();
-
             return a;
         }
 
+        // PROPERTIES
+        public int ID { get; set; }
+        public string Name { get; set; }
+        public string Type { get; set; }
+        public int Phone { get; set; }
+        public string Email { get; set; }
+        public string Country { get; set; }
+        public string Website { get; set; }
+        public string Description { get; set; }
+
+        /* Esto sobra pero no lo borro por si acaso.
         // PROPERTIES
         private int id;
         private string name;
@@ -108,6 +117,6 @@ namespace TopTravel
          {
              get { return description; }
              set { description = value; }
-         }
+         }*/
     }
 }
