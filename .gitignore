@@ -7,7 +7,8 @@
 *.user
 *.userosscache
 *.cache
-obj/
+# todo lo que hay en obj lo puede generar cada uno cuando se ejecuta.
+obj/ 
 # en la base de datos solo puede estar trabajando una persona. Varias personas puede dar conflicto.
 # *.mdf
 # *.ldf

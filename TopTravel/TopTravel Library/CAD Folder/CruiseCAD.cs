@@ -32,7 +32,7 @@ namespace TopTravel
             catch (Exception ex)
             {
                 ex.ToString();
-                Console.WriteLine("ERROR: Add company");
+                Console.WriteLine("ERROR: Add Cruise");
             }
             finally
             {
@@ -56,7 +56,7 @@ namespace TopTravel
             catch (Exception ex)
             {
                 ex.ToString();
-                Console.WriteLine("ERROR: Delete from company");
+                Console.WriteLine("ERROR: Delete from Cruise");
             }
             finally
             {
@@ -82,7 +82,7 @@ namespace TopTravel
             catch (Exception ex)
             {
                 ex.ToString();
-                Console.WriteLine("ERROR: Delete from company");
+                Console.WriteLine("ERROR: Delete from Cruise");
             }
             finally
             {
@@ -109,7 +109,7 @@ namespace TopTravel
             catch (Exception ex) 
             {  
                 ex.ToString();
-                Console.WriteLine("ERROR: Show companies");
+                Console.WriteLine("ERROR: Show Cruise");
             }
             finally
             {
@@ -137,7 +137,7 @@ namespace TopTravel
             catch (Exception ex)
             {
                 ex.ToString();
-                Console.WriteLine("ERROR: Show companies");
+                Console.WriteLine("ERROR: Search Cruise");
             }
             finally
             {

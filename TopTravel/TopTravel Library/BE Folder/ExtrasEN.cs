@@ -36,7 +36,7 @@ namespace TopTravel
        }
 
 
-       public ArrayList showAllHotels()
+       public ArrayList showAllExtras()
        {
            ArrayList a = new ArrayList();
            ExtrasCAD c = new ExtrasCAD();

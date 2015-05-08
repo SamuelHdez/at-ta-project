@@ -1,12 +1,12 @@
-Order: Luke
-Product: Luke
 Flight: Kate
-Package: 
+Package: Luke
 Contact: (De momento no, falta base de datos)
 
 ---------
    DONE
 ---------
+Order: Luke
+Product: Luke
 Admin: Luke
 Car Rental: Luke
 Cruise: Luke
