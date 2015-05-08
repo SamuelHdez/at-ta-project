@@ -1,22 +1,21 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Configuration;
 
 namespace TopTravel
 {
     public class CruiseEN
     {
-        public CruiseEN(int id, string dT, string dD, string tR, string aT, string aD, int mP, int p)
+        public CruiseEN(int id, string dT, string r, string aT, string c)
         {
-            cruiseID = id;
-            departureTime = dT;
-            departureDay = dD;
-            travelRoute = tR;
-            arrivalTime = aT;
-            arrivalDate = aD;
-            maxPassengers = mP;
-            int price = p;
+            Id = id;
+            departureDate = dT;
+            Route = r;
+            arrivalDate = aT;
+            City = c;
         }
 
         public void add_Cruise()
@@ -37,21 +36,28 @@ namespace TopTravel
             m_cc.update_Cruise(this);
         }
 
-        public void search_Cruise()
+        public ArrayList show_All()
         {
-            m_cc = new CruiseCAD();
-            m_cc.search_Cruise(this);
+            ArrayList a= new ArrayList();
+            CruiseCAD c= new CruiseCAD();
+            a = c.show_All_Cruises();
+            return a;
+        }
+
+        public ArrayList search_Cruise()
+        {
+            ArrayList a = new ArrayList();
+            CruiseCAD c = new CruiseCAD();
+            a = c.searchCruises(this);
+            return a;
         }
 
         // PROPERTIES
-        public int cruiseID { get; set; }
-        public string departureTime { get; set; }
-        public string departureDay { get; set; }
-        public string travelRoute { get; set; }
-        public string arrivalTime { get; set; }
+        public int Id { get; set; }
+        public string departureDate { get; set; }
+        public string Route { get; set; }
+        public string City { get; set; }
         public string arrivalDate { get; set; }
-        public int maxPassengers { get; set; }
-        public int price { get; set; }
 
         //Data
         private CruiseCAD m_cc;

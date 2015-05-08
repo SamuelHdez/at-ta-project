@@ -129,7 +129,7 @@ namespace TopTravel
             try
             {
                 c.Open();
-                SqlCommand com = new SqlCommand("Select * from Bus where departureCite = " + b.DepartureCity + " and destinationCity = " + b.DestinationCity, c);
+                SqlCommand com = new SqlCommand("Select * from Bus where departureCity = " + b.DepartureCity + " and destinationCity = " + b.DestinationCity, c);
                 SqlDataReader dr = com.ExecuteReader();
                 while (dr.Read())
                 {

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -7,13 +8,14 @@ namespace TopTravel
 {
     public class CarRentalEN
     {
-        public CarRentalEN(int id, string l, int maxP, int minP, string vehicle)
+        public CarRentalEN(int ID, string c, string b, string m, int d, string D)
         {
-            rentalID = id;
-            location = l;
-            maxPrice = maxP;
-            minPrice = minP;
-            car = vehicle;
+            Id = ID;
+            City = c;
+            Brand = b;
+            Model = m;
+            Days = d;
+            Date = D;
         }
 
         public void add_CarRental()
@@ -34,18 +36,29 @@ namespace TopTravel
 			m_cc.delete_CarRental(this);
 		}
 
-        public void search_CarRental()
+        public ArrayList showAllCarRental()
+        {
+            ArrayList a = new ArrayList();
+            CarRentalCAD c = new CarRentalCAD();
+            a = c.showCarRental();
+            return a;
+        }
+
+        public ArrayList searchCarRental()
 		{
-			m_cc = new CarRentalCAD();
-			m_cc.search_CarRental(this);
+            ArrayList a = new ArrayList();
+            CarRentalCAD c = new CarRentalCAD();
+            a = c.search_CarRental(this);
+            return a;
 		}
 
         // PROPERTIES
-        public int rentalID { get; set; }
-        public string location { get; set; }
-        public int maxPrice { get; set; }
-        public int minPrice { get; set; }
-        public string car { get; set; }
+        public int Id { get; set; }
+        public string City { get; set; }
+        public string Brand { get; set; }
+        public string Model { get; set; }
+        public int Days { get; set; }
+        public string Date { get; set; }
 
         //Data
         private CarRentalCAD m_cc;

@@ -1,0 +1,7 @@
+# aqui pueden ir tipos de archivos que no queremos incluir #
+############################################################
+
+# este tipo de archivos suele dar conflicto porque es un archivo binario. 
+# se genera automaticamente cuando alguien abre el proyecto en local.
+*.suo
+*.cache
