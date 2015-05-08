@@ -8,13 +8,11 @@ namespace TopTravel
 {
     public class BusEN
     {
-        // hay que inicializar las variables? en la base de datos no admitimos nulos porque tiene que estar rellenado.
-        // podria haber varios buses on id -1. tenemos que hacer codigo para cuando la id sea -1 no hacer nada en la
-        // base de datos
+
         public BusEN(int ID=-1, string b="", string dt="", string dc="", string at="", string dtc="")
         {
-            Id = ID;
-            bonus = b;
+            id = ID;
+            Bonus = b;
             departureDate = dt;
             departureCity = dc;
             arrivalDate = at;
@@ -45,6 +43,7 @@ namespace TopTravel
             ArrayList a = new ArrayList();
             BusCAD c = new BusCAD();
             a = c.searchBus(this);
+
             return a;
         }
 
@@ -53,20 +52,21 @@ namespace TopTravel
             ArrayList a = new ArrayList();
             BusCAD c = new BusCAD();
             a = c.showBuses();
+
             return a;
         }
 
         // PROPERTIES
-        public int Id { get; set; }
-        public string departureDate { get; set; }    
-        public string arrivalDate { get; set; }
-        public string departureCity { get; set; }
-        public string destinationCity { get; set; }
-        public string bonus { get; set; }
+        public int id;
+        public string departureDate;
+        public string departureCity;
+        public string arrivalDate;
+        public string destinationCity;
+        public string bonus;
 
-/* ¿esto sobra no? Lo que esta arriba es azucar sintactico para lo que hay abajo.
-    una vez miremos las restricciones de los atributos implementaremos lo que
-    necesiten individualmente
+        //Data
+        private BusCAD m_cc;
+
         //getters and setters
 
         public int Id
@@ -103,7 +103,7 @@ namespace TopTravel
         {
             get { return bonus; }
             set { bonus = value; }
-        } */
+        }
 
     }
 }

@@ -20,20 +20,20 @@ namespace TopTravel
 
         public void add_SpaceTravel()
         {
-            SpaceTravelCAD c = new SpaceTravelCAD();
-            c.add_SpaceTravel(this);
+            m_cc = new SpaceTravelCAD();
+            m_cc.add_SpaceTravel(this);
         }
 
         public void delete_SpaceTravel()
         {
-            SpaceTravelCAD c = new SpaceTravelCAD();
-            c.delete_SpaceTravel(this);
+            m_cc = new SpaceTravelCAD();
+            m_cc.delete_SpaceTravel(this);
         }
 
         public void update_SpaceTravel()
         {
-            SpaceTravelCAD c = new SpaceTravelCAD();
-            c.update_SpaceTravel(this);
+            m_cc = new SpaceTravelCAD();
+            m_cc.update_SpaceTravel(this);
         }
 
         public ArrayList search_SpaceTravel()
@@ -57,5 +57,7 @@ namespace TopTravel
         public string arrivalDate { get; set; }
         public string departureCity { get; set; }
         public string PreparationCenter { get; set; }
+        //Data
+        private SpaceTravelCAD m_cc;
     }
 }

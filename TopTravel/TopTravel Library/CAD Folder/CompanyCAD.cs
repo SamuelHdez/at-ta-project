@@ -13,10 +13,13 @@ namespace TopTravel
 {
     public class CompanyCAD
     {
+        ArrayList lista = new ArrayList();
+       // string s = "Data Source=(LocalDB)\v11.0;AttachDbFilename=| DataDirectory|\\Database.mdf;Integrated Security=True";
+ 
         public ArrayList showCompanies()
         {
-            ArrayList a = new ArrayList();
-            string s = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
+             string s;
+             s = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
             SqlConnection c = new SqlConnection(s);
             try
             {
@@ -25,7 +28,7 @@ namespace TopTravel
                 SqlDataReader dr = com.ExecuteReader();
                 while (dr.Read())
                 {
-                    a.Add(dr["Name"].ToString());
+                    lista.Add(dr["Name"].ToString());
                 }
                 dr.Close();
             }
@@ -38,17 +41,19 @@ namespace TopTravel
             {
                 c.Close();
             }
-            return a;
+            return lista;
         }
 
-        public void addCompany(CompanyEN co)
+        public void addCompany(CompanyEN cen)
         {
-            string s = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
+            string s;
+            s = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
+            CompanyEN co = cen;
             SqlConnection c = new SqlConnection(s);
             try
             {
                 c.Open();
-                SqlCommand com = new SqlCommand("Insert Into Company (ID,Name,Type,Phone,Email,Country,Website,Description) VALUES ('" + co.ID + "','" + co.Name + "','" + co.Type + "','" +
+                SqlCommand com = new SqlCommand("Insert Into Company (ID,Name,Type,Phone,Email,Country,Website,Description) VALUES ('" + co.Id + "','" + co.Name + "','" + co.Type + "','" +
                     co.Phone + "','" + co.Email + "','" + co.Country + "','" + co.Website + "','" + co.Description + "')", c);
 
                 com.ExecuteNonQuery();
@@ -65,15 +70,17 @@ namespace TopTravel
 
         }
 
-        public void deleteCompany(CompanyEN co)
+        public void deleteCompany(CompanyEN cen)
         {
-            string s = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
+            string s;
+            s = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
+            CompanyEN co = cen;
             SqlConnection c = new SqlConnection(s);
-         
+            
             try
             {
                 c.Open();
-                SqlCommand com = new SqlCommand("Delete From Company Where id = " + co.ID , c);
+                SqlCommand com = new SqlCommand("Delete From Company Where id = " + co.Id , c);
                 com.ExecuteNonQuery();
             }
             catch (Exception ex)
@@ -87,16 +94,18 @@ namespace TopTravel
             }
         }
 
-        public void updateCompany(CompanyEN co)
+        public void updateCompany(CompanyEN cen)
         {
-            string s = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
+            string s;
+            s = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
+            CompanyEN co = cen;
             SqlConnection c = new SqlConnection(s);
             try
             {
                 c.Open();
                 SqlCommand com = new SqlCommand("Update Company Set Name = '" + co.Name + "', Type = '" + co.Type + "', Phone ='" +
                     co.Phone + "', Email = '" + co.Email + "', County = '" + co.Country + "', Website = '" + co.Website + "', Description = '" + 
-                    co.Description + "' Where ID = " + co.ID, c);
+                    co.Description + "' Where ID = " + co.Id, c);
                 com.ExecuteNonQuery();
             }
             catch (Exception ex)
@@ -109,5 +118,6 @@ namespace TopTravel
                 c.Close();
             }
         }
-    }
+
+        }
 }

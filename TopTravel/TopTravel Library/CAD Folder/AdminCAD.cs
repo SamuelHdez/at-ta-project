@@ -28,7 +28,7 @@ namespace TopTravel
             catch (Exception ex)
             {
                 ex.ToString();
-                Console.WriteLine("ERROR: Register Admin");
+                Console.WriteLine("ERROR: Add Admin");
             }
             finally
             {
@@ -98,7 +98,7 @@ namespace TopTravel
             catch (Exception ex)
             {
                 ex.ToString();
-                Console.WriteLine("ERROR: Login Admin");
+                Console.WriteLine("ERROR: login Admin");
             }
             finally
             {

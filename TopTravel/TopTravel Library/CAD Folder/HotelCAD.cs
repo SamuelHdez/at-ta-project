@@ -14,15 +14,20 @@ namespace TopTravel
 {
     public class HotelCAD
     {
+        ArrayList lista = new ArrayList();
+        ArrayList search = new ArrayList();
+
         public void addHotel(HotelEN h)
         {
-            string s = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
+            string s;
+            s = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
+            HotelEN ho = h;
             SqlConnection c = new SqlConnection(s);
             try
             {
                 c.Open();
-                SqlCommand com = new SqlCommand("Insert Into Hotel (ID,Name,City,Days,Phone,Adress,Email,Stars,Bedrooms,Date) VALUES ('" + h.Id + "','" + h.Name + "','" + h.City + "','" +
-                    h.Days + "','" + h.Phone + "','" + h.Address + "','" + h.Email + "','" + h.Stars + "','" + h.Bedrooms + "','" + h.Date + "')", c);
+                SqlCommand com = new SqlCommand("Insert Into Hotel (ID,Name,City,Days,Phone,Adress,Email,Stars,Bedrooms,Date) VALUES ('" + ho.Id + "','" + ho.Name + "','" + ho.City + "','" +
+                    ho.Days + "','" + ho.Phone + "','" + ho.Address + "','" + ho.Email + "','" + ho.Stars + "','" + ho.Bedrooms + "','" + ho.Date + "')", c);
 
                 com.ExecuteNonQuery();
             }
@@ -39,12 +44,15 @@ namespace TopTravel
 
         public void deleteHotel(HotelEN h)
         {
-            string s= ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
+            string s;
+            s = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
+            HotelEN ho = h;
             SqlConnection c = new SqlConnection(s);
+
             try
             {
                 c.Open();
-                SqlCommand com = new SqlCommand("Delete From Hotel Where id = " + h.Id, c);
+                SqlCommand com = new SqlCommand("Delete From Hotel Where id = " + ho.Id, c);
                 com.ExecuteNonQuery();
             }
             catch (Exception ex)
@@ -60,14 +68,16 @@ namespace TopTravel
 
         public void updateHotel(HotelEN h)
         {
-            string s= ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
+            string s;
+            s = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
+            HotelEN ho = h;
             SqlConnection c = new SqlConnection(s);
             try
             {
                 c.Open();
-                SqlCommand com = new SqlCommand("Update Hotel Set Name = '" + h.Name + "', City = '" + h.City + "', Days ='" +
-                    h.Days + "', Phone = '" + h.Phone + "', Adress = '" + h.Address + "', Email = '" + h.Email + "', Stars = '" +
-                    h.Stars + "', Bedrooms = '" + h.Bedrooms + "', Date = '" + h.Date + "' Where Id = " + h.Id, c);
+                SqlCommand com = new SqlCommand("Update Hotel Set Name = '" + ho.Name + "', City = '" + ho.City + "', Days ='" +
+                    ho.Days + "', Phone = '" + ho.Phone + "', Adress = '" + ho.Address + "', Email = '" + ho.Email + "', Stars = '" +
+                    ho.Stars + "', Bedrooms = '" + ho.Bedrooms + "', Date = '" + ho.Date + "' Where Id = " + ho.Id, c);
                 com.ExecuteNonQuery();
             }
             catch (Exception ex)
@@ -83,8 +93,8 @@ namespace TopTravel
 
         public ArrayList searchHotel(HotelEN h)
         {
-            ArrayList a = new ArrayList();
-            string s = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
+            string s;
+            s = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
             SqlConnection c = new SqlConnection(s);
             try
             {
@@ -93,35 +103,7 @@ namespace TopTravel
                 SqlDataReader dr = com.ExecuteReader();
                 while (dr.Read())
                 {
-                    a.Add(dr["Name"].ToString());
-                }
-                dr.Close();
-            }
-            catch (Exception ex)
-            {
-                ex.ToString();
-                Console.WriteLine("ERROR: Search hotels");
-            }
-            finally
-            {
-                c.Close();
-            }
-            return a;
-        }
-
-        public ArrayList showHotels()
-        {
-            ArrayList a = new ArrayList();
-            string s = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
-            SqlConnection c = new SqlConnection(s);
-            try
-            {
-                c.Open();
-                SqlCommand com = new SqlCommand("Select * from Hotels", c);
-                SqlDataReader dr = com.ExecuteReader();
-                while (dr.Read())
-                {
-                    a.Add(dr["Name"].ToString());
+                    search.Add(dr["Name"].ToString());
                 }
                 dr.Close();
             }
@@ -134,7 +116,36 @@ namespace TopTravel
             {
                 c.Close();
             }
-            return a;
+            return search;
         }
+
+        public ArrayList showHotels()
+        {
+            string s;
+            s = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
+            SqlConnection c = new SqlConnection(s);
+            try
+            {
+                c.Open();
+                SqlCommand com = new SqlCommand("Select * from Hotels", c);
+                SqlDataReader dr = com.ExecuteReader();
+                while (dr.Read())
+                {
+                    lista.Add(dr["Name"].ToString());
+                }
+                dr.Close();
+            }
+            catch (Exception ex)
+            {
+                ex.ToString();
+                Console.WriteLine("ERROR: Show hotels");
+            }
+            finally
+            {
+                c.Close();
+            }
+            return lista;
+        }
+
     }
 }

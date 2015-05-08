@@ -15,13 +15,15 @@ namespace TopTravel
     {
         public void add_CarRental(CarRentalEN cr)
 		{
-            string s = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
+            string s;
+            s = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
             SqlConnection c = new SqlConnection(s);
             try
             {
                 c.Open();
                 SqlCommand com = new SqlCommand("Insert Into CarRental (Id,City,Brand,Model,Days,Date) VALUES ('" + cr.Id + "','" + cr.City + "','" + cr.Brand + "','" +
                     cr.Model + "','" + cr.Days + "','" + cr.Date + "')", c);
+
                 com.ExecuteNonQuery();
             }
             catch (Exception ex)
@@ -43,7 +45,7 @@ namespace TopTravel
             {
                 c.Open();
                 SqlCommand com = new SqlCommand("Update CarRental Set City = '" + cr.City + "', Brand = '" + cr.Brand + "', Model ='" +
-                    cr.Model + "', Days = '" + cr.Days + "', Date = '" + cr.Date + "' Where ID = " + cr.Id, c);
+                    cr.Model + "', Days = '" + cr.Days + "', Sate = '" + cr.Date + "' Where ID = " + cr.Id, c);
                 com.ExecuteNonQuery();
             }
             catch (Exception ex)
@@ -59,7 +61,8 @@ namespace TopTravel
 
         public void delete_CarRental(CarRentalEN cr)
 		{
-            string s = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
+            string s;
+            s = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
             SqlConnection c = new SqlConnection(s);
             try
             {
@@ -108,7 +111,8 @@ namespace TopTravel
         public ArrayList showCarRental() 
         {
             ArrayList a = new ArrayList();
-            string s = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
+            string s;
+            s = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
             SqlConnection c = new SqlConnection(s);
             try
             {

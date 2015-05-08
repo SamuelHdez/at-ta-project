@@ -5,6 +5,7 @@ using System.Web;
 
 namespace TopTravel
 {
+    // o PackageTour o Packageholiday o VacationPackage ...
     public class PackagesEN
     {
         public PackagesEN(int id, string n, int t, int h)

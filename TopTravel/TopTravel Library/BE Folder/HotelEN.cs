@@ -11,16 +11,16 @@ namespace TopTravel
 
         public HotelEN(int ID=-1, string na="", string ci="", int dy=0, int number=0, string ad="", string e="", int s=0, string b="", string d="")
         {
-            Id = ID;
-            Name = na;
-            City = ci;
-            Days = dy;
-            Phone = number;
-            Address = ad;
-            Email = e;
-            Stars = s;
-            Bedrooms = b;
-            Date = d;
+            id = ID;
+            name = na;
+            city = ci;
+            days = dy;
+            phone = number;
+            address = ad;
+            email = e;
+            stars = s;
+            bedrooms = b;
+            date = d;
         }
 
        public void add_hotel()
@@ -46,6 +46,7 @@ namespace TopTravel
            ArrayList a = new ArrayList();
            HotelCAD c = new HotelCAD();
            a = c.searchHotel(this);
+
            return a;
        }
 
@@ -54,22 +55,11 @@ namespace TopTravel
            ArrayList a = new ArrayList();
            HotelCAD c = new HotelCAD();
            a = c.showHotels();
+
            return a;
        }
 
-       // PROPERTIES
-       public int Id;
-       public string Name;
-       public string City;
-       public int Days;
-       public int Phone;
-       public string Address;
-       public string Email;
-       public int Stars;
-       public string Bedrooms;
-       public string Date;
-
-/*        // PROPERTIES
+        // PROPERTIES
         private int id;
         private string name;
         private string city;
@@ -143,6 +133,6 @@ namespace TopTravel
         {
             get { return date; }
             set { date = value; }
-        } */
+        }
     }
 }

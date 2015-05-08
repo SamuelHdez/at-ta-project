@@ -11,10 +11,10 @@ namespace TopTravel
     {
         public ExtrasEN(int ID=-1, string w="", string f="", int d=-1)
         {
-            Id = ID;
-            WiFi = w;
-            Food = f;
-            Discount = d;
+            id = ID;
+            wifi = w;
+            food = f;
+            discount = d;
         }
 
        public void add_extra()
@@ -41,15 +41,10 @@ namespace TopTravel
            ArrayList a = new ArrayList();
            ExtrasCAD c = new ExtrasCAD();
            a = c.showExtras();
+
            return a;
        }
 
-       //properties
-       public int Id { get; set; }
-       public string WiFi { get; set; }
-       public string Food { get; set; }
-       public int Discount { get; set; }
-        /*
         //propierties
         private int id;
         private string wifi;
@@ -80,6 +75,6 @@ namespace TopTravel
         {
             get { return discount; }
             set { discount = value; }
-        } */
+        }
     }
 }

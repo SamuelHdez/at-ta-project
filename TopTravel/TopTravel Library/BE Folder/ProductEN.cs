@@ -17,6 +17,7 @@ namespace TopTravel
             Extras = e;      
         }
 
+
         public void add_Product()
         {
             ProductCAD c = new ProductCAD();
@@ -35,6 +36,7 @@ namespace TopTravel
             c.updateProduct(this);
         }
 
+
         public ArrayList showAllProducts()
         {
             ArrayList a = new ArrayList();
@@ -50,6 +52,7 @@ namespace TopTravel
             a = c.searchProduct(this);
             return a;
         }
+
 
         // PROPERTIES
         public int Id { get; set; }

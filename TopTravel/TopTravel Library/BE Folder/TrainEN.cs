@@ -8,14 +8,16 @@ namespace TopTravel
 {
     public class TrainEN
     {
+
         public TrainEN(int ID = -1, string b = "", string dt = "", string dc = "", string at = "", string dtc = "")
         {
-            Id = ID;
-            departureDay = dt;
-            arrivalDay = at;                       
-            departureCity = dc;          
-            destinationCity = dtc;
+            id = ID;
             Bonus = b;
+            departureDay = dt;
+            departureCity = dc;
+            arrivalDay = at;
+            destinationCity = dtc;
+
         }
 
         public void add_Train()
@@ -41,6 +43,7 @@ namespace TopTravel
             ArrayList a = new ArrayList();
             TrainCAD c = new TrainCAD();
             a = c.searchTrain(this);
+
             return a;
         }
 
@@ -49,17 +52,18 @@ namespace TopTravel
             ArrayList a = new ArrayList();
             TrainCAD c = new TrainCAD();
             a = c.showTrains();
+
             return a;
         }
 
         // PROPERTIES
-        public int Id { get; set; }
-        public string departureDay { get; set; }
-        public string arrivalDay { get; set; }
-        public string departureCity { get; set; }     
-        public string destinationCity { get; set; }
-        public string Bonus { get; set; }
-/* 
+        public int id;
+        public string departureDay;
+        public string departureCity;
+        public string arrivalDay;
+        public string destinationCity;
+        public string bonus;
+
         //Data
         private BusCAD m_cc;
 
@@ -99,7 +103,7 @@ namespace TopTravel
         {
             get { return bonus; }
             set { bonus = value; }
-        } */
+        }
 
     }
 }
