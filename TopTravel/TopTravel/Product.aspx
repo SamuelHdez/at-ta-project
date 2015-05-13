@@ -14,29 +14,30 @@
 
     <article>
         <p>        
-           dfasdfasdfasdf.
+           Berlin is one of the most fun cities in Europe.
         </p>
 
         <p>        
-            Use esta área pasdqwdqqdeeqdqefnal.
+            Enjoy the amazing frankfurt sausages and beer. 
         </p>
 
         <p>        
-            Use esta área para proporcionar información adicional.
+            In the map below you can see one of the most modern hotels in Berlin. 
+            Recommended by TopTravel.
         </p>
 
         
     </article>
 
     <aside>
-        <h3>Buy it</h3>
+        <h3>Add to Cart</h3>
         <p>        
-           gregrgrgwerwergrwegwgwgrwgw.
+           Info
         </p>
         <ul>
-            <li><a id="A1" runat="server" href="~/">Inicio</a></li>
-            <li><a id="A2" runat="server" href="~/About.aspx">Acerca de</a></li>
-            <li><a id="A3" runat="server" href="~/Contact.aspx">Contacto</a></li>
+            <li><a id="A1" runat="server" href="~/">Home</a></li>
+            <li><a id="A2" runat="server" href="~/About.aspx">About</a></li>
+            <li><a id="A3" runat="server" href="~/Contact.aspx">Contact</a></li>
         </ul>
     </aside>
 
