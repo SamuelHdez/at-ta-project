@@ -14,9 +14,9 @@ namespace TopTravel
 
         }
 
-        protected void aaaa(object sender, EventArgs e)
+        protected void send(object sender, EventArgs e)
         {
-            Label1.Text = "We are processing your search request";
+            ProcessVuelo.Text = "We are processing your search request";
         }
     }
 }

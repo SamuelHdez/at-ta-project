@@ -17,10 +17,10 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
     <hgroup class="title">
         <h1><%: Title %></h1>
+        <h2>Look up for your flight</h2>
     </hgroup>
 
     <section id="Form">
-        <h3>Estas dentro de vuelos</h3>
 
         <!--<ol class="round">
             <li class="one">
@@ -48,19 +48,25 @@
 
 
             <!--<asp:Label ID="Label2" runat="server" Text="Label">Flying from: </asp:Label>--><label>From</label>
-            <asp:TextBox id="userTextBox" TextMode="SingleLine" Columns="30" runat="server" CssClass="inputCal" />
+            <asp:TextBox id="from" TextMode="SingleLine" Columns="30" runat="server" CssClass="input" />
 
             <!--<asp:Label ID="Label3" runat="server" Text="Label">Going to:</asp:Label>--><label>Going to</label>
-            <asp:TextBox id="TextBox1" TextMode="SingleLine" Columns="30" runat="server" CssClass="inputCal" />
+            <asp:TextBox id="to" TextMode="SingleLine" Columns="30" runat="server" CssClass="input" />
 
             <!--<asp:Label ID="Label4" runat="server" Text="Label">Outbound:</asp:Label>--><label>Outbound</label>
-            <asp:Calendar ID="FechaIda" runat="server" CssClass="input"></asp:Calendar>
-             <br />
+            <asp:Calendar ID="FechaIda" runat="server" CssClass="inputCal">
+                <TitleStyle BackColor="#353E49" BorderColor="#353E49" 
+                BorderWidth="1px" Font-Bold="True"
+                Font-Size="10pt" Height="25px" />
+            </asp:Calendar><br />
 
             <!--<asp:CheckBox ID="VueltaCheck" runat="server" />-->
             <!--<asp:Label ID="Label5" runat="server" Text="Label">Return:</asp:Label>--><label>Return</label>
-            <asp:Calendar ID="FechaVuelta" runat="server" CssClass="input"></asp:Calendar>
-             <br />
+            <asp:Calendar ID="FechaVuelta" runat="server" CssClass="inputCal">
+                <TitleStyle BackColor="#353E49" BorderColor="#353E49" 
+                BorderWidth="1px" Font-Bold="True"
+                Font-Size="10pt" Height="25px" />
+            </asp:Calendar><br />
 
             <!--<asp:Label ID="Label6" runat="server" Text="Label">Adults:</asp:Label>--><label>Adults</label>
             <input class="input" type="number" min="0" max="20" step="1" value="1">
@@ -69,8 +75,8 @@
             <!--<asp:Label ID="Label7" runat="server" Text="Label">Children:</asp:Label>--><label>Children</label>
             <input class="input" type="number" min="0" max="20" step="1" value="0">
 
-            <asp:Button ID="Button1" runat="server" Text="Button" OnClick="aaaa" CssClass="inputBottom" />
-            <asp:Label id="Label1" runat="server" Text="Label" />
+            <asp:Button ID="SendButton" runat="server" Text="Send" OnClick="send" CssClass="inputBottom" />
+            <asp:Label id="ProcessVuelo" runat="server" Text="" CssClass="process" />
         </fieldset>
 
     </section>

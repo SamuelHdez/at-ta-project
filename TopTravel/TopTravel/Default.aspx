@@ -105,12 +105,20 @@
 
 
 
+    <section>
+        <div class="videoTitle">
+	        <h1>The desire for distance.</h1>
+	        <h1>The longing for experience.</h1>
+	        <h1>The need to escape.</h1>
+        </div>
+        <video id="LandingVideo" class="video" preload="auto" autobuffer="" autoload="" autoplay="" loop="">
+	        <source src="http://cdn.thefernway.com/_assets/videos/landing.mp4" type="video/mp4">			
+        </video>
+    </section>
 
 
 
-
-
-
+    <!--
 
     <section class="featured">
         <div class="content-wrapper">
@@ -146,5 +154,5 @@
             Encuentre fácilmente empresas de alojamiento web que ofrezcan la mejor relación de características y precio para sus aplicaciones.
             <a href="http://go.microsoft.com/fwlink/?LinkId=245143">Más información…</a>
         </li>
-    </ol>
+    </ol>-->
 </asp:Content>

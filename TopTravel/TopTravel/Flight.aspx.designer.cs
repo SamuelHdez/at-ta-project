@@ -22,13 +22,13 @@ namespace TopTravel {
         protected global::System.Web.UI.WebControls.Label Label2;
         
         /// <summary>
-        /// Control userTextBox.
+        /// Control from.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox userTextBox;
+        protected global::System.Web.UI.WebControls.TextBox from;
         
         /// <summary>
         /// Control Label3.
@@ -40,13 +40,13 @@ namespace TopTravel {
         protected global::System.Web.UI.WebControls.Label Label3;
         
         /// <summary>
-        /// Control TextBox1.
+        /// Control to.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        protected global::System.Web.UI.WebControls.TextBox to;
         
         /// <summary>
         /// Control Label4.
@@ -112,21 +112,21 @@ namespace TopTravel {
         protected global::System.Web.UI.WebControls.Label Label7;
         
         /// <summary>
-        /// Control Button1.
+        /// Control SendButton.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.Button SendButton;
         
         /// <summary>
-        /// Control Label1.
+        /// Control ProcessVuelo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.Label ProcessVuelo;
     }
 }

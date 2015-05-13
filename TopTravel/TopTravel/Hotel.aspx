@@ -7,10 +7,11 @@
 
     <hgroup class="title">
         <h1><%: Title %></h1>
+        <h2>Look up for your hotel</h2>
     </hgroup>
 
     <section id="Form">
-        <h3>Look up for your hotel</h3>
+        
 
         <!--<ol class="round">
             <li class="one">
@@ -38,7 +39,11 @@
             <asp:TextBox id="place" TextMode="SingleLine" Columns="30" runat="server" CssClass="input" />
 
             <label>Date</label>
-            <asp:Calendar ID="Date" runat="server" CssClass="inputCal"></asp:Calendar>
+            <asp:Calendar ID="Date" runat="server" CssClass="inputCal">
+                <TitleStyle BackColor="#353E49" BorderColor="#353E49" 
+                BorderWidth="1px" Font-Bold="True"
+                Font-Size="10pt" Height="25px" />
+            </asp:Calendar><br />
 
             <label>Nights</label>
             <input class="input" type="number" min="0" max="10" step="1" value="5">
@@ -49,8 +54,8 @@
             <label>Children</label>
             <input class="input" type="number" min="0" max="20" step="1" value="0">
 
-            <asp:Button ID="SendButton" runat="server" Text="Button" OnClick="send" CssClass="inputBottom" />
-            <asp:Label id="ProcessHotel" runat="server" Text="" />
+            <asp:Button ID="SendButton" runat="server" Text="Send" OnClick="send" CssClass="inputBottom" />
+            <asp:Label id="ProcessHotel" runat="server" Text="" CssClass="process" />
         </fieldset>
 
     </section>

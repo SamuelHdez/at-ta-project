@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Cruise.aspx.cs" Inherits="TopTravel.Cruise" %>
+﻿<%@ Page Title="Cruises" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Cruise.aspx.cs" Inherits="TopTravel.Cruise" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="FeaturedContent" runat="server">
@@ -7,10 +7,10 @@
     
     <hgroup class="title">
         <h1><%: Title %></h1>
+        <h2>Look up for your cruise</h2>
     </hgroup>
 
     <section id="Form">
-        <h3>Look up for your hotel</h3>
 
          <fieldset>
             <legend>Search your hotel</legend>
@@ -35,7 +35,11 @@
             <input class="input" type="number" min="0" max="20" step="1" value="7">
 
             <label>Departure</label>
-            <asp:Calendar ID="Departure" runat="server" CssClass="inputCal"></asp:Calendar>
+            <asp:Calendar ID="Departure" runat="server" CssClass="inputCal">
+                <TitleStyle BackColor="#353E49" BorderColor="#353E49" 
+                BorderWidth="1px" Font-Bold="True"
+                Font-Size="10pt" Height="25px" />
+            </asp:Calendar><br />
 
             <label>Adults</label>
             <input class="input" type="number" min="0" max="20" step="1" value="2">
