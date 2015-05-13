@@ -190,6 +190,7 @@
     <Content Include="Images\cities\Florence.jpg" />
     <Content Include="Images\cities\Istanbul.jpg" />
     <Content Include="Images\cities\Krakow.jpg" />
+    <Content Include="Images\cities\Moon.jpg" />
     <Content Include="Images\cities\New-York.jpg" />
     <Content Include="Images\cities\Rio-de-Janeiro.jpg" />
     <Content Include="Images\cities\Rome.jpg" />

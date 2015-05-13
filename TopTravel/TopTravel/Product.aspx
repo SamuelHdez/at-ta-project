@@ -9,43 +9,41 @@
         <h1>Adlon Kempinski Hotel</h1>
         <h2>Berlin</h2>
     </hgroup>
+    
 
-    <img class="imgBack" src="images/cities/Berlin.jpg" height=100% width=100%>
-
-    <article>
-        <p>        
-           Berlin is one of the most fun cities in Europe.
-        </p>
-
-        <p>        
-            Enjoy the amazing frankfurt sausages and beer. 
-        </p>
-
-        <p>        
-            In the map below you can see one of the most modern hotels in Berlin. 
-            Recommended by TopTravel.
-        </p>
-
+    <!--<img class="imgBack" src="images/cities/Berlin.jpg" height=100% width=100%>-->
         
-    </article>
 
-    <aside>
-        <h3>Add to Cart</h3>
-        <p>        
-           Info
-        </p>
-        <ul>
-            <li><a id="A1" runat="server" href="~/">Home</a></li>
-            <li><a id="A2" runat="server" href="~/About.aspx">About</a></li>
-            <li><a id="A3" runat="server" href="~/Contact.aspx">Contact</a></li>
-        </ul>
-    </aside>
-
-    <iframe
+        <article>
+            <p>        
+               Berlin is one of the most fun cities in Europe.
+            </p>
+            <p>        
+                Enjoy the amazing frankfurt sausages and beer. 
+            </p>
+            <p>        
+                In the map below you can see one of the most modern hotels in Berlin. 
+                Recommended by TopTravel.
+            </p>
+            <iframe class="map"
             width="100%"
-            height="300"
+            height="200"
             src="http://maps.google.co.uk/maps?q=Hotel+Adlon+Kempinski+Berlin
             &amp;output=embed">
-    </iframe>
+        </iframe>
+        </article>
+
+        <aside>
+            <h3>Add to Cart</h3>
+            <p>        
+               Info
+            </p>
+            <ul>
+                <li><a id="A1" runat="server" href="~/">Buy</a></li>
+                <li><a id="A2" runat="server" href="~/t.aspx">Save</a></li>
+                <li><a id="A3" runat="server" href="~/.aspx">Share</a></li>
+            </ul>
+        </aside>
+    
 
 </asp:Content>

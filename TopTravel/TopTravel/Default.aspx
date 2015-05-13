@@ -12,11 +12,11 @@
                     </div>
             </a>
                 <a class="app" href="Product.aspx">
-                    <img src="images/cities/Florence.jpg" height=100% width=100%>
+                    <img src="images/cities/Moon.jpg" height=100% width=100%>
                     <div class="footerImg">
-                        <div class="place">Florence</div>
-                        <div class="price">90 &euro;</div>
-                        <p>Description here</p>
+                        <div class="place">Moon</div>
+                        <div class="price">10000 &euro;</div>
+                        <p>An affordable travel right to moon</p>
                     </div>
                 </a>
                 <a class="app" href="#">
