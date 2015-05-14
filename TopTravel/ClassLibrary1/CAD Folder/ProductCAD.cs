@@ -78,7 +78,7 @@ namespace TopTravel
                 c.Close();
             }
         }
-
+        /*
         public ArrayList showProduct()
         {
             ArrayList a = new ArrayList();
@@ -105,6 +105,33 @@ namespace TopTravel
                 c.Close();
             }
             return a;
+        }
+         */
+
+        public DataSet showProduct(ProductEN p)
+        {
+            string s;
+            s = ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString();
+            DataSet virtdb = new DataSet();
+            SqlConnection c = new SqlConnection(s);
+
+            try
+            {
+                SqlDataAdapter da = new SqlDataAdapter("select * from Product", c);
+                da.Fill(virtdb, "product");
+
+            }
+            catch (Exception ex)
+            {
+                ex.ToString();
+                Console.WriteLine("ERROR: show product");
+            }
+            finally
+            {
+                c.Close();
+            }
+            return virtdb;
+
         }
 
         public ArrayList searchProduct(ProductEN p)

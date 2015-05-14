@@ -3,18 +3,19 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Data;
+using System.Data.Common;
+using System.Data.SqlClient;
+using System.Data.SqlTypes;
 using System.Configuration;
 
 namespace TopTravel
 {
-    class ProductEN
+    public class ProductEN
     {
-        public ProductEN(int id, string p, int c, int e)
+        public ProductEN()
         {
-            Id = id;
-            Price = p;
-            Company = c;
-            Extras = e;      
+    
         }
 
         public void add_Product()
@@ -35,12 +36,11 @@ namespace TopTravel
             c.updateProduct(this);
         }
 
-        public ArrayList showAllProducts()
+        public DataSet showAllProducts()
         {
-            ArrayList a = new ArrayList();
             ProductCAD c = new ProductCAD();
-            a = c.showProduct();
-            return a;
+            DataSet ds = c.showProduct(this);
+            return ds;
         }
 
         public ArrayList searchProduct()

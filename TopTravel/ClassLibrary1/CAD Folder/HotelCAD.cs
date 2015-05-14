@@ -40,6 +40,32 @@ namespace TopTravel
 
         }
 
+        public DataSet searchHotels(String h)
+        {
+            string s;
+            s = ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString();
+            DataSet virtdb = new DataSet();
+            SqlConnection c = new SqlConnection(s);
+
+            try
+            {
+                SqlDataAdapter da = new SqlDataAdapter("Select * from Hotel where City = '" + h + "'", c);
+                da.Fill(virtdb, "hotel");
+
+            }
+            catch (Exception ex)
+            {
+                ex.ToString();
+                Console.WriteLine("ERROR: show hotel");
+            }
+            finally
+            {
+                c.Close();
+            }
+            return virtdb;
+
+        }
+
         public void addHotel(HotelEN h)
         {
             string s = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
@@ -55,13 +81,11 @@ namespace TopTravel
                 newRow[0] = h.Id;
                 newRow[1] = h.Name;
                 newRow[2] = h.City;
-                newRow[3] = h.Days;
-                newRow[4] = h.Phone;
-                newRow[5] = h.Address;
-                newRow[6] = h.Email;
-                newRow[7] = h.Stars;
-                newRow[8] = h.Bedrooms;
-                newRow[9] = h.Date;
+                newRow[3] = h.Phone;
+                newRow[4] = h.Address;
+                newRow[5] = h.Email;
+                newRow[6] = h.Stars;
+                newRow[7] = h.Bedrooms;
                 t.Rows.Add(newRow);
                 SqlCommandBuilder cbuilder = new SqlCommandBuilder(da);
                 da.Update(virtdb, "hotel");
@@ -123,13 +147,11 @@ namespace TopTravel
                 t.Rows[i]["Id"] = h.Id;
                 t.Rows[i]["Name"] = h.Name;
                 t.Rows[i]["City"] = h.City;
-                t.Rows[i]["Days"] = h.Days;
                 t.Rows[i]["Phone"] = h.Phone;
                 t.Rows[i]["Adress"] = h.Address;
                 t.Rows[i]["Email"] = h.Email;
                 t.Rows[i]["Stars"] = h.Stars;
                 t.Rows[i]["Bedrooms"] = h.Bedrooms;
-                t.Rows[i]["Date"] = h.Date;
 
                 SqlCommandBuilder cbuilder = new SqlCommandBuilder(da);
                 da.Update(virtdb, "hotel");

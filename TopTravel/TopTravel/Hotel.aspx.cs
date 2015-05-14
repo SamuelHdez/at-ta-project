@@ -17,7 +17,14 @@ namespace TopTravel
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!Page.IsPostBack)
+            {
+                
+                d = h.showAllHotels();
+                GridView1.DataSource = d;
+                GridView1.DataBind();
+                 
+            }
         }
 
         protected void send(object sender, EventArgs e)
@@ -29,10 +36,10 @@ namespace TopTravel
             ProcessHotel.Text += System.Environment.NewLine;
             ProcessHotel.Text += Nights.Text;
               */
-            
-           d = h.showAllHotels();
-           GridView1.DataSource = d;
-           GridView1.DataBind();
+            d = h.searchAllHotels(Place2.Text);
+            GridView1.DataSource = d;
+            GridView1.DataBind();
+           
         }
     }
 }

@@ -13,13 +13,13 @@ namespace TopTravel {
     public partial class Hotel {
         
         /// <summary>
-        /// Control Place.
+        /// Control Place2.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Place;
+        protected global::System.Web.UI.WebControls.TextBox Place2;
         
         /// <summary>
         /// Control Date.

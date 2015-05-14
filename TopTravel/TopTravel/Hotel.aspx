@@ -36,7 +36,7 @@
             <legend>Search your hotel</legend>
 
             <label>Place/hotel</label>
-            <asp:TextBox id="Place" TextMode="SingleLine" Columns="30" runat="server" CssClass="input" />
+            <asp:TextBox id="Place2" TextMode="SingleLine" Columns="30" runat="server" CssClass="input" />
 
             <label>Date</label>
             <asp:Calendar ID="Date" runat="server" CssClass="inputCal">
@@ -56,7 +56,22 @@
             <asp:TextBox ID="Children" runat="server" type="number" CssClass="input" />
 
             <asp:Button ID="SendButton" runat="server" Text="Send" OnClick="send" CssClass="inputBottom" />
-            <asp:GridView ID="GridView1" runat="server"  AllowPaging="True" AllowSorting="True" AutoGenerateColumns="True">
+            <asp:GridView ID="GridView1" runat="server"  AllowPaging="True"  AutoGenerateColumns="False">
+                <columns>
+
+                    <asp:hyperlinkfield text="View" navigateurl="~\Hotel.aspx" headertext="Select" target="_blank" />
+                    <asp:boundfield datafield="Name" headertext="Name"/>
+                    <asp:boundfield datafield="City" headertext="City"/>
+                    <asp:boundfield datafield="Stars" headertext="Stars"/>
+                   
+                    <asp:TemplateField HeaderText="Price/Person">
+                                        <ItemTemplate>
+                                            <asp:Label ID="Label1" runat="server" Text='<%# Bind("price") %>'></asp:Label>
+                                            <asp:Label ID="Label2" runat="server" Text= " €"></asp:Label>
+                                        </ItemTemplate>
+                    </asp:TemplateField> 
+
+    </columns>
             </asp:GridView>
 
              <asp:RangeValidator ID="RangeValidator1" controltovalidate="Nights" runat="server" ErrorMessage="Please enter value between 1-50 in nights." MinimumValue="1" MaximumValue="50" Type="Integer" forecolor="Red" CssClass="validator"></asp:RangeValidator>

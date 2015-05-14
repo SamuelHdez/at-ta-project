@@ -57,6 +57,13 @@ namespace TopTravel
            return a;
        }*/
 
+       public DataSet searchAllHotels(String city)
+       {
+           HotelCAD c = new HotelCAD();
+           DataSet ds = c.searchHotels(city);
+           return ds;
+       }
+
        public DataSet showAllHotels()
        {
            HotelCAD c = new HotelCAD();
@@ -110,12 +117,6 @@ namespace TopTravel
             set { city = value; }
         }
 
-        public int Days
-        {
-            get { return days; }
-            set { days = value; }
-        }
-
         public int Phone
         {
             get { return phone; }
@@ -146,10 +147,6 @@ namespace TopTravel
             set { bedrooms = value; }
         }
 
-        public string Date
-        {
-            get { return date; }
-            set { date = value; }
         } */
     }
 }
