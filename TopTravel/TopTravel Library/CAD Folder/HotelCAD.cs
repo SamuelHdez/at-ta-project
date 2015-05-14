@@ -14,31 +14,6 @@ namespace TopTravel
 {
     public class HotelCAD
     {
-        public DataSet showHotels(HotelEN h)
-        {
-            string s = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
-            DataSet bdvirtual = new DataSet();
-            SqlConnection c = new SqlConnection(s);
-
-            try
-            {
-                SqlDataAdapter da = new SqlDataAdapter("select * from Hotel", c);
-                da.Fill(bdvirtual, "hotel");
-
-            }
-            catch (Exception ex)
-            {
-                ex.ToString();
-                Console.WriteLine("ERROR: show hotel");
-            }
-            finally {
-                c.Close();
-            }
-            return bdvirtual;
-
-        }
-
-        /* Parte base de datos desconectada
         public void addHotel(HotelEN h)
         {
             string s = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
@@ -160,6 +135,6 @@ namespace TopTravel
                 c.Close();
             }
             return a;
-        }*/
+        }
     }
 }
