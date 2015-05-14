@@ -323,8 +323,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="HotelCAD.cs" />
-    <Compile Include="HotelEN.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
@@ -382,9 +380,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\TopTravelLibrary\TopTravelLibrary.csproj">
-      <Project>{6180347a-7e70-4f9f-a0ea-8d9b98de5298}</Project>
-      <Name>TopTravelLibrary</Name>
+    <ProjectReference Include="..\ClassLibrary1\ClassLibrary1.csproj">
+      <Project>{04859711-f756-4bd3-b02e-a7e92fc1f00f}</Project>
+      <Name>ClassLibrary1</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

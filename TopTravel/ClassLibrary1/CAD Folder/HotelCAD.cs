@@ -16,8 +16,8 @@ namespace TopTravel
     {
         public DataSet showHotels(HotelEN h)
         {
-            
-            string s = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
+            string s;
+            s = ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString();
             DataSet virtdb = new DataSet();
             SqlConnection c = new SqlConnection(s);
 

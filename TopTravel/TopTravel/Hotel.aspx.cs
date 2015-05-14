@@ -5,15 +5,15 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-//using TopTravelLibrary;
-
+using ClassLibrary1;
 
 namespace TopTravel
 {
        
     public partial class Hotel : Page
     {
-
+        HotelEN h = new HotelEN();
+        DataSet d = new DataSet();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -29,11 +29,10 @@ namespace TopTravel
             ProcessHotel.Text += System.Environment.NewLine;
             ProcessHotel.Text += Nights.Text;
               */
-            HotelEN h = new HotelEN();
-             DataSet d = new DataSet();
-            d = h.showAllHotels();
+            
+           d = h.showAllHotels();
            GridView1.DataSource = d;
-            GridView1.DataBind();
+           GridView1.DataBind();
         }
     }
 }

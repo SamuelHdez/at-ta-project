@@ -134,3 +134,5 @@ C:\Users\Samuel\Documents\at-ta-project\TopTravel\TopTravel\bin\es\Microsoft.Asp
 C:\Users\Samuel\Documents\at-ta-project\TopTravel\TopTravel\obj\Debug\TopTravel.csprojResolveAssemblyReference.cache
 C:\Users\Samuel\Documents\at-ta-project\TopTravel\TopTravel\obj\Debug\TopTravel.dll
 C:\Users\Samuel\Documents\at-ta-project\TopTravel\TopTravel\obj\Debug\TopTravel.pdb
+C:\Users\Samuel\Documents\at-ta-project\TopTravel\TopTravel\bin\ClassLibrary1.dll
+C:\Users\Samuel\Documents\at-ta-project\TopTravel\TopTravel\bin\ClassLibrary1.pdb

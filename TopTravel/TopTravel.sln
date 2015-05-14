@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TopTravel", "TopTravel\TopTravel.csproj", "{26B8FC2C-73E1-4679-82F0-F3B5C1AFA30D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TopTravelLibrary", "TopTravelLibrary\TopTravelLibrary.csproj", "{6180347A-7E70-4F9F-A0EA-8D9B98DE5298}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibrary1", "ClassLibrary1\ClassLibrary1.csproj", "{04859711-F756-4BD3-B02E-A7E92FC1F00F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,10 +15,10 @@ Global
 		{26B8FC2C-73E1-4679-82F0-F3B5C1AFA30D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{26B8FC2C-73E1-4679-82F0-F3B5C1AFA30D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{26B8FC2C-73E1-4679-82F0-F3B5C1AFA30D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6180347A-7E70-4F9F-A0EA-8D9B98DE5298}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6180347A-7E70-4F9F-A0EA-8D9B98DE5298}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6180347A-7E70-4F9F-A0EA-8D9B98DE5298}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6180347A-7E70-4F9F-A0EA-8D9B98DE5298}.Release|Any CPU.Build.0 = Release|Any CPU
+		{04859711-F756-4BD3-B02E-A7E92FC1F00F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04859711-F756-4BD3-B02E-A7E92FC1F00F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04859711-F756-4BD3-B02E-A7E92FC1F00F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04859711-F756-4BD3-B02E-A7E92FC1F00F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

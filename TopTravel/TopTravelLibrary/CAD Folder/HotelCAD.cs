@@ -10,13 +10,14 @@ using System.Data.SqlTypes;
 using System.Configuration;
 
 
-namespace TopTravel
+namespace HADA
 {
     public class HotelCAD
     {
         public DataSet showHotels(HotelEN h)
         {
-            string s = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
+            string s;
+            s = ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString();
             DataSet virtdb = new DataSet();
             SqlConnection c = new SqlConnection(s);
 
