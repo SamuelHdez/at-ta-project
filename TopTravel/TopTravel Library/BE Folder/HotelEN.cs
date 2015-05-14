@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,32 +30,33 @@ namespace TopTravel
            c.addHotel(this);
        }
 
-       public void delete_hotel()
+       public DataSet delete_hotel(int i)
        {
            HotelCAD c = new HotelCAD();
-           c.deleteHotel(this);
+           DataSet ds = c.deleteHotel(this, i);
+           return ds;
        }
 
-       public void update_hotel()
+       public DataSet update_hotel(int i)
        {
            HotelCAD c = new HotelCAD();
-           c.updateHotel(this);
+           DataSet ds = c.updateHotel(this, i);
+           return ds;
        }
-
-       public ArrayList search_hotel()
+        // TO-DO : Figure out how to implement this using disconnected db
+/*       public ArrayList search_hotel()  
        {
            ArrayList a = new ArrayList();
            HotelCAD c = new HotelCAD();
            a = c.searchHotel(this);
            return a;
-       }
+       }*/
 
-       public ArrayList showAllHotels()
+       public DataSet showAllHotels()
        {
-           ArrayList a = new ArrayList();
            HotelCAD c = new HotelCAD();
-           a = c.showHotels();
-           return a;
+           DataSet ds = c.showHotels(this);
+           return ds;
        }
 
        // PROPERTIES
