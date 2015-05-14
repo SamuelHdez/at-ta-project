@@ -13,25 +13,13 @@ namespace TopTravel
 {
     public class BusCAD
     {
+        string s = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
         public ArrayList showBuses()
         {
-            ArrayList a = new ArrayList();  
-            string s;
-            s = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
-            SqlConnection c = new SqlConnection(s);
-            try
-            {
-                c.Open();
-                SqlCommand com = new SqlCommand("Select * from Bus", c);
-                SqlDataReader dr = com.ExecuteReader();
-                while (dr.Read())
-                {
-                    a.Add(dr["Id"].ToString());
-                }
-                dr.Close();
+            try{
+
             }
-            catch (Exception ex)
-            {
+            catch (Exception ex){
                 ex.ToString();
                 Console.WriteLine("ERROR: Show buses");
             }
