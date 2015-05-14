@@ -1,0 +1,96 @@
+﻿<%@ Page Title="Hotels" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Hotel.aspx.cs" Inherits="TopTravel.Hotel" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="FeaturedContent" runat="server">
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
+
+    <hgroup class="title">
+        <h1><%: Title %></h1>
+        <h2>Look up for your hotel</h2>
+    </hgroup>
+
+    <section id="Form">
+        
+
+        <!--<ol class="round">
+            <li class="one">
+                <h5>Introducción</h5>
+                Los formularios Web Forms de ASP.NET permiten crear sitios web dinámicos mediante modelos basados en eventos y de arrastrar y colocar.
+                La superficie de diseño y los cientos de controles y componentes permiten crear rápidamente sitios sofisticados y controlados mediante UI con acceso de datos.
+                <a href="http://go.microsoft.com/fwlink/?LinkId=245146">Más información…</a>
+            </li>
+            <li class="two">
+                <h5>Agregar paquetes NuGet y poner en marcha su codificación</h5>
+                NuGet facilita la instalación y actualización de herramientas y bibliotecas gratuitas.
+                <a href="http://go.microsoft.com/fwlink/?LinkId=245147">Más información…</a>
+            </li>
+            <li class="three">
+                <h5>Buscar hospedaje de sitios web</h5>
+                Encuentre fácilmente empresas de alojamiento web que ofrezcan la mejor relación de características y precio para sus aplicaciones.
+                <a href="http://go.microsoft.com/fwlink/?LinkId=245143">Más información…</a>
+            </li>
+        </ol>-->
+
+         <fieldset>
+            <legend>Search your hotel</legend>
+
+            <label>Place/hotel</label>
+            <asp:TextBox id="place" TextMode="SingleLine" Columns="30" runat="server" CssClass="input" />
+
+            <label>Date</label>
+            <asp:Calendar ID="Date" runat="server" CssClass="inputCal">
+                <TitleStyle BackColor="#353E49" BorderColor="#353E49" 
+                BorderWidth="1px" Font-Bold="True"
+                Font-Size="10pt" Height="25px" />
+            </asp:Calendar><br />
+
+            <label>Nights</label>
+            <input class="input" type="number" min="0" max="10" step="1" value="5">
+
+            <label>Adults</label>
+            <input class="input" type="number" min="0" max="20" step="1" value="2">
+
+            <label>Children</label>
+            <input class="input" type="number" min="0" max="20" step="1" value="0">
+
+            <asp:Button ID="SendButton" runat="server" Text="Send" OnClick="send" CssClass="inputBottom" />
+            <asp:Label id="ProcessHotel" runat="server" Text="" CssClass="process" />
+        </fieldset>
+
+    </section>
+
+    <section id="Results">
+            <div class="app">
+                <img src="images/cities/Berlin.jpg" height=100% width=100%>
+                <div class="footerImg">
+                    <div class="place">Berl&iacute;n</div>
+                    <div class="price">120 &euro;</div>
+                </div>
+            </div>
+            <div class="app">
+                <img src="images/cities/Florence.jpg" height=100% width=100%>
+                <div class="footerImg">
+                    <div class="place">Florence</div>
+                    <div class="price">90 &euro;</div>
+                </div>
+            </div>
+            <div class="app">
+                <img src="images/cities/Istanbul.jpg" height=100% width=100%>
+                <div class="footerImg">
+                    <div class="place">Istanbul</div>
+                    <div class="price">60 &euro;</div>
+                </div>
+            </div>
+            <div class="app">
+                <img src="images/cities/New-York.jpg" height=100% width=100%>
+                <div class="footerImg">
+                    <div class="place">New York</div>
+                    <div class="price">200 &euro;</div>
+                </div>
+            </div>
+    </section>
+
+
+
+</asp:Content>

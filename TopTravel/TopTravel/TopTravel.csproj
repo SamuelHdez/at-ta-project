@@ -127,6 +127,10 @@
     <Content Include="Account\OpenAuthProviders.ascx" />
     <Content Include="Account\Register.aspx" />
     <Content Include="Account\RegisterExternalLogin.aspx" />
+    <Content Include="App_Data\aspnet-TopTravel-20150506160445.mdf" />
+    <Content Include="App_Data\aspnet-TopTravel-20150506160445_log.ldf">
+      <DependentUpon>aspnet-TopTravel-20150506160445.mdf</DependentUpon>
+    </Content>
     <Content Include="Contact.aspx" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
@@ -223,6 +227,7 @@
     <Content Include="Product.aspx" />
     <Content Include="Hotel.aspx" />
     <Content Include="Package.aspx" />
+    <None Include="Properties\PublishProfiles\SamuelHdez.pubxml" />
     <None Include="Scripts\jquery-1.7.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.7.1.js" />
     <Content Include="Scripts\jquery-1.7.1.min.js" />
@@ -363,9 +368,7 @@
       <DependentUpon>Package.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Account\Web.config" />
     <Content Include="Site.Master" />
