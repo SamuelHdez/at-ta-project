@@ -16,6 +16,7 @@ namespace TopTravel
         string s = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
         public ArrayList showBuses()
         {
+            ArrayList a = new ArrayList();
             try{
 
             }
@@ -25,7 +26,7 @@ namespace TopTravel
             }
             finally
             {
-                c.Close();
+               // c.Close();
             }
             return a;
         }
