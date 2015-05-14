@@ -36,7 +36,7 @@
             <legend>Search your hotel</legend>
 
             <label>Place/hotel</label>
-            <asp:TextBox id="place" TextMode="SingleLine" Columns="30" runat="server" CssClass="input" />
+            <asp:TextBox id="Place" TextMode="SingleLine" Columns="30" runat="server" CssClass="input" />
 
             <label>Date</label>
             <asp:Calendar ID="Date" runat="server" CssClass="inputCal">
@@ -46,15 +46,20 @@
             </asp:Calendar><br />
 
             <label>Nights</label>
-            <input class="input" type="number" min="0" max="10" step="1" value="5">
+            <asp:TextBox ID="Nights" runat="server" type="number" CssClass="input" />
+            <!--<input class="input" type="number" min="0" max="10" step="1" value="5">-->
 
             <label>Adults</label>
-            <input class="input" type="number" min="0" max="20" step="1" value="2">
+            <asp:TextBox ID="Adults" runat="server" type="number" CssClass="input" />
 
             <label>Children</label>
-            <input class="input" type="number" min="0" max="20" step="1" value="0">
+            <asp:TextBox ID="Children" runat="server" type="number" CssClass="input" />
 
             <asp:Button ID="SendButton" runat="server" Text="Send" OnClick="send" CssClass="inputBottom" />
+
+             <asp:RangeValidator ID="RangeValidator1" controltovalidate="Nights" runat="server" ErrorMessage="Please enter value between 1-50 in nights." MinimumValue="1" MaximumValue="50" Type="Integer" forecolor="Red" CssClass="validator"></asp:RangeValidator>
+             <asp:RangeValidator ID="RangeValidator2" controltovalidate="Adults" runat="server" ErrorMessage="Please enter value between 1-20 in adults." MinimumValue="1" MaximumValue="20" Type="Integer" forecolor="Red" CssClass="validator"></asp:RangeValidator>
+             <asp:RangeValidator ID="RangeValidator3" controltovalidate="Children" runat="server" ErrorMessage="Please enter value between 1-20 in children." MinimumValue="1" MaximumValue="20" Type="Integer" forecolor="Red" CssClass="validator"></asp:RangeValidator>
             <asp:Label id="ProcessHotel" runat="server" Text="" CssClass="process" />
         </fieldset>
 

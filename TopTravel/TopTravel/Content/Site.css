@@ -184,6 +184,7 @@ ul#menu {
 }
 
     ul#menu li {
+        position: relative;
         display: inline;
         list-style: none;
         padding-left: 4%; /*padding-left: 15px;*/
@@ -192,7 +193,7 @@ ul#menu {
 
         ul#menu li a {
             background: none;
-            color: #999;
+            color: #CCC;
             text-decoration: none;
         }
 
@@ -200,6 +201,41 @@ ul#menu {
             color: #FF706C;
             text-decoration: none;
         }
+
+ul#menu li ul {
+    position: absolute;
+    left: 0;
+    width: 100%;
+  padding: 0;
+  margin-right: 0;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  display: none;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 10;
+  -webkit-transiton: opacity 0.2s;
+  -moz-transition: opacity 0.2s;
+  -ms-transition: opacity 0.2s;
+  -o-transition: opacity 0.2s;
+  -transition: opacity 0.2s;
+}
+ul#menu li ul li { 
+  background: #272F38; 
+  display: block; 
+  color: #CCC;
+  text-align: left;
+  text-shadow: 0 -1px 0 #000;
+}
+ul#menu li ul li:hover {
+    color: #FF706C;
+}
+ul#menu li:hover ul {
+  display: block;
+  opacity: 1;
+  visibility: visible;
+}
 
 
 /* page elements
@@ -604,6 +640,9 @@ input[type="checkbox"].input-validation-error {
   background-color: #272F38;
   color: #FF706C;
 }
+            ul#menu li ul li {
+                text-align: center;
+            }
 
 
     /* main layout
@@ -972,4 +1011,8 @@ select {
 .videoTitle h1{
     color: #FFF;
     text-shadow: 0px 3px 2px rgba(150, 150, 150, 1);
+}
+
+.validator {
+    display: block;
 }

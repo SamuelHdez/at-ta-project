@@ -17,7 +17,8 @@ namespace TopTravel
         protected void send(object sender, EventArgs e)
         {
             ProcessCruise.Text = "We are processing your search request";
-            ProcessCruise.Text = Departure.SelectedDate.ToShortDateString();
+            //ProcessCruise.Text = Departure.SelectedDate.ToShortDateString();
+            ProcessCruise.Text = Departure.SelectedDate.Day.ToString();
         }
     }
 }

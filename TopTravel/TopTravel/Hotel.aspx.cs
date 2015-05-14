@@ -17,6 +17,10 @@ namespace TopTravel
         protected void send(object sender, EventArgs e)
         {
             ProcessHotel.Text = "We are processing your search request";
+            ProcessHotel.Text += Place.Text;
+            ProcessHotel.Text += Date.SelectedDate.Day.ToString();
+            ProcessHotel.Text += System.Environment.NewLine;
+            ProcessHotel.Text += Nights.Text;
         }
     }
 }
