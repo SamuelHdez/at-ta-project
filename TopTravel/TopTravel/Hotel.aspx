@@ -56,6 +56,8 @@
             <asp:TextBox ID="Children" runat="server" type="number" CssClass="input" />
 
             <asp:Button ID="SendButton" runat="server" Text="Send" OnClick="send" CssClass="inputBottom" />
+            <asp:GridView ID="GridView1" runat="server"  AllowPaging="True" AllowSorting="True" AutoGenerateColumns="True">
+            </asp:GridView>
 
              <asp:RangeValidator ID="RangeValidator1" controltovalidate="Nights" runat="server" ErrorMessage="Please enter value between 1-50 in nights." MinimumValue="1" MaximumValue="50" Type="Integer" forecolor="Red" CssClass="validator"></asp:RangeValidator>
              <asp:RangeValidator ID="RangeValidator2" controltovalidate="Adults" runat="server" ErrorMessage="Please enter value between 1-20 in adults." MinimumValue="1" MaximumValue="20" Type="Integer" forecolor="Red" CssClass="validator"></asp:RangeValidator>

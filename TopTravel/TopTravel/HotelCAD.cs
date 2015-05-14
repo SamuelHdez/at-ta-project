@@ -16,6 +16,7 @@ namespace TopTravel
     {
         public DataSet showHotels(HotelEN h)
         {
+            
             string s = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
             DataSet virtdb = new DataSet();
             SqlConnection c = new SqlConnection(s);
@@ -31,7 +32,8 @@ namespace TopTravel
                 ex.ToString();
                 Console.WriteLine("ERROR: show hotel");
             }
-            finally {
+            finally
+            {
                 c.Close();
             }
             return virtdb;
@@ -145,6 +147,9 @@ namespace TopTravel
 
 
         }
+    }
+}
+
 
         /* Parte base de datos desconectada
 
@@ -271,4 +276,4 @@ namespace TopTravel
             return a;
         }
     }
-}
+} */

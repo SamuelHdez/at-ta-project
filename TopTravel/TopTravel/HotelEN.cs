@@ -9,7 +9,11 @@ namespace TopTravel
 {
     public class HotelEN
     {
-
+        
+        public HotelEN()
+        {
+        }
+        
         public HotelEN(int ID=-1, string na="", string ci="", int dy=0, int number=0, string ad="", string e="", int s=0, string b="", string d="")
         {
             Id = ID;
@@ -23,7 +27,7 @@ namespace TopTravel
             Bedrooms = b;
             Date = d;
         }
-
+        
        public void add_hotel()
        {
            HotelCAD c = new HotelCAD();

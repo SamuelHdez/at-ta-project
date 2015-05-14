@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TopTravel", "TopTravel\TopTravel.csproj", "{26B8FC2C-73E1-4679-82F0-F3B5C1AFA30D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TopTravel Library", "TopTravel Library\TopTravel Library.csproj", "{6180347A-7E70-4F9F-A0EA-8D9B98DE5298}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TopTravelLibrary", "TopTravelLibrary\TopTravelLibrary.csproj", "{6180347A-7E70-4F9F-A0EA-8D9B98DE5298}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
