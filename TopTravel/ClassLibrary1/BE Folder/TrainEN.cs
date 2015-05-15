@@ -2,16 +2,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Data;
+using System.Web;
 
 namespace TopTravel
 {
     public class TrainEN
     {
-        public TrainEN()
+        public TrainEN(int ID = -1, string b = "", string dt = "", string dc = "", string at = "", string dtc = "")
         {
+            Id = ID;
+            departureDay = dt;
+            arrivalDay = at;                       
+            departureCity = dc;          
+            destinationCity = dtc;
+            Bonus = b;
         }
 
         public void add_Train()
@@ -20,61 +24,63 @@ namespace TopTravel
             c.addTrain(this);
         }
 
-        public DataSet delete_train(int i)
+        public void delete_Train()
         {
             TrainCAD c = new TrainCAD();
-            DataSet ds = c.deleteTrain(this, i);
-            return ds;
+            c.deleteTrain(this);
         }
 
-        public DataSet update_train(int i)
+        public void update_Train()
         {
             TrainCAD c = new TrainCAD();
-            DataSet ds = c.updateTrain(this, i);
-            return ds;
+            c.updateTrain(this);
         }
 
-        public DataSet searchAllTrains(String city1, String city2)
+        public ArrayList search_Train()
         {
+            ArrayList a = new ArrayList();
             TrainCAD c = new TrainCAD();
-            DataSet ds = c.searchTrains(city1, city2);
-            return ds;
+            a = c.searchTrain(this);
+            return a;
         }
 
-        public DataSet showAllTrains()
+        public ArrayList showTrains()
         {
+            ArrayList a = new ArrayList();
             TrainCAD c = new TrainCAD();
-            DataSet ds = c.showTrains(this);
-            return ds;
+            a = c.showTrains();
+            return a;
         }
 
         // PROPERTIES
-        private int Id;
-        private string departureTime;
-        private string arrivalTime;
-        private string departureCity;
-        private string destinationCity;
-        private string Bonus;
-
+        public int Id { get; set; }
+        public string departureDay { get; set; }
+        public string arrivalDay { get; set; }
+        public string departureCity { get; set; }     
+        public string destinationCity { get; set; }
+        public string Bonus { get; set; }
+/* 
         //Data
+        private BusCAD m_cc;
+
         //getters and setters
 
-        public int id
+        public int Id
         {
-            get { return Id; }
-            set { Id = value; }
+            get { return id; }
+            set { id = value; }
         }
 
-        public string DepartureTime
+        public string DepartureDay
         {
-            get { return departureTime; }
-            set { departureTime = value; }
+            get { return departureDay; }
+            set { departureDay = value; }
         }
 
-        public string ArrivalTime
+        public string ArrivalDay
         {
-            get { return arrivalTime; }
-            set { arrivalTime = value; }
+            get { return arrivalDay; }
+            set { arrivalDay = value; }
         }
 
         public string DepartureCity
@@ -89,11 +95,11 @@ namespace TopTravel
             set { destinationCity = value; }
         }
 
-        public string bonus
+        public string Bonus
         {
-            get { return Bonus; }
-            set { Bonus = value; }
-        } 
+            get { return bonus; }
+            set { bonus = value; }
+        } */
 
     }
 }

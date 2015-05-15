@@ -15,6 +15,20 @@ namespace TopTravel
         {
         }
         
+        public HotelEN(int ID=-1, string na="", string ci="", int dy=0, int number=0, string ad="", string e="", int s=0, string b="", string d="")
+        {
+            Id = ID;
+            Name = na;
+            City = ci;
+            Days = dy;
+            Phone = number;
+            Address = ad;
+            Email = e;
+            Stars = s;
+            Bedrooms = b;
+            Date = d;
+        }
+        
        public void add_hotel()
        {
            HotelCAD c = new HotelCAD();
@@ -56,7 +70,7 @@ namespace TopTravel
            DataSet ds = c.showHotels(this);
            return ds;
        }
-/*
+
        // PROPERTIES
        public int Id;
        public string Name;
@@ -68,16 +82,21 @@ namespace TopTravel
        public int Stars;
        public string Bedrooms;
        public string Date;
-*/
-        // PROPERTIES
+
+/*        // PROPERTIES
         private int id;
         private string name;
         private string city;
+        private int days;
         private int phone;
         private string address;
         private string email;
         private int stars;
         private string bedrooms;
+        private string date;
+
+        //Data
+        private HotelCAD m_cc;
 
         //Getters and setters
         public int Id
@@ -128,5 +147,6 @@ namespace TopTravel
             set { bedrooms = value; }
         }
 
-    } 
+        } */
+    }
 }

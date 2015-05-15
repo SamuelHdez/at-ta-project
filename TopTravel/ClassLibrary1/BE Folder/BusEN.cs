@@ -2,16 +2,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Data;
+using System.Web;
 
 namespace TopTravel
 {
     public class BusEN
     {
-        public BusEN()
+        // hay que inicializar las variables? en la base de datos no admitimos nulos porque tiene que estar rellenado.
+        // podria haber varios buses on id -1. tenemos que hacer codigo para cuando la id sea -1 no hacer nada en la
+        // base de datos
+        public BusEN(int ID=-1, string b="", string dt="", string dc="", string at="", string dtc="")
         {
+            Id = ID;
+            bonus = b;
+            departureDate = dt;
+            departureCity = dc;
+            arrivalDate = at;
+            destinationCity = dtc;
+
         }
 
         public void add_Bus()
@@ -20,61 +28,63 @@ namespace TopTravel
             c.addBus(this);
         }
 
-        public DataSet delete_Bus(int i)
+        public void delete_Bus()
         {
             BusCAD c = new BusCAD();
-            DataSet ds = c.deleteBus(this, i);
-            return ds;
+            c.deleteBus(this);
         }
 
-        public DataSet update_Bus(int i)
+        public void update_Bus()
         {
             BusCAD c = new BusCAD();
-            DataSet ds = c.updateBus(this, i);
-            return ds;
+            c.updateBus(this);
         }
 
-        public DataSet searchAllBuses(String city1, String city2)
+        public ArrayList search_Bus()
         {
+            ArrayList a = new ArrayList();
             BusCAD c = new BusCAD();
-            DataSet ds = c.searchBuses(city1, city2);
-            return ds;
+            a = c.searchBus(this);
+            return a;
         }
 
-        public DataSet showAllBuses()
+        public ArrayList showBuses()
         {
+            ArrayList a = new ArrayList();
             BusCAD c = new BusCAD();
-            DataSet ds = c.showBuses(this);
-            return ds;
+            a = c.showBuses();
+            return a;
         }
 
         // PROPERTIES
-        private int Id;
-        private string departureTime;
-        private string arrivalTime;
-        private string departureCity;
-        private string destinationCity;
-        private string Bonus;
+        public int Id { get; set; }
+        public string departureDate { get; set; }    
+        public string arrivalDate { get; set; }
+        public string departureCity { get; set; }
+        public string destinationCity { get; set; }
+        public string bonus { get; set; }
 
-        //Data
+/* ¿esto sobra no? Lo que esta arriba es azucar sintactico para lo que hay abajo.
+    una vez miremos las restricciones de los atributos implementaremos lo que
+    necesiten individualmente
         //getters and setters
 
-        public int id
+        public int Id
         {
-            get { return Id; }
-            set { Id = value; }
+            get { return id; }
+            set { id = value; }
         }
 
-        public string DepartureTime
+        public string DepartureDate
         {
-            get { return departureTime; }
-            set { departureTime = value; }
+            get { return departureDate; }
+            set { departureDate = value; }
         }
 
-        public string ArrivalTime
+        public string ArrivalDate
         {
-            get { return arrivalTime; }
-            set { arrivalTime = value; }
+            get { return arrivalDate; }
+            set { arrivalDate = value; }
         }
 
         public string DepartureCity
@@ -89,11 +99,11 @@ namespace TopTravel
             set { destinationCity = value; }
         }
 
-        public string bonus
+        public string Bonus
         {
-            get { return Bonus; }
-            set { Bonus = value; }
-        } 
+            get { return bonus; }
+            set { bonus = value; }
+        } */
 
     }
 }
