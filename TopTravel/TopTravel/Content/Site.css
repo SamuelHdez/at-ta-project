@@ -1027,6 +1027,7 @@ select {
 .Grid th  {
       padding : 10px 6px;
       background: #353E49;
+      color: #CCC;
       border: none;
  }
 .Grid .alt {

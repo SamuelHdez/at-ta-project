@@ -69,7 +69,6 @@
     <section id="Results">
             <asp:GridView ID="GridView1" runat="server"  AllowPaging="True" PageSize="20" Width="100%" AutoGenerateColumns="False" CssClass="Grid" AlternatingRowStyle-CssClass="alt">
                 <columns>
-                    <asp:hyperlinkfield text="View" navigateurl="~\Hotel.aspx" headertext="Select" target="_blank" />
                     <asp:boundfield datafield="Name" headertext="Name"/>
                     <asp:boundfield datafield="City" headertext="City"/>
                     <asp:boundfield datafield="Stars" headertext="Stars"/>
@@ -78,7 +77,8 @@
                         <asp:Label ID="Label1" runat="server" Text='<%# Bind("price") %>'></asp:Label>
                         <asp:Label ID="Label2" runat="server" Text= " €"></asp:Label>
                     </ItemTemplate>
-                    </asp:TemplateField> 
+                    </asp:TemplateField>
+                    <asp:hyperlinkfield text="View" navigateurl="~\Hotel.aspx" headertext="Link" target="_blank" />
                 </columns>
             </asp:GridView>
     </section>
