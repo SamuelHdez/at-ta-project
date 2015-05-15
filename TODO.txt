@@ -1,0 +1,12 @@
+Things to do:
+
+-Add validation control
+	+Hotel name min(2-3)
+	+Children min(0)
+	+Adult min(0)
+	+Adult no char
+	+Children no char
+
+-Grid view
+	+Allow to order by price, stars...
+	+Pass month and number of adults/children to the product view
