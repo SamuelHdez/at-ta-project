@@ -49,7 +49,7 @@ namespace TopTravel
 
             try
             {
-                SqlDataAdapter da = new SqlDataAdapter("Select * from Hotel where City = '" + h + "'", c);
+                SqlDataAdapter da = new SqlDataAdapter("Select * from Hotel where City Like '%" + h + "%'", c);
                 da.Fill(virtdb, "hotel");
 
             }
