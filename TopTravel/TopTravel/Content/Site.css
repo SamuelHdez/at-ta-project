@@ -956,7 +956,8 @@ select {
     display: table-cell;
     text-align: center;
     vertical-align: middle;
-    padding: 0px;
+    padding: 20px;
+    padding-left: 40px;
 
     width: 50%;
 }
@@ -1016,3 +1017,23 @@ select {
 .validator {
     display: block;
 }
+
+.Grid {
+    background-color: #48515C; margin: 5px 0 10px 0; border: none; color: #FFF;}
+.Grid td {
+      padding: 10px 2px;
+      border: none;
+}
+.Grid th  {
+      padding : 10px 6px;
+      background: #353E49;
+      border: none;
+ }
+.Grid .alt {
+      background: #353E49; }
+.Grid .pgr {background: #363670 url(Images/grid-pgr.png) repeat-x top; }
+.Grid .pgr table { margin: 3px 0; }
+.Grid .pgr td { border-width: 0; padding: 0 6px; border-left: solid 1px #666; font-weight: bold; color: #fff; line-height: 12px; }  
+.Grid .pgr a { color: Gray; text-decoration: none; }
+.Grid .pgr a:hover { color: #000; text-decoration: none; }
+- See more at: http://www.dotnetfox.com/articles/gridview-custom-css-style-example-in-Asp-Net-1088.aspx#sthash.XVG2qIpm.dpuf

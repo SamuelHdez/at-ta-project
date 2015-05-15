@@ -56,23 +56,7 @@
             <asp:TextBox ID="Children" runat="server" type="number" CssClass="input" />
 
             <asp:Button ID="SendButton" runat="server" Text="Send" OnClick="send" CssClass="inputBottom" />
-            <asp:GridView ID="GridView1" runat="server"  AllowPaging="True"  AutoGenerateColumns="False">
-                <columns>
-
-                    <asp:hyperlinkfield text="View" navigateurl="~\Hotel.aspx" headertext="Select" target="_blank" />
-                    <asp:boundfield datafield="Name" headertext="Name"/>
-                    <asp:boundfield datafield="City" headertext="City"/>
-                    <asp:boundfield datafield="Stars" headertext="Stars"/>
-                   
-                    <asp:TemplateField HeaderText="Price/Person">
-                                        <ItemTemplate>
-                                            <asp:Label ID="Label1" runat="server" Text='<%# Bind("price") %>'></asp:Label>
-                                            <asp:Label ID="Label2" runat="server" Text= " €"></asp:Label>
-                                        </ItemTemplate>
-                    </asp:TemplateField> 
-
-    </columns>
-            </asp:GridView>
+            
 
              <asp:RangeValidator ID="RangeValidator1" controltovalidate="Nights" runat="server" ErrorMessage="Please enter value between 1-50 in nights." MinimumValue="1" MaximumValue="50" Type="Integer" forecolor="Red" CssClass="validator"></asp:RangeValidator>
              <asp:RangeValidator ID="RangeValidator2" controltovalidate="Adults" runat="server" ErrorMessage="Please enter value between 1-20 in adults." MinimumValue="1" MaximumValue="20" Type="Integer" forecolor="Red" CssClass="validator"></asp:RangeValidator>
@@ -83,34 +67,20 @@
     </section>
 
     <section id="Results">
-            <div class="app">
-                <img src="images/cities/Berlin.jpg" height=100% width=100%>
-                <div class="footerImg">
-                    <div class="place">Berl&iacute;n</div>
-                    <div class="price">120 &euro;</div>
-                </div>
-            </div>
-            <div class="app">
-                <img src="images/cities/Florence.jpg" height=100% width=100%>
-                <div class="footerImg">
-                    <div class="place">Florence</div>
-                    <div class="price">90 &euro;</div>
-                </div>
-            </div>
-            <div class="app">
-                <img src="images/cities/Istanbul.jpg" height=100% width=100%>
-                <div class="footerImg">
-                    <div class="place">Istanbul</div>
-                    <div class="price">60 &euro;</div>
-                </div>
-            </div>
-            <div class="app">
-                <img src="images/cities/New-York.jpg" height=100% width=100%>
-                <div class="footerImg">
-                    <div class="place">New York</div>
-                    <div class="price">200 &euro;</div>
-                </div>
-            </div>
+            <asp:GridView ID="GridView1" runat="server"  AllowPaging="True" PageSize="20" Width="100%" AutoGenerateColumns="False" CssClass="Grid" AlternatingRowStyle-CssClass="alt">
+                <columns>
+                    <asp:hyperlinkfield text="View" navigateurl="~\Hotel.aspx" headertext="Select" target="_blank" />
+                    <asp:boundfield datafield="Name" headertext="Name"/>
+                    <asp:boundfield datafield="City" headertext="City"/>
+                    <asp:boundfield datafield="Stars" headertext="Stars"/>
+                    <asp:TemplateField HeaderText="Price/Person">
+                    <ItemTemplate>
+                        <asp:Label ID="Label1" runat="server" Text='<%# Bind("price") %>'></asp:Label>
+                        <asp:Label ID="Label2" runat="server" Text= " €"></asp:Label>
+                    </ItemTemplate>
+                    </asp:TemplateField> 
+                </columns>
+            </asp:GridView>
     </section>
 
 
