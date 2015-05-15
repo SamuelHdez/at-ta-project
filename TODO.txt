@@ -10,3 +10,4 @@ Things to do:
 -Grid view
 	+Allow to order by price, stars...
 	+Pass month and number of adults/children to the product view
+	+Allow sorting name and place of the hotel individualy
