@@ -11,3 +11,16 @@ Things to do:
 	+Allow to order by price, stars...
 	+Pass month and number of adults/children to the product view
 	+Allow sorting name and place of the hotel individualy
+
+-Update CAD and EN files
+	+Flight
+	+Car Rental
+	+Cruise
+	+Space Travel
+	+Packages
+	+Company
+	+Extras
+	+Order
+	+Product
+	+Contact
+	+Client
