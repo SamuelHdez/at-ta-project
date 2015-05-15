@@ -67,7 +67,7 @@
     </section>
 
     <section id="Results">
-            <asp:GridView ID="GridView1" runat="server"  AllowPaging="True" PageSize="20" Width="100%" AutoGenerateColumns="False" CssClass="Grid" AlternatingRowStyle-CssClass="alt">
+            <asp:GridView ID="GridView1" runat="server"  AllowPaging="True" PageSize="10" Width="100%" AutoGenerateColumns="False" CssClass="Grid" AlternatingRowStyle-CssClass="alt" OnPageIndexChanging="GridView1_PageIndexChanging" >
                 <columns>
                     <asp:boundfield datafield="Name" headertext="Name"/>
                     <asp:boundfield datafield="City" headertext="City"/>

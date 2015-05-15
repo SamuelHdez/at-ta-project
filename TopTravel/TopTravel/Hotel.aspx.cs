@@ -17,14 +17,14 @@ namespace TopTravel
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!Page.IsPostBack)
-            {
+           // if (!Page.IsPostBack)
+            //{
                 
                 d = h.showAllHotels();
                 GridView1.DataSource = d;
                 GridView1.DataBind();
                  
-            }
+            //}
         }
 
         protected void send(object sender, EventArgs e)
@@ -40,6 +40,15 @@ namespace TopTravel
             GridView1.DataSource = d;
             GridView1.DataBind();
            
+        }
+
+        protected void GridView1_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            this.GridView1.PageIndex = e.NewPageIndex;
+            //LLenarDatosConsejera();
+            this.GridView1.DataBind();
+
+
         }
     }
 }
