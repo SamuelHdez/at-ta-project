@@ -46,28 +46,28 @@
             </asp:Calendar><br />
 
             <label>Nights</label>
-            <asp:TextBox ID="Nights" runat="server" type="number" CssClass="input" />
+            <asp:TextBox ID="Nights" runat="server" CssClass="input" />
             <!--<input class="input" type="number" min="0" max="10" step="1" value="5">-->
 
             <label>Adults</label>
-            <asp:TextBox ID="Adults" runat="server" type="number" CssClass="input" />
+            <asp:TextBox ID="Adults" runat="server" CssClass="input" />
 
             <label>Children</label>
-            <asp:TextBox ID="Children" runat="server" type="number" CssClass="input" />
+            <asp:TextBox ID="Children" runat="server" CssClass="input" />
 
             <asp:Button ID="SendButton" runat="server" Text="Send" OnClick="send" CssClass="inputBottom" />
             
 
              <asp:RangeValidator ID="RangeValidator1" controltovalidate="Nights" runat="server" ErrorMessage="Please enter value between 1-50 in nights." MinimumValue="1" MaximumValue="50" Type="Integer" forecolor="Red" CssClass="validator"></asp:RangeValidator>
-             <asp:RangeValidator ID="RangeValidator2" controltovalidate="Adults" runat="server" ErrorMessage="Please enter value between 1-20 in adults." MinimumValue="1" MaximumValue="20" Type="Integer" forecolor="Red" CssClass="validator"></asp:RangeValidator>
-             <asp:RangeValidator ID="RangeValidator3" controltovalidate="Children" runat="server" ErrorMessage="Please enter value between 1-20 in children." MinimumValue="1" MaximumValue="20" Type="Integer" forecolor="Red" CssClass="validator"></asp:RangeValidator>
+             <asp:RangeValidator ID="RangeValidator2" controltovalidate="Adults" runat="server" ErrorMessage="Please enter value between 0-20 in adults." MinimumValue="0" MaximumValue="20" Type="Integer" forecolor="Red" CssClass="validator"></asp:RangeValidator>
+             <asp:RangeValidator ID="RangeValidator3" controltovalidate="Children" runat="server" ErrorMessage="Please enter value between 0-20 in children." MinimumValue="0" MaximumValue="20" Type="Integer" forecolor="Red" CssClass="validator"></asp:RangeValidator>
             <asp:Label id="ProcessHotel" runat="server" Text="" CssClass="process" />
         </fieldset>
 
     </section>
 
     <section id="Results">
-            <asp:GridView ID="GridView1" runat="server"  AllowPaging="True" PageSize="10" Width="100%" AutoGenerateColumns="False" CssClass="Grid" AlternatingRowStyle-CssClass="alt" OnPageIndexChanging="GridView1_PageIndexChanging" >
+            <asp:GridView ID="GridView1" runat="server"  AllowPaging="True" PageSize="8" Width="100%" AutoGenerateColumns="False" CssClass="Grid" AlternatingRowStyle-CssClass="alt" OnPageIndexChanging="GridView1_PageIndexChanging" >
                 <columns>
                     <asp:boundfield datafield="Name" headertext="Name"/>
                     <asp:boundfield datafield="City" headertext="City"/>
@@ -80,6 +80,7 @@
                     </asp:TemplateField>
                     <asp:hyperlinkfield text="View" navigateurl="~\Hotel.aspx" headertext="Link" target="_blank" />
                 </columns>
+                <PagerStyle HorizontalAlign="Center" CssClass="GridPager" />
             </asp:GridView>
     </section>
 

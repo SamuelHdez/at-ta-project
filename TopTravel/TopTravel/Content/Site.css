@@ -1031,7 +1031,26 @@ select {
       border: none;
  }
 .Grid .alt {
-      background: #353E49; }
+      background: #353E49;
+}
+
+.GridPager {
+    font-weight: bold;
+    font-size: 16px;
+    height: 30px;
+}
+
+.GridPager td {
+    padding: 0px;
+    height: 0px;
+    padding: 0px 10px;
+}
+
+.GridPager a {
+    text-decoration: none;
+    margin: auto;
+}
+
 .Grid .pgr {background: #363670 url(Images/grid-pgr.png) repeat-x top; }
 .Grid .pgr table { margin: 3px 0; }
 .Grid .pgr td { border-width: 0; padding: 0 6px; border-left: solid 1px #666; font-weight: bold; color: #fff; line-height: 12px; }  

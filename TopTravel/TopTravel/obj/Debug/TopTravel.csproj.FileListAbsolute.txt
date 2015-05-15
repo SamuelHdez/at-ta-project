@@ -136,3 +136,5 @@ C:\Users\Samuel\Documents\at-ta-project\TopTravel\TopTravel\obj\Debug\TopTravel.
 C:\Users\Samuel\Documents\at-ta-project\TopTravel\TopTravel\obj\Debug\TopTravel.pdb
 C:\Users\Samuel\Documents\at-ta-project\TopTravel\TopTravel\bin\ClassLibrary1.dll
 C:\Users\Samuel\Documents\at-ta-project\TopTravel\TopTravel\bin\ClassLibrary1.pdb
+C:\Users\Javi\Desktop\at-ta-project\TopTravel\TopTravel\bin\ClassLibrary1.dll
+C:\Users\Javi\Desktop\at-ta-project\TopTravel\TopTravel\bin\ClassLibrary1.pdb
