@@ -82,34 +82,21 @@
     </section>
 
     <section id="Results">
-            <div class="app">
-                <img src="images/cities/Berlin.jpg" height=100% width=100%>
-                <div class="footerImg">
-                    <div class="place">Berl&iacute;n</div>
-                    <div class="price">120 &euro;</div>
-                </div>
-            </div>
-            <div class="app">
-                <img src="images/cities/Florence.jpg" height=100% width=100%>
-                <div class="footerImg">
-                    <div class="place">Florence</div>
-                    <div class="price">90 &euro;</div>
-                </div>
-            </div>
-            <div class="app">
-                <img src="images/cities/Istanbul.jpg" height=100% width=100%>
-                <div class="footerImg">
-                    <div class="place">Istanbul</div>
-                    <div class="price">60 &euro;</div>
-                </div>
-            </div>
-            <div class="app">
-                <img src="images/cities/New-York.jpg" height=100% width=100%>
-                <div class="footerImg">
-                    <div class="place">New York</div>
-                    <div class="price">200 &euro;</div>
-                </div>
-            </div>
+            <asp:GridView ID="GridView1" runat="server" AllowPaging="True" PageSize="8" Width="100%" AutoGenerateColumns="False" CssClass="Grid" AlternatingRowStyle-CssClass="alt" OnPageIndexChanging="GridView1_PageIndexChanging">
+                <columns>
+                    <asp:boundfield datafield="departureCity" headertext="Departure"/>
+                    <asp:boundfield datafield="destinationCity" headertext="Destination"/>
+                    <asp:boundfield datafield="ClassFlight" headertext="class"/>
+                    <asp:TemplateField HeaderText="Price/Person">
+                    <ItemTemplate>
+                        <asp:Label ID="Label1" runat="server" Text='<%# Bind("price") %>'></asp:Label>
+                        <asp:Label ID="Label2" runat="server" Text= " €"></asp:Label>
+                    </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:hyperlinkfield text="View" navigateurl="~\Flight.aspx" headertext="Link" target="_blank" />
+                </columns>
+                <PagerStyle HorizontalAlign="Center" CssClass="GridPager" />
+            </asp:GridView>
     </section>
 
 </asp:Content>

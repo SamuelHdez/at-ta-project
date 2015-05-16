@@ -47,8 +47,6 @@ namespace TopTravel
             this.GridView1.PageIndex = e.NewPageIndex;
             //LLenarDatosConsejera();
             this.GridView1.DataBind();
-
-
         }
     }
 }

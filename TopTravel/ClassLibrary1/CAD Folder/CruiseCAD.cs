@@ -13,6 +13,160 @@ namespace TopTravel
 {
     public class CruiseCAD
     {
+        public DataSet showCruises(CruiseEN b)
+        {
+            string s;
+            s = ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString();
+            DataSet virtdb = new DataSet();
+            SqlConnection c = new SqlConnection(s);
+
+            try
+            {
+                SqlDataAdapter da = new SqlDataAdapter("select * from Cruise", c);
+                da.Fill(virtdb, "cruise");
+
+            }
+            catch (Exception ex)
+            {
+                ex.ToString();
+                Console.WriteLine("ERROR: show cruise");
+            }
+            finally
+            {
+                c.Close();
+            }
+            return virtdb;
+
+        }
+
+        public DataSet searchCruises(String reg, String ci)
+        {
+            string s;
+            s = ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString();
+            DataSet virtdb = new DataSet();
+            SqlConnection c = new SqlConnection(s);
+
+            try
+            {
+                SqlDataAdapter da = new SqlDataAdapter("Select * from Cruise where Route LIKE '%" + reg + "%' and City LIKE '%" + ci + "%'", c);
+                da.Fill(virtdb, "cruise");
+
+            }
+            catch (Exception ex)
+            {
+                ex.ToString();
+                Console.WriteLine("ERROR: show cruise");
+            }
+            finally
+            {
+                c.Close();
+            }
+            return virtdb;
+
+        }
+
+
+        public void addCruise(CruiseEN b)
+        {
+            string s = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
+            SqlConnection c = new SqlConnection(s);
+            DataSet virtdb = new DataSet();
+            try
+            {
+                SqlDataAdapter da = new SqlDataAdapter();
+                da.Fill(virtdb, "cruise");
+                DataTable dt = new DataTable();
+                dt = virtdb.Tables["cruise"];
+                DataRow newRow = dt.NewRow();
+                newRow[0] = b.id;
+                newRow[1] = b.DepartureTime;
+                newRow[2] = b.ArrivalTime;
+                newRow[3] = b.city;
+                newRow[4] = b.route;
+                newRow[5] = b.Price;
+                dt.Rows.Add(newRow);
+                SqlCommandBuilder cbuilder = new SqlCommandBuilder(da);
+                da.Update(virtdb, "cruise");
+            }
+            catch (Exception ex)
+            {
+                ex.ToString();
+                Console.WriteLine("ERROR: Add cruise");
+            }
+            finally
+            {
+                c.Close();
+            }
+        }
+
+
+        public DataSet deleteCruise(CruiseEN b, int i) // It will delete the index passed in the view
+        {
+            string s = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
+            SqlConnection c = new SqlConnection(s);
+            DataSet virtdb = new DataSet();
+            try
+            {
+                SqlDataAdapter da = new SqlDataAdapter();
+                da.Fill(virtdb, "cruise");
+                DataTable t = new DataTable();
+                t = virtdb.Tables["cruise"];
+
+                t.Rows[i].Delete();
+
+                SqlCommandBuilder cbuilder = new SqlCommandBuilder(da);
+                da.Update(virtdb, "cruise");
+            }
+            catch (Exception ex)
+            {
+                ex.ToString();
+                Console.WriteLine("ERROR: Delete cruise");
+            }
+            finally
+            {
+                c.Close();
+            }
+            return virtdb;
+        }
+
+        public DataSet updateCruise(CruiseEN b, int i)
+        {
+            string s = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
+            SqlConnection c = new SqlConnection(s);
+            DataSet virtdb = new DataSet();
+            try
+            {
+                SqlDataAdapter da = new SqlDataAdapter();
+                da.Fill(virtdb, "cruise");
+                DataTable t = new DataTable();
+                t = virtdb.Tables["cruise"];
+
+                t.Rows[i]["Id"] = b.id;
+
+                t.Rows[i]["Id"] = b.id;
+                t.Rows[i]["departureTime"] = b.DepartureTime;
+                t.Rows[i]["arrivalTime"] = b.ArrivalTime;
+                t.Rows[i]["city"] = b.city;
+                t.Rows[i]["route"] = b.route;
+                t.Rows[i]["price"] = b.Price;
+
+
+                SqlCommandBuilder cbuilder = new SqlCommandBuilder(da);
+                da.Update(virtdb, "cruise");
+            }
+            catch (Exception ex)
+            {
+                ex.ToString();
+                Console.WriteLine("ERROR: Delete cruise");
+            }
+            finally
+            {
+                c.Close();
+            }
+            return virtdb;
+        }
+
+        /*
         public void add_Cruise(CruiseEN cr)
         {
             string s = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
@@ -137,6 +291,7 @@ namespace TopTravel
             }
             return a;
         }
+         */ 
     }
 }
 

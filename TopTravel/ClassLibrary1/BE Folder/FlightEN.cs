@@ -1,65 +1,99 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
+using System.Text;
+using System.Threading.Tasks;
+using System.Data;
 
 namespace TopTravel
 {
     public class FlightEN
     {
-
-        public FlightEN(int ID, int maxP, int p, string dt, string dc, string at, string d)
+        public FlightEN()
         {
-            flightID = ID;
-            maxpassengers = maxP;
-            price = p;
-            departureTime = dt;
-            departureCity = dc;
-            arrivalTime = at;
-            destination = d;
         }
 
-        public void add_flight()
+        public void add_Flight() 
         {
-            m_cc = new FlightCAD();
-            m_cc.add_flight(this);
+            FlightCAD c = new FlightCAD();
+            c.addFlight(this);
         }
 
-        public void delete_flight()
+        public DataSet delete_Flight(int i)
         {
-            m_cc = new FlightCAD();
-            m_cc.delete_flight(this);
+            FlightCAD c = new FlightCAD();
+            DataSet ds = c.deleteFlight(this, i);
+            return ds;
         }
 
-        public void update_flight()
+        public DataSet update_Flight(int i)
         {
-            m_cc = new FlightCAD();
-            m_cc.update_flight(this);
+            FlightCAD c = new FlightCAD();
+            DataSet ds = c.updateFlight(this, i);
+            return ds;
         }
 
-        public void search_flight()
+        public DataSet searchAllFlights(String city1, String city2)
         {
-            m_cc = new FlightCAD();
-            m_cc.search_flight(this);
+            FlightCAD c = new FlightCAD();
+            DataSet ds = c.searchFlights(city1, city2);
+            return ds;
         }
 
-        public void show_timetable()
+        public DataSet showAllFlights()
         {
-            m_cc = new FlightCAD();
-            m_cc.show_timetable(this);
+            FlightCAD c = new FlightCAD();
+            DataSet ds = c.showFlights(this);
+            return ds;
         }
 
 
         // PROPERTIES
-        public int flightID { get; set; }
-        public string departureTime { get; set; }
-        public string departureCity { get; set; }
-        public string arrivalTime { get; set; }
-        public string destination { get; set; }
-        public int maxpassengers { get; set; }
-        public int price { get; set; }
+        private int Id;
+        private string departureTime;
+        private string arrivalTime;
+        private string departureCity;
+        private string destinationCity;
+        private int price;
 
         //Data
-        private FlightCAD m_cc;
+        //getters and setters
+
+        public int id
+        {
+            get { return Id; }
+            set { Id = value; }
+        }
+
+        public string DepartureTime
+        {
+            get { return departureTime; }
+            set { departureTime = value; }
+        }
+
+        public string ArrivalTime
+        {
+            get { return arrivalTime; }
+            set { arrivalTime = value; }
+        }
+
+        public string DepartureCity
+        {
+            get { return departureCity; }
+            set { departureCity = value; }
+        }
+
+        public string DestinationCity
+        {
+            get { return destinationCity; }
+            set { destinationCity = value; }
+        }
+
+        public int Price
+        {
+            get { return price; }
+            set { price = value; }
+        } 
     }
 }

@@ -2,61 +2,97 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
-using System.Configuration;
+using System.Text;
+using System.Threading.Tasks;
+using System.Data;
 
 namespace TopTravel
 {
     public class CruiseEN
     {
-        public CruiseEN(int id, string dT, string r, string aT, string c)
+        public CruiseEN()
         {
-            Id = id;
-            departureDate = dT;
-            Route = r;
-            arrivalDate = aT;
-            City = c;
         }
 
         public void add_Cruise()
         {
             CruiseCAD c = new CruiseCAD();
-            c.add_Cruise(this);
+            c.addCruise(this);
         }
 
-        public void delete_Cruise()
+        public DataSet delete_Cruise(int i)
         {
             CruiseCAD c = new CruiseCAD();
-            c.delete_Cruise(this);
+            DataSet ds = c.deleteCruise(this, i);
+            return ds;
         }
 
-        public void update_Cruise()
+        public DataSet update_Cruise(int i)
         {
             CruiseCAD c = new CruiseCAD();
-            c.update_Cruise(this);
+            DataSet ds = c.updateCruise(this, i);
+            return ds;
         }
 
-        public ArrayList show_All()
+        public DataSet searchAllCruises(String region, String city)
         {
-            ArrayList a= new ArrayList();
-            CruiseCAD c= new CruiseCAD();
-            a = c.show_All_Cruises();
-            return a;
-        }
-
-        public ArrayList search_Cruise()
-        {
-            ArrayList a = new ArrayList();
             CruiseCAD c = new CruiseCAD();
-            a = c.searchCruises(this);
-            return a;
+            DataSet ds = c.searchCruises(region, city);
+            return ds;
+        }
+
+        public DataSet showAllCruises()
+        {
+            CruiseCAD c = new CruiseCAD();
+            DataSet ds = c.showCruises(this);
+            return ds;
         }
 
         // PROPERTIES
-        public int Id { get; set; }
-        public string departureDate { get; set; }
-        public string Route { get; set; }
-        public string City { get; set; }
-        public string arrivalDate { get; set; }
+        private int Id;
+        private string departureTime;
+        private string arrivalTime;
+        private string City;
+        private string Route;
+        private int price;
+
+        //getters and setters
+
+        public int id
+        {
+            get { return Id; }
+            set { Id = value; }
+        }
+
+        public string DepartureTime
+        {
+            get { return departureTime; }
+            set { departureTime = value; }
+        }
+
+        public string ArrivalTime
+        {
+            get { return arrivalTime; }
+            set { arrivalTime = value; }
+        }
+
+        public string city
+        {
+            get { return City; }
+            set { City = value; }
+        }
+
+        public string route
+        {
+            get { return Route; }
+            set { Route = value; }
+        }
+
+        public int Price
+        {
+            get { return price; }
+            set { price = value; }
+        } 
+
     }
 }

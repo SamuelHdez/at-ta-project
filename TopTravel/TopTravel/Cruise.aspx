@@ -17,19 +17,22 @@
 
             <label>Region</label>
              <asp:DropDownList ID="region" runat="server" CssClass="input">
-                <asp:ListItem Text="Africa" Value="1"></asp:ListItem>
-                <asp:ListItem Text="Alaska" Value="2"></asp:ListItem>
-                <asp:ListItem Text="Asia" Value="3"></asp:ListItem>
-                <asp:ListItem Text="Bahamas" Value="4"></asp:ListItem>
-                <asp:ListItem Text="Baltic" Value="5"></asp:ListItem>
-                <asp:ListItem Text="Bermuda" Value="6"></asp:ListItem>
-                <asp:ListItem Text="Canary isladns" Value="7"></asp:ListItem>
-                <asp:ListItem Text="Caribbean" Value="8"></asp:ListItem>
-                <asp:ListItem Text="European rivers" Value="9"></asp:ListItem>
-                <asp:ListItem Text="Greece/Turkey/Black Sea" Value="10"></asp:ListItem>
-                <asp:ListItem Text="Hawaii" Value="11"></asp:ListItem>
-                <asp:ListItem Text="Scandinavia & Fjords" Value="12"></asp:ListItem>     
+                <asp:ListItem Text="Africa" Value="Africa"></asp:ListItem>
+                <asp:ListItem Text="Alaska" Value="Alaska"></asp:ListItem>
+                <asp:ListItem Text="Asia" Value="Asia"></asp:ListItem>
+                <asp:ListItem Text="Bahamas" Value="Bahamas"></asp:ListItem>
+                <asp:ListItem Text="Baltic" Value="Baltic"></asp:ListItem>
+                <asp:ListItem Text="Bermuda" Value="Bermuda"></asp:ListItem>
+                <asp:ListItem Text="Canary islands" Value="Canary islands"></asp:ListItem>
+                <asp:ListItem Text="Caribbean" Value="Caribbean"></asp:ListItem>
+                <asp:ListItem Text="European rivers" Value="European rivers"></asp:ListItem>
+                <asp:ListItem Text="Greece/Turkey/Black Sea" Value="Greece/Turkey/Black Sea"></asp:ListItem>
+                <asp:ListItem Text="Hawaii" Value="Hawaii"></asp:ListItem>
+                <asp:ListItem Text="Scandinavia & Fjords" Value="Scandinavia & Fjords"></asp:ListItem>     
             </asp:DropDownList>
+
+            <!--<asp:Label ID="Label2" runat="server" Text="Label">Flying from: </asp:Label>--><label>City</label>
+            <asp:TextBox id="dep" TextMode="SingleLine" Columns="30" runat="server" CssClass="input" />
 
             <label>Days</label>
             <input class="input" type="number" min="0" max="20" step="1" value="7">
@@ -54,34 +57,20 @@
     </section>
 
     <section id="Results">
-            <div class="app">
-                <img src="images/cities/Berlin.jpg" height=100% width=100%>
-                <div class="footerImg">
-                    <div class="place">Berl&iacute;n</div>
-                    <div class="price">120 &euro;</div>
-                </div>
-            </div>
-            <div class="app">
-                <img src="images/cities/Florence.jpg" height=100% width=100%>
-                <div class="footerImg">
-                    <div class="place">Florence</div>
-                    <div class="price">90 &euro;</div>
-                </div>
-            </div>
-            <div class="app">
-                <img src="images/cities/Istanbul.jpg" height=100% width=100%>
-                <div class="footerImg">
-                    <div class="place">Istanbul</div>
-                    <div class="price">60 &euro;</div>
-                </div>
-            </div>
-            <div class="app">
-                <img src="images/cities/New-York.jpg" height=100% width=100%>
-                <div class="footerImg">
-                    <div class="place">New York</div>
-                    <div class="price">200 &euro;</div>
-                </div>
-            </div>
+            <asp:GridView ID="GridView1" runat="server" AllowPaging="True" PageSize="8" Width="100%" AutoGenerateColumns="False" CssClass="Grid" AlternatingRowStyle-CssClass="alt" OnPageIndexChanging="GridView1_PageIndexChanging">
+                <columns>
+                    <asp:boundfield datafield="city" headertext="Departure"/>
+                    <asp:boundfield datafield="route" headertext="Route"/>
+                    <asp:TemplateField HeaderText="Price/Person">
+                    <ItemTemplate>
+                        <asp:Label ID="Label1" runat="server" Text='<%# Bind("price") %>'></asp:Label>
+                        <asp:Label ID="Label2" runat="server" Text= " €"></asp:Label>
+                    </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:hyperlinkfield text="View" navigateurl="~\Cruise.aspx" headertext="Link" target="_blank" />
+                </columns>
+                <PagerStyle HorizontalAlign="Center" CssClass="GridPager" />
+            </asp:GridView>
     </section>
 
 
