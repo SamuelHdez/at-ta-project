@@ -13,14 +13,14 @@ Things to do:
 	+Allow sorting name and place of the hotel individualy
 
 -Update CAD and EN files
-	+Flight
-	+Car Rental
-	+Cruise
-	+Space Travel
+	+Flight -Antonio
+	+Car Rental -Antonio
+	+Cruise -Antonio
+	+Space Travel -Antonio
 	+Packages
 	+Company
 	+Extras
 	+Order
-	+Product
+	+Product -Antonio
 	+Contact
 	+Client
