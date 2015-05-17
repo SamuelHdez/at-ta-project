@@ -57,18 +57,20 @@
                             <ul>
                                 <li>
                                     <a id="registerLink" runat="server" href="~/Account/Register.aspx">
-                                        <img src="Images/register.png" height="25" width="25">
+                                        <img src="../Images/register.png" height="25" width="25">
                                     </a>
-                                </li>
+                                &nbsp;</li>
                                 <li>
                                     <a id="loginLink" runat="server" href="~/Account/Login.aspx">
-                                        <img src="Images/login.png" height="25" width="25">
+                                        <img src="../Images/login.png" height="25" width="25">
                                     </a>
-                                </li>
+                                &nbsp;</li>
                             </ul>
                         </AnonymousTemplate>
                         <LoggedInTemplate>
+
                             <p>
+                                
                                 Hello, <a runat="server" class="username" href="~/Account/Manage.aspx" title="Manage your account">
                                     <asp:LoginName runat="server" CssClass="username" /></a>.
                                 <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Cerrar sesión" LogoutPageUrl="~/" />
@@ -79,16 +81,16 @@
                 </div>
                 <nav>
                     <ul id="menu">
-                        <li><a runat="server" href="~/Hotel.aspx"><img src="images/hotel.png" height="25" width="25"> Hotel</a></li>
-                        <li><a runat="server" href="~/Flight.aspx"> <img src="images/plane.png" height="25" width="25"> Flight</a></li>
-                        <li><a runat="server" href="~/Cruise.aspx"><img src="images/boat.png" height="25" width="25"> Cruise</a></li>
-                        <li><a runat="server" href="~/Flight.aspx"><img src="images/paq.png" height="25" width="25"> Packages</a></li>
-                        <li><a runat="server" href="~/Flight.aspx"><img src="images/trans.png" height="25" width="25"> Transport</a>
+                        <li><a runat="server" href="~/Hotel.aspx"><img src="../images/hotel.png" height="25" width="25"> Hotel</a></li>
+                        <li><a runat="server" href="~/Flight.aspx"> <img src="../images/plane.png" height="25" width="25"> Flight</a></li>
+                        <li><a runat="server" href="~/Cruise.aspx"><img src="../images/boat.png" height="25" width="25"> Cruise</a></li>
+                        <li><a runat="server" href="~/Flight.aspx"><img src="../images/paq.png" height="25" width="25"> Packages</a></li>
+                        <li><a runat="server" href="~/Flight.aspx"><img src="../images/trans.png" height="25" width="25"> Transport</a>
                             <ul>
-                            <li><a runat="server" href="~/Hotel.aspx"><img src="images/car.png" height="25" width="25"> Car rental</a></li>
-                            <li><a runat="server" href="~/Hotel.aspx"><img src="images/bus.png" height="25" width="25"> Bus</a></li>
-                            <li><a runat="server" href="~/Hotel.aspx"><img src="images/train.png" height="25" width="25"> Train</a></li>
-                            <li><a runat="server" href="~/Hotel.aspx"><img src="images/rocket.png" height="25" width="25"> Rocket</a></li>
+                            <li><a runat="server" href="~/Hotel.aspx"><img src="../images/car.png" height="25" width="25"> Car rental</a></li>
+                            <li><a runat="server" href="~/Hotel.aspx"><img src="../images/bus.png" height="25" width="25"> Bus</a></li>
+                            <li><a runat="server" href="~/Hotel.aspx"><img src="../images/train.png" height="25" width="25"> Train</a></li>
+                            <li><a runat="server" href="~/Hotel.aspx"><img src="../images/rocket.png" height="25" width="25"> Rocket</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -114,15 +116,16 @@
         <div class="content-wrapper">
             <div class="float-left">
                 <ul id="menuFooter">
-                    <li><a runat="server" href="~/About.aspx"> <img src="images/about.png" height="25" width="25"> More about us</a></li>
-                    <li><a runat="server" href="~/Contact.aspx"><img src="images/contact.png" height="25" width="25"> Contact</a></li>
+                    <li><a runat="server" href="~/About.aspx"> <img src="../images/about.png" height="25" width="25"> More about us</a></li>
+                     <li><a runat="server" href="~/Companies.aspx"> <img src="../images/about.png" height="25" width="25"> Partners</a></li>
+                    <li><a runat="server" href="~/Contact.aspx"><img src="../images/contact.png" height="25" width="25"> Contact</a></li>
                 </ul>
             </div>
-            <div class="float-right">
-                <p>&copy; <%: DateTime.Now.Year %> -Top Travel coorportaion</p>
+            <div class="float-right-footer">
+                <p>&copy; 2015 -Top Travel coorportaion</p>
             </div>
         </div>
-        <img class="backgroundFooter" src="/Images/landscape.png" />
+        <!--<img class="backgroundFooter" src="/Images/landscape.png" />-->
     </footer>
     </form>
 </body>

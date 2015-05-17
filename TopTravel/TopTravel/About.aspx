@@ -7,6 +7,18 @@
     </hgroup>
 
     <article>
+          <asp:LoginView ID="LoginView1" runat="server" ViewStateMode="Disabled">
+               <AnonymousTemplate>
+                   <p>        
+                     NO está logueqado
+                 </p>
+                   </AnonymousTemplate>
+               <LoggedInTemplate>
+                    <p>        
+                     Está logueqado
+                 </p>
+                   </LoggedInTemplate>
+              </asp:LoginView>
         <p>        
             Use esta área para proporcionar información adicional.
         </p>
@@ -18,6 +30,18 @@
         <p>        
             Use esta área para proporcionar información adicional.
         </p>
+        <p>        
+            <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+            User&nbsp;&nbsp;
+        </p>
+        <p>        
+            <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+            Pass</p>
+        <p>        
+            <asp:Button ID="Button1" runat="server" OnClick="Button1_click" Text="Button" />
+        </p>
+        <p>        
+            &nbsp;</p>
     </article>
 
     <aside>

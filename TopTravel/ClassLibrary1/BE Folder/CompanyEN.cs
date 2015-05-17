@@ -2,23 +2,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
-using System.Configuration;
+using System.Text;
+using System.Threading.Tasks;
+using System.Data;
 
 namespace TopTravel
 {
     public class CompanyEN
-    {
-        public CompanyEN (int id=-1, string n="", string t="", string e="", string c="", string url="", string d="", int number=0) {
-            ID = id;
-            Name = n;
-			Type = t; //Flight, Train, Bus, Space, Hotel, Car, Cruise
-			Email = e;
-            Country = c;
-            Website = url;
-            Description = d;
-            Phone = number;
-		}
+    {        
+        
+        public CompanyEN()
+        {
+        }
 
         public void add_Company()
         {
@@ -26,97 +21,92 @@ namespace TopTravel
             c.addCompany(this);
         }
 
-        public void delete_Company()
+        public DataSet delete_Company(int i)
         {
             CompanyCAD c = new CompanyCAD();
-            c.deleteCompany(this);
+            DataSet ds = c.deleteCompany(this, i);
+            return ds;
         }
 
-        public void update_Company()
+        public DataSet update_Company(int i)
         {
             CompanyCAD c = new CompanyCAD();
-            c.updateCompany(this);
+            DataSet ds = c.updateCompany(this, i);
+            return ds;
         }
 
-        public ArrayList showCompanies()
+        public DataSet searchAllCompanies(String ty)
         {
-            ArrayList a = new ArrayList();
             CompanyCAD c = new CompanyCAD();
-            a = c.showCompanies();
-            return a;
+            DataSet ds = c.searchCompanies(ty);
+            return ds;
+        }
+
+        public DataSet showAllCompanies()
+        {
+            CompanyCAD c = new CompanyCAD();
+            DataSet ds = c.showCompanies(this);
+            return ds;
         }
 
         // PROPERTIES
-        public int ID { get; set; }
-        public string Name { get; set; }
-        public string Type { get; set; }
-        public int Phone { get; set; }
-        public string Email { get; set; }
-        public string Country { get; set; }
-        public string Website { get; set; }
-        public string Description { get; set; }
+        private int ID;
+        private string Name;
+        private string Type;
+        private int Phone;
+        private string Email;
+        private string Country;
+        private string Website;
+        private string Description;
 
-        /* Esto sobra pero no lo borro por si acaso.
-        // PROPERTIES
-        private int id;
-        private string name;
-        private string type;
-        private int phone;
-        private string email;
-        private string country;
-        private string website;
-        private string description;
-
-        //Data
-        private CompanyCAD m_cc;
 
         //Getters and setters
         public int Id
         {
-            get { return id; }
-            set { id = value; }
+            get { return ID; }
+            set { ID = value; }
         }
 
-        public string Name
+        public string name
         {
-            get { return name; }
-            set { name = value; }
+            get { return Name; }
+            set { Name = value; }
         }
 
-        public string Type
+        public string type
         {
-            get { return type; }
-            set { type = value; }
+            get { return Type; }
+            set { Type = value; }
         }
 
-         public int Phone
+         public int phone
         {
-            get { return phone; }
-            set { phone = value; }
+            get { return Phone; }
+            set { Phone = value; }
         }
 
-         public string Email
+         public string email
         {
-            get { return email; }
-            set { email = value; }
+            get { return Email; }
+            set { Email = value; }
         }
 
-         public string Country
+         public string country
          {
-             get { return country; }
-             set { country = value; }
+             get { return Country; }
+             set { Country = value; }
          }
 
-         public string Website
+         public string website
          {
-             get { return website; }
-             set { website = value; }
+             get { return Website; }
+             set { Website = value; }
          }
 
-         public string Description
+         public string description
          {
-             get { return description; }
-             set { description = value; }
-         }*/
+             get { return Description; }
+             set { Description = value; }
+         }
     }
 }

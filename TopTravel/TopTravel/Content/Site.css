@@ -51,6 +51,11 @@ mark {
     float: right;
 }
 
+.float-right-footer {
+    float: right;
+    color: #FFF;
+}
+
 .clear-fix:after {
     content: ".";
     clear: both;
@@ -110,7 +115,7 @@ header .content-wrapper {
 footer {
     clear: both;
     font-size: .8em;
-    height: 100px;
+    height: 130px;
 }
 
 .backgroundFooter {

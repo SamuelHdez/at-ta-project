@@ -17,18 +17,17 @@
 
             <label>Region</label>
              <asp:DropDownList ID="region" runat="server" CssClass="input">
-                <asp:ListItem Text="Africa" Value="Africa"></asp:ListItem>
-                <asp:ListItem Text="Alaska" Value="Alaska"></asp:ListItem>
+                <asp:ListItem Text="All" Value=""></asp:ListItem>
+                <asp:ListItem Text="Mediterranean" Value="Mediterranean"></asp:ListItem>
                 <asp:ListItem Text="Asia" Value="Asia"></asp:ListItem>
                 <asp:ListItem Text="Bahamas" Value="Bahamas"></asp:ListItem>
                 <asp:ListItem Text="Baltic" Value="Baltic"></asp:ListItem>
                 <asp:ListItem Text="Bermuda" Value="Bermuda"></asp:ListItem>
                 <asp:ListItem Text="Canary islands" Value="Canary islands"></asp:ListItem>
                 <asp:ListItem Text="Caribbean" Value="Caribbean"></asp:ListItem>
-                <asp:ListItem Text="European rivers" Value="European rivers"></asp:ListItem>
-                <asp:ListItem Text="Greece/Turkey/Black Sea" Value="Greece/Turkey/Black Sea"></asp:ListItem>
                 <asp:ListItem Text="Hawaii" Value="Hawaii"></asp:ListItem>
-                <asp:ListItem Text="Scandinavia & Fjords" Value="Scandinavia & Fjords"></asp:ListItem>     
+                <asp:ListItem Text="Scandinavia & Fjords" Value="Scandinavia & Fjords"></asp:ListItem> 
+                     
             </asp:DropDownList>
 
             <!--<asp:Label ID="Label2" runat="server" Text="Label">Flying from: </asp:Label>--><label>City</label>

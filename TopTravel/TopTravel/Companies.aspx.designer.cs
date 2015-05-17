@@ -7,27 +7,27 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace TopTravel.Account {
+namespace TopTravel {
     
     
-    public partial class Register {
+    public partial class Companies {
         
         /// <summary>
-        /// Control RegisterUser.
+        /// Control typeCompany.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CreateUserWizard RegisterUser;
+        protected global::System.Web.UI.WebControls.RadioButtonList typeCompany;
         
         /// <summary>
-        /// Control RegisterUserWizardStep.
+        /// Control GridView1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CreateUserWizardStep RegisterUserWizardStep;
+        protected global::System.Web.UI.WebControls.GridView GridView1;
     }
 }

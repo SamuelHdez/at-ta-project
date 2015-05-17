@@ -16,7 +16,6 @@ Things to do:
 	+Car Rental -Antonio
 	+Space Travel -Antonio
 	+Packages
-	+Company
 	+Extras
 	+Order
 	+Product -Antonio

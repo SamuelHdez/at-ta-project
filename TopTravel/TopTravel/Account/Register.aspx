@@ -26,30 +26,65 @@
                         <legend>Formulario de registro</legend>
                         <ol>
                             <li>
-                                <asp:Label runat="server" AssociatedControlID="UserName">Nombre de usuario</asp:Label>
+                                <asp:Label runat="server" AssociatedControlID="UserName">User Name</asp:Label>
                                 <asp:TextBox runat="server" ID="UserName" />
                                 <asp:RequiredFieldValidator runat="server" ControlToValidate="UserName"
-                                    CssClass="field-validation-error" ErrorMessage="El campo de nombre de usuario es obligatorio." />
+                                    CssClass="field-validation-error" ErrorMessage="This field is mandatory." />
                             </li>
                             <li>
-                                <asp:Label runat="server" AssociatedControlID="Email">Dirección de correo electrónico</asp:Label>
+                                <asp:Label runat="server" AssociatedControlID="dni">Identification document</asp:Label>
+                                <asp:TextBox runat="server" ID="dni" />
+                                <asp:RequiredFieldValidator runat="server" ControlToValidate="dni"
+                                    CssClass="field-validation-error" ErrorMessage="This field is mandatory." />
+                            </li>
+                            <li>
+                                <asp:Label runat="server" AssociatedControlID="name">First Name</asp:Label>
+                                <asp:TextBox runat="server" ID="name" />
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="name"
+                                    CssClass="field-validation-error" ErrorMessage="This field is mandatory." />
+                            </li>
+                            <li>
+                                <asp:Label runat="server" AssociatedControlID="dni">Surname</asp:Label>
+                                <asp:TextBox runat="server" ID="surname" />
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="surname"
+                                    CssClass="field-validation-error" ErrorMessage="This field is mandatory." />
+                            </li>
+                            <li>
+                                <asp:Label runat="server" AssociatedControlID="dni">Phone</asp:Label>
+                                <asp:TextBox runat="server" ID="phone" />
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="phone"
+                                    CssClass="field-validation-error" ErrorMessage="This field is mandatory." />
+                            </li>
+                            <li>
+                                <asp:Label runat="server" AssociatedControlID="address">Address</asp:Label>
+                                <asp:TextBox runat="server" ID="address" />
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="address"
+                                    CssClass="field-validation-error" ErrorMessage="This field is mandatory." />
+                            </li>
+                                <asp:RadioButtonList ID="gender" runat="server">
+                                <asp:ListItem>Male</asp:ListItem> 
+                                <asp:ListItem>Female</asp:ListItem>
+                                </asp:RadioButtonList>
+                               
+                            <li>
+                                <asp:Label runat="server" AssociatedControlID="Email">Email account</asp:Label>
                                 <asp:TextBox runat="server" ID="Email" TextMode="Email" />
                                 <asp:RequiredFieldValidator runat="server" ControlToValidate="Email"
-                                    CssClass="field-validation-error" ErrorMessage="El campo de dirección de correo es obligatorio." />
+                                    CssClass="field-validation-error" ErrorMessage="This field is mandatory." />
                             </li>
                             <li>
-                                <asp:Label runat="server" AssociatedControlID="Password">Contraseña</asp:Label>
+                                <asp:Label runat="server" AssociatedControlID="Password">Password</asp:Label>
                                 <asp:TextBox runat="server" ID="Password" TextMode="Password" />
                                 <asp:RequiredFieldValidator runat="server" ControlToValidate="Password"
-                                    CssClass="field-validation-error" ErrorMessage="El campo de contraseña es obligatorio." />
+                                    CssClass="field-validation-error" ErrorMessage="This field is mandatory." />
                             </li>
                             <li>
-                                <asp:Label runat="server" AssociatedControlID="ConfirmPassword">Confirmar contraseña</asp:Label>
+                                <asp:Label runat="server" AssociatedControlID="ConfirmPassword">Confirm Password</asp:Label>
                                 <asp:TextBox runat="server" ID="ConfirmPassword" TextMode="Password" />
                                 <asp:RequiredFieldValidator runat="server" ControlToValidate="ConfirmPassword"
-                                     CssClass="field-validation-error" Display="Dynamic" ErrorMessage="El campo de confirmación de contraseña es obligatorio." />
+                                     CssClass="field-validation-error" Display="Dynamic" ErrorMessage="This field is mandatory." />
                                 <asp:CompareValidator runat="server" ControlToCompare="Password" ControlToValidate="ConfirmPassword"
-                                     CssClass="field-validation-error" Display="Dynamic" ErrorMessage="La contraseña y la contraseña de confirmación no coinciden." />
+                                     CssClass="field-validation-error" Display="Dynamic" ErrorMessage="The password is wrong" />
                             </li>
                         </ol>
                         <asp:Button runat="server" CommandName="MoveNext" Text="Registrarse" />
