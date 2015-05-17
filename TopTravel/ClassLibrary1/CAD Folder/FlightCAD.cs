@@ -66,14 +66,15 @@ namespace TopTravel
         }
 
 
-        public void addFlight(FlightEN b)
+        public DataSet addFlight(FlightEN b)
         {
-            string s = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
+            string s;
+            s = ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString();
             SqlConnection c = new SqlConnection(s);
             DataSet virtdb = new DataSet();
             try
             {
-                SqlDataAdapter da = new SqlDataAdapter();
+                SqlDataAdapter da = new SqlDataAdapter("select * from Flight", c);
                 da.Fill(virtdb, "flight");
                 DataTable dt = new DataTable();
                 dt = virtdb.Tables["flight"];
@@ -83,7 +84,10 @@ namespace TopTravel
                 newRow[2] = b.ArrivalTime;
                 newRow[3] = b.DepartureCity;
                 newRow[4] = b.DestinationCity;
-                newRow[5] = b.Price;
+                newRow[5] = b.classFlight;
+                newRow[6] = b.Price;
+                newRow[7] = b.Company;
+                newRow[8] = b.Extras;
                 dt.Rows.Add(newRow);
                 SqlCommandBuilder cbuilder = new SqlCommandBuilder(da);
                 da.Update(virtdb, "flight");
@@ -97,17 +101,20 @@ namespace TopTravel
             {
                 c.Close();
             }
+
+            return virtdb;
         }
 
 
         public DataSet deleteFlight(FlightEN b, int i) // It will delete the index passed in the view
         {
-            string s = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
+            string s;
+            s = ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString();
             SqlConnection c = new SqlConnection(s);
             DataSet virtdb = new DataSet();
             try
             {
-                SqlDataAdapter da = new SqlDataAdapter();
+                SqlDataAdapter da = new SqlDataAdapter("select * from Flight", c);
                 da.Fill(virtdb, "flight");
                 DataTable t = new DataTable();
                 t = virtdb.Tables["flight"];
@@ -131,24 +138,26 @@ namespace TopTravel
 
         public DataSet updateFlight(FlightEN b, int i)
         {
-            string s = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
+            string s;
+            s = ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString();
             SqlConnection c = new SqlConnection(s);
             DataSet virtdb = new DataSet();
             try
             {
-                SqlDataAdapter da = new SqlDataAdapter();
+                SqlDataAdapter da = new SqlDataAdapter("select * from Flight", c);
                 da.Fill(virtdb, "flight");
                 DataTable t = new DataTable();
                 t = virtdb.Tables["flight"];
 
                 t.Rows[i]["Id"] = b.id;
-
-                t.Rows[i]["Id"] = b.id;
                 t.Rows[i]["departureTime"] = b.DepartureTime;
                 t.Rows[i]["arrivalTime"] = b.ArrivalTime;
                 t.Rows[i]["departureCity"] = b.DepartureCity;
-                t.Rows[i]["arrivalCity"] = b.DestinationCity;
+                t.Rows[i]["destinationCity"] = b.DestinationCity;
+                t.Rows[i]["ClassFlight"] = b.classFlight;
                 t.Rows[i]["price"] = b.Price;
+                t.Rows[i]["company"] = b.Company;
+                t.Rows[i]["extras"] = b.Extras;
 
 
                 SqlCommandBuilder cbuilder = new SqlCommandBuilder(da);

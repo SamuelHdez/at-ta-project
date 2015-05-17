@@ -55,6 +55,8 @@ namespace TopTravel
         private string City;
         private string Route;
         private int price;
+        private int company;
+        private int extras;
 
         //getters and setters
 
@@ -92,6 +94,18 @@ namespace TopTravel
         {
             get { return price; }
             set { price = value; }
+        }
+
+        public int Company
+        {
+            get { return company; }
+            set { company = value; }
+        }
+
+        public int Extras
+        {
+            get { return extras; }
+            set { extras = value; }
         } 
 
     }

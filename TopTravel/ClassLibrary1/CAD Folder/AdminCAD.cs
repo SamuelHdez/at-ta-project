@@ -13,73 +13,33 @@ namespace TopTravel
 {
     class AdminCAD
     {
-        public void register_admin(AdminEN a)
+        public DataSet searchAdmin(String nameAd)
         {
-            string s =  ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
+            string s;
+            s = ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString();
+            DataSet virtdb = new DataSet();
             SqlConnection c = new SqlConnection(s);
+
             try
             {
-                c.Open();
-                SqlCommand com = new SqlCommand("Insert Into Admin (Id,name,dni,email,password) VALUES ('" + a.Id + "','" + a.name + "','" + a.dni + "','" +
-                    a.email + "','" + a.password + "')", c);
+                SqlDataAdapter da = new SqlDataAdapter("select count(*) from Admin where name = '" + nameAd + "'", c);
+                da.Fill(virtdb, "admin");
 
-                com.ExecuteNonQuery();
             }
             catch (Exception ex)
             {
                 ex.ToString();
-                Console.WriteLine("ERROR: Register Admin");
+                Console.WriteLine("ERROR: show admin");
             }
             finally
             {
                 c.Close();
             }
-        }
+            return virtdb;
 
-        public void delete_admin(AdminEN a)
-        {
-            string s = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
-            SqlConnection c = new SqlConnection(s);
-            try
-            {
-                c.Open();
-                SqlCommand com = new SqlCommand("Delete From Admin Where Id = " + a.Id, c);
-                com.ExecuteNonQuery();
-            }
-            catch (Exception ex)
-            {
-                ex.ToString();
-                Console.WriteLine("ERROR: Delete Admin");
-            }
-            finally
-            {
-                c.Close();
-            }
         }
-
-        public void update_admin(AdminEN a)
-        {
-            string s = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
-            SqlConnection c = new SqlConnection(s);
-            try
-            {
-                c.Open();
-                SqlCommand com = new SqlCommand("Update Admin Set name = '" + a.name + "', dni = '" + a.dni + "', email ='" +
-                    a.email + "', password = '" + a.password  + "' Where Id = " + a.Id, c);
-                com.ExecuteNonQuery();
-            }
-            catch (Exception ex)
-            {
-                ex.ToString();
-                Console.WriteLine("ERROR: Update Admin");
-            }
-            finally
-            {
-                c.Close();
-            }
-        }
-
-        public ArrayList login_admin(AdminEN a)
+        /*
+       public ArrayList login_admin(AdminEN a)
         {
             string s = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
             ArrayList al = new ArrayList(); 
@@ -87,7 +47,7 @@ namespace TopTravel
             try
             {
                 c.Open();
-                SqlCommand com = new SqlCommand("Select * from Admin where email = " + a.email , c);
+                SqlCommand com = new SqlCommand("Select name from Admin", c);
                 SqlDataReader dr = com.ExecuteReader();
                 while (dr.Read())
                 {
@@ -106,5 +66,6 @@ namespace TopTravel
             }
             return al;
         }
+         */
     }
 }

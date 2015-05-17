@@ -15,10 +15,11 @@ namespace TopTravel
         {
         }
         
-       public void add_hotel()
+       public DataSet add_hotel()
        {
            HotelCAD c = new HotelCAD();
-           c.addHotel(this);
+           DataSet ds = c.addHotel(this);
+           return ds;
        }
 
        public DataSet delete_hotel(int i)
@@ -78,6 +79,9 @@ namespace TopTravel
         private string email;
         private int stars;
         private string bedrooms;
+        private int price;
+        private int company;
+        private int extras;
 
         //Getters and setters
         public int Id
@@ -127,6 +131,24 @@ namespace TopTravel
             get { return bedrooms; }
             set { bedrooms = value; }
         }
+
+        public int Price
+        {
+            get { return price; }
+            set { price = value; }
+        }
+
+        public int Company
+        {
+            get { return company; }
+            set { company = value; }
+        }
+
+        public int Extras
+        {
+            get { return extras; }
+            set { extras = value; }
+        } 
 
     } 
 }

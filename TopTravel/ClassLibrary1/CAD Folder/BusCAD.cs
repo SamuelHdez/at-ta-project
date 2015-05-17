@@ -83,7 +83,9 @@ namespace TopTravel
                 newRow[2] = b.ArrivalTime;
                 newRow[3] = b.DepartureCity;
                 newRow[4] = b.DestinationCity;
-                newRow[5] = b.bonus;
+                newRow[5] = b.Bonus;
+                newRow[6] = b.Company;
+                newRow[7] = b.Extras;
                 dt.Rows.Add(newRow);
                 SqlCommandBuilder cbuilder = new SqlCommandBuilder(da);
                 da.Update(virtdb, "bus");
@@ -148,7 +150,9 @@ namespace TopTravel
                 t.Rows[i]["arrivalTime"] = b.ArrivalTime;
                 t.Rows[i]["departureCity"] = b.DepartureCity;
                 t.Rows[i]["arrivalCity"] = b.DestinationCity;
-                t.Rows[i]["Bonus"] = b.bonus;
+                t.Rows[i]["bonus"] = b.Bonus;
+                t.Rows[i]["company"] = b.Company;
+                t.Rows[i]["extras"] = b.Extras;
 
 
                 SqlCommandBuilder cbuilder = new SqlCommandBuilder(da);

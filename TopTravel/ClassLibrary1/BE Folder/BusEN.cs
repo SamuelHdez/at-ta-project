@@ -54,7 +54,9 @@ namespace TopTravel
         private string arrivalTime;
         private string departureCity;
         private string destinationCity;
-        private string Bonus;
+        private string bonus;
+        private int company;
+        private int extras;
 
         //Data
         //getters and setters
@@ -89,10 +91,22 @@ namespace TopTravel
             set { destinationCity = value; }
         }
 
-        public string bonus
+        public string Bonus
         {
             get { return Bonus; }
             set { Bonus = value; }
+        }
+
+        public int Company
+        {
+            get { return company; }
+            set { company = value; }
+        }
+
+        public int Extras
+        {
+            get { return extras; }
+            set { extras = value; }
         } 
 
     }

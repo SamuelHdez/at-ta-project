@@ -66,17 +66,20 @@ namespace TopTravel
 
         }
 
-        public void addHotel(HotelEN h)
+        
+        public DataSet addHotel(HotelEN h)
         {
-            string s = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
+            string s;
+            s = ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString();
             SqlConnection c = new SqlConnection(s);
             DataSet virtdb = new DataSet();
             try
             {
-                SqlDataAdapter da = new SqlDataAdapter();
+                SqlDataAdapter da = new SqlDataAdapter("select * from Hotel", c);
                 da.Fill(virtdb, "hotel");
                 DataTable t = new DataTable();
                 t = virtdb.Tables["hotel"];
+
                 DataRow newRow = t.NewRow();
                 newRow[0] = h.Id;
                 newRow[1] = h.Name;
@@ -86,6 +89,9 @@ namespace TopTravel
                 newRow[5] = h.Email;
                 newRow[6] = h.Stars;
                 newRow[7] = h.Bedrooms;
+                newRow[8] = h.Price;
+                newRow[9] = h.Company;
+                newRow[10] = h.Extras;
                 t.Rows.Add(newRow);
                 SqlCommandBuilder cbuilder = new SqlCommandBuilder(da);
                 da.Update(virtdb, "hotel");
@@ -99,16 +105,18 @@ namespace TopTravel
             {
                 c.Close();
             }
+            return virtdb;
         }
-
+        
         public DataSet deleteHotel(HotelEN h, int i) // It will delete the index passed in the view
         {
-            string s = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
+            string s;
+            s = ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString();
             SqlConnection c = new SqlConnection(s);
             DataSet virtdb = new DataSet();
             try
             {
-                SqlDataAdapter da = new SqlDataAdapter();
+                SqlDataAdapter da = new SqlDataAdapter("select * from Hotel", c);
                 da.Fill(virtdb, "hotel");
                 DataTable t = new DataTable();
                 t = virtdb.Tables["hotel"];
@@ -132,17 +140,19 @@ namespace TopTravel
 
         public DataSet updateHotel(HotelEN h, int i)
         {
-            string s = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
+            string s;
+            s = ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString();
+
             SqlConnection c = new SqlConnection(s);
             DataSet virtdb = new DataSet();
             try
             {
-                SqlDataAdapter da = new SqlDataAdapter();
+                SqlDataAdapter da = new SqlDataAdapter("select * from Hotel", c);
                 da.Fill(virtdb, "hotel");
                 DataTable t = new DataTable();
                 t = virtdb.Tables["hotel"];
 
-                t.Rows[i]["Id"] = h.Id;
+               // t.Rows[i]["Id"] = h.Id;
 
                 t.Rows[i]["Id"] = h.Id;
                 t.Rows[i]["Name"] = h.Name;
@@ -152,6 +162,9 @@ namespace TopTravel
                 t.Rows[i]["Email"] = h.Email;
                 t.Rows[i]["Stars"] = h.Stars;
                 t.Rows[i]["Bedrooms"] = h.Bedrooms;
+                t.Rows[i]["Price"] = h.Price;
+                t.Rows[i]["company"] = h.Company;
+                t.Rows[i]["extras"] = h.Extras;
 
                 SqlCommandBuilder cbuilder = new SqlCommandBuilder(da);
                 da.Update(virtdb, "hotel");
@@ -166,38 +179,43 @@ namespace TopTravel
                 c.Close();
             }
             return virtdb;
-
-
         }
+        /*
+            public void addHotel(HotelEN h)
+            {
+                HotelEN ht = h;
+                string s;
+                s = ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString();
+
+                SqlConnection c = new SqlConnection(s);
+                try
+                {
+                    c.Open();
+                    SqlCommand com = new SqlCommand("Insert Into Hotel (Id,Name,City,Phone,Adress,Email,Stars,Bedrooms,Price,company,extras) VALUES ('" + ht.Id + "','" + ht.Name + "','" + ht.City + "','" +
+                        ht.Phone + "','" + ht.Address + "','" + ht.Email + "','" + ht.Stars + "','" + ht.Bedrooms + "','" + ht.Price + "','" + ht.Company + "','" + ht.Extras + "')", c);
+
+                    com.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    ex.ToString();
+                    Console.WriteLine("ERROR: Add hotel");
+                }
+                finally
+                {
+                    c.Close();
+                }
+        
+        }
+         */
     }
 }
 
 
-        /* Parte base de datos desconectada
+        /* Parte base de datos desconectada */
 
-        public void addHotel(HotelEN h)
-        {
-            string s = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
-            SqlConnection c = new SqlConnection(s);
-            try
-            {
-                c.Open();
-                SqlCommand com = new SqlCommand("Insert Into Hotel (ID,Name,City,Days,Phone,Adress,Email,Stars,Bedrooms,Date) VALUES ('" + h.Id + "','" + h.Name + "','" + h.City + "','" +
-                    h.Days + "','" + h.Phone + "','" + h.Address + "','" + h.Email + "','" + h.Stars + "','" + h.Bedrooms + "','" + h.Date + "')", c);
-
-                com.ExecuteNonQuery();
-            }
-            catch (Exception ex)
-            {
-                ex.ToString();
-                Console.WriteLine("ERROR: Add hotel");
-            }
-            finally
-            {
-                c.Close();
-            }
-        }
-
+       
+    /*
         public void deleteHotel(HotelEN h)
         {
             string s= ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();

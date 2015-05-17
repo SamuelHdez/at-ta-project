@@ -14,10 +14,11 @@ namespace TopTravel
         {
         }
 
-        public void add_Flight() 
+        public DataSet add_Flight() 
         {
             FlightCAD c = new FlightCAD();
-            c.addFlight(this);
+            DataSet ds = c.addFlight(this);
+            return ds;
         }
 
         public DataSet delete_Flight(int i)
@@ -55,7 +56,10 @@ namespace TopTravel
         private string arrivalTime;
         private string departureCity;
         private string destinationCity;
+        private string ClassFlight;
         private int price;
+        private int company;
+        private int extras;
 
         //Data
         //getters and setters
@@ -90,10 +94,28 @@ namespace TopTravel
             set { destinationCity = value; }
         }
 
+        public string classFlight
+        {
+            get { return ClassFlight; }
+            set { ClassFlight = value; }
+        }
+
         public int Price
         {
             get { return price; }
             set { price = value; }
+        }
+
+        public int Company
+        {
+            get { return company; }
+            set { company = value; }
+        }
+
+        public int Extras
+        {
+            get { return extras; }
+            set { extras = value; }
         } 
     }
 }
