@@ -13,6 +13,33 @@ namespace TopTravel
 {
     class ExtrasCAD
     {
+
+        public DataSet searchExtrasID(string idx)
+        {
+            string s;
+            s = ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString();
+            DataSet virtdb = new DataSet();
+            SqlConnection c = new SqlConnection(s);
+
+            try
+            {
+                SqlDataAdapter da = new SqlDataAdapter("Select * from Extras where Id = '" + idx + "'", c);
+                da.Fill(virtdb, "extra");
+
+            }
+            catch (Exception ex)
+            {
+                ex.ToString();
+                Console.WriteLine("ERROR: show extra");
+            }
+            finally
+            {
+                c.Close();
+            }
+            return virtdb;
+
+        }
+
         public void addExtra(ExtrasEN e)
         {
             string s = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();

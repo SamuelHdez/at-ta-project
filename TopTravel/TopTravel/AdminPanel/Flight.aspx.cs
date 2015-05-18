@@ -84,6 +84,7 @@ namespace TopTravel
             priceF.Text = GridView1.SelectedRow.Cells[7].Text;
             companyF.Text = GridView1.SelectedRow.Cells[8].Text;
             extrasF.Text = GridView1.SelectedRow.Cells[9].Text;
+            imageF.Text = GridView1.SelectedRow.Cells[10].Text;
             idH.Enabled = false;
         }
 
@@ -98,6 +99,7 @@ namespace TopTravel
             f.Price = int.Parse(priceF.Text);
             f.Company = int.Parse(companyF.Text);
             f.Extras = int.Parse(extrasF.Text);
+            f.Image = imageF.Text;
 
             d = f.update_Flight(GridView1.SelectedIndex);
             GridView1.DataSource = d;
@@ -115,6 +117,7 @@ namespace TopTravel
             f.Price = int.Parse(priceF.Text);
             f.Company = int.Parse(companyF.Text);
             f.Extras = int.Parse(extrasF.Text);
+            f.Image = imageF.Text;
 
             d = f.add_Flight();
             GridView1.DataSource = d;

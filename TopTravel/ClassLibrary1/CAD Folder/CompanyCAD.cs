@@ -65,6 +65,32 @@ namespace TopTravel
 
         }
 
+        public DataSet searchCompanyID(string idC)
+        {
+            string s;
+            s = ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString();
+            DataSet virtdb = new DataSet();
+            SqlConnection c = new SqlConnection(s);
+
+            try
+            {
+                SqlDataAdapter da = new SqlDataAdapter("Select * from Company where ID = '" + idC + "'", c);
+                da.Fill(virtdb, "company");
+
+            }
+            catch (Exception ex)
+            {
+                ex.ToString();
+                Console.WriteLine("ERROR: show company");
+            }
+            finally
+            {
+                c.Close();
+            }
+            return virtdb;
+
+        }
+
 
         public void addCompany(CompanyEN com)
         {

@@ -88,6 +88,7 @@ namespace TopTravel
                 newRow[6] = b.Price;
                 newRow[7] = b.Company;
                 newRow[8] = b.Extras;
+                newRow[9] = b.Image;
                 dt.Rows.Add(newRow);
                 SqlCommandBuilder cbuilder = new SqlCommandBuilder(da);
                 da.Update(virtdb, "flight");
@@ -158,6 +159,7 @@ namespace TopTravel
                 t.Rows[i]["price"] = b.Price;
                 t.Rows[i]["company"] = b.Company;
                 t.Rows[i]["extras"] = b.Extras;
+                t.Rows[i]["image"] = b.Image;
 
 
                 SqlCommandBuilder cbuilder = new SqlCommandBuilder(da);

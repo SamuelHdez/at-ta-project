@@ -4,17 +4,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data;
+
 
 namespace TopTravel
 {
-    class ExtrasEN
+    public class ExtrasEN
     {
-        public ExtrasEN(int ID=-1, string w="", string f="", int d=-1)
+        public ExtrasEN()
         {
-            Id = ID;
-            WiFi = w;
-            Food = f;
-            Discount = d;
         }
 
        public void add_extra()
@@ -44,12 +42,13 @@ namespace TopTravel
            return a;
        }
 
-       //properties
-       public int Id { get; set; }
-       public string WiFi { get; set; }
-       public string Food { get; set; }
-       public int Discount { get; set; }
-        /*
+       public DataSet searchExtrasID(string idx)
+       {
+           ExtrasCAD c = new ExtrasCAD();
+           DataSet ds = c.searchExtrasID(idx);
+           return ds;
+       } 
+
         //propierties
         private int id;
         private string wifi;
@@ -80,6 +79,6 @@ namespace TopTravel
         {
             get { return discount; }
             set { discount = value; }
-        } */
+        } 
     }
 }

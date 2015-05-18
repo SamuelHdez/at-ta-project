@@ -37,6 +37,8 @@
             <asp:TextBox id="companyF" TextMode="SingleLine" Columns="30" runat="server" CssClass="input" />
            <label>Extras</label>
             <asp:TextBox id="extrasF" TextMode="SingleLine" Columns="30" runat="server" CssClass="input" />
+            <label>Image</label>
+            <asp:TextBox id="imageF" TextMode="SingleLine" Columns="30" runat="server" CssClass="input" />
           <asp:Button ID="EditButton" runat="server" Text="Edit" OnClick="GridView1_sendUpdate" CssClass="inputBottom" />
           <asp:Button ID="InsertButton" runat="server" Text="Insert" OnClick="sendInsert" CssClass="inputBottom" />
       </div>
@@ -51,7 +53,8 @@
                     <asp:boundfield datafield="ClassFlight" headertext="Class"/>
                     <asp:boundfield datafield="price" headertext="Price"/>
                     <asp:boundfield datafield="company" headertext="Company"/>
-                    <asp:boundfield datafield="extras" headertext="Extras"/>         
+                    <asp:boundfield datafield="extras" headertext="Extras"/>  
+                    <asp:boundfield datafield="image" headertext="Image"/>        
                 </columns>
                 <PagerStyle HorizontalAlign="Center" CssClass="GridPager" />
      </asp:GridView>

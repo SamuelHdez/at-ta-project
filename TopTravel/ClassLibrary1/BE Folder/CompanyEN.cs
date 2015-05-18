@@ -42,6 +42,13 @@ namespace TopTravel
             return ds;
         }
 
+        public DataSet searchCompanyID(string idC)
+        {
+            CompanyCAD c = new CompanyCAD();
+            DataSet ds = c.searchCompanyID(idC);
+            return ds;
+        }
+
         public DataSet showAllCompanies()
         {
             CompanyCAD c = new CompanyCAD();
