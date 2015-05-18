@@ -14,10 +14,11 @@ namespace TopTravel
         {
         }
 
-        public void add_Cruise()
+        public DataSet add_Cruise()
         {
             CruiseCAD c = new CruiseCAD();
-            c.addCruise(this);
+            DataSet ds = c.addCruise(this);
+            return ds;
         }
 
         public DataSet delete_Cruise(int i)

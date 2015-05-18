@@ -13,6 +13,7 @@ namespace TopTravel
 {
     public class CruiseCAD
     {
+
         public DataSet showCruises(CruiseEN b)
         {
             string s;
@@ -66,14 +67,15 @@ namespace TopTravel
         }
 
 
-        public void addCruise(CruiseEN b)
+        public DataSet addCruise(CruiseEN b)
         {
-            string s = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
+            string s;
+            s = ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString();
             SqlConnection c = new SqlConnection(s);
             DataSet virtdb = new DataSet();
             try
             {
-                SqlDataAdapter da = new SqlDataAdapter();
+                SqlDataAdapter da = new SqlDataAdapter("Select * from Cruise", c);
                 da.Fill(virtdb, "cruise");
                 DataTable dt = new DataTable();
                 dt = virtdb.Tables["cruise"];
@@ -99,17 +101,20 @@ namespace TopTravel
             {
                 c.Close();
             }
+
+            return virtdb;
         }
 
 
         public DataSet deleteCruise(CruiseEN b, int i) // It will delete the index passed in the view
         {
-            string s = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
+            string s;
+            s = ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString();
             SqlConnection c = new SqlConnection(s);
             DataSet virtdb = new DataSet();
             try
             {
-                SqlDataAdapter da = new SqlDataAdapter();
+                SqlDataAdapter da = new SqlDataAdapter("Select * from Cruise", c);
                 da.Fill(virtdb, "cruise");
                 DataTable t = new DataTable();
                 t = virtdb.Tables["cruise"];
@@ -133,17 +138,18 @@ namespace TopTravel
 
         public DataSet updateCruise(CruiseEN b, int i)
         {
-            string s = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
+            string s;
+            s = ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString();
             SqlConnection c = new SqlConnection(s);
             DataSet virtdb = new DataSet();
             try
             {
-                SqlDataAdapter da = new SqlDataAdapter();
+                SqlDataAdapter da = new SqlDataAdapter("Select * from Cruise", c);
                 da.Fill(virtdb, "cruise");
                 DataTable t = new DataTable();
                 t = virtdb.Tables["cruise"];
 
-                t.Rows[i]["Id"] = b.id;
+                //t.Rows[i]["Id"] = b.id;
 
                 t.Rows[i]["Id"] = b.id;
                 t.Rows[i]["departureTime"] = b.DepartureTime;
