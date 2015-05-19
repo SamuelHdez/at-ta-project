@@ -51,6 +51,13 @@ namespace TopTravel
            return ds;
        }
 
+       public DataSet searchIDHotels(String idH)
+       {
+           HotelCAD c = new HotelCAD();
+           DataSet ds = c.searchIDHotels(idH);
+           return ds;
+       }
+
        public DataSet showAllHotels()
        {
            HotelCAD c = new HotelCAD();

@@ -10,6 +10,12 @@
         <h2>Look up for your cruise</h2>
     </hgroup>
 
+    <style type="text/css">
+      .hiddencol
+      {
+        display: none;
+      }
+    </style>
     <section id="Form">
 
          <fieldset>
@@ -56,10 +62,13 @@
     </section>
 
     <section id="Results">
-            <asp:GridView ID="GridView1" runat="server" AllowPaging="True" PageSize="8" Width="100%" AutoGenerateColumns="False" CssClass="Grid" AlternatingRowStyle-CssClass="alt" OnPageIndexChanging="GridView1_PageIndexChanging">
+            <asp:GridView ID="GridView1" runat="server" AllowPaging="True" PageSize="8" Width="100%" AutoGenerateColumns="False" CssClass="Grid" AlternatingRowStyle-CssClass="alt" OnPageIndexChanging="GridView1_PageIndexChanging" AutoGenerateSelectButton="true" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
                 <columns>
                     <asp:boundfield datafield="city" headertext="Departure"/>
                     <asp:boundfield datafield="route" headertext="Route"/>
+                    <asp:boundfield datafield="company" headertext="Company" ItemStyle-CssClass="hiddencol" HeaderStyle-CssClass="hiddencol"/>
+                    <asp:boundfield datafield="extras" headertext="Extras" ItemStyle-CssClass="hiddencol" HeaderStyle-CssClass="hiddencol"/>
+                    <asp:boundfield datafield="Id" headertext="Id" ItemStyle-CssClass="hiddencol" HeaderStyle-CssClass="hiddencol"/>
                     <asp:TemplateField HeaderText="Price/Person">
                     <ItemTemplate>
                         <asp:Label ID="Label1" runat="server" Text='<%# Bind("price") %>'></asp:Label>
@@ -72,5 +81,65 @@
             </asp:GridView>
     </section>
 
+<hgroup class="title">
+       <h1><asp:Label ID="Label10" runat="server" Text="Hotels" Visible="false"></asp:Label></h1> 
+       <h2><asp:Label ID="Label11" runat="server" Text="Details" Visible="false"></asp:Label></h2> 
+    </hgroup>
+
+    <section id="GBTop">
+    <asp:GridView ID="GridView2" runat="server" AllowPaging="True" PageSize="8" Width="100%" AutoGenerateColumns="False" CssClass="Grid" AlternatingRowStyle-CssClass="alt">
+                <columns>
+                    <asp:boundfield datafield="departureTime" headertext="Departure"/>
+                    <asp:boundfield datafield="arrivalTime" headertext="Arrival"/>
+                    <asp:boundfield datafield="City" headertext="City"/>
+                    <asp:boundfield datafield="Route" headertext="Route"/>
+                    <asp:TemplateField HeaderText="Price/Person">
+                        <ItemTemplate>
+                            <asp:Label ID="Label1" runat="server" Text='<%# Bind("price") %>'></asp:Label>
+                            <asp:Label ID="Label2" runat="server" Text= " €"></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                                   
+                </columns>
+                <PagerStyle HorizontalAlign="Center" CssClass="GridPager" />
+            </asp:GridView>
+    </section>
+
+    <section id="GBHalf">
+    <asp:GridView ID="GridView3" runat="server" Width="100%" AutoGenerateColumns="False" CssClass="Grid" AlternatingRowStyle-CssClass="alt">
+                <Columns>
+                    <asp:TemplateField HeaderText="Image">
+                        <ItemTemplate>
+                            <asp:Image ID="Image1" runat="server" ImageUrl='<%# Bind("image") %>' Width="100%"/>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                </Columns>
+    </asp:GridView>
+    </section><section id="GBHalf">
+        <asp:GridView ID="GridView4" runat="server" Width="100%" AutoGenerateColumns="False" CssClass="Grid" AlternatingRowStyle-CssClass="alt">
+            <Columns>
+                <asp:boundfield datafield="Name" headertext="Company"/>
+            </Columns>
+        </asp:GridView>
+
+        <section id="GBLast">
+        <asp:GridView ID="GridView5" runat="server" Width="100%" AutoGenerateColumns="False" CssClass="Grid" AlternatingRowStyle-CssClass="alt">
+            <Columns>
+                <asp:boundfield datafield="Wifi" headertext="Wifi"/>
+                <asp:boundfield datafield="Food" headertext="Food"/>
+                <asp:boundfield datafield="Discount" headertext="Discount"/>
+            </Columns>
+        </asp:GridView>
+        </section> 
+    
+        <asp:LoginView ID="LoginView1" runat="server" ViewStateMode="Disabled" Visible="false">
+            <AnonymousTemplate>      
+                <asp:Button ID="ButtonLogin" runat="server" Text="Login" OnClick="SendButtonLogin" CssClass="inputBottom" />
+            </AnonymousTemplate>
+            <LoggedInTemplate>
+                <asp:Button ID="ButtonBuy" runat="server" Text="Buy" OnClick="SendButtonBuy" CssClass="inputBottom" />
+            </LoggedInTemplate>
+        </asp:LoginView>
+    </section>  
 
 </asp:Content>

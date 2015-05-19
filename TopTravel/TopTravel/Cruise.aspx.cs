@@ -11,19 +11,24 @@ namespace TopTravel
 {
     public partial class Cruise : Page
     {
-        CruiseEN h = new CruiseEN();
+        CruiseEN cr = new CruiseEN();
+        CompanyEN c = new CompanyEN();
+        ExtrasEN x = new ExtrasEN();
         DataSet d = new DataSet();
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            d = h.showAllCruises();
-            GridView1.DataSource = d;
-            GridView1.DataBind();
+            if (!Page.IsPostBack)
+            {
+                d = cr.showAllCruises();
+                GridView1.DataSource = d;
+                GridView1.DataBind();
+            }
         }
 
         protected void send(object sender, EventArgs e)
         {
-            d = h.searchAllCruises(region.Text, dep.Text);
+            d = cr.searchAllCruises(region.Text, dep.Text);
             GridView1.DataSource = d;
             GridView1.DataBind();
         }
@@ -31,8 +36,41 @@ namespace TopTravel
         protected void GridView1_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             this.GridView1.PageIndex = e.NewPageIndex;
-            //LLenarDatosConsejera();
+            d = cr.showAllCruises();
+            GridView1.DataSource = d;
             this.GridView1.DataBind();
+        }
+
+        protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            d = cr.searchIDCruises(GridView1.SelectedRow.Cells[5].Text);
+
+            GridView2.DataSource = d;
+            GridView2.DataBind();
+
+            GridView3.DataSource = d;
+            GridView3.DataBind();
+
+            d = c.searchCompanyID(GridView1.SelectedRow.Cells[3].Text);
+            GridView4.DataSource = d;
+            GridView4.DataBind();
+
+            d = x.searchExtrasID(GridView1.SelectedRow.Cells[4].Text);
+            GridView5.DataSource = d;
+            GridView5.DataBind();
+
+            LoginView1.Visible = true;
+            Label10.Visible = true;
+            Label11.Visible = true;
+        }
+
+        protected void SendButtonLogin(object sender, EventArgs e)
+        {
+            Response.Redirect("/Account/Login.aspx");
+        }
+
+        protected void SendButtonBuy(object sender, EventArgs e)
+        {
         }
     }
 }

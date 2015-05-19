@@ -42,6 +42,13 @@ namespace TopTravel
             return ds;
         }
 
+        public DataSet searchIDCruises(String idc)
+        {
+            CruiseCAD c = new CruiseCAD();
+            DataSet ds = c.searchIDCruises(idc);
+            return ds;
+        }
+
         public DataSet showAllCruises()
         {
             CruiseCAD c = new CruiseCAD();

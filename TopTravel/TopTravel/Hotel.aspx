@@ -10,27 +10,14 @@
         <h2>Look up for your hotel</h2>
     </hgroup>
 
-    <section id="Form">
-        
+    <style type="text/css">
+      .hiddencol
+      {
+        display: none;
+      }
+    </style>
 
-        <!--<ol class="round">
-            <li class="one">
-                <h5>Introducción</h5>
-                Los formularios Web Forms de ASP.NET permiten crear sitios web dinámicos mediante modelos basados en eventos y de arrastrar y colocar.
-                La superficie de diseño y los cientos de controles y componentes permiten crear rápidamente sitios sofisticados y controlados mediante UI con acceso de datos.
-                <a href="http://go.microsoft.com/fwlink/?LinkId=245146">Más información…</a>
-            </li>
-            <li class="two">
-                <h5>Agregar paquetes NuGet y poner en marcha su codificación</h5>
-                NuGet facilita la instalación y actualización de herramientas y bibliotecas gratuitas.
-                <a href="http://go.microsoft.com/fwlink/?LinkId=245147">Más información…</a>
-            </li>
-            <li class="three">
-                <h5>Buscar hospedaje de sitios web</h5>
-                Encuentre fácilmente empresas de alojamiento web que ofrezcan la mejor relación de características y precio para sus aplicaciones.
-                <a href="http://go.microsoft.com/fwlink/?LinkId=245143">Más información…</a>
-            </li>
-        </ol>-->
+    <section id="Form">
 
          <fieldset>
             <legend>Search your hotel</legend>
@@ -45,6 +32,7 @@
                 Font-Size="10pt" Height="25px" />
             </asp:Calendar><br />
 
+
             <label>Nights</label>
             <asp:TextBox ID="Nights" runat="server" CssClass="input" />
             <!--<input class="input" type="number" min="0" max="10" step="1" value="5">-->
@@ -57,33 +45,99 @@
 
             <asp:Button ID="SendButton" runat="server" Text="Send" OnClick="send" CssClass="inputBottom" />
             
-
+             
              <asp:RangeValidator ID="RangeValidator1" controltovalidate="Nights" runat="server" ErrorMessage="Please enter value between 1-50 in nights." MinimumValue="1" MaximumValue="50" Type="Integer" forecolor="Red" CssClass="validator"></asp:RangeValidator>
              <asp:RangeValidator ID="RangeValidator2" controltovalidate="Adults" runat="server" ErrorMessage="Please enter value between 0-20 in adults." MinimumValue="0" MaximumValue="20" Type="Integer" forecolor="Red" CssClass="validator"></asp:RangeValidator>
              <asp:RangeValidator ID="RangeValidator3" controltovalidate="Children" runat="server" ErrorMessage="Please enter value between 0-20 in children." MinimumValue="0" MaximumValue="20" Type="Integer" forecolor="Red" CssClass="validator"></asp:RangeValidator>
+            
             <asp:Label id="ProcessHotel" runat="server" Text="" CssClass="process" />
         </fieldset>
 
     </section>
 
     <section id="Results">
-            <asp:GridView ID="GridView1" runat="server" AllowPaging="True" PageSize="8" Width="100%" AutoGenerateColumns="False" CssClass="Grid" AlternatingRowStyle-CssClass="alt" OnPageIndexChanging="GridView1_PageIndexChanging">
+            <asp:GridView ID="GridView1" runat="server" AllowPaging="True" PageSize="8" Width="100%" AutoGenerateColumns="False" CssClass="Grid" AlternatingRowStyle-CssClass="alt" OnPageIndexChanging="GridView1_PageIndexChanging" AutoGenerateSelectButton="true" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
                 <columns>
                     <asp:boundfield datafield="Name" headertext="Name"/>
                     <asp:boundfield datafield="City" headertext="City"/>
                     <asp:boundfield datafield="Stars" headertext="Stars"/>
+                    <asp:boundfield datafield="company" headertext="Company" ItemStyle-CssClass="hiddencol" HeaderStyle-CssClass="hiddencol"/>
+                    <asp:boundfield datafield="extras" headertext="Extras" ItemStyle-CssClass="hiddencol" HeaderStyle-CssClass="hiddencol"/>
+                    <asp:boundfield datafield="Id" headertext="Id" ItemStyle-CssClass="hiddencol" HeaderStyle-CssClass="hiddencol"/>
                     <asp:TemplateField HeaderText="Price/Person">
                     <ItemTemplate>
                         <asp:Label ID="Label1" runat="server" Text='<%# Bind("price") %>'></asp:Label>
                         <asp:Label ID="Label2" runat="server" Text= " €"></asp:Label>
                     </ItemTemplate>
                     </asp:TemplateField>
-                    <asp:hyperlinkfield text="View" navigateurl="~\Hotel.aspx" headertext="Link" target="_blank" />
                 </columns>
                 <PagerStyle HorizontalAlign="Center" CssClass="GridPager" />
             </asp:GridView>
     </section>
 
+    <hgroup class="title">
+       <h1><asp:Label ID="Label10" runat="server" Text="Hotels" Visible="false"></asp:Label></h1> 
+       <h2><asp:Label ID="Label11" runat="server" Text="Details" Visible="false"></asp:Label></h2> 
+    </hgroup>
 
+    <section id="GBTop">
+    <asp:GridView ID="GridView2" runat="server" AllowPaging="True" PageSize="8" Width="100%" AutoGenerateColumns="False" CssClass="Grid" AlternatingRowStyle-CssClass="alt">
+                <columns>
+                    <asp:boundfield datafield="Name" headertext="Name"/>
+                    <asp:boundfield datafield="City" headertext="City"/>
+                    <asp:boundfield datafield="Phone" headertext="Phone"/>
+                    <asp:boundfield datafield="Adress" headertext="Address"/>
+                    <asp:boundfield datafield="Email" headertext="Email"/>
+                    <asp:boundfield datafield="Stars" headertext="Stars"/>
+                    <asp:boundfield datafield="Bedrooms" headertext="Bedroom"/>
+                    <asp:TemplateField HeaderText="Price/Person">
+                        <ItemTemplate>
+                            <asp:Label ID="Label1" runat="server" Text='<%# Bind("price") %>'></asp:Label>
+                            <asp:Label ID="Label2" runat="server" Text= " €"></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                                   
+                </columns>
+                <PagerStyle HorizontalAlign="Center" CssClass="GridPager" />
+            </asp:GridView>
+    </section>
+
+    <section id="GBHalf">
+    <asp:GridView ID="GridView3" runat="server" Width="100%" AutoGenerateColumns="False" CssClass="Grid" AlternatingRowStyle-CssClass="alt">
+                <Columns>
+                    <asp:TemplateField HeaderText="Image">
+                        <ItemTemplate>
+                            <asp:Image ID="Image1" runat="server" ImageUrl='<%# Bind("image") %>' Width="100%"/>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                </Columns>
+    </asp:GridView>
+    </section><section id="GBHalf">
+        <asp:GridView ID="GridView4" runat="server" Width="100%" AutoGenerateColumns="False" CssClass="Grid" AlternatingRowStyle-CssClass="alt">
+            <Columns>
+                <asp:boundfield datafield="Name" headertext="Company"/>
+            </Columns>
+        </asp:GridView>
+
+        <section id="GBLast">
+        <asp:GridView ID="GridView5" runat="server" Width="100%" AutoGenerateColumns="False" CssClass="Grid" AlternatingRowStyle-CssClass="alt">
+            <Columns>
+                <asp:boundfield datafield="Wifi" headertext="Wifi"/>
+                <asp:boundfield datafield="Food" headertext="Food"/>
+                <asp:boundfield datafield="Discount" headertext="Discount"/>
+            </Columns>
+        </asp:GridView>
+        </section> 
+    
+        <asp:LoginView ID="LoginView1" runat="server" ViewStateMode="Disabled" Visible="false">
+            <AnonymousTemplate>      
+                <asp:Button ID="ButtonLogin" runat="server" Text="Login" OnClick="SendButtonLogin" CssClass="inputBottom" />
+            </AnonymousTemplate>
+            <LoggedInTemplate>
+                <asp:Button ID="ButtonBuy" runat="server" Text="Buy" OnClick="SendButtonBuy" CssClass="inputBottom" />
+            </LoggedInTemplate>
+        </asp:LoginView>
+    </section>  
 
 </asp:Content>
+

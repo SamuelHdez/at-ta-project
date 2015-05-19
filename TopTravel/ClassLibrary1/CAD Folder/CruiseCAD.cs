@@ -63,7 +63,31 @@ namespace TopTravel
                 c.Close();
             }
             return virtdb;
+        }
 
+        public DataSet searchIDCruises(String IDc)
+        {
+            string s;
+            s = ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString();
+            DataSet virtdb = new DataSet();
+            SqlConnection c = new SqlConnection(s);
+
+            try
+            {
+                SqlDataAdapter da = new SqlDataAdapter("Select * from Cruise where Id = '" + IDc + "'", c);
+                da.Fill(virtdb, "cruise");
+
+            }
+            catch (Exception ex)
+            {
+                ex.ToString();
+                Console.WriteLine("ERROR: show cruise");
+            }
+            finally
+            {
+                c.Close();
+            }
+            return virtdb;
         }
 
 

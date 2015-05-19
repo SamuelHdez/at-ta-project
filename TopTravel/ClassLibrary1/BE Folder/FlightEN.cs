@@ -42,6 +42,13 @@ namespace TopTravel
             return ds;
         }
 
+        public DataSet searchIDFlights(String idF)
+        {
+            FlightCAD c = new FlightCAD();
+            DataSet ds = c.searchIDFlights(idF);
+            return ds;
+        }
+
         public DataSet showAllFlights()
         {
             FlightCAD c = new FlightCAD();

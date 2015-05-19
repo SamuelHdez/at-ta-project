@@ -45,8 +45,18 @@
                 Font-Size="10pt" Height="25px" />
             </asp:Calendar><br />
 
+            <label>Adults</label>
+            <asp:TextBox ID="Adults" runat="server" CssClass="input" />
+
+            <label>Children</label>
+            <asp:TextBox ID="Children" runat="server" CssClass="input" />
+
             <asp:Button ID="SendButton" runat="server" Text="Send" OnClick="send" CssClass="inputBottom" />
-            <asp:Label id="ProcessVuelo" runat="server" Text="" CssClass="process" />
+
+             <asp:RangeValidator ID="RangeValidator2" controltovalidate="Adults" runat="server" ErrorMessage="Please enter value between 0-20 in adults." MinimumValue="0" MaximumValue="20" Type="Integer" forecolor="Red" CssClass="validator"></asp:RangeValidator>
+             <asp:RangeValidator ID="RangeValidator3" controltovalidate="Children" runat="server" ErrorMessage="Please enter value between 0-20 in children." MinimumValue="0" MaximumValue="20" Type="Integer" forecolor="Red" CssClass="validator"></asp:RangeValidator>
+            
+             <asp:Label id="ProcessVuelo" runat="server" Text="" CssClass="process" />
         </fieldset>
 
     </section>
@@ -59,6 +69,7 @@
                     <asp:boundfield datafield="ClassFlight" headertext="class"/>
                     <asp:boundfield datafield="company" headertext="Company" ItemStyle-CssClass="hiddencol" HeaderStyle-CssClass="hiddencol"/>
                     <asp:boundfield datafield="extras" headertext="Extras" ItemStyle-CssClass="hiddencol" HeaderStyle-CssClass="hiddencol"/>
+                    <asp:boundfield datafield="Id" headertext="ID" ItemStyle-CssClass="hiddencol" HeaderStyle-CssClass="hiddencol"/>
                     <asp:TemplateField HeaderText="Price/Person">
                         <ItemTemplate>
                             <asp:Label ID="Label1" runat="server" Text='<%# Bind("price") %>'></asp:Label>
@@ -80,23 +91,15 @@
                 <columns>
                     <asp:boundfield datafield="departureCity" headertext="Departure"/>
                     <asp:boundfield datafield="destinationCity" headertext="Destination"/>
+                    <asp:boundfield datafield="departureTime" headertext="Deperture Time"/>
+                    <asp:boundfield datafield="arrivalTime" headertext="Arrival Time"/>
                     <asp:boundfield datafield="ClassFlight" headertext="class"/>
                     <asp:TemplateField HeaderText="Price/Person">
                         <ItemTemplate>
                             <asp:Label ID="Label1" runat="server" Text='<%# Bind("price") %>'></asp:Label>
                             <asp:Label ID="Label2" runat="server" Text= " €"></asp:Label>
                         </ItemTemplate>
-                    </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Adults">
-                        <ItemTemplate>
-                            <asp:TextBox ID="adults" runat="server" type="number" min="1" max="20" step="1" value="1"></asp:TextBox>
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Children">
-                        <ItemTemplate>
-                            <asp:TextBox ID="children" runat="server" type="number" min="0" max="20" step="1" value="0"></asp:TextBox>
-                        </ItemTemplate>
-                    </asp:TemplateField>                      
+                    </asp:TemplateField>           
                 </columns>
                 <PagerStyle HorizontalAlign="Center" CssClass="GridPager" />
             </asp:GridView>

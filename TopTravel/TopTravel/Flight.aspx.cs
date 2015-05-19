@@ -15,7 +15,7 @@ namespace TopTravel
 {
     public partial class Flight : Page
     {
-        FlightEN h = new FlightEN();
+        FlightEN F = new FlightEN();
         CompanyEN c = new CompanyEN();
         ExtrasEN x = new ExtrasEN();
         DataSet d = new DataSet();
@@ -26,7 +26,7 @@ namespace TopTravel
         {
             if (!Page.IsPostBack)
             {
-                d = h.showAllFlights();
+                d = F.showAllFlights();
                 GridView1.DataSource = d;
                 GridView1.DataBind();
 
@@ -35,14 +35,7 @@ namespace TopTravel
 
         protected void send(object sender, EventArgs e)
         {
-            /*
-            ProcessHotel.Text = "We are processing your search request";
-            ProcessHotel.Text += Place.Text;
-            ProcessHotel.Text += Date.SelectedDate.Day.ToString();
-            ProcessHotel.Text += System.Environment.NewLine;
-            ProcessHotel.Text += Nights.Text;
-              */
-            d = h.searchAllFlights(from.Text, to.Text);
+            d = F.searchAllFlights(from.Text, to.Text);
             GridView1.DataSource = d;
             GridView1.DataBind();
 
@@ -52,14 +45,14 @@ namespace TopTravel
         {
             this.GridView1.PageIndex = e.NewPageIndex;
             //LLenarDatosConsejera();
-            d = h.showAllFlights();
+            d = F.showAllFlights();
             GridView1.DataSource = d;
             this.GridView1.DataBind();
         }
 
         protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            d = h.searchAllFlights(GridView1.SelectedRow.Cells[1].Text, GridView1.SelectedRow.Cells[2].Text);
+            d = F.searchIDFlights(GridView1.SelectedRow.Cells[6].Text);
            
             GridView2.DataSource = d;
             GridView2.DataBind();

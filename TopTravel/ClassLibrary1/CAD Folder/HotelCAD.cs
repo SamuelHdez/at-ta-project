@@ -66,6 +66,32 @@ namespace TopTravel
 
         }
 
+        public DataSet searchIDHotels(String idH)
+        {
+            string s;
+            s = ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString();
+            DataSet virtdb = new DataSet();
+            SqlConnection c = new SqlConnection(s);
+
+            try
+            {
+                SqlDataAdapter da = new SqlDataAdapter("Select * from Hotel where Id = '" + idH + "'", c);
+                da.Fill(virtdb, "hotel");
+
+            }
+            catch (Exception ex)
+            {
+                ex.ToString();
+                Console.WriteLine("ERROR: show hotel");
+            }
+            finally
+            {
+                c.Close();
+            }
+            return virtdb;
+
+        }
+
         
         public DataSet addHotel(HotelEN h)
         {
@@ -180,140 +206,5 @@ namespace TopTravel
             }
             return virtdb;
         }
-        /*
-            public void addHotel(HotelEN h)
-            {
-                HotelEN ht = h;
-                string s;
-                s = ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString();
-
-                SqlConnection c = new SqlConnection(s);
-                try
-                {
-                    c.Open();
-                    SqlCommand com = new SqlCommand("Insert Into Hotel (Id,Name,City,Phone,Adress,Email,Stars,Bedrooms,Price,company,extras) VALUES ('" + ht.Id + "','" + ht.Name + "','" + ht.City + "','" +
-                        ht.Phone + "','" + ht.Address + "','" + ht.Email + "','" + ht.Stars + "','" + ht.Bedrooms + "','" + ht.Price + "','" + ht.Company + "','" + ht.Extras + "')", c);
-
-                    com.ExecuteNonQuery();
-                }
-                catch (Exception ex)
-                {
-                    ex.ToString();
-                    Console.WriteLine("ERROR: Add hotel");
-                }
-                finally
-                {
-                    c.Close();
-                }
-        
-        }
-         */
     }
 }
-
-
-        /* Parte base de datos desconectada */
-
-       
-    /*
-        public void deleteHotel(HotelEN h)
-        {
-            string s= ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
-            SqlConnection c = new SqlConnection(s);
-            try
-            {
-                c.Open();
-                SqlCommand com = new SqlCommand("Delete From Hotel Where id = " + h.Id, c);
-                com.ExecuteNonQuery();
-            }
-            catch (Exception ex)
-            {
-                ex.ToString();
-                Console.WriteLine("ERROR: Delete hotel");
-            }
-            finally
-            {
-                c.Close();
-            }
-        }
-
-        public void updateHotel(HotelEN h)
-        {
-            string s= ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
-            SqlConnection c = new SqlConnection(s);
-            try
-            {
-                c.Open();
-                SqlCommand com = new SqlCommand("Update Hotel Set Name = '" + h.Name + "', City = '" + h.City + "', Days ='" +
-                    h.Days + "', Phone = '" + h.Phone + "', Adress = '" + h.Address + "', Email = '" + h.Email + "', Stars = '" +
-                    h.Stars + "', Bedrooms = '" + h.Bedrooms + "', Date = '" + h.Date + "' Where Id = " + h.Id, c);
-                com.ExecuteNonQuery();
-            }
-            catch (Exception ex)
-            {
-                ex.ToString();
-                Console.WriteLine("ERROR: Update hotel");
-            }
-            finally
-            {
-                c.Close();
-            }
-        }
-
-        public ArrayList searchHotel(HotelEN h)
-        {
-            ArrayList a = new ArrayList();
-            string s = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
-            SqlConnection c = new SqlConnection(s);
-            try
-            {
-                c.Open();
-                SqlCommand com = new SqlCommand("Select * from Hotels where City = " + h.City, c);
-                SqlDataReader dr = com.ExecuteReader();
-                while (dr.Read())
-                {
-                    a.Add(dr["Name"].ToString());
-                }
-                dr.Close();
-            }
-            catch (Exception ex)
-            {
-                ex.ToString();
-                Console.WriteLine("ERROR: Search hotels");
-            }
-            finally
-            {
-                c.Close();
-            }
-            return a;
-        }
-
-        public ArrayList showHotels()
-        {
-            ArrayList a = new ArrayList();
-            string s = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
-            SqlConnection c = new SqlConnection(s);
-            try
-            {
-                c.Open();
-                SqlCommand com = new SqlCommand("Select * from Hotels", c);
-                SqlDataReader dr = com.ExecuteReader();
-                while (dr.Read())
-                {
-                    a.Add(dr["Name"].ToString());
-                }
-                dr.Close();
-            }
-            catch (Exception ex)
-            {
-                ex.ToString();
-                Console.WriteLine("ERROR: Show hotels");
-            }
-            finally
-            {
-                c.Close();
-            }
-            return a;
-        }
-    }
-} */

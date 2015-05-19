@@ -1,23 +1,25 @@
 Things to do:
 
--Add validation control
-	+Hotel name min(2-3)
-	+Children min(0)
-	+Adult min(0)
-	+Adult no char
-	+Children no char
+- PAGES
+ + Packages
+ + Bus
+ + Train
+ + Car Rental
+ + Rocket
+ + Contact
 
--Grid view
-	+Allow to order by price, stars...
-	+Pass month and number of adults/children to the product view
-	+Allow sorting name and place of the hotel individualy
+- ADMIN PANEL
+ + Packages
+ + Bus
+ + Train
+ + Car Rental
+ + Rocket
+ + Contact
+ + Extras
+ + Company
+ + User? -> Se pensará si es viable
 
--Update CAD and EN files
-	+Car Rental -Antonio
-	+Space Travel -Antonio
-	+Packages
-	+Extras
-	+Order
-	+Product -Antonio
-	+Contact
-	+Client
+- SHOPPING CART
+ + Insert method
+ + Delete method
+ + Confirm and add to the history cart

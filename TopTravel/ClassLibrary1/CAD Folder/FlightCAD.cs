@@ -65,6 +65,32 @@ namespace TopTravel
 
         }
 
+        public DataSet searchIDFlights(String IDF)
+        {
+            string s;
+            s = ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString();
+            DataSet virtdb = new DataSet();
+            SqlConnection c = new SqlConnection(s);
+
+            try
+            {
+                SqlDataAdapter da = new SqlDataAdapter("Select * from Flight where Id = '" + IDF + "'", c);
+                da.Fill(virtdb, "flight");
+
+            }
+            catch (Exception ex)
+            {
+                ex.ToString();
+                Console.WriteLine("ERROR: show flight");
+            }
+            finally
+            {
+                c.Close();
+            }
+            return virtdb;
+
+        }
+
 
         public DataSet addFlight(FlightEN b)
         {
