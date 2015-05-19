@@ -7,8 +7,6 @@ Things to do:
 
 - ADMIN PANEL
  + Packages
- + Train
- + Rocket
  + Contact
  + Extras
  + Company
