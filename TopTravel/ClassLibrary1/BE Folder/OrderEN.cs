@@ -2,64 +2,127 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
-using System.Configuration;
+using System.Text;
+using System.Threading.Tasks;
+using System.Data;
+
+
 
 namespace TopTravel
 {
-    class OrderEN
+    public class OrderEN
     {
-        public OrderEN(int id, int pro, int pri, int u,int q, string d)
+        public OrderEN()
         {
-            Id = id;
-            Product = pro;
-            Price = pri;
-            User = u;
-            Quantity = q;
-            Date = d;
         }
 
-        public void add_Order()
+        public DataSet add_Order()
         {
             OrderCAD c = new OrderCAD();
-            c.addOrder(this);
+            DataSet ds = c.addOrder(this);
+            return ds;
         }
 
-        public void delete_Order()
+        public DataSet delete_Order(int i)
         {
             OrderCAD c = new OrderCAD();
-            c.deleteOrder(this);
+            DataSet ds = c.deleteOrder(this, i);
+            return ds;
         }
 
-        public void update_Order()
+        public DataSet update_Order(int i)
         {
             OrderCAD c = new OrderCAD();
-            c.updateOrder(this);
+            DataSet ds = c.updateOrder(this, i);
+            return ds;
         }
 
-
-        public ArrayList showAllOrders()
+        public DataSet searchOrders(String user)
         {
-            ArrayList a = new ArrayList();
             OrderCAD c = new OrderCAD();
-            a = c.showOrder();
-            return a;
+            DataSet ds = c.searchUserOrders(user);
+            return ds;
         }
 
-        public ArrayList searchOrder()
+        public DataSet searchHistory(String user)
         {
-            ArrayList a = new ArrayList();
             OrderCAD c = new OrderCAD();
-            a = c.searchOrder(this);
-            return a;
+            DataSet ds = c.searchUserHistory(user);
+            return ds;
+        }
+
+        public DataSet showAllOrders()
+        {
+            OrderCAD c = new OrderCAD();
+            DataSet ds = c.showOrders(this);
+            return ds;
         }
 
         // PROPERTIES
-        public int Id { get; set; }
-        public int Product { get; set; }
-        public int Price { get; set; }
-        public int User { get; set; }
-        public int Quantity { get; set; }
-        public string Date { get; set; }
+        private int Id;
+        private int Product;
+        private string ProductName;
+        private int Price;
+        private string UserN;
+        private int Adults;
+        private int Children;
+        private int Buy;
+        private int TotalPrice;
+
+        //getters and setters
+
+        public int id
+        {
+            get { return Id; }
+            set { Id = value; }
+        }
+
+        public int product
+        {
+            get { return Product; }
+            set { Product = value; }
+        }
+
+        public string productName
+        {
+            get { return ProductName; }
+            set { ProductName = value; }
+        }
+
+        public int price
+        {
+            get { return Price; }
+            set { Price = value; }
+        }
+
+        public string userN
+        {
+            get { return UserN; }
+            set { UserN = value; }
+        }
+
+        public int adults
+        {
+            get { return Adults; }
+            set { Adults = value; }
+        }
+
+        public int children
+        {
+            get { return Children; }
+            set { Children = value; }
+        }
+
+        public int buy
+        {
+            get { return Buy; }
+            set { Buy = value; }
+        }
+
+        public int totalPrice
+        {
+            get { return TotalPrice; }
+            set { TotalPrice = value; }
+        }
     }
 }

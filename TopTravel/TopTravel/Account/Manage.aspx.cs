@@ -39,7 +39,7 @@ namespace TopTravel.Account
                     Form.Action = ResolveUrl("~/Account/Manage.aspx");
 
                     SuccessMessage =
-                        message == "ChangePwdSuccess" ? "Su contraseña se ha cambiado."
+                        message == "ChangePwdSuccess" ? "Password updated successfully"
                         : message == "SetPwdSuccess" ? "Su contraseña se ha establecido."
                         : message == "RemoveLoginSuccess" ? "El inicio de sesión externo se ha quitado."
                         : String.Empty;

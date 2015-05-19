@@ -225,6 +225,7 @@
     <Content Include="Images\search.hover.png" />
     <Content Include="Images\search.png" />
     <Content Include="Images\trans.png" />
+    <Content Include="Order.aspx" />
     <Content Include="packages.config" />
     <Content Include="Flight.aspx" />
     <Content Include="Cruise.aspx" />
@@ -354,6 +355,13 @@
     </Compile>
     <Compile Include="Companies.aspx.designer.cs">
       <DependentUpon>Companies.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Order.aspx.cs">
+      <DependentUpon>Order.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Order.aspx.designer.cs">
+      <DependentUpon>Order.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">

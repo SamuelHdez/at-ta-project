@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Administrar cuenta" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Manage.aspx.cs" Inherits="TopTravel.Account.Manage" %>
+﻿<%@ Page Title="Manage account" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Manage.aspx.cs" Inherits="TopTravel.Account.Manage" %>
 <%@ Register Src="~/Account/OpenAuthProviders.ascx" TagPrefix="uc" TagName="OpenAuthProviders" %>
 
 <asp:Content ContentPlaceHolderID="MainContent" runat="server">
@@ -11,21 +11,18 @@
             <p class="message-success"><%: SuccessMessage %></p>
         </asp:PlaceHolder>
 
-        <p>Ha iniciado sesión como <strong><%: User.Identity.Name %></strong>.</p>
+        <p>You are <strong><%: User.Identity.Name %></strong>.</p>
 
         <asp:PlaceHolder runat="server" ID="setPassword" Visible="false">
-            <p>
-                No dispone de contraseña local para este sitio. Agregue una contraseña
-                local para iniciar sesión sin que sea necesario ningún inicio de sesión externo.
-            </p>
+
             <fieldset>
                 <legend>Establecer formulario de contraseña</legend>
                 <ol>
                     <li>
-                        <asp:Label runat="server" AssociatedControlID="password">Contraseña</asp:Label>
+                        <asp:Label runat="server" AssociatedControlID="password">Password</asp:Label>
                         <asp:TextBox runat="server" ID="password" TextMode="Password" />
                         <asp:RequiredFieldValidator runat="server" ControlToValidate="password"
-                            CssClass="field-validation-error" ErrorMessage="El campo de contraseña es obligatorio."
+                            CssClass="field-validation-error" ErrorMessage="The password is mandatory"
                             Display="Dynamic" ValidationGroup="SetPassword" />
                         
                         <asp:ModelErrorMessage runat="server" ModelStateKey="NewPassword" AssociatedControlID="password"
@@ -33,13 +30,13 @@
                         
                     </li>
                     <li>
-                        <asp:Label runat="server" AssociatedControlID="confirmPassword">Confirmar contraseña</asp:Label>
+                        <asp:Label runat="server" AssociatedControlID="confirmPassword">Confirm password</asp:Label>
                         <asp:TextBox runat="server" ID="confirmPassword" TextMode="Password" />
                         <asp:RequiredFieldValidator runat="server" ControlToValidate="confirmPassword"
-                            CssClass="field-validation-error" Display="Dynamic" ErrorMessage="El campo de confirmación de contraseña es obligatorio."
+                            CssClass="field-validation-error" Display="Dynamic" ErrorMessage="The password is mandatory"
                             ValidationGroup="SetPassword" />
                         <asp:CompareValidator runat="server" ControlToCompare="Password" ControlToValidate="confirmPassword"
-                            CssClass="field-validation-error" Display="Dynamic" ErrorMessage="La contraseña y la contraseña de confirmación no coinciden."
+                            CssClass="field-validation-error" Display="Dynamic" ErrorMessage="Passwords are different"
                             ValidationGroup="SetPassword" />
                     </li>
                 </ol>
@@ -48,31 +45,31 @@
         </asp:PlaceHolder>
 
         <asp:PlaceHolder runat="server" ID="changePassword" Visible="false">
-            <h3>Cambiar contraseña</h3>
+            <h3>Update password</h3>
             <asp:ChangePassword runat="server" CancelDestinationPageUrl="~/" ViewStateMode="Disabled" RenderOuterTable="false" SuccessPageUrl="Manage.aspx?m=ChangePwdSuccess">
                 <ChangePasswordTemplate>
                     <p class="validation-summary-errors">
                         <asp:Literal runat="server" ID="FailureText" />
                     </p>
                     <fieldset class="changePassword">
-                        <legend>Cambiar detalles de contraseña</legend>
+                        <legend>Change password</legend>
                         <ol>
                             <li>
-                                <asp:Label runat="server" ID="CurrentPasswordLabel" AssociatedControlID="CurrentPassword">Contraseña actual</asp:Label>
+                                <asp:Label runat="server" ID="CurrentPasswordLabel" AssociatedControlID="CurrentPassword">My password</asp:Label>
                                 <asp:TextBox runat="server" ID="CurrentPassword" CssClass="passwordEntry" TextMode="Password" />
                                 <asp:RequiredFieldValidator runat="server" ControlToValidate="CurrentPassword"
                                     CssClass="field-validation-error" ErrorMessage="El campo de contraseña actual es obligatorio."
                                     ValidationGroup="ChangePassword" />
                             </li>
                             <li>
-                                <asp:Label runat="server" ID="NewPasswordLabel" AssociatedControlID="NewPassword">Nueva contraseña</asp:Label>
+                                <asp:Label runat="server" ID="NewPasswordLabel" AssociatedControlID="NewPassword">New password</asp:Label>
                                 <asp:TextBox runat="server" ID="NewPassword" CssClass="passwordEntry" TextMode="Password" />
                                 <asp:RequiredFieldValidator runat="server" ControlToValidate="NewPassword"
                                     CssClass="field-validation-error" ErrorMessage="La contraseña nueva es obligatoria."
                                     ValidationGroup="ChangePassword" />
                             </li>
                             <li>
-                                <asp:Label runat="server" ID="ConfirmNewPasswordLabel" AssociatedControlID="ConfirmNewPassword">Confirmar la nueva contraseña</asp:Label>
+                                <asp:Label runat="server" ID="ConfirmNewPasswordLabel" AssociatedControlID="ConfirmNewPassword">Confirm new password</asp:Label>
                                 <asp:TextBox runat="server" ID="ConfirmNewPassword" CssClass="passwordEntry" TextMode="Password" />
                                 <asp:RequiredFieldValidator runat="server" ControlToValidate="ConfirmNewPassword"
                                     CssClass="field-validation-error" Display="Dynamic" ErrorMessage="La confirmación de contraseña nueva es obligatoria."
@@ -82,7 +79,7 @@
                                     ValidationGroup="ChangePassword" />
                             </li>
                         </ol>
-                        <asp:Button runat="server" CommandName="ChangePassword" Text="Cambiar contraseña" ValidationGroup="ChangePassword" />
+                        <asp:Button runat="server" CommandName="ChangePassword" Text="Update password" ValidationGroup="ChangePassword" />
                     </fieldset>
                 </ChangePasswordTemplate>
             </asp:ChangePassword>
@@ -95,15 +92,6 @@
             ItemType="Microsoft.AspNet.Membership.OpenAuth.OpenAuthAccountData"
             SelectMethod="GetExternalLogins" DeleteMethod="RemoveExternalLogin" DataKeyNames="ProviderName,ProviderUserId">
         
-            <LayoutTemplate>
-                <h3>Inicios de sesión externos registrados</h3>
-                <table>
-                    <thead><tr><th>Servicio</th><th>Nombre de usuario</th><th>Último uso</th><th>&nbsp;</th></tr></thead>
-                    <tbody>
-                        <tr runat="server" id="itemPlaceholder"></tr>
-                    </tbody>
-                </table>
-            </LayoutTemplate>
             <ItemTemplate>
                 <tr>
                     
@@ -120,7 +108,5 @@
             </ItemTemplate>
         </asp:ListView>
 
-        <h3>Agregar un inicio de sesión externo</h3>
-        <uc:OpenAuthProviders runat="server" ReturnUrl="~/Account/Manage.aspx" />
     </section>
 </asp:Content>
