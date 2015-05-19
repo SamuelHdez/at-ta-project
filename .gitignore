@@ -12,3 +12,5 @@ obj/
 # en la base de datos solo puede estar trabajando una persona. Varias personas puede dar conflicto.
 # *.mdf
 # *.ldf
+TopTravel/ClassLibrary1/BE Folder/CarRentalEN.cs
+TopTravel/ClassLibrary1/BE Folder/CarRentalEN.cs

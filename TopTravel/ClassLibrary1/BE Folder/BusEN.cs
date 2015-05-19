@@ -41,6 +41,13 @@ namespace TopTravel
             return ds;
         }
 
+        public DataSet searchIDBuses(String IDB)
+        {
+            BusCAD c = new BusCAD();
+            DataSet ds = c.searchIDBuses(IDB);
+            return ds;
+        }
+
         public DataSet showAllBuses()
         {
             BusCAD c = new BusCAD();
@@ -51,7 +58,7 @@ namespace TopTravel
         // PROPERTIES
         private int Id;
         private string departureTime;
-        private string arrivalTime;
+        private string arrivaldTime;
         private string departureCity;
         private string destinationCity;
         private string bonus;
@@ -75,10 +82,10 @@ namespace TopTravel
             set { departureTime = value; }
         }
 
-        public string ArrivalTime
+        public string ArrivaldTime
         {
-            get { return arrivalTime; }
-            set { arrivalTime = value; }
+            get { return arrivaldTime; }
+            set { arrivaldTime = value; }
         }
 
         public string DepartureCity

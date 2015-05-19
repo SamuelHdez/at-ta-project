@@ -13,6 +13,7 @@ namespace TopTravel
 {
     class SpaceTravelCAD
     {
+        /*
         public void add_SpaceTravel(SpaceTravelEN b)
         {
             string s = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
@@ -129,6 +130,6 @@ namespace TopTravel
                 c.Close();
             }
             return a;
-        }
+        } */
     }
 }

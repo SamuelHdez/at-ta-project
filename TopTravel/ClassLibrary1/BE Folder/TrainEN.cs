@@ -41,6 +41,13 @@ namespace TopTravel
             return ds;
         }
 
+        public DataSet searchIDTrains(String IDT)
+        {
+            TrainCAD c = new TrainCAD();
+            DataSet ds = c.searchIDTrains(IDT);
+            return ds;
+        }
+
         public DataSet showAllTrains()
         {
             TrainCAD c = new TrainCAD();
@@ -58,7 +65,7 @@ namespace TopTravel
         private int price;
         private int company;
         private int extras;
-        private string image;
+        private string images;
 
         //Data
         //getters and setters
@@ -117,10 +124,10 @@ namespace TopTravel
             set { extras = value; }
         }
 
-        public string Image
+        public string Images
         {
-            get { return image; }
-            set { image = value; }
+            get { return images; }
+            set { images = value; }
         } 
 
     }

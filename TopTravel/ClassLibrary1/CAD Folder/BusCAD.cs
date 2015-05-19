@@ -65,27 +65,56 @@ namespace TopTravel
 
         }
 
+        public DataSet searchIDBuses(String IDB)
+        {
+            string s;
+            s = ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString();
+            DataSet virtdb = new DataSet();
+            SqlConnection c = new SqlConnection(s);
+
+            try
+            {
+                SqlDataAdapter da = new SqlDataAdapter("Select * from Bus where Id = '" + IDB + "'", c);
+                da.Fill(virtdb, "bus");
+
+            }
+            catch (Exception ex)
+            {
+                ex.ToString();
+                Console.WriteLine("ERROR: show bus");
+            }
+            finally
+            {
+                c.Close();
+            }
+            return virtdb;
+
+        }
+
 
         public void addBus(BusEN b)
         {
-            string s = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
+            string s;
+            s = ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString();
             SqlConnection c = new SqlConnection(s);
             DataSet virtdb = new DataSet();
             try
             {
-                SqlDataAdapter da = new SqlDataAdapter();
+                SqlDataAdapter da = new SqlDataAdapter("select * from Bus", c);
                 da.Fill(virtdb, "bus");
                 DataTable dt = new DataTable();
                 dt = virtdb.Tables["bus"];
                 DataRow newRow = dt.NewRow();
                 newRow[0] = b.id;
                 newRow[1] = b.DepartureTime;
-                newRow[2] = b.ArrivalTime;
+                newRow[2] = b.ArrivaldTime;
                 newRow[3] = b.DepartureCity;
                 newRow[4] = b.DestinationCity;
                 newRow[5] = b.Bonus;
-                newRow[6] = b.Company;
-                newRow[7] = b.Extras;
+                newRow[6] = b.Price;
+                newRow[7] = b.Company;
+                newRow[8] = b.Extras;
+                newRow[9] = b.Image;
                 dt.Rows.Add(newRow);
                 SqlCommandBuilder cbuilder = new SqlCommandBuilder(da);
                 da.Update(virtdb, "bus");
@@ -104,12 +133,13 @@ namespace TopTravel
 
         public DataSet deleteBus(BusEN b, int i) // It will delete the index passed in the view
         {
-            string s = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
+            string s;
+            s = ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString();
             SqlConnection c = new SqlConnection(s);
             DataSet virtdb = new DataSet();
             try
             {
-                SqlDataAdapter da = new SqlDataAdapter();
+                SqlDataAdapter da = new SqlDataAdapter("select * from Bus", c);
                 da.Fill(virtdb, "bus");
                 DataTable t = new DataTable();
                 t = virtdb.Tables["bus"];
@@ -133,26 +163,27 @@ namespace TopTravel
 
         public DataSet updateBus(BusEN b, int i)
         {
-            string s = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
+            string s;
+            s = ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString();
             SqlConnection c = new SqlConnection(s);
             DataSet virtdb = new DataSet();
             try
             {
-                SqlDataAdapter da = new SqlDataAdapter();
+                SqlDataAdapter da = new SqlDataAdapter("select * from Bus", c);
                 da.Fill(virtdb, "bus");
                 DataTable t = new DataTable();
                 t = virtdb.Tables["bus"];
 
                 t.Rows[i]["Id"] = b.id;
-
-                t.Rows[i]["Id"] = b.id;
                 t.Rows[i]["departureTime"] = b.DepartureTime;
-                t.Rows[i]["arrivalTime"] = b.ArrivalTime;
+                t.Rows[i]["arrivaldTime"] = b.ArrivaldTime;
                 t.Rows[i]["departureCity"] = b.DepartureCity;
-                t.Rows[i]["arrivalCity"] = b.DestinationCity;
+                t.Rows[i]["destinationCity"] = b.DestinationCity;
                 t.Rows[i]["bonus"] = b.Bonus;
+                t.Rows[i]["price"] = b.Price;
                 t.Rows[i]["company"] = b.Company;
                 t.Rows[i]["extras"] = b.Extras;
+                t.Rows[i]["image"] = b.Image;
 
 
                 SqlCommandBuilder cbuilder = new SqlCommandBuilder(da);

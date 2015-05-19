@@ -85,11 +85,11 @@
                         <li><a runat="server" href="~/Flight.aspx"> <img src="../images/plane.png" height="25" width="25"> Flight</a></li>
                         <li><a runat="server" href="~/Cruise.aspx"><img src="../images/boat.png" height="25" width="25"> Cruise</a></li>
                         <li><a runat="server" href="~/Flight.aspx"><img src="../images/paq.png" height="25" width="25"> Packages</a></li>
-                        <li><a runat="server" href="~/Flight.aspx"><img src="../images/trans.png" height="25" width="25"> Transport</a>
+                        <li><a runat="server" href="#"><img src="../images/trans.png" height="25" width="25"> Transport</a>
                             <ul>
                             <li><a runat="server" href="~/Hotel.aspx"><img src="../images/car.png" height="25" width="25"> Car rental</a></li>
-                            <li><a runat="server" href="~/Hotel.aspx"><img src="../images/bus.png" height="25" width="25"> Bus</a></li>
-                            <li><a runat="server" href="~/Hotel.aspx"><img src="../images/train.png" height="25" width="25"> Train</a></li>
+                            <li><a runat="server" href="~/Bus.aspx"><img src="../images/bus.png" height="25" width="25"> Bus</a></li>
+                            <li><a runat="server" href="~/Train.aspx"><img src="../images/train.png" height="25" width="25"> Train</a></li>
                             <li><a runat="server" href="~/Hotel.aspx"><img src="../images/rocket.png" height="25" width="25"> Rocket</a></li>
                             </ul>
                         </li>

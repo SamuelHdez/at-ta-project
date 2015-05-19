@@ -9,6 +9,7 @@ namespace TopTravel
 {
     class SpaceTravelEN
     {
+        /*
         public SpaceTravelEN(int i, string dD, string aD, string dC, string p)
         {
             Id = i;
@@ -85,6 +86,6 @@ namespace TopTravel
         {
             get { return image; }
             set { image = value; }
-        } 
+        } */
     }
 }
