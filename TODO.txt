@@ -2,17 +2,12 @@ Things to do:
 
 - PAGES
  + Packages
- + Bus
- + Train
  + Car Rental
- + Rocket
  + Contact
 
 - ADMIN PANEL
  + Packages
- + Bus
  + Train
- + Car Rental
  + Rocket
  + Contact
  + Extras

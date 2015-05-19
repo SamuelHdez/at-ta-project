@@ -128,6 +128,7 @@
     <Content Include="Account\Register.aspx" />
     <Content Include="Account\RegisterExternalLogin.aspx" />
     <Content Include="AdminPanel\Bus.aspx" />
+    <Content Include="AdminPanel\CarRental.aspx" />
     <Content Include="AdminPanel\Cruise.aspx" />
     <Content Include="AdminPanel\Flight.aspx" />
     <Content Include="App_Data\aspnet-TopTravel-20150506160445.mdf" />
@@ -277,6 +278,13 @@
     </Compile>
     <Compile Include="AdminPanel\Bus.aspx.designer.cs">
       <DependentUpon>Bus.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminPanel\CarRental.aspx.cs">
+      <DependentUpon>CarRental.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminPanel\CarRental.aspx.designer.cs">
+      <DependentUpon>CarRental.aspx</DependentUpon>
     </Compile>
     <Compile Include="AdminPanel\Cruise.aspx.cs">
       <DependentUpon>Cruise.aspx</DependentUpon>

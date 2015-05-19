@@ -11,127 +11,197 @@ using System.Configuration;
 
 namespace TopTravel
 {
-    public class CarRentalCAD // To-do arreglar la insercion de las fechas en la base de datos. string a tipo date
+    public class CarRentalCAD
     {
-        /*
-        public void add_CarRental(CarRentalEN cr)
-		{
-            string s = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
-            SqlConnection c = new SqlConnection(s);
-            try
-            {
-                c.Open();
-                SqlCommand com = new SqlCommand("Insert Into CarRental (Id,City,Brand,Model,Days,Date) VALUES ('" + cr.id + "','" + cr.city + "','" + cr.brand + "','" +
-                    cr.model + "','" + cr.days + "',)", c);
-                com.ExecuteNonQuery();
-            }
-            catch (Exception ex)
-            {
-                ex.ToString();
-                Console.WriteLine("ERROR: Add CarRental");
-            }
-            finally
-            {
-                c.Close();
-            }
-		}
-
-        public void update_CarRental(CarRentalEN cr)
-		{
-            string s = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
-            SqlConnection c = new SqlConnection(s);
-            try
-            {
-                c.Open();
-                SqlCommand com = new SqlCommand("Update CarRental Set City = '" + cr.city + "', Brand = '" + cr.brand + "', Model ='" +
-                    cr.model + "', Days = '" + cr.Days + "', Date = '" + cr.Date + "' Where ID = " + cr.id, c);
-                com.ExecuteNonQuery();
-            }
-            catch (Exception ex)
-            {
-                ex.ToString();
-                Console.WriteLine("ERROR: Update CarRental");
-            }
-            finally
-            {
-                c.Close();
-            }
-		}
-
-        public void delete_CarRental(CarRentalEN cr)
-		{
-            string s = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
-            SqlConnection c = new SqlConnection(s);
-            try
-            {
-                c.Open();
-                SqlCommand com = new SqlCommand("Delete From CarRental Where Id = " + cr.Id, c);
-                com.ExecuteNonQuery();
-            }
-            catch (Exception ex)
-            {
-                ex.ToString();
-                Console.WriteLine("ERROR: Delete CarRental");
-            }
-            finally
-            {
-                c.Close();
-            }
-		}
-
-        public ArrayList search_CarRental(CarRentalEN cr)
-		{
-            ArrayList a = new ArrayList();
-            string s = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
-            SqlConnection c = new SqlConnection(s);
-            try
-            {
-                c.Open();
-                SqlCommand com = new SqlCommand("Select * from CarRental where Id = " + cr.Id, c);
-                SqlDataReader dr = com.ExecuteReader();
-                while (dr.Read())
-                {
-                    a.Add(dr["Id"].ToString());
-                }
-                dr.Close();
-            }
-            catch (Exception ex)
-            {
-                ex.ToString();
-                Console.WriteLine("ERROR: Search CarRental");
-            }
-            finally
-            {
-                c.Close();
-            }
-            return a;
-		}
-        public ArrayList showCarRental() 
+        public DataSet showCarRental(CarRentalEN CR)
         {
-            ArrayList a = new ArrayList();
-            string s = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
+            string s;
+            s = ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString();
+            DataSet virtdb = new DataSet();
             SqlConnection c = new SqlConnection(s);
+
             try
             {
-                c.Open();
-                SqlCommand com = new SqlCommand("Select * from CarRental", c);
-                SqlDataReader dr = com.ExecuteReader();
-                while (dr.Read())
-                {
-                    a.Add(dr["Id"].ToString());
-                }
-                dr.Close();
+                SqlDataAdapter da = new SqlDataAdapter("select * from CarRental", c);
+                da.Fill(virtdb, "carrental");
+
             }
             catch (Exception ex)
             {
                 ex.ToString();
-                Console.WriteLine("ERROR: Show CarRental");
+                Console.WriteLine("ERROR: show carrental");
             }
             finally
             {
                 c.Close();
             }
-            return a;
-        }*/
-    } 
+            return virtdb;
+
+        }
+
+        public DataSet searchCarRental(String b1, String b2)
+        {
+            string s;
+            s = ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString();
+            DataSet virtdb = new DataSet();
+            SqlConnection c = new SqlConnection(s);
+
+            try
+            {
+                SqlDataAdapter da = new SqlDataAdapter("Select * from CarRental where City LIKE '%" + b1 + "%' and Brand LIKE '%" + b2 + "%'", c);
+                da.Fill(virtdb, "carrental");
+
+            }
+            catch (Exception ex)
+            {
+                ex.ToString();
+                Console.WriteLine("ERROR: show carrental");
+            }
+            finally
+            {
+                c.Close();
+            }
+            return virtdb;
+
+        }
+
+        public DataSet searchIDCarRental(String IDcr)
+        {
+            string s;
+            s = ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString();
+            DataSet virtdb = new DataSet();
+            SqlConnection c = new SqlConnection(s);
+
+            try
+            {
+                SqlDataAdapter da = new SqlDataAdapter("Select * from CarRental where Id = '" + IDcr + "'", c);
+                da.Fill(virtdb, "carrental");
+
+            }
+            catch (Exception ex)
+            {
+                ex.ToString();
+                Console.WriteLine("ERROR: show carrental");
+            }
+            finally
+            {
+                c.Close();
+            }
+            return virtdb;
+
+        }
+
+
+        public DataSet addCarRental(CarRentalEN cr)
+        {
+            string s;
+            s = ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString();
+            SqlConnection c = new SqlConnection(s);
+            DataSet virtdb = new DataSet();
+            try
+            {
+                SqlDataAdapter da = new SqlDataAdapter("select * from CarRental", c);
+                da.Fill(virtdb, "carrental");
+                DataTable dt = new DataTable();
+                dt = virtdb.Tables["carrental"];
+                DataRow newRow = dt.NewRow();
+                newRow[0] = cr.id;
+                newRow[1] = cr.city;
+                newRow[2] = cr.brand;
+                newRow[3] = cr.model;
+                newRow[4] = cr.days;
+                newRow[5] = cr.Price;
+                newRow[6] = cr.Company;
+                newRow[7] = cr.Extras;
+                newRow[8] = cr.Image;
+                dt.Rows.Add(newRow);
+                SqlCommandBuilder cbuilder = new SqlCommandBuilder(da);
+                da.Update(virtdb, "carrental");
+            }
+            catch (Exception ex)
+            {
+                ex.ToString();
+                Console.WriteLine("ERROR: Add carrental");
+            }
+            finally
+            {
+                c.Close();
+            }
+
+            return virtdb;
+        }
+
+
+        public DataSet deleteCarRental(CarRentalEN b, int i) // It will delete the index passed in the view
+        {
+            string s;
+            s = ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString();
+            SqlConnection c = new SqlConnection(s);
+            DataSet virtdb = new DataSet();
+            try
+            {
+                SqlDataAdapter da = new SqlDataAdapter("select * from CarRental", c);
+                da.Fill(virtdb, "carrental");
+                DataTable t = new DataTable();
+                t = virtdb.Tables["carrental"];
+
+                t.Rows[i].Delete();
+
+                SqlCommandBuilder cbuilder = new SqlCommandBuilder(da);
+                da.Update(virtdb, "carrental");
+            }
+            catch (Exception ex)
+            {
+                ex.ToString();
+                Console.WriteLine("ERROR: Delete carrental");
+            }
+            finally
+            {
+                c.Close();
+            }
+            return virtdb;
+        }
+
+        public DataSet updateCarRental(CarRentalEN cr, int i)
+        {
+            string s;
+            s = ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString();
+            SqlConnection c = new SqlConnection(s);
+            DataSet virtdb = new DataSet();
+            try
+            {
+                SqlDataAdapter da = new SqlDataAdapter("select * from CarRental", c);
+                da.Fill(virtdb, "carrental");
+                DataTable t = new DataTable();
+                t = virtdb.Tables["carrental"];
+
+                t.Rows[i]["Id"] = cr.id;
+                t.Rows[i]["City"] = cr.city;
+                t.Rows[i]["Brand"] = cr.brand;
+                t.Rows[i]["Model"] = cr.model;
+                t.Rows[i]["Days"] = cr.days;
+                t.Rows[i]["price"] = cr.Price;
+                t.Rows[i]["company"] = cr.Company;
+                t.Rows[i]["extras"] = cr.Extras;
+                t.Rows[i]["image"] = cr.Image;
+
+
+                SqlCommandBuilder cbuilder = new SqlCommandBuilder(da);
+                da.Update(virtdb, "carrental");
+            }
+            catch (Exception ex)
+            {
+                ex.ToString();
+                Console.WriteLine("ERROR: Delete carrental");
+            }
+            finally
+            {
+                c.Close();
+            }
+            return virtdb;
+
+
+        }
+
+    }
 }

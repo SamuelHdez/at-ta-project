@@ -2,56 +2,60 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
+using System.Text;
+using System.Threading.Tasks;
+using System.Data;
 
 namespace TopTravel
 {
     public class CarRentalEN
     {
-        /*
-        public CarRentalEN(int ID, string c, string b, string m, int d, string D)
+        public CarRentalEN()
         {
-            Id = ID;
-            City = c;
-            Brand = b;
-            Model = m;
-            Days = d;
-            Date = D;
         }
 
-        public void add_CarRental()
-		{
-			CarRentalCAD c = new CarRentalCAD();
-			c.add_CarRental(this);
-		}
-
-        public void update_CarRental()
-		{
-            CarRentalCAD c = new CarRentalCAD();
-			c.update_CarRental(this);
-		}
-
-        public void delete_CarRental()
-		{
-            CarRentalCAD c = new CarRentalCAD();
-			c.delete_CarRental(this);
-		}
-
-        public ArrayList showAllCarRental()
+        public DataSet add_CarRental()
         {
-            ArrayList a = new ArrayList();
             CarRentalCAD c = new CarRentalCAD();
-            a = c.showCarRental();
-            return a;
+            DataSet ds = c.addCarRental(this);
+            return ds;
         }
 
-        public ArrayList searchCarRental()
-		{
-            ArrayList a = new ArrayList();
+        public DataSet delete_CarRental(int i)
+        {
             CarRentalCAD c = new CarRentalCAD();
-            a = c.search_CarRental(this);
-            return a;
-		}
+            DataSet ds = c.deleteCarRental(this, i);
+            return ds;
+        }
+
+        public DataSet update_CarRental(int i)
+        {
+            CarRentalCAD c = new CarRentalCAD();
+            DataSet ds = c.updateCarRental(this, i);
+            return ds;
+        }
+
+        public DataSet searchAllCarRental(String city1, String city2)
+        {
+            CarRentalCAD c = new CarRentalCAD();
+            DataSet ds = c.searchCarRental(city1, city2);
+            return ds;
+        }
+
+        public DataSet searchIDCarRental(String idF)
+        {
+            CarRentalCAD c = new CarRentalCAD();
+            DataSet ds = c.searchIDCarRental(idF);
+            return ds;
+        }
+
+        public DataSet showAllCarRental()
+        {
+            CarRentalCAD c = new CarRentalCAD();
+            DataSet ds = c.showCarRental(this);
+            return ds;
+        }
+
 
         // PROPERTIES
         private int Id;
@@ -63,6 +67,9 @@ namespace TopTravel
         private int company;
         private int extras;
         private string image;
+
+        //Data
+        //getters and setters
 
         public int id
         {
@@ -116,7 +123,6 @@ namespace TopTravel
         {
             get { return image; }
             set { image = value; }
-        } 
-         * */
+        }
     }
 }
