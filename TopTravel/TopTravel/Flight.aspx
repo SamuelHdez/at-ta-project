@@ -19,30 +19,7 @@
         display: none;
       }
     </style>
-
     <section id="Form">
-
-        <!--<ol class="round">
-            <li class="one">
-                <h5>Introducción</h5>
-                Los formularios Web Forms de ASP.NET permiten crear sitios web dinámicos mediante modelos basados en eventos y de arrastrar y colocar.
-                La superficie de diseño y los cientos de controles y componentes permiten crear rápidamente sitios sofisticados y controlados mediante UI con acceso de datos.
-                <a href="http://go.microsoft.com/fwlink/?LinkId=245146">Más información…</a>
-            </li>
-            <li class="two">
-                <h5>Agregar paquetes NuGet y poner en marcha su codificación</h5>
-                NuGet facilita la instalación y actualización de herramientas y bibliotecas gratuitas.
-                <a href="http://go.microsoft.com/fwlink/?LinkId=245147">Más información…</a>
-            </li>
-            <li class="three">
-                <h5>Buscar hospedaje de sitios web</h5>
-                Encuentre fácilmente empresas de alojamiento web que ofrezcan la mejor relación de características y precio para sus aplicaciones.
-                <a href="http://go.microsoft.com/fwlink/?LinkId=245143">Más información…</a>
-            </li>
-        </ol>-->
-
-
-
          <fieldset>
              <legend>Search your flight</legend>
 
@@ -93,6 +70,7 @@
             </asp:GridView>
     </section>
 
+    <section id="GBTop">
     <asp:GridView ID="GridView2" runat="server" AllowPaging="True" PageSize="8" Width="100%" AutoGenerateColumns="False" CssClass="Grid" AlternatingRowStyle-CssClass="alt">
                 <columns>
                     <asp:boundfield datafield="departureCity" headertext="Departure"/>
@@ -117,38 +95,43 @@
                 </columns>
                 <PagerStyle HorizontalAlign="Center" CssClass="GridPager" />
             </asp:GridView>
+    </section>
 
+    <section id="GBHalf">
     <asp:GridView ID="GridView3" runat="server" Width="100%" AutoGenerateColumns="False" CssClass="Grid" AlternatingRowStyle-CssClass="alt">
                 <Columns>
                     <asp:TemplateField HeaderText="Image">
                         <ItemTemplate>
-                            <asp:Image ID="Image1" runat="server" ImageUrl='<%# Bind("image") %>' Width="450"/>
+                            <asp:Image ID="Image1" runat="server" ImageUrl='<%# Bind("image") %>' Width="100%"/>
                         </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>
     </asp:GridView>
+    </section><section id="GBHalf">
+        <asp:GridView ID="GridView4" runat="server" Width="100%" AutoGenerateColumns="False" CssClass="Grid" AlternatingRowStyle-CssClass="alt">
+            <Columns>
+                <asp:boundfield datafield="Name" headertext="Company"/>
+            </Columns>
+        </asp:GridView>
 
-     <asp:GridView ID="GridView4" runat="server" Width="100%" AutoGenerateColumns="False" CssClass="Grid" AlternatingRowStyle-CssClass="alt">
-                <Columns>
-                    <asp:boundfield datafield="Name" headertext="Company"/>
-                </Columns>
-    </asp:GridView>
-
-     <asp:GridView ID="GridView5" runat="server" Width="100%" AutoGenerateColumns="False" CssClass="Grid" AlternatingRowStyle-CssClass="alt">
-                <Columns>
-                    <asp:boundfield datafield="Wifi" headertext="Wifi"/>
-                    <asp:boundfield datafield="Food" headertext="Food"/>
-                    <asp:boundfield datafield="Discount" headertext="Discount"/>
-                </Columns>
-    </asp:GridView>
-
-     <asp:LoginView ID="LoginView1" runat="server" ViewStateMode="Disabled" Visible="false">
-        <AnonymousTemplate>      
-            <asp:Button ID="ButtonLogin" runat="server" Text="Login" OnClick="SendButtonLogin" CssClass="inputBottom" />
-        </AnonymousTemplate>
-        <LoggedInTemplate>
-            <asp:Button ID="ButtonBuy" runat="server" Text="Buy" OnClick="SendButtonBuy" CssClass="inputBottom" />
-        </LoggedInTemplate>
-     </asp:LoginView>  
+        <section id="GBLast">
+        <asp:GridView ID="GridView5" runat="server" Width="100%" AutoGenerateColumns="False" CssClass="Grid" AlternatingRowStyle-CssClass="alt">
+            <Columns>
+                <asp:boundfield datafield="Wifi" headertext="Wifi"/>
+                <asp:boundfield datafield="Food" headertext="Food"/>
+                <asp:boundfield datafield="Discount" headertext="Discount"/>
+            </Columns>
+        </asp:GridView>
+        </section> 
+    
+        <asp:LoginView ID="LoginView1" runat="server" ViewStateMode="Disabled" Visible="false">
+            <AnonymousTemplate>      
+                <asp:Button ID="ButtonLogin" runat="server" Text="Login" OnClick="SendButtonLogin" CssClass="inputBottom" />
+            </AnonymousTemplate>
+            <LoggedInTemplate>
+                <asp:Button ID="ButtonBuy" runat="server" Text="Buy" OnClick="SendButtonBuy" CssClass="inputBottom" />
+            </LoggedInTemplate>
+        </asp:LoginView>
+    </section>  
 
 </asp:Content>

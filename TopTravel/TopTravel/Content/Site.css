@@ -900,8 +900,9 @@ ul#menuFooter {
 
 #Form {
     border-right: solid 2px #c8c8c8;
-    float: left;
     width: 50%;
+    display: inline-block;
+    box-sizing: border-box;
 }
 
 label {
@@ -957,19 +958,18 @@ select {
     float: right;
 }
 
-#Results {
-    display: table-cell;
-    text-align: center;
-    vertical-align: middle;
-    padding: 20px;
-    padding-left: 40px;
-
-    width: 50%;
+.inline {
+    display: inline-block;
 }
 
-#Results .app {
-    width: 400px;
-    height: auto;
+#Results {
+    box-sizing: border-box;
+    padding: 20px;
+    padding-left: 40px;
+    width: 49%;
+    display: inline-block;
+    vertical-align: top;
+}
 }
 
 /********************
@@ -984,7 +984,7 @@ select {
     border-right: none;
 }
 #Results {
-
+    float: none;
     width: 100%;
 }
 
@@ -1023,12 +1023,52 @@ select {
     display: block;
 }
 
+#GBTop {
+    box-sizing: border-box;
+    width: 100%;
+    margin: 0px;
+    padding: 10px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+#GBTop input{
+    width: 50px;
+}
+
+#GBHalf {
+    box-sizing: border-box;
+    width: 50%;
+    margin: 0px;
+    padding: 10px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+#GBLast {
+    padding-top: 20px;
+}
+
 .Grid {
-    background-color: #48515C; margin: 5px 0 10px 0; border: none; color: #FFF;}
+    background-color: #48515C;
+    margin: 0px;
+    padding: 0px;
+    border: none;
+    color: #FFF;
+    text-align: center;
+    vertical-align: middle;
+}
 .Grid td {
       padding: 10px 2px;
       border: none;
 }
+
+
+.Grid#MainContent_GridView3 td {
+      padding: 0px;
+}
+
+
 .Grid th  {
       padding : 10px 6px;
       background: #353E49;
