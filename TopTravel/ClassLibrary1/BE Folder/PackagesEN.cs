@@ -28,10 +28,24 @@ namespace TopTravel
         }
 
         // PROPERTIES
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public int Transport { get; set; } // Flight
-        public int Hotel { get; set; }
+        private int Id;
+        private string Name;
+        private int Transport; // Flight
+        private int Hotel;
+        private string image;
+        private int price;
+
+        public int Price
+        {
+            get { return price; }
+            set { price = value; }
+        }
+
+        public string Image
+        {
+            get { return image; }
+            set { image = value; }
+        } 
 
 /*
         // claves ajenas a hoteles y transporte que tenga

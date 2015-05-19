@@ -52,10 +52,39 @@ namespace TopTravel
         }
 
         // PROPERTIES
-        public int Id { get; set; }
-        public string departureDate { get; set; }
-        public string arrivalDate { get; set; }
-        public string departureCity { get; set; }
-        public string PreparationCenter { get; set; }
+        private int Id;
+        private string departureDate;
+        private string arrivalDate;
+        private string departureCity;
+        private string PreparationCenter;
+        private int price;
+        private int company;
+        private int extras;
+        private string image;
+
+
+        public int Price
+        {
+            get { return price; }
+            set { price = value; }
+        }
+
+        public int Company
+        {
+            get { return company; }
+            set { company = value; }
+        }
+
+        public int Extras
+        {
+            get { return extras; }
+            set { extras = value; }
+        }
+
+        public string Image
+        {
+            get { return image; }
+            set { image = value; }
+        } 
     }
 }

@@ -65,6 +65,7 @@ namespace TopTravel
         private int price;
         private int company;
         private int extras;
+        private string image;
 
         //getters and setters
 
@@ -114,6 +115,12 @@ namespace TopTravel
         {
             get { return extras; }
             set { extras = value; }
+        }
+
+        public string Image
+        {
+            get { return image; }
+            set { image = value; }
         } 
 
     }

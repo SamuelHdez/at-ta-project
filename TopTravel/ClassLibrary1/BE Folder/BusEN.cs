@@ -55,8 +55,10 @@ namespace TopTravel
         private string departureCity;
         private string destinationCity;
         private string bonus;
+        private int price;
         private int company;
         private int extras;
+        private string image;
 
         //Data
         //getters and setters
@@ -97,6 +99,12 @@ namespace TopTravel
             set { Bonus = value; }
         }
 
+        public int Price
+        {
+            get { return price; }
+            set { price = value; }
+        }
+
         public int Company
         {
             get { return company; }
@@ -107,6 +115,12 @@ namespace TopTravel
         {
             get { return extras; }
             set { extras = value; }
+        }
+
+        public string Image
+        {
+            get { return image; }
+            set { image = value; }
         } 
 
     }
