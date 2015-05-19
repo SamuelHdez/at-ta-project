@@ -70,6 +70,11 @@
             </asp:GridView>
     </section>
 
+     <hgroup class="title">
+       <h1><asp:Label ID="Label10" runat="server" Text="Flights" Visible="false"></asp:Label></h1> 
+       <h2><asp:Label ID="Label11" runat="server" Text="Details" Visible="false"></asp:Label></h2> 
+    </hgroup>
+
     <section id="GBTop">
     <asp:GridView ID="GridView2" runat="server" AllowPaging="True" PageSize="8" Width="100%" AutoGenerateColumns="False" CssClass="Grid" AlternatingRowStyle-CssClass="alt">
                 <columns>

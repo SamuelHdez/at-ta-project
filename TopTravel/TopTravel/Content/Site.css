@@ -150,6 +150,10 @@ footer {
     display: block;
     margin-top: 10px ;
     text-align: right;
+    color: #fff;
+    font-size: 16px;
+
+
 }
 
     #login a {
@@ -162,7 +166,7 @@ footer {
     #login a.username {
         background: none;
         margin-left: 0px;
-        text-decoration: underline;
+        text-decoration: none;
     }
 
     #login ul {

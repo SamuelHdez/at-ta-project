@@ -24,9 +24,13 @@ namespace TopTravel
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            d = h.showAllFlights();
-            GridView1.DataSource = d;
-            GridView1.DataBind();
+            if (!Page.IsPostBack)
+            {
+                d = h.showAllFlights();
+                GridView1.DataSource = d;
+                GridView1.DataBind();
+
+            }
         }
 
         protected void send(object sender, EventArgs e)
@@ -48,6 +52,8 @@ namespace TopTravel
         {
             this.GridView1.PageIndex = e.NewPageIndex;
             //LLenarDatosConsejera();
+            d = h.showAllFlights();
+            GridView1.DataSource = d;
             this.GridView1.DataBind();
         }
 
@@ -70,6 +76,8 @@ namespace TopTravel
             GridView5.DataBind();
 
             LoginView1.Visible =true;
+            Label10.Visible = true;
+            Label11.Visible = true;
         }
 
         protected void SendButtonLogin(object sender, EventArgs e)
