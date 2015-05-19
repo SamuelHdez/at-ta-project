@@ -2,56 +2,60 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
+using System.Text;
 using System.Threading.Tasks;
+using System.Data;
 
 namespace TopTravel
 {
-    class SpaceTravelEN
+    public class SpaceTravelEN
     {
-        /*
-        public SpaceTravelEN(int i, string dD, string aD, string dC, string p)
+        public SpaceTravelEN()
         {
-            Id = i;
-            departureDate = dD;
-            arrivalDate = aD;
-            departureCity = dC;
-            PreparationCenter = p;
         }
 
-        public void add_SpaceTravel()
-        {
-            SpaceTravelCAD c = new SpaceTravelCAD();
-            c.add_SpaceTravel(this);
-        }
+        public DataSet add_SpaceTravels()
+       {
+           SpaceTravelCAD c = new SpaceTravelCAD();
+           DataSet ds = c.addSpaceTravel(this);
+           return ds;
+       }
 
-        public void delete_SpaceTravel()
-        {
-            SpaceTravelCAD c = new SpaceTravelCAD();
-            c.delete_SpaceTravel(this);
-        }
+       public DataSet delete_SpaceTravels(int i)
+       {
+           SpaceTravelCAD c = new SpaceTravelCAD();
+           DataSet ds = c.deleteSpaceTravel(this, i);
+           return ds;
+       }
 
-        public void update_SpaceTravel()
-        {
-            SpaceTravelCAD c = new SpaceTravelCAD();
-            c.update_SpaceTravel(this);
-        }
+       public DataSet update_SpaceTravels(int i)
+       {
+           SpaceTravelCAD c = new SpaceTravelCAD();
+           DataSet ds = c.updateSpaceTravel(this, i);
+           return ds;
+       }
 
-        public ArrayList search_SpaceTravel()
-        {
-            ArrayList a = new ArrayList();
-            SpaceTravelCAD c = new SpaceTravelCAD();
-            a = c.search_SpaceTravel(this);
-            return a;
-        }
-        public ArrayList show_SpaceTravel()
-        {
-            ArrayList a = new ArrayList();
-            SpaceTravelCAD c = new SpaceTravelCAD();
-            a = c.show_SpaceTravel();
-            return a;
-        }
+       public DataSet searchAllSpaceTravels(String city)
+       {
+           SpaceTravelCAD c = new SpaceTravelCAD();
+           DataSet ds = c.searchSpaceTravels(city);
+           return ds;
+       }
 
+       public DataSet searchIDSpaceTravels(String idH)
+       {
+           SpaceTravelCAD c = new SpaceTravelCAD();
+           DataSet ds = c.searchIDSpaceTravels(idH);
+           return ds;
+       }
+
+       public DataSet showAllSpaceTravels()
+       {
+           SpaceTravelCAD c = new SpaceTravelCAD();
+           DataSet ds = c.showSpaceTravels(this);
+           return ds;
+       }
+  
         // PROPERTIES
         private int Id;
         private string departureDate;
@@ -61,8 +65,38 @@ namespace TopTravel
         private int price;
         private int company;
         private int extras;
-        private string image;
+        private string images;
 
+
+        public int id
+        {
+            get { return Id; }
+            set { Id = value; }
+        }
+
+        public string DepartureDate
+        {
+            get { return departureDate; }
+            set { departureDate = value; }
+        }
+
+        public string ArrivalDate
+        {
+            get { return arrivalDate; }
+            set { arrivalDate = value; }
+        }
+
+        public string DepartureCity
+        {
+            get { return departureCity; }
+            set { departureCity = value; }
+        }
+
+        public string preparationCenter
+        {
+            get { return PreparationCenter; }
+            set { PreparationCenter = value; }
+        }
 
         public int Price
         {
@@ -82,10 +116,10 @@ namespace TopTravel
             set { extras = value; }
         }
 
-        public string Image
+        public string Images
         {
-            get { return image; }
-            set { image = value; }
-        } */
+            get { return images; }
+            set { images = value; }
+        } 
     }
 }

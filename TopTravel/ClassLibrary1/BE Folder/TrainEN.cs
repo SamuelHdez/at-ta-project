@@ -14,10 +14,11 @@ namespace TopTravel
         {
         }
 
-        public void add_Train()
+        public DataSet add_Train()
         {
             TrainCAD c = new TrainCAD();
-            c.addTrain(this);
+            DataSet ds = c.addTrain(this);
+            return ds;
         }
 
         public DataSet delete_train(int i)
@@ -61,7 +62,6 @@ namespace TopTravel
         private string arrivalTime;
         private string departureCity;
         private string destinationCity;
-        private string Bonus;
         private int price;
         private int company;
         private int extras;
@@ -98,12 +98,6 @@ namespace TopTravel
         {
             get { return destinationCity; }
             set { destinationCity = value; }
-        }
-
-        public string bonus
-        {
-            get { return Bonus; }
-            set { Bonus = value; }
         }
 
         public int Price

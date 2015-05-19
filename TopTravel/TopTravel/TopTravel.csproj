@@ -127,12 +127,14 @@
     <Content Include="Account\OpenAuthProviders.ascx" />
     <Content Include="Account\Register.aspx" />
     <Content Include="Account\RegisterExternalLogin.aspx" />
+    <Content Include="AdminPanel\Bus.aspx" />
     <Content Include="AdminPanel\Cruise.aspx" />
     <Content Include="AdminPanel\Flight.aspx" />
     <Content Include="App_Data\aspnet-TopTravel-20150506160445.mdf" />
     <Content Include="App_Data\aspnet-TopTravel-20150506160445_log.ldf">
       <DependentUpon>aspnet-TopTravel-20150506160445.mdf</DependentUpon>
     </Content>
+    <Content Include="Bus.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
@@ -263,10 +265,19 @@
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="SpaceTravel.aspx" />
+    <Content Include="Train.aspx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminPanel\Bus.aspx.cs">
+      <DependentUpon>Bus.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminPanel\Bus.aspx.designer.cs">
+      <DependentUpon>Bus.aspx</DependentUpon>
+    </Compile>
     <Compile Include="AdminPanel\Cruise.aspx.cs">
       <DependentUpon>Cruise.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -324,6 +335,13 @@
     </Compile>
     <Compile Include="Account\RegisterExternalLogin.aspx.designer.cs">
       <DependentUpon>RegisterExternalLogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Bus.aspx.cs">
+      <DependentUpon>Bus.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Bus.aspx.designer.cs">
+      <DependentUpon>Bus.aspx</DependentUpon>
     </Compile>
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
@@ -405,6 +423,20 @@
     </Compile>
     <Compile Include="Package.aspx.designer.cs">
       <DependentUpon>Package.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SpaceTravel.aspx.cs">
+      <DependentUpon>SpaceTravel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SpaceTravel.aspx.designer.cs">
+      <DependentUpon>SpaceTravel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Train.aspx.cs">
+      <DependentUpon>Train.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Train.aspx.designer.cs">
+      <DependentUpon>Train.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

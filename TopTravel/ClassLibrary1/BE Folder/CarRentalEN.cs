@@ -8,6 +8,7 @@ namespace TopTravel
 {
     public class CarRentalEN
     {
+        /*
         public CarRentalEN(int ID, string c, string b, string m, int d, string D)
         {
             Id = ID;
@@ -58,11 +59,40 @@ namespace TopTravel
         private string Brand;
         private string Model;
         private int Days;
-        private string Date;
         private int price;
         private int company;
         private int extras;
         private string image;
+
+        public int id
+        {
+            get { return Id; }
+            set { Id = value; }
+        }
+
+        public string city
+        {
+            get { return City; }
+            set { City = value; }
+        }
+
+        public string brand
+        {
+            get { return Brand; }
+            set { Brand = value; }
+        }
+
+        public string model
+        {
+            get { return Model; }
+            set { Model = value; }
+        }
+
+        public int days
+        {
+            get { return Days; }
+            set { Days = value; }
+        }
 
         public int Price
         {
@@ -87,5 +117,6 @@ namespace TopTravel
             get { return image; }
             set { image = value; }
         } 
+         * */
     }
 }

@@ -13,6 +13,7 @@ namespace TopTravel
 {
     public class CarRentalCAD // To-do arreglar la insercion de las fechas en la base de datos. string a tipo date
     {
+        /*
         public void add_CarRental(CarRentalEN cr)
 		{
             string s = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
@@ -20,8 +21,8 @@ namespace TopTravel
             try
             {
                 c.Open();
-                SqlCommand com = new SqlCommand("Insert Into CarRental (Id,City,Brand,Model,Days,Date) VALUES ('" + cr.Id + "','" + cr.City + "','" + cr.Brand + "','" +
-                    cr.Model + "','" + cr.Days + "','" + cr.Date + "')", c);
+                SqlCommand com = new SqlCommand("Insert Into CarRental (Id,City,Brand,Model,Days,Date) VALUES ('" + cr.id + "','" + cr.city + "','" + cr.brand + "','" +
+                    cr.model + "','" + cr.days + "',)", c);
                 com.ExecuteNonQuery();
             }
             catch (Exception ex)
@@ -42,8 +43,8 @@ namespace TopTravel
             try
             {
                 c.Open();
-                SqlCommand com = new SqlCommand("Update CarRental Set City = '" + cr.City + "', Brand = '" + cr.Brand + "', Model ='" +
-                    cr.Model + "', Days = '" + cr.Days + "', Date = '" + cr.Date + "' Where ID = " + cr.Id, c);
+                SqlCommand com = new SqlCommand("Update CarRental Set City = '" + cr.city + "', Brand = '" + cr.brand + "', Model ='" +
+                    cr.model + "', Days = '" + cr.Days + "', Date = '" + cr.Date + "' Where ID = " + cr.id, c);
                 com.ExecuteNonQuery();
             }
             catch (Exception ex)
@@ -131,6 +132,6 @@ namespace TopTravel
                 c.Close();
             }
             return a;
-        }
-    }
+        }*/
+    } 
 }

@@ -13,6 +13,195 @@ namespace TopTravel
 {
     class SpaceTravelCAD
     {
+        public DataSet showSpaceTravels(SpaceTravelEN SP)
+        {
+            string s;
+            s = ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString();
+            DataSet virtdb = new DataSet();
+            SqlConnection c = new SqlConnection(s);
+
+            try
+            {
+                SqlDataAdapter da = new SqlDataAdapter("select * from SpaceTravel", c);
+                da.Fill(virtdb, "spaceTravel");
+
+            }
+            catch (Exception ex)
+            {
+                ex.ToString();
+                Console.WriteLine("ERROR: show spaceTravel");
+            }
+            finally
+            {
+                c.Close();
+            }
+            return virtdb;
+
+        }
+
+        public DataSet searchSpaceTravels(String DP)
+        {
+            string s;
+            s = ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString();
+            DataSet virtdb = new DataSet();
+            SqlConnection c = new SqlConnection(s);
+
+            try
+            {
+                SqlDataAdapter da = new SqlDataAdapter("Select * from SpaceTravel where departureCity LIKE '%" + DP + "%'", c);
+                da.Fill(virtdb, "spaceTravel");
+
+            }
+            catch (Exception ex)
+            {
+                ex.ToString();
+                Console.WriteLine("ERROR: show spaceTravel");
+            }
+            finally
+            {
+                c.Close();
+            }
+            return virtdb;
+
+        }
+
+        public DataSet searchIDSpaceTravels(String IDsp)
+        {
+            string s;
+            s = ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString();
+            DataSet virtdb = new DataSet();
+            SqlConnection c = new SqlConnection(s);
+
+            try
+            {
+                SqlDataAdapter da = new SqlDataAdapter("Select * from SpaceTravel where Id = '" + IDsp + "'", c);
+                da.Fill(virtdb, "spaceTravel");
+
+            }
+            catch (Exception ex)
+            {
+                ex.ToString();
+                Console.WriteLine("ERROR: show spaceTravel");
+            }
+            finally
+            {
+                c.Close();
+            }
+            return virtdb;
+
+        }
+
+
+        public DataSet addSpaceTravel(SpaceTravelEN SP)
+        {
+            string s;
+            s = ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString();
+            SqlConnection c = new SqlConnection(s);
+            DataSet virtdb = new DataSet();
+            try
+            {
+                SqlDataAdapter da = new SqlDataAdapter("select * from SpaceTravel", c);
+                da.Fill(virtdb, "spaceTravel");
+                DataTable dt = new DataTable();
+                dt = virtdb.Tables["spaceTravel"];
+                DataRow newRow = dt.NewRow();
+                newRow[0] = SP.id;
+                newRow[1] = SP.DepartureDate;
+                newRow[2] = SP.ArrivalDate;
+                newRow[3] = SP.DepartureCity;
+                newRow[4] = SP.preparationCenter;
+                newRow[5] = SP.Price;
+                newRow[6] = SP.Company;
+                newRow[7] = SP.Extras;
+                newRow[8] = SP.Images;
+                dt.Rows.Add(newRow);
+                SqlCommandBuilder cbuilder = new SqlCommandBuilder(da);
+                da.Update(virtdb, "spaceTravel");
+            }
+            catch (Exception ex)
+            {
+                ex.ToString();
+                Console.WriteLine("ERROR: Add spaceTravel");
+            }
+            finally
+            {
+                c.Close();
+            }
+
+            return virtdb;
+        }
+
+
+        public DataSet deleteSpaceTravel(SpaceTravelEN SP, int i) // It will delete the index passed in the view
+        {
+            string s;
+            s = ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString();
+            SqlConnection c = new SqlConnection(s);
+            DataSet virtdb = new DataSet();
+            try
+            {
+                SqlDataAdapter da = new SqlDataAdapter("select * from SpaceTravel", c);
+                da.Fill(virtdb, "spaceTravel");
+                DataTable t = new DataTable();
+                t = virtdb.Tables["spaceTravel"];
+
+                t.Rows[i].Delete();
+
+                SqlCommandBuilder cbuilder = new SqlCommandBuilder(da);
+                da.Update(virtdb, "spaceTravel");
+            }
+            catch (Exception ex)
+            {
+                ex.ToString();
+                Console.WriteLine("ERROR: Delete spaceTravel");
+            }
+            finally
+            {
+                c.Close();
+            }
+            return virtdb;
+        }
+
+        public DataSet updateSpaceTravel(SpaceTravelEN SP, int i)
+        {
+            string s;
+            s = ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString();
+            SqlConnection c = new SqlConnection(s);
+            DataSet virtdb = new DataSet();
+            try
+            {
+                SqlDataAdapter da = new SqlDataAdapter("select * from SpaceTravel", c);
+                da.Fill(virtdb, "spaceTravel");
+                DataTable t = new DataTable();
+                t = virtdb.Tables["spaceTravel"];
+
+                t.Rows[i]["Id"] = SP.id;
+                t.Rows[i]["departureDate"] = SP.DepartureDate;
+                t.Rows[i]["arrivalDate"] = SP.ArrivalDate;
+                t.Rows[i]["departureCity"] = SP.DepartureCity;
+                t.Rows[i]["Preparation Center"] = SP.preparationCenter;
+                t.Rows[i]["price"] = SP.Price;
+                t.Rows[i]["company"] = SP.Company;
+                t.Rows[i]["extras"] = SP.Extras;
+                t.Rows[i]["images"] = SP.Images;
+
+
+                SqlCommandBuilder cbuilder = new SqlCommandBuilder(da);
+                da.Update(virtdb, "spaceTravel");
+            }
+            catch (Exception ex)
+            {
+                ex.ToString();
+                Console.WriteLine("ERROR: Delete spaceTravel");
+            }
+            finally
+            {
+                c.Close();
+            }
+            return virtdb;
+
+
+        }
         /*
         public void add_SpaceTravel(SpaceTravelEN b)
         {

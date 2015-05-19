@@ -14,10 +14,11 @@ namespace TopTravel
         {
         }
 
-        public void add_Bus()
+        public DataSet add_Bus()
         {
             BusCAD c = new BusCAD();
-            c.addBus(this);
+            DataSet ds = c.addBus(this);
+            return ds;
         }
 
         public DataSet delete_Bus(int i)
@@ -61,7 +62,6 @@ namespace TopTravel
         private string arrivaldTime;
         private string departureCity;
         private string destinationCity;
-        private string bonus;
         private int price;
         private int company;
         private int extras;
@@ -98,12 +98,6 @@ namespace TopTravel
         {
             get { return destinationCity; }
             set { destinationCity = value; }
-        }
-
-        public string Bonus
-        {
-            get { return Bonus; }
-            set { Bonus = value; }
         }
 
         public int Price

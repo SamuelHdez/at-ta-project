@@ -92,7 +92,7 @@ namespace TopTravel
         }
 
 
-        public void addBus(BusEN b)
+        public DataSet addBus(BusEN b)
         {
             string s;
             s = ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString();
@@ -110,11 +110,10 @@ namespace TopTravel
                 newRow[2] = b.ArrivaldTime;
                 newRow[3] = b.DepartureCity;
                 newRow[4] = b.DestinationCity;
-                newRow[5] = b.Bonus;
-                newRow[6] = b.Price;
-                newRow[7] = b.Company;
-                newRow[8] = b.Extras;
-                newRow[9] = b.Image;
+                newRow[5] = b.Price;
+                newRow[6] = b.Company;
+                newRow[7] = b.Extras;
+                newRow[8] = b.Image;
                 dt.Rows.Add(newRow);
                 SqlCommandBuilder cbuilder = new SqlCommandBuilder(da);
                 da.Update(virtdb, "bus");
@@ -128,6 +127,8 @@ namespace TopTravel
             {
                 c.Close();
             }
+
+            return virtdb;
         }
 
 
@@ -179,7 +180,6 @@ namespace TopTravel
                 t.Rows[i]["arrivaldTime"] = b.ArrivaldTime;
                 t.Rows[i]["departureCity"] = b.DepartureCity;
                 t.Rows[i]["destinationCity"] = b.DestinationCity;
-                t.Rows[i]["bonus"] = b.Bonus;
                 t.Rows[i]["price"] = b.Price;
                 t.Rows[i]["company"] = b.Company;
                 t.Rows[i]["extras"] = b.Extras;

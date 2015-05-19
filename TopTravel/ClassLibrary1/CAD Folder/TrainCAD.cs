@@ -93,7 +93,7 @@ namespace TopTravel
         }
 
 
-        public void addTrain(TrainEN t)
+        public DataSet addTrain(TrainEN t)
         {
             string s;
             s = ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString();
@@ -111,11 +111,10 @@ namespace TopTravel
                 newRow[2] = t.ArrivalTime;
                 newRow[3] = t.DepartureCity;
                 newRow[4] = t.DestinationCity;
-                newRow[5] = t.bonus;
-                newRow[6] = t.Price;
-                newRow[7] = t.Company;
-                newRow[8] = t.Extras;
-                newRow[9] = t.Images;
+                newRow[5] = t.Price;
+                newRow[6] = t.Company;
+                newRow[7] = t.Extras;
+                newRow[8] = t.Images;
                 dt.Rows.Add(newRow);
                 SqlCommandBuilder cbuilder = new SqlCommandBuilder(da);
                 da.Update(virtdb, "train");
@@ -129,6 +128,8 @@ namespace TopTravel
             {
                 c.Close();
             }
+
+            return virtdb;
         }
 
         public DataSet deleteTrain(TrainEN tr, int i) // It will delete the index passed in the view
@@ -180,7 +181,6 @@ namespace TopTravel
                 t.Rows[i]["departureCity"] = tr.DepartureCity;
                 t.Rows[i]["destinationCity"] = tr.DestinationCity;
                 t.Rows[i]["price"] = tr.Price;
-                t.Rows[i]["Bonus"] = tr.bonus;
                 t.Rows[i]["company"] = tr.Company;
                 t.Rows[i]["extras"] = tr.Extras;
                 t.Rows[i]["images"] = tr.Images;
