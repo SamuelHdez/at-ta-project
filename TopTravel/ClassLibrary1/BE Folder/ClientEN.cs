@@ -36,6 +36,13 @@ namespace TopTravel
             return ds;
         }
 
+        public void update_Client2(String ID, String pass)
+        {
+            ClientCAD c = new ClientCAD();
+            c.updateClient2(this, ID, pass);
+            
+        }
+
         public DataSet searchDNIClient(String dni, string pass)
         {
             ClientCAD c = new ClientCAD();

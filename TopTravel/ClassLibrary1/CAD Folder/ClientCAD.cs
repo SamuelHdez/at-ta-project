@@ -160,6 +160,29 @@ namespace TopTravel
             return virtdb;
         }
 
+        public void updateClient2(ClientEN b, string ID, String pass)
+        {
+            string s;
+            s = ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString();
+            SqlConnection c = new SqlConnection(s);
+            try
+            {
+                c.Open();
+                SqlCommand com = new SqlCommand("Update Client Set name = '" + b.Name + "', surname ='" +b.Surname + "', phone = '" + b.Phone + "', address = '" + b.Address + "', creditCard = '" +b.CreditCard + "', admin = '" + 0 + "' Where dni = '" + ID + "' and password = '" + b.Password + "'", c);
+
+                com.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                ex.ToString();
+                Console.WriteLine("ERROR: Update Client");
+            }
+            finally
+            {
+                c.Close();
+            }
+        }
+
         public DataSet updateClient(ClientEN CL, int i)
         {
             string s;
@@ -168,7 +191,7 @@ namespace TopTravel
             DataSet virtdb = new DataSet();
             try
             {
-                SqlDataAdapter da = new SqlDataAdapter("select * from Client", c);
+                SqlDataAdapter da = new SqlDataAdapter("select * from Client'", c);
                 da.Fill(virtdb, "client");
                 DataTable t = new DataTable();
                 t = virtdb.Tables["client"];
