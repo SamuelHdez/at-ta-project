@@ -34,22 +34,5 @@ namespace TopTravel
                 Response.Redirect("Default.aspx"); 
             }
         }
-
-        protected void sendR(object sender, EventArgs e)
-        {
-            CL.Dni = dniR.Text;
-            CL.Name = nameR.Text;
-            CL.Surname = surnameR.Text;
-            CL.Phone = phoneR.Text;
-            CL.Address = addressR.Text;
-            CL.Gender = gender.Text;
-            CL.CreditCard = int.Parse(cardR.Text);
-            CL.Admin = 0;
-            CL.Password = passR.Text;
-            CL.Avatar = avatarR.Text;
-
-            DS = CL.add_Client();
-            
-        }
     }
 }
