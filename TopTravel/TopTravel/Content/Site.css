@@ -395,7 +395,16 @@ aside {
 #loginForm {
     border-right: solid 2px #c8c8c8;
     float: left;
-    width: 55%;
+    width: 70%;
+}
+
+#LoginResults {
+    box-sizing: border-box;
+    padding: 20px;
+    padding-left: 40px;
+    width: 29%;
+    display: inline-block;
+    vertical-align: top;
 }
 
     #loginForm .validation-error {
@@ -422,18 +431,21 @@ fieldset.open-auth-providers {
     }
     
 /* contact */
+
 .contact h3 {
     font-size: 1.2em;
+    color: #CCC;
+    padding: 0px 6px;
 }
 
 .contact p {
     margin: 5px 0 0 10px;
 }
-
+/*
 .contact iframe {
     border: 1px solid #333;
     margin: 5px 0 0 10px;
-}
+}*/
 
 /* forms */
 fieldset {
@@ -894,6 +906,7 @@ ul#menuFooter {
     .footerImg p {
         display: none;
 }
+
 }
 
 
@@ -1132,8 +1145,12 @@ select {
 }
 
 .radioButtonList2 label{
-    width: 169px;
+    width: 20%;
     margin: 0;
     padding: 0;
-    margin-left: 20px;
+}
+
+.hiddencol
+{
+display: none;
 }
