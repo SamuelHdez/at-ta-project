@@ -16,26 +16,25 @@ namespace TopTravel
     public partial class CruiseAdmin : Page
     {
         CruiseEN c = new CruiseEN();
+        AdminEN A = new AdminEN();
         DataSet d = new DataSet();
         protected void Page_Load(object sender, EventArgs e)
         {
-            string s;
-            s = ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString();
-            SqlConnection con = new SqlConnection(s);
-
-            SqlDataAdapter sda = new SqlDataAdapter("Select count(*) FROM Admin WHERE name = '" + User.Identity.Name + "'", con);
-            DataTable dt = new DataTable();
-            sda.Fill(dt);
-
-            if (dt.Rows[0][0].ToString() == "1")
+            if (!Page.IsPostBack)
             {
-                d = c.showAllCruises();
-                GridView1.DataSource = d;
-                GridView1.DataBind();
-            }
-            else
-            {
-                Response.Redirect("../Default.aspx");
+                d = A.searchAdmin(User.Identity.Name);
+                int AdminID = Convert.ToInt32(d.Tables[0].Rows[0][0]);
+
+                if (AdminID == 1)
+                {
+                    d = c.showAllCruises();
+                    GridView1.DataSource = d;
+                    GridView1.DataBind();
+                }
+                else
+                {
+                    Response.Redirect("../Default.aspx");
+                }
             }
         }
 

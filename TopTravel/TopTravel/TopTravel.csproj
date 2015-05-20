@@ -197,6 +197,9 @@
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
     <Content Include="AdminPanel\Hotel.aspx" />
     <Content Include="Companies.aspx" />
+    <Content Include="History.aspx">
+      <BrowseToURL>~/History.aspx</BrowseToURL>
+    </Content>
     <Content Include="Images\accent.png" />
     <Content Include="Images\boat.png" />
     <Content Include="Images\bullet.png" />
@@ -405,6 +408,13 @@
     </Compile>
     <Compile Include="Companies.aspx.designer.cs">
       <DependentUpon>Companies.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="History.aspx.cs">
+      <DependentUpon>History.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="History.aspx.designer.cs">
+      <DependentUpon>History.aspx</DependentUpon>
     </Compile>
     <Compile Include="Order.aspx.cs">
       <DependentUpon>Order.aspx</DependentUpon>

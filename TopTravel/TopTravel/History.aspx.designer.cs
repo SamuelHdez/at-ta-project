@@ -10,7 +10,7 @@
 namespace TopTravel {
     
     
-    public partial class Order {
+    public partial class History {
         
         /// <summary>
         /// Control GridView1.

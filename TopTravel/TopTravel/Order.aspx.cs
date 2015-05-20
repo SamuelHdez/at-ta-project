@@ -28,10 +28,6 @@ namespace TopTravel
                 d = o.searchOrders(User.Identity.Name);
                 GridView1.DataSource = d;
                 GridView1.DataBind();
-
-                d = o.searchHistory(User.Identity.Name);
-                GridView2.DataSource = d;
-                GridView2.DataBind();
             }
             else
             {
@@ -42,14 +38,26 @@ namespace TopTravel
         protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
             d = o.delete_Order(e.RowIndex);
+            d = o.searchOrders(User.Identity.Name);
             GridView1.DataSource = d;
             GridView1.DataBind();
         }
 
         protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            o.id = int.Parse(GridView1.SelectedRow.Cells[1].Text);
+            o.product = int.Parse(GridView1.SelectedRow.Cells[4].Text);
+            o.productName = GridView1.SelectedRow.Cells[5].Text;
+            o.price = int.Parse(GridView1.SelectedRow.Cells[8].Text);
+            o.userN = User.Identity.Name;
+            o.adults = int.Parse(GridView1.SelectedRow.Cells[6].Text);
+            o.children = int.Parse(GridView1.SelectedRow.Cells[7].Text);
             o.buy = 1;
-            d = o.buy_Order(GridView1.SelectedIndex);
+            o.totalPrice = int.Parse(GridView1.SelectedRow.Cells[9].Text);
+
+            d = o.update_Order(GridView1.SelectedIndex);
+            GridView1.DataSource = d;
+            GridView1.DataBind();
 
             Response.Redirect("Order.aspx");
         }

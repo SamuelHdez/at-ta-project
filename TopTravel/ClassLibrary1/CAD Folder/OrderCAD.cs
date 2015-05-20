@@ -101,7 +101,7 @@ namespace TopTravel
 
             try
             {
-                SqlDataAdapter da = new SqlDataAdapter("select count(*)+1 from OrderList", c);
+                SqlDataAdapter da = new SqlDataAdapter("select max(Id)+1 from OrderList", c);
                 da.Fill(virtdb, "order");
 
             }
@@ -166,7 +166,7 @@ namespace TopTravel
             DataSet virtdb = new DataSet();
             try
             {
-                SqlDataAdapter da = new SqlDataAdapter("select * from OrderList", c);
+                SqlDataAdapter da = new SqlDataAdapter("select * from OrderList where buy ='0'", c);
                 da.Fill(virtdb, "order");
                 DataTable t = new DataTable();
                 t = virtdb.Tables["order"];
@@ -196,7 +196,7 @@ namespace TopTravel
             DataSet virtdb = new DataSet();
             try
             {
-                SqlDataAdapter da = new SqlDataAdapter("select * from OrderList", c);
+                SqlDataAdapter da = new SqlDataAdapter("select * from OrderList where buy='0'", c);
                 da.Fill(virtdb, "order");
                 DataTable t = new DataTable();
                 t = virtdb.Tables["order"];
@@ -210,36 +210,6 @@ namespace TopTravel
                 t.Rows[i]["Children"] = o.children;
                 t.Rows[i]["Buy"] = o.buy;
                 t.Rows[i]["TotalPrice"] = o.totalPrice;
-
-                SqlCommandBuilder cbuilder = new SqlCommandBuilder(da);
-                da.Update(virtdb, "order");
-            }
-            catch (Exception ex)
-            {
-                ex.ToString();
-                Console.WriteLine("ERROR: Delete order");
-            }
-            finally
-            {
-                c.Close();
-            }
-            return virtdb;
-        }
-
-        public DataSet buyOrder(OrderEN o, int i)
-        {
-            string s;
-            s = ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString();
-            SqlConnection c = new SqlConnection(s);
-            DataSet virtdb = new DataSet();
-            try
-            {
-                SqlDataAdapter da = new SqlDataAdapter("select * from OrderList", c);
-                da.Fill(virtdb, "order");
-                DataTable t = new DataTable();
-                t = virtdb.Tables["order"];
-
-                t.Rows[i]["Buy"] = o.buy;
 
                 SqlCommandBuilder cbuilder = new SqlCommandBuilder(da);
                 da.Update(virtdb, "order");

@@ -22,10 +22,33 @@ namespace TopTravel
         }
 
         // PROPERTIES
-        public int Id { get; set; }
-        public string name { get; set; }
-        public string dni { get; set; }
-        public string email { get; set; }
-        public string password { get; set; }
+        private int Id;
+        private string name;
+        private string dni;
+        private string email;
+
+        public int id
+        {
+            get { return Id; }
+            set { Id = value; }
+        }
+
+        public string Name
+        {
+            get { return name; }
+            set { name = value; }
+        }
+
+        public string Dni
+        {
+            get { return dni; }
+            set { dni = value; }
+        }
+
+        public string Email
+        {
+            get { return email; }
+            set { email = value; }
+        }
     }
 }
