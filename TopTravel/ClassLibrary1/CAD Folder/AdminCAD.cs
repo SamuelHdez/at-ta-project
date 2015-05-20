@@ -22,7 +22,7 @@ namespace TopTravel
 
             try
             {
-                SqlDataAdapter da = new SqlDataAdapter("select count(*) from Admin where name = '" + nameAd + "'", c);
+                SqlDataAdapter da = new SqlDataAdapter("select count(*) from Admin where Id = '" + nameAd + "'", c);
                 da.Fill(virtdb, "admin");
 
             }
@@ -38,34 +38,5 @@ namespace TopTravel
             return virtdb;
 
         }
-        /*
-       public ArrayList login_admin(AdminEN a)
-        {
-            string s = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
-            ArrayList al = new ArrayList(); 
-            SqlConnection c = new SqlConnection(s);
-            try
-            {
-                c.Open();
-                SqlCommand com = new SqlCommand("Select name from Admin", c);
-                SqlDataReader dr = com.ExecuteReader();
-                while (dr.Read())
-                {
-                    al.Add(dr["Id"].ToString());
-                }
-                dr.Close();
-            }
-            catch (Exception ex)
-            {
-                ex.ToString();
-                Console.WriteLine("ERROR: Login Admin");
-            }
-            finally
-            {
-                c.Close();
-            }
-            return al;
-        }
-         */
     }
 }

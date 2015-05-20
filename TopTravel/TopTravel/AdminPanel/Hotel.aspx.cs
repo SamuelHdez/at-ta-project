@@ -16,19 +16,16 @@ namespace TopTravel
     public partial class HotelAdmin : Page
     {
         HotelEN h = new HotelEN();
+        AdminEN A = new AdminEN();
         DataSet d = new DataSet();
-
         protected void Page_Load(object sender, EventArgs e)
         {
-                string s;
-                s = ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString();
-                SqlConnection c = new SqlConnection(s);
+            if (Session["login"] != null)
+            {
+                d = A.searchAdmin(Session["login"].ToString());
+                int encontrado = Convert.ToInt32(d.Tables[0].Rows[0][0]); //if there is a client, we return 1
 
-                SqlDataAdapter sda = new SqlDataAdapter("Select count(*) FROM Admin WHERE name = '" + User.Identity.Name + "'", c);
-                DataTable dt = new DataTable();
-                sda.Fill(dt);
-
-                if (dt.Rows[0][0].ToString() == "1")
+                if (encontrado == 1)
                 {
                     d = h.showAllHotels();
                     GridView1.DataSource = d;
@@ -38,6 +35,11 @@ namespace TopTravel
                 {
                     Response.Redirect("../Default.aspx");
                 }
+            }
+            else
+            {
+                Response.Redirect("../Login.aspx");
+            }
         }
 
 

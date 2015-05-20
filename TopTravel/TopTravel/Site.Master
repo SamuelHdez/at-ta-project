@@ -55,12 +55,17 @@
                        <ul>
                             <li>
                                 <a id="MyAccount" visible="false" runat="server" href="/MyAccount.aspx">
-                                  <asp:Label ID="welcome" runat="server" CssClass="userName" >My Account</asp:Label>
+                                  <asp:Label ID="welcome" runat="server" CssClass="userName" >Manage Account: </asp:Label>
                                   <asp:Label ID="sess" runat="server" CssClass="userName" ></asp:Label>
                                 </a>
                                 &nbsp;</li>
                             <li>
                                 <a id="loginLink" runat="server" href="/Login.aspx">
+                                  <img src="../Images/register.png" height="25" width="25">
+                                </a>
+                     &nbsp;</li>
+                           <li>
+                                <a id="cart" visible="false" runat="server" href="/Order.aspx">
                                   <img src="../Images/register.png" height="25" width="25">
                                 </a>
                      &nbsp;</li>

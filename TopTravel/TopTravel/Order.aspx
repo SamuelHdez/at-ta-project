@@ -1,11 +1,6 @@
 ﻿<%@ Page Title="Order" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Order.aspx.cs" Inherits="TopTravel.Order" %>
 
 <asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
-    <hgroup class="title">
-        <h1><%: Title %>.</h1>
-    </hgroup>
-
-
     <article>
                     
         <h1>Shopping Cart</h1>
