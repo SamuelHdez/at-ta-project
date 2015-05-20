@@ -61,7 +61,7 @@
                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="address"
                                     CssClass="field-validation-error" ErrorMessage="This field is mandatory." />
                             </li>
-                                <asp:RadioButtonList ID="gender" runat="server">
+                                <asp:RadioButtonList ID="gender" runat="server" CssClass="radioButtonList2">
                                 <asp:ListItem>Male</asp:ListItem> 
                                 <asp:ListItem>Female</asp:ListItem>
                                 </asp:RadioButtonList>

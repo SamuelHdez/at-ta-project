@@ -9,7 +9,7 @@
 
     <div>
 
-        <asp:RadioButtonList ID="typeCompany" runat="server" OnSelectedIndexChanged="radioChange" AutoPostBack="True">
+        <asp:RadioButtonList ID="typeCompany" runat="server" OnSelectedIndexChanged="radioChange" AutoPostBack="True" RepeatDirection="Horizontal" CssClass="radioButtonList">
             <asp:ListItem Value="">All</asp:ListItem> 
             <asp:ListItem Value="Hotel">Hotel</asp:ListItem>
             <asp:ListItem Value="Cruise company">Cruise</asp:ListItem>
@@ -35,6 +35,6 @@
                 </columns>
                 <PagerStyle HorizontalAlign="Center" CssClass="GridPager" />
      </asp:GridView>
-
+      <br />
     
 </asp:Content>

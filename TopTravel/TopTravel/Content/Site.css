@@ -1019,8 +1019,13 @@ select {
 }
 
 .videoTitle h1{
-    color: #FFF;
-    text-shadow: 0px 3px 2px rgba(150, 150, 150, 1);
+    color: #353E49;
+    font-family: Georgia, serif;
+    font-weight: bold;
+    font-size: 30px;
+    text-shadow: 0px 0px 15px rgba(255, 255, 255, 0.8);
+    /*text-shadow: 2px 0 0 #fff, -2px 0 0 #fff, 0 2px 0 #fff, 0 -2px 0 #fff, 1px 1px #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff;*/
+    /*text-shadow: 0px 3px 2px rgba(150, 150, 150, 1);*/
 }
 
 .validator {
@@ -1100,9 +1105,35 @@ select {
     margin: auto;
 }
 
-.Grid .pgr {background: #363670 url(Images/grid-pgr.png) repeat-x top; }
-.Grid .pgr table { margin: 3px 0; }
-.Grid .pgr td { border-width: 0; padding: 0 6px; border-left: solid 1px #666; font-weight: bold; color: #fff; line-height: 12px; }  
-.Grid .pgr a { color: Gray; text-decoration: none; }
-.Grid .pgr a:hover { color: #000; text-decoration: none; }
-- See more at: http://www.dotnetfox.com/articles/gridview-custom-css-style-example-in-Asp-Net-1088.aspx#sthash.XVG2qIpm.dpuf
+/* Companies */
+.radioButtonList { list-style:none; margin: 0 auto; padding: 0; width: 100%;}
+
+.radioButtonList input{
+    padding: 0;
+    width: auto;
+    margin-left: 6px;
+}
+
+.radioButtonList label{
+    width: auto;
+    margin: 0;
+    padding: 0;
+    margin-left: 20px;
+}
+
+/*register*/
+
+.radioButtonList2 { list-style:none; margin: 0 auto; padding: 0; width: 100%;}
+
+.radioButtonList2 input{
+    padding: 0;
+    width: auto;
+    margin-left: 10px;
+}
+
+.radioButtonList2 label{
+    width: 169px;
+    margin: 0;
+    padding: 0;
+    margin-left: 20px;
+}
