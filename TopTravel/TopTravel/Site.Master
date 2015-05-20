@@ -61,12 +61,22 @@
                                 &nbsp;</li>
                             <li>
                                 <a id="loginLink" runat="server" href="/Login.aspx">
+                                  <img src="../Images/login.png" height="25" width="25">
+                                </a>
+                     &nbsp;</li>
+                           <li>
+                                <a id="registerLink" runat="server" href="/Register.aspx">
                                   <img src="../Images/register.png" height="25" width="25">
                                 </a>
                      &nbsp;</li>
                            <li>
                                 <a id="cart" visible="false" runat="server" href="/Order.aspx">
-                                  <img src="../Images/register.png" height="25" width="25">
+                                  <img src="../Images/cart.png" height="25" width="25">
+                                </a>
+                     &nbsp;</li>
+                           <li>
+                                <a id="logoutLink" visible="false" runat="server" href="/Logout.aspx">
+                                  <img src="../Images/logout.png" height="25" width="25">
                                 </a>
                      &nbsp;</li>
                          </ul>

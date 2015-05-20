@@ -71,7 +71,9 @@ namespace TopTravel
             {
                 sess.Text = Session["Login"].ToString();
                 MyAccount.Visible = true;
+                logoutLink.Visible = true;
                 loginLink.Visible = false;
+                registerLink.Visible = false;
                 cart.Visible = true;
             }
         }

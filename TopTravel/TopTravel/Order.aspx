@@ -19,7 +19,7 @@
                     <PagerStyle HorizontalAlign="Center" CssClass="GridPager" />
          </asp:GridView>
         
-        
+        <br />
 
         <h1>History Cart</h1>
 
@@ -35,6 +35,8 @@
                         </columns>
                     <PagerStyle HorizontalAlign="Center" CssClass="GridPager" />
          </asp:GridView>
+
+        <br />
 
     </article>
 

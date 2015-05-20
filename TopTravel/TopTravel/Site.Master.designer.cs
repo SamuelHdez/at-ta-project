@@ -58,6 +58,15 @@ namespace TopTravel {
         protected global::System.Web.UI.HtmlControls.HtmlAnchor loginLink;
         
         /// <summary>
+        /// Control registerLink.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor registerLink;
+        
+        /// <summary>
         /// Control cart.
         /// </summary>
         /// <remarks>
@@ -65,6 +74,15 @@ namespace TopTravel {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlAnchor cart;
+        
+        /// <summary>
+        /// Control logoutLink.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor logoutLink;
         
         /// <summary>
         /// Control FeaturedContent.
