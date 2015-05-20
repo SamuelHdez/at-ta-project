@@ -19,23 +19,25 @@ namespace TopTravel
         OrderEN o = new OrderEN();
         DataSet d = new DataSet();
         DataSet d2 = new DataSet();
-        DataSet d3 = new DataSet();
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["Login"] != null)
+            if (!Page.IsPostBack)
             {
-                d = o.searchOrders(Session["Login"].ToString());
-                GridView1.DataSource = d;
-                GridView1.DataBind();
+                if (Session["Login"] != null)
+                {
+                    d = o.searchOrders(Session["Login"].ToString());
+                    GridView1.DataSource = d;
+                    GridView1.DataBind();
 
-               // d = o.searchHistory(Session["Login"].ToString());
-               // GridView2.DataSource = d;
-               // GridView2.DataBind();
-            }
-            else
-            {
-                Response.Redirect("/Login.aspx");
+                    d2 = o.searchHistory(Session["Login"].ToString());
+                    GridView2.DataSource = d2;
+                    GridView2.DataBind();
+                }
+                else
+                {
+                    Response.Redirect("/Login.aspx");
+                }
             }
         }
 
@@ -48,10 +50,17 @@ namespace TopTravel
 
         protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            o.buy = 1;
-            d = o.buy_Order(GridView1.SelectedIndex);
+            o.id = int.Parse(GridView1.SelectedRow.Cells[1].Text);
 
-            Response.Redirect("Order.aspx");
+            o.buy_Order(o.id);
+            d = o.searchOrders(Session["Login"].ToString());
+            GridView1.DataSource = d;
+            GridView1.DataBind();
+
+            d2 = o.searchHistory(Session["Login"].ToString());
+            GridView2.DataSource = d2;
+            GridView2.DataBind();
+
         }
     }
 }

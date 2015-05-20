@@ -37,11 +37,10 @@ namespace TopTravel
             return ds;
         }
 
-        public DataSet buy_Order(int i)
+        public void buy_Order(int i)
         {
             OrderCAD c = new OrderCAD();
-            DataSet ds = c.buyOrder(this, i);
-            return ds;
+            c.buyOrder(this, i);
         }
 
         public DataSet searchOrders(String user)

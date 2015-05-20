@@ -166,7 +166,7 @@ namespace TopTravel
             DataSet virtdb = new DataSet();
             try
             {
-                SqlDataAdapter da = new SqlDataAdapter("select * from OrderList", c);
+                SqlDataAdapter da = new SqlDataAdapter("select * from OrderList where Buy = '0'", c);
                 da.Fill(virtdb, "order");
                 DataTable t = new DataTable();
                 t = virtdb.Tables["order"];
@@ -208,7 +208,7 @@ namespace TopTravel
                 t.Rows[i]["UserN"] = o.userN;
                 t.Rows[i]["Adults"] = o.adults;
                 t.Rows[i]["Children"] = o.children;
-                t.Rows[i]["Buy"] = o.buy;
+                t.Rows[i]["Buy"] = 1;
                 t.Rows[i]["TotalPrice"] = o.totalPrice;
 
                 SqlCommandBuilder cbuilder = new SqlCommandBuilder(da);
@@ -226,34 +226,28 @@ namespace TopTravel
             return virtdb;
         }
 
-        public DataSet buyOrder(OrderEN o, int i)
+        public void buyOrder(OrderEN O, int ID)
         {
             string s;
             s = ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString();
             SqlConnection c = new SqlConnection(s);
-            DataSet virtdb = new DataSet();
             try
             {
-                SqlDataAdapter da = new SqlDataAdapter("select * from OrderList", c);
-                da.Fill(virtdb, "order");
-                DataTable t = new DataTable();
-                t = virtdb.Tables["order"];
+                c.Open();
+                SqlCommand com = new SqlCommand("Update OrderList Set Buy = '" + 1 + "' Where Id = '" + ID + "'", c);
 
-                t.Rows[i]["Buy"] = o.buy;
-
-                SqlCommandBuilder cbuilder = new SqlCommandBuilder(da);
-                da.Update(virtdb, "order");
+                com.ExecuteNonQuery();
             }
             catch (Exception ex)
             {
                 ex.ToString();
-                Console.WriteLine("ERROR: Delete order");
+                Console.WriteLine("ERROR: Update Buy");
             }
             finally
             {
                 c.Close();
             }
-            return virtdb;
         }
+
     }
 }
