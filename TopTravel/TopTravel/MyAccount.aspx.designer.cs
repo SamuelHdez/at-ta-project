@@ -7,18 +7,18 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace TopTravel.Account {
+namespace TopTravel {
     
     
-    public partial class Login {
+    public partial class MyAccount {
         
         /// <summary>
-        /// Control RegisterHyperLink.
+        /// Control GridView1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink RegisterHyperLink;
+        protected global::System.Web.UI.WebControls.GridView GridView1;
     }
 }

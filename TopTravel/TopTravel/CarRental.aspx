@@ -122,16 +122,9 @@
                 <asp:boundfield datafield="Discount" headertext="Discount"/>
             </Columns>
         </asp:GridView>
-        </section> 
-    
-        <asp:LoginView ID="LoginView1" runat="server" ViewStateMode="Disabled" Visible="false">
-            <AnonymousTemplate>      
+        </section>
                 <asp:Button ID="ButtonLogin" runat="server" Text="Login" OnClick="SendButtonLogin" CssClass="inputBottom" />
-            </AnonymousTemplate>
-            <LoggedInTemplate>
                 <asp:Button ID="ButtonBuy" runat="server" Text="Buy" OnClick="SendButtonBuy" CssClass="inputBottom" />
-            </LoggedInTemplate>
-        </asp:LoginView>
     </section>  
 
 </asp:Content>

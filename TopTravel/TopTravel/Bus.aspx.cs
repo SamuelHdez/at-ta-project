@@ -70,7 +70,6 @@ namespace TopTravel
             GridView5.DataSource = d;
             GridView5.DataBind();
 
-            LoginView1.Visible = true;
             Label10.Visible = true;
             Label11.Visible = true;
         }
@@ -91,7 +90,7 @@ namespace TopTravel
             O.product = int.Parse(GridView2.Rows[0].Cells[4].Text);
             O.productName = "Space Travel";
             O.price = price;
-            O.userN = User.Identity.Name;
+            O.userN = Session["Login"].ToString();
             O.adults = adults;
             O.children = children;
             O.buy = 0;

@@ -101,7 +101,7 @@ namespace TopTravel
 
             try
             {
-                SqlDataAdapter da = new SqlDataAdapter("select count(*)+1 from OrderList", c);
+                SqlDataAdapter da = new SqlDataAdapter("select max(Id)+1 from OrderList", c);
                 da.Fill(virtdb, "order");
 
             }

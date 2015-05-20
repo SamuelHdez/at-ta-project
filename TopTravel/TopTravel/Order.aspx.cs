@@ -23,19 +23,19 @@ namespace TopTravel
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (User.Identity.IsAuthenticated)
+            if (Session["Login"] != null)
             {
-                d = o.searchOrders(User.Identity.Name);
+                d = o.searchOrders(Session["Login"].ToString());
                 GridView1.DataSource = d;
                 GridView1.DataBind();
 
-                d = o.searchHistory(User.Identity.Name);
-                GridView2.DataSource = d;
-                GridView2.DataBind();
+               // d = o.searchHistory(Session["Login"].ToString());
+               // GridView2.DataSource = d;
+               // GridView2.DataBind();
             }
             else
             {
-                Response.Redirect("/Account/Login.aspx");
+                Response.Redirect("/Login.aspx");
             }
         }
 

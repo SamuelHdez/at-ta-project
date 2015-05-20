@@ -67,7 +67,11 @@ namespace TopTravel
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["Login"] != null)
+            {
+                sess.Text = Session["Login"].ToString();
+                MyAccount.Visible = true;
+            }
         }
     }
 }

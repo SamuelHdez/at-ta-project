@@ -131,15 +131,9 @@
             </Columns>
         </asp:GridView>
         </section> 
-    
-        <asp:LoginView ID="LoginView1" runat="server" ViewStateMode="Disabled" Visible="false">
-            <AnonymousTemplate>      
-                <asp:Button ID="ButtonLogin" runat="server" Text="Login" OnClick="SendButtonLogin" CssClass="inputBottom" />
-            </AnonymousTemplate>
-            <LoggedInTemplate>
-                <asp:Button ID="ButtonBuy" runat="server" Text="Buy" OnClick="SendButtonBuy" CssClass="inputBottom" />
-            </LoggedInTemplate>
-        </asp:LoginView>
+
+        <asp:Button ID="ButtonLogin" runat="server" Text="Login" OnClick="SendButtonLogin" CssClass="inputBottom" />
+        <asp:Button ID="ButtonBuy" runat="server" Text="Buy" OnClick="SendButtonBuy" CssClass="inputBottom" />
     </section>  
 
 </asp:Content>

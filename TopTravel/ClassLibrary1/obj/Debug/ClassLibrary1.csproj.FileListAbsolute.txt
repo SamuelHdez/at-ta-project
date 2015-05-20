@@ -8,3 +8,8 @@ C:\Users\Xuplus\Documents\GitHub\at-ta-project\TopTravel\ClassLibrary1\bin\Debug
 C:\Users\Xuplus\Documents\GitHub\at-ta-project\TopTravel\ClassLibrary1\obj\Debug\ClassLibrary1.csprojResolveAssemblyReference.cache
 C:\Users\Xuplus\Documents\GitHub\at-ta-project\TopTravel\ClassLibrary1\obj\Debug\ClassLibrary1.dll
 C:\Users\Xuplus\Documents\GitHub\at-ta-project\TopTravel\ClassLibrary1\obj\Debug\ClassLibrary1.pdb
+C:\Users\Samuel\Documents\GitHub\at-ta-project\TopTravel\ClassLibrary1\bin\Debug\ClassLibrary1.dll
+C:\Users\Samuel\Documents\GitHub\at-ta-project\TopTravel\ClassLibrary1\bin\Debug\ClassLibrary1.pdb
+C:\Users\Samuel\Documents\GitHub\at-ta-project\TopTravel\ClassLibrary1\obj\Debug\ClassLibrary1.csprojResolveAssemblyReference.cache
+C:\Users\Samuel\Documents\GitHub\at-ta-project\TopTravel\ClassLibrary1\obj\Debug\ClassLibrary1.dll
+C:\Users\Samuel\Documents\GitHub\at-ta-project\TopTravel\ClassLibrary1\obj\Debug\ClassLibrary1.pdb
