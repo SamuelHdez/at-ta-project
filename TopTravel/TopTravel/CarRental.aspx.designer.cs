@@ -10,16 +10,7 @@
 namespace TopTravel {
     
     
-    public partial class Cruise {
-        
-        /// <summary>
-        /// Control region.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList region;
+    public partial class CarRental {
         
         /// <summary>
         /// Control Label2.
@@ -31,58 +22,67 @@ namespace TopTravel {
         protected global::System.Web.UI.WebControls.Label Label2;
         
         /// <summary>
-        /// Control dep.
+        /// Control from.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox dep;
+        protected global::System.Web.UI.WebControls.TextBox from;
         
         /// <summary>
-        /// Control Departure.
+        /// Control brandcar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Calendar Departure;
+        protected global::System.Web.UI.WebControls.TextBox brandcar;
         
         /// <summary>
-        /// Control Adults.
+        /// Control Label4.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Adults;
+        protected global::System.Web.UI.WebControls.Label Label4;
         
         /// <summary>
-        /// Control Children.
+        /// Control cal.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Children;
+        protected global::System.Web.UI.WebControls.Calendar cal;
         
         /// <summary>
-        /// Control RangeValidator2.
+        /// Control VueltaCheck.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RangeValidator RangeValidator2;
+        protected global::System.Web.UI.WebControls.CheckBox VueltaCheck;
         
         /// <summary>
-        /// Control RangeValidator3.
+        /// Control Label5.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RangeValidator RangeValidator3;
+        protected global::System.Web.UI.WebControls.Label Label5;
+        
+        /// <summary>
+        /// Control FechaVuelta.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Calendar FechaVuelta;
         
         /// <summary>
         /// Control SendButton.
@@ -94,13 +94,13 @@ namespace TopTravel {
         protected global::System.Web.UI.WebControls.Button SendButton;
         
         /// <summary>
-        /// Control ProcessCruise.
+        /// Control ProcessVuelo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label ProcessCruise;
+        protected global::System.Web.UI.WebControls.Label ProcessVuelo;
         
         /// <summary>
         /// Control GridView1.

@@ -92,6 +92,32 @@ namespace TopTravel
 
         }
 
+        public DataSet countOrders()
+        {
+            string s;
+            s = ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString();
+            DataSet virtdb = new DataSet();
+            SqlConnection c = new SqlConnection(s);
+
+            try
+            {
+                SqlDataAdapter da = new SqlDataAdapter("select count(*)+1 from OrderList", c);
+                da.Fill(virtdb, "order");
+
+            }
+            catch (Exception ex)
+            {
+                ex.ToString();
+                Console.WriteLine("ERROR: show order");
+            }
+            finally
+            {
+                c.Close();
+            }
+            return virtdb;
+
+        }
+
         public DataSet addOrder(OrderEN o)
         {
             string s;
@@ -199,128 +225,35 @@ namespace TopTravel
             }
             return virtdb;
         }
-        /*
-        public void addOrder(OrderEN o)
+
+        public DataSet buyOrder(OrderEN o, int i)
         {
-            string s = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
+            string s;
+            s = ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString();
             SqlConnection c = new SqlConnection(s);
+            DataSet virtdb = new DataSet();
             try
             {
-                c.Open();
-                SqlCommand com = new SqlCommand("Insert Into Order (Id,Product,Price,User,Quantity,Date) VALUES ('" + o.Id + "','" + o.Product + "','" + o.Price + "','" +
-                    o.User + "','" + o.Quantity + "','" + o.Date + "')", c);
+                SqlDataAdapter da = new SqlDataAdapter("select * from OrderList", c);
+                da.Fill(virtdb, "order");
+                DataTable t = new DataTable();
+                t = virtdb.Tables["order"];
 
-                com.ExecuteNonQuery();
-            }
-            catch (Exception exc)
-            {
-                exc.ToString();
-                Console.WriteLine("ERROR: Add Order");
-            }
-            finally
-            {
-                c.Close();
-            }
-        }
+                t.Rows[i]["Buy"] = o.buy;
 
-        public void deleteOrder(OrderEN o)
-        {
-            string s = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
-            SqlConnection c = new SqlConnection(s);
-            try
-            {
-                c.Open();
-                SqlCommand com = new SqlCommand("Delete From Order Where Id = " + o.Id, c);
-                com.ExecuteNonQuery();
-            }
-            catch (Exception exc)
-            {
-                exc.ToString();
-                Console.WriteLine("ERROR: Delete Order");
-            }
-            finally
-            {
-                c.Close();
-            }
-        }
-
-        public void updateOrder(OrderEN o)
-        {
-            string s = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
-            SqlConnection c = new SqlConnection(s);
-            try
-            {
-                c.Open();
-                SqlCommand com = new SqlCommand("Update Order Set Product = '" + o.Product + "', Price = '" + o.Price + "', User = '" + o.User + "', Quantity ='" +
-                    o.Quantity + "', Date = '" + o.Date + "' Where Id = " + o.Id, c);
-                com.ExecuteNonQuery();
-            }
-            catch (Exception exc)
-            {
-                exc.ToString();
-                Console.WriteLine("ERROR: Update Order");
-            }
-            finally
-            {
-                c.Close();
-            }
-        }
-
-        public ArrayList showOrder()
-        {
-            ArrayList a = new ArrayList();
-            string s = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
-            SqlConnection c = new SqlConnection(s);
-            try
-            {
-                c.Open();
-                SqlCommand com = new SqlCommand("Select * from Order", c);
-                SqlDataReader dr = com.ExecuteReader();
-                while (dr.Read())
-                {
-                    a.Add(dr["Id"].ToString());
-                }
-                dr.Close();
+                SqlCommandBuilder cbuilder = new SqlCommandBuilder(da);
+                da.Update(virtdb, "order");
             }
             catch (Exception ex)
             {
                 ex.ToString();
-                Console.WriteLine("ERROR: Show Order");
+                Console.WriteLine("ERROR: Delete order");
             }
             finally
             {
                 c.Close();
             }
-            return a;
+            return virtdb;
         }
-
-        public ArrayList searchOrder(OrderEN o)
-        {
-            ArrayList a = new ArrayList();
-            string s = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
-            SqlConnection c = new SqlConnection(s);
-            try
-            {
-                c.Open();
-                SqlCommand com = new SqlCommand("Select * from Order where Id = " + o.Id, c);
-                SqlDataReader dr = com.ExecuteReader();
-                while (dr.Read())
-                {
-                    a.Add(dr["Id"].ToString());
-                }
-                dr.Close();
-            }
-            catch (Exception ex)
-            {
-                ex.ToString();
-                Console.WriteLine("ERROR: Show Order");
-            }
-            finally
-            {
-                c.Close();
-            }
-            return a;
-        }
-         */
     }
 }

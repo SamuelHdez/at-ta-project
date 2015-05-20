@@ -94,6 +94,8 @@
                     <asp:boundfield datafield="departureTime" headertext="Deperture Time"/>
                     <asp:boundfield datafield="arrivalTime" headertext="Arrival Time"/>
                     <asp:boundfield datafield="ClassFlight" headertext="class"/>
+                     <asp:boundfield datafield="Id" headertext="ID" ItemStyle-CssClass="hiddencol" HeaderStyle-CssClass="hiddencol"/>
+                     <asp:boundfield datafield="price" headertext="price" ItemStyle-CssClass="hiddencol" HeaderStyle-CssClass="hiddencol"/>
                     <asp:TemplateField HeaderText="Price/Person">
                         <ItemTemplate>
                             <asp:Label ID="Label1" runat="server" Text='<%# Bind("price") %>'></asp:Label>

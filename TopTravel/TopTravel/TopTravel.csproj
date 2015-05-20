@@ -131,11 +131,14 @@
     <Content Include="AdminPanel\CarRental.aspx" />
     <Content Include="AdminPanel\Cruise.aspx" />
     <Content Include="AdminPanel\Flight.aspx" />
+    <Content Include="AdminPanel\SpaceTravel.aspx" />
+    <Content Include="AdminPanel\Train.aspx" />
     <Content Include="App_Data\aspnet-TopTravel-20150506160445.mdf" />
     <Content Include="App_Data\aspnet-TopTravel-20150506160445_log.ldf">
       <DependentUpon>aspnet-TopTravel-20150506160445.mdf</DependentUpon>
     </Content>
     <Content Include="Bus.aspx" />
+    <Content Include="CarRental.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
@@ -300,6 +303,20 @@
     <Compile Include="AdminPanel\Flight.aspx.designer.cs">
       <DependentUpon>Flight.aspx</DependentUpon>
     </Compile>
+    <Compile Include="AdminPanel\SpaceTravel.aspx.cs">
+      <DependentUpon>SpaceTravel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminPanel\SpaceTravel.aspx.designer.cs">
+      <DependentUpon>SpaceTravel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminPanel\Train.aspx.cs">
+      <DependentUpon>Train.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminPanel\Train.aspx.designer.cs">
+      <DependentUpon>Train.aspx</DependentUpon>
+    </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\AuthConfig.cs" />
     <Compile Include="About.aspx.cs">
@@ -350,6 +367,13 @@
     </Compile>
     <Compile Include="Bus.aspx.designer.cs">
       <DependentUpon>Bus.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CarRental.aspx.cs">
+      <DependentUpon>CarRental.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CarRental.aspx.designer.cs">
+      <DependentUpon>CarRental.aspx</DependentUpon>
     </Compile>
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>

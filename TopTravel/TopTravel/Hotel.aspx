@@ -90,6 +90,8 @@
                     <asp:boundfield datafield="Email" headertext="Email"/>
                     <asp:boundfield datafield="Stars" headertext="Stars"/>
                     <asp:boundfield datafield="Bedrooms" headertext="Bedroom"/>
+                    <asp:boundfield datafield="Id" headertext="Id" ItemStyle-CssClass="hiddencol" HeaderStyle-CssClass="hiddencol"/>
+                    <asp:boundfield datafield="price" headertext="price" ItemStyle-CssClass="hiddencol" HeaderStyle-CssClass="hiddencol"/>
                     <asp:TemplateField HeaderText="Price/Person">
                         <ItemTemplate>
                             <asp:Label ID="Label1" runat="server" Text='<%# Bind("price") %>'></asp:Label>

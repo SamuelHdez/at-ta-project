@@ -19,6 +19,8 @@ namespace TopTravel
         CompanyEN c = new CompanyEN();
         ExtrasEN x = new ExtrasEN();
         DataSet d = new DataSet();
+        DataSet count = new DataSet();
+        OrderEN O = new OrderEN();
         
         
 
@@ -80,6 +82,23 @@ namespace TopTravel
 
         protected void SendButtonBuy(object sender, EventArgs e)
         {
+            int adults = int.Parse(Adults.Text);
+            int children = int.Parse(Children.Text);
+            int price = int.Parse(GridView2.Rows[0].Cells[6].Text);
+            count = O.countOrders();
+
+            O.id = Convert.ToInt32(count.Tables[0].Rows[0][0]);
+            O.product = int.Parse(GridView2.Rows[0].Cells[5].Text);
+            O.productName = "Flight";
+            O.price = price;
+            O.userN = User.Identity.Name;
+            O.adults = adults;
+            O.children = children;
+            O.buy = 0;
+            O.totalPrice = price * adults + price * children * 80 / 100;
+            d = O.add_Order();
+
+            Response.Redirect("Order.aspx");
         }
 
     }

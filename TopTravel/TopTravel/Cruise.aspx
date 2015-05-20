@@ -39,9 +39,6 @@
             <!--<asp:Label ID="Label2" runat="server" Text="Label">Flying from: </asp:Label>--><label>City</label>
             <asp:TextBox id="dep" TextMode="SingleLine" Columns="30" runat="server" CssClass="input" />
 
-            <label>Days</label>
-            <input class="input" type="number" min="0" max="20" step="1" value="7">
-
             <label>Departure</label>
             <asp:Calendar ID="Departure" runat="server" CssClass="inputCal">
                 <TitleStyle BackColor="#353E49" BorderColor="#353E49" 
@@ -50,10 +47,13 @@
             </asp:Calendar><br />
 
             <label>Adults</label>
-            <input class="input" type="number" min="0" max="20" step="1" value="2">
+            <asp:TextBox ID="Adults" runat="server" CssClass="input" />
 
             <label>Children</label>
-            <input class="input" type="number" min="0" max="20" step="1" value="0">
+            <asp:TextBox ID="Children" runat="server" CssClass="input" />
+
+              <asp:RangeValidator ID="RangeValidator2" controltovalidate="Adults" runat="server" ErrorMessage="Please enter value between 0-20 in adults." MinimumValue="0" MaximumValue="20" Type="Integer" forecolor="Red" CssClass="validator"></asp:RangeValidator>
+             <asp:RangeValidator ID="RangeValidator3" controltovalidate="Children" runat="server" ErrorMessage="Please enter value between 0-20 in children." MinimumValue="0" MaximumValue="20" Type="Integer" forecolor="Red" CssClass="validator"></asp:RangeValidator>
 
             <asp:Button ID="SendButton" runat="server" Text="Button" OnClick="send" CssClass="inputBottom" />
             <asp:Label id="ProcessCruise" runat="server" Text="" />
@@ -93,6 +93,8 @@
                     <asp:boundfield datafield="arrivalTime" headertext="Arrival"/>
                     <asp:boundfield datafield="City" headertext="City"/>
                     <asp:boundfield datafield="Route" headertext="Route"/>
+                    <asp:boundfield datafield="Id" headertext="Id" ItemStyle-CssClass="hiddencol" HeaderStyle-CssClass="hiddencol"/>
+                    <asp:boundfield datafield="price" headertext="price" ItemStyle-CssClass="hiddencol" HeaderStyle-CssClass="hiddencol"/>
                     <asp:TemplateField HeaderText="Price/Person">
                         <ItemTemplate>
                             <asp:Label ID="Label1" runat="server" Text='<%# Bind("price") %>'></asp:Label>

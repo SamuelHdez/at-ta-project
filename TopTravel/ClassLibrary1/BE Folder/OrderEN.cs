@@ -37,6 +37,13 @@ namespace TopTravel
             return ds;
         }
 
+        public DataSet buy_Order(int i)
+        {
+            OrderCAD c = new OrderCAD();
+            DataSet ds = c.buyOrder(this, i);
+            return ds;
+        }
+
         public DataSet searchOrders(String user)
         {
             OrderCAD c = new OrderCAD();
@@ -55,6 +62,13 @@ namespace TopTravel
         {
             OrderCAD c = new OrderCAD();
             DataSet ds = c.showOrders(this);
+            return ds;
+        }
+
+        public DataSet countOrders()
+        {
+            OrderCAD c = new OrderCAD();
+            DataSet ds = c.countOrders();
             return ds;
         }
 

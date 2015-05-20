@@ -16,3 +16,9 @@ Things to do:
  + Insert method
  + Delete method
  + Confirm and add to the history cart
+
+- DESIGN
+ + Admin panel
+ + Company
+ + Contact
+ + Register

@@ -18,6 +18,8 @@ namespace TopTravel
     {
         OrderEN o = new OrderEN();
         DataSet d = new DataSet();
+        DataSet d2 = new DataSet();
+        DataSet d3 = new DataSet();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -42,6 +44,14 @@ namespace TopTravel
             d = o.delete_Order(e.RowIndex);
             GridView1.DataSource = d;
             GridView1.DataBind();
+        }
+
+        protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            o.buy = 1;
+            d = o.buy_Order(GridView1.SelectedIndex);
+
+            Response.Redirect("Order.aspx");
         }
     }
 }
