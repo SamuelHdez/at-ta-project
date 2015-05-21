@@ -58,67 +58,67 @@ namespace TopTravel
         }
 
         // PROPERTIES
-        private int Id;
-        private string departureTime;
-        private string arrivalTime;
-        private string departureCity;
-        private string destinationCity;
-        private int price;
-        private int company;
-        private int extras;
-        private string images;
+        private int Id;                 //Its unique id
+        private string departureTime;   //The departure time
+        private string arrivalTime;     //The arrival time
+        private string departureCity;   //The departure city
+        private string destinationCity; //The arrival city
+        private int price;              //Its price
+        private int company;            //Its company
+        private int extras;             //The extras it might have
+        private string images;          //A bunch of representative images of the train
 
         //getters and setters
 
-        public int id
+        public int id                   //Privides the tools for setting and getting the values of the id
         {
             get { return Id; }
             set { Id = value; }
         }
 
-        public string DepartureTime
+        public string DepartureTime     //Privides the tools for setting and getting the values of the departure time
         {
             get { return departureTime; }
             set { departureTime = value; }
         }
 
-        public string ArrivalTime
+        public string ArrivalTime       //Privides the tools for setting and getting the values of the arrival time
         {
             get { return arrivalTime; }
             set { arrivalTime = value; }
         }
 
-        public string DepartureCity
+        public string DepartureCity     //Privides the tools for setting and getting the values of the departure city
         {
             get { return departureCity; }
             set { departureCity = value; }
         }
 
-        public string DestinationCity
+        public string DestinationCity   //Privides the tools for setting and getting the values of the destination city
         {
             get { return destinationCity; }
             set { destinationCity = value; }
         }
 
-        public int Price
+        public int Price                //Privides the tools for setting and getting the values of the price
         {
             get { return price; }
             set { price = value; }
         }
 
-        public int Company
+        public int Company              //Privides the tools for setting and getting the values of the company
         {
             get { return company; }
             set { company = value; }
         }
 
-        public int Extras
+        public int Extras               //Privides the tools for setting and getting the values of the extras
         {
             get { return extras; }
             set { extras = value; }
         }
 
-        public string Images
+        public string Images            //Privides the tools for setting and getting the values of the images
         {
             get { return images; }
             set { images = value; }

@@ -40,7 +40,7 @@ namespace TopTravel
             return virtdb;      //It returns the virtual DB with all the information asked inside
 
         }
-
+        //Shearches for all the cruises with the provided route and city
         public DataSet searchCruises(String reg, String ci)
         {
             string s;
@@ -65,7 +65,7 @@ namespace TopTravel
             }
             return virtdb;      //It returns the virtual DB with all the information asked inside
         }
-
+        //Shearches for a specific cruise provided its id
         public DataSet searchIDCruises(String IDc)
         {
             string s;
@@ -90,8 +90,7 @@ namespace TopTravel
             }
             return virtdb;      //It returns the virtual DB with all the information asked inside
         }
-
-
+        //Adds a new Cruise to the DB
         public DataSet addCruise(CruiseEN b)
         {
             string s;
@@ -129,8 +128,7 @@ namespace TopTravel
 
             return virtdb;      //It returns the virtual DB with all the information asked inside
         }
-
-
+        //Removes a cruise from the DB
         public DataSet deleteCruise(CruiseEN b, int i) // It will delete the index passed in the view
         {
             string s;
@@ -160,7 +158,7 @@ namespace TopTravel
             }
             return virtdb;      //It returns the virtual DB with all the information asked inside
         }
-
+        //Updates the information of a cruise
         public DataSet updateCruise(CruiseEN b, int i)
         {
             string s;

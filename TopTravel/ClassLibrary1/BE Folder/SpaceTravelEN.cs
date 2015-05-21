@@ -58,67 +58,67 @@ namespace TopTravel
        }
   
         // PROPERTIES
-        private int Id;
-        private string departureDate;
-        private string arrivalDate;
-        private string departureCity;
-        private string PreparationCenter;
-        private int price;
-        private int company;
-        private int extras;
-        private string images;
+        private int Id;                     //Its unique id
+        private string departureDate;       //the departure time
+        private string arrivalDate;         //The arrival time
+        private string departureCity;       //Where it will departure
+        private string PreparationCenter;   //Its associated preparation center
+        private int price;                  //Its price
+        private int company;                //Its company
+        private int extras;                 //The extras it might have
+        private string images;              //The images associated
 
 
         //getters and setters
-        public int id
+        public int id                   //Privides the tools for setting and getting the values of the 
         {
             get { return Id; }
             set { Id = value; }
         }
 
-        public string DepartureDate
+        public string DepartureDate     //Privides the tools for setting and getting the values of the 
         {
             get { return departureDate; }
             set { departureDate = value; }
         }
 
-        public string ArrivalDate
+        public string ArrivalDate       //Privides the tools for setting and getting the values of the 
         {
             get { return arrivalDate; }
             set { arrivalDate = value; }
         }
 
-        public string DepartureCity
+        public string DepartureCity     //Privides the tools for setting and getting the values of the 
         {
             get { return departureCity; }
             set { departureCity = value; }
         }
 
-        public string preparationCenter
+        public string preparationCenter //Privides the tools for setting and getting the values of the 
         {
             get { return PreparationCenter; }
             set { PreparationCenter = value; }
         }
 
-        public int Price
+        public int Price                //Privides the tools for setting and getting the values of the 
         {
             get { return price; }
             set { price = value; }
         }
 
-        public int Company
+        public int Company              //Privides the tools for setting and getting the values of the 
         {
             get { return company; }
             set { company = value; }
         }
 
-        public int Extras
+        public int Extras               //Privides the tools for setting and getting the values of the 
         {
             get { return extras; }
             set { extras = value; }
         }
 
-        public string Images
+        public string Images            //Privides the tools for setting and getting the values of the 
         {
             get { return images; }
             set { images = value; }

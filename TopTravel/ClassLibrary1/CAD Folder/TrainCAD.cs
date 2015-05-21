@@ -11,84 +11,85 @@ using System.Configuration;
 
 namespace TopTravel
 {
+    //This class represents the entity of the Train
     public class TrainCAD
     {
-
+        //Show all the information about all the trains of the DB
         public DataSet showTrains(TrainEN t)
         {
             string s;
-            s = ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString(); //Connection string
-            DataSet virtdb = new DataSet();
-            SqlConnection c = new SqlConnection(s);
+            s = ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString(); //String where it's stored the instructions for the connecton for the DB
+            SqlConnection c = new SqlConnection(s); //The connection is effectuated
+            DataSet virtdb = new DataSet();         //Created the DataSet that is going to be returned with the information asked
 
             try
             {
-                SqlDataAdapter da = new SqlDataAdapter("select * from Train", c); //select statement
-                da.Fill(virtdb, "train");
+                SqlDataAdapter da = new SqlDataAdapter("select * from Train", c); //The select in SQL language that is processed in the DB which will return all the rows from the table "Train"
+                da.Fill(virtdb, "train");      //It introduces the information returned from the select into this virtual DB 
 
             }
             catch (Exception ex)
             {
-                ex.ToString();
+                ex.ToString();      //In case of an error it is printed here
                 Console.WriteLine("ERROR: show train");
             }
             finally
             {
-                c.Close();
+                c.Close();      //Closes the connection to the DB
             }
-            return virtdb;
+            return virtdb;              //It returns the virtual DB with all the information needed inside
 
         }
 
         public DataSet searchTrains(String t1, String t2)
         {
             string s;
-            s = ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString(); //Connection string
-            DataSet virtdb = new DataSet();
-            SqlConnection c = new SqlConnection(s);
+            s = ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString(); //String where it's stored the instructions for the connecton for the DB
+            SqlConnection c = new SqlConnection(s); //The connection is effectuated
+            DataSet virtdb = new DataSet();         //Created the DataSet that is going to be returned with the information asked
 
             try
-            {
+            {                   //The select in SQL language that is processed in the DB which will return all the rows from the table "Train"
                 SqlDataAdapter da = new SqlDataAdapter("Select * from Train where departureCity LIKE '%" + t1 + "%' and destinationCity LIKE '%" + t2 + "%'", c); //select statement filter by departure and destination cities
-                da.Fill(virtdb, "train");
+                da.Fill(virtdb, "train");      //It introduces the information returned from the select into this virtual DB 
 
             }
             catch (Exception ex)
             {
-                ex.ToString();
+                ex.ToString();      //In case of an error it is printed here
                 Console.WriteLine("ERROR: show train");
             }
             finally
             {
-                c.Close();
+                c.Close();      //Closes the connection to the DB
             }
-            return virtdb;
+            return virtdb;              //It returns the virtual DB with all the information needed inside
 
         }
 
         public DataSet searchIDTrains(String IDT)
         {
             string s;
-            s = ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString(); //Connection string
-            DataSet virtdb = new DataSet();
-            SqlConnection c = new SqlConnection(s);
+            s = ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString(); //String where it's stored the instructions for the connecton for the DB
+            SqlConnection c = new SqlConnection(s); //The connection is effectuated
+            DataSet virtdb = new DataSet();         //Created the DataSet that is going to be returned with the information asked
 
             try
-            {
+            {                   //The select in SQL language that is processed in the DB which will return all the rows from the table "Train"
                 SqlDataAdapter da = new SqlDataAdapter("Select * from Train where Id = '" + IDT + "'", c); //select statement filter by id
-                da.Fill(virtdb, "train");
+                da.Fill(virtdb, "train");      //It introduces the information returned from the select into this virtual DB 
 
             }
             catch (Exception ex)
             {
-                ex.ToString();
+                ex.ToString();      //In case of an error it is printed here
                 Console.WriteLine("ERROR: show train");
             }
             finally
             {
-                c.Close();
+                c.Close();      //Closes the connection to the DB
             }
-            return virtdb;
+            return virtdb;              //It returns the virtual DB with all the information needed inside
 
         }
 
@@ -96,19 +97,19 @@ namespace TopTravel
         public DataSet addTrain(TrainEN t)
         {
             string s;
-            s = ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString(); //Connection string
-            SqlConnection c = new SqlConnection(s);
-            DataSet virtdb = new DataSet();
+            s = ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString(); //String where it's stored the instructions for the connecton for the DB
+            SqlConnection c = new SqlConnection(s); //The connection is effectuated
+            DataSet virtdb = new DataSet();         //Created the DataSet that is going to be returned with the information asked
             try
-            {
-                SqlDataAdapter da = new SqlDataAdapter("select * from Train", c); 
-                da.Fill(virtdb, "train");
-                DataTable dt = new DataTable();
-                dt = virtdb.Tables["train"];
-                DataRow newRow = dt.NewRow(); //new row with new values
+            {                   //The select in SQL language that is processed in the DB which will return all the rows from the table "Train"
+                SqlDataAdapter da = new SqlDataAdapter("select * from Train", c);
+                da.Fill(virtdb, "train");       //It introduces the information returned from the select into this virtual DB 
+                DataTable dt = new DataTable(); //Creates a table
+                dt = virtdb.Tables["train"];    //Fills it wwith the select
+                DataRow newRow = dt.NewRow();   //Creates a new row
                 newRow[0] = t.id;
                 newRow[1] = t.DepartureTime;
-                newRow[2] = t.ArrivalTime;
+                newRow[2] = t.ArrivalTime;      //Fills the row with the information of the new train
                 newRow[3] = t.DepartureCity;
                 newRow[4] = t.DestinationCity;
                 newRow[5] = t.Price;
@@ -116,66 +117,66 @@ namespace TopTravel
                 newRow[7] = t.Extras;
                 newRow[8] = t.Images;
                 dt.Rows.Add(newRow);
-                SqlCommandBuilder cbuilder = new SqlCommandBuilder(da);
-                da.Update(virtdb, "train");
+                SqlCommandBuilder cbuilder = new SqlCommandBuilder(da); //Elaborates the SQL command needed to make the changes
+                da.Update(virtdb, "train");     //Updates the DB with the new information added
             }
             catch (Exception ex)
             {
-                ex.ToString();
+                ex.ToString();      //In case of an error it is printed here
                 Console.WriteLine("ERROR: Add train");
             }
             finally
             {
-                c.Close();
+                c.Close();      //Closes the connection to the DB
             }
 
-            return virtdb;
+            return virtdb;              //It returns the virtual DB with all the information needed inside
         }
 
         public DataSet deleteTrain(TrainEN tr, int i) // It will delete the index passed in the view
         {
             string s;
-            s = ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString();//Connection string
-            SqlConnection c = new SqlConnection(s);
-            DataSet virtdb = new DataSet();
+            s = ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString(); //String where it's stored the instructions for the connecton for the DB
+            SqlConnection c = new SqlConnection(s); //The connection is effectuated
+            DataSet virtdb = new DataSet();         //Created the DataSet that is going to be returned with the information asked
             try
-            {
+            {                   //The select in SQL language that is processed in the DB which will return all the rows from the table "Train"
                 SqlDataAdapter da = new SqlDataAdapter("select * from Train", c); //Select statement
-                da.Fill(virtdb, "train");
+                da.Fill(virtdb, "train");      //It introduces the information returned from the select into this virtual DB 
                 DataTable t = new DataTable();
                 t = virtdb.Tables["train"];
 
-                t.Rows[i].Delete(); //delete row
+                t.Rows[i].Delete();         //Removes the row with the information of the train
 
-                SqlCommandBuilder cbuilder = new SqlCommandBuilder(da);
-                da.Update(virtdb, "train");
+                SqlCommandBuilder cbuilder = new SqlCommandBuilder(da); //Elaborates the SQL command needed to make the changes
+                da.Update(virtdb, "train");        //Updates the DB with the new information added
             }
             catch (Exception ex)
             {
-                ex.ToString();
+                ex.ToString();      //In case of an error it is printed here
                 Console.WriteLine("ERROR: Delete train");
             }
             finally
             {
-                c.Close();
+                c.Close();      //Closes the connection to the DB
             }
-            return virtdb;
+            return virtdb;              //It returns the virtual DB with all the information needed inside
         }
 
         public DataSet updateTrain(TrainEN tr, int i)
         {
             string s;
-            s = ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString(); //Connection string
-            SqlConnection c = new SqlConnection(s);
-            DataSet virtdb = new DataSet();
+            s = ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString(); //String where it's stored the instructions for the connecton for the DB
+            SqlConnection c = new SqlConnection(s); //The connection is effectuated
+            DataSet virtdb = new DataSet();         //Created the DataSet that is going to be returned with the information asked
             try
-            {
+            {                   //The select in SQL language that is processed in the DB which will return all the rows from the table "Train"
                 SqlDataAdapter da = new SqlDataAdapter("select * from Train", c); //select statement
-                da.Fill(virtdb, "train");
-                DataTable t = new DataTable();
-                t = virtdb.Tables["train"];
+                da.Fill(virtdb, "train");       //It introduces the information returned from the select into this virtual DB 
+                DataTable t = new DataTable();  //Creates a table
+                t = virtdb.Tables["train"];     //Fills it with the select
 
-                t.Rows[i]["Id"] = tr.id;   //update values
+                t.Rows[i]["Id"] = tr.id;        //Updates the values
                 t.Rows[i]["departureTime"] = tr.DepartureTime;
                 t.Rows[i]["arrivalTime"] = tr.ArrivalTime;
                 t.Rows[i]["departureCity"] = tr.DepartureCity;
@@ -186,19 +187,19 @@ namespace TopTravel
                 t.Rows[i]["images"] = tr.Images;
 
 
-                SqlCommandBuilder cbuilder = new SqlCommandBuilder(da);
-                da.Update(virtdb, "train");
+                SqlCommandBuilder cbuilder = new SqlCommandBuilder(da); //Elaborates the SQL command needed to make the changes
+                da.Update(virtdb, "train");         //Updates the DB with the new information added
             }
             catch (Exception ex)
             {
-                ex.ToString();
+                ex.ToString();      //In case of an error it is printed here
                 Console.WriteLine("ERROR: Delete train");
             }
             finally
             {
-                c.Close();
+                c.Close();      //Closes the connection to the DB
             }
-            return virtdb;
+            return virtdb;              //It returns the virtual DB with all the information needed inside
         }
       
     }
