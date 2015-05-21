@@ -11,8 +11,10 @@ using System.Configuration;
 
 namespace TopTravel
 {
+    //This class represents the entity CarRental
     public class CarRentalCAD
     {
+        //Shows all the informations about all the cars form the DB
         public DataSet showCarRental(CarRentalEN CR)
         {
             string s;
@@ -38,7 +40,7 @@ namespace TopTravel
             return virtdb;              //It returns the virtual DB with all the information needed inside
 
         }
-
+        //Filters informations of the DB about cars that matches the city and brand provided
         public DataSet searchCarRental(String b1, String b2)
         {
             string s;
@@ -64,7 +66,7 @@ namespace TopTravel
             return virtdb;              //It returns the virtual DB with all the information needed inside
 
         }
-
+        //Shows information about an specific car provided its id
         public DataSet searchIDCarRental(String IDcr)
         {
             string s;
@@ -90,8 +92,7 @@ namespace TopTravel
             return virtdb;              //It returns the virtual DB with all the information needed inside
 
         }
-
-
+        //Adds a new car into the DB
         public DataSet addCarRental(CarRentalEN cr)
         {
             string s;
@@ -130,8 +131,7 @@ namespace TopTravel
 
             return virtdb;              //It returns the virtual DB with all the information needed inside
         }
-
-
+        //Removes a car from the DB given its id
         public DataSet deleteCarRental(CarRentalEN b, int i) // It will delete the index passed in the view
         {
             string s;
@@ -161,7 +161,7 @@ namespace TopTravel
             }
             return virtdb;              //It returns the virtual DB with all the information needed inside
         }
-
+        //Updates the information form the DB about a specific car provided its id
         public DataSet updateCarRental(CarRentalEN cr, int i)
         {
             string s;

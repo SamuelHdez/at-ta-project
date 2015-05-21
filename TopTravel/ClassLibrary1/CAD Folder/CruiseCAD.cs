@@ -24,8 +24,8 @@ namespace TopTravel
 
             try
             {
-                SqlDataAdapter da = new SqlDataAdapter("select * from Cruise", c);
-                da.Fill(virtdb, "cruise");
+                SqlDataAdapter da = new SqlDataAdapter("select * from Cruise", c);  //The select in SQL language that is processed in the DB which will return all the rows from the table "Cruise"
+                da.Fill(virtdb, "cruise");      //It introduces the information returned from the select into this virtual DB 
 
             }
             catch (Exception ex)
@@ -49,9 +49,9 @@ namespace TopTravel
             DataSet virtdb = new DataSet();         //Created the DataSet that is going to be returned with the information asked
 
             try
-            {
+            {                   //The select in SQL language that is processed in the DB which will return all the rows from the table "Cruise"
                 SqlDataAdapter da = new SqlDataAdapter("Select * from Cruise where Route LIKE '%" + reg + "%' and City LIKE '%" + ci + "%'", c);
-                da.Fill(virtdb, "cruise");
+                da.Fill(virtdb, "cruise");      //It introduces the information returned from the select into this virtual DB 
 
             }
             catch (Exception ex)
@@ -74,9 +74,9 @@ namespace TopTravel
             DataSet virtdb = new DataSet();         //Created the DataSet that is going to be returned with the information asked
 
             try
-            {
+            {                      //The select in SQL language that is processed in the DB which will return all the rows from the table "Cruise"
                 SqlDataAdapter da = new SqlDataAdapter("Select * from Cruise where Id = '" + IDc + "'", c);
-                da.Fill(virtdb, "cruise");
+                da.Fill(virtdb, "cruise");      //It introduces the information returned from the select into this virtual DB 
 
             }
             catch (Exception ex)
@@ -99,23 +99,23 @@ namespace TopTravel
             SqlConnection c = new SqlConnection(s); //The connection is effectuated
             DataSet virtdb = new DataSet();         //Created the DataSet that is going to be returned with the information asked
             try
-            {
+            {                       //The select in SQL language that is processed in the DB which will return all the rows from the table "Cruise"
                 SqlDataAdapter da = new SqlDataAdapter("Select * from Cruise", c);
-                da.Fill(virtdb, "cruise");
-                DataTable dt = new DataTable();
-                dt = virtdb.Tables["cruise"];
-                DataRow newRow = dt.NewRow();
+                da.Fill(virtdb, "cruise");      //It introduces the information returned from the select into this virtual DB 
+                DataTable dt = new DataTable(); //Creates a table
+                dt = virtdb.Tables["cruise"];   //Fills it with the select information
+                DataRow newRow = dt.NewRow();   //Crreates a new row
                 newRow[0] = b.id;
                 newRow[1] = b.DepartureTime;
-                newRow[2] = b.ArrivalTime;
+                newRow[2] = b.ArrivalTime;      //Fills the row with the information of the new cruise
                 newRow[3] = b.city;
                 newRow[4] = b.route;
                 newRow[5] = b.Price;
                 newRow[6] = b.Company;
                 newRow[7] = b.Extras;
-                dt.Rows.Add(newRow);
-                SqlCommandBuilder cbuilder = new SqlCommandBuilder(da);
-                da.Update(virtdb, "cruise");
+                dt.Rows.Add(newRow);            //Inserts the row to the table
+                SqlCommandBuilder cbuilder = new SqlCommandBuilder(da); //Elaborates the SQL command needed to make the changes
+                da.Update(virtdb, "cruise");        //Updates the DB with the new information added
             }
             catch (Exception ex)
             {
@@ -138,16 +138,16 @@ namespace TopTravel
             SqlConnection c = new SqlConnection(s); //The connection is effectuated
             DataSet virtdb = new DataSet();         //Created the DataSet that is going to be returned with the information asked
             try
-            {
+            {                       //The select in SQL language that is processed in the DB which will return all the rows from the table "Cruise"
                 SqlDataAdapter da = new SqlDataAdapter("Select * from Cruise", c);
-                da.Fill(virtdb, "cruise");
-                DataTable t = new DataTable();
-                t = virtdb.Tables["cruise"];
+                da.Fill(virtdb, "cruise");      //It introduces the information returned from the select into this virtual DB 
+                DataTable t = new DataTable();  //Creates a table
+                t = virtdb.Tables["cruise"];    //Fills it with the select
 
-                t.Rows[i].Delete();
+                t.Rows[i].Delete();             //Removes the cruise from the table
 
-                SqlCommandBuilder cbuilder = new SqlCommandBuilder(da);
-                da.Update(virtdb, "cruise");
+                SqlCommandBuilder cbuilder = new SqlCommandBuilder(da); //Elaborates the SQL command needed to make the changes
+                da.Update(virtdb, "cruise");        //Updates the DB with the new information added
             }
             catch (Exception ex)
             {
@@ -168,17 +168,17 @@ namespace TopTravel
             SqlConnection c = new SqlConnection(s); //The connection is effectuated
             DataSet virtdb = new DataSet();         //Created the DataSet that is going to be returned with the information asked
             try
-            {
+            {                       //The select in SQL language that is processed in the DB which will return all the rows from the table "Cruise"
                 SqlDataAdapter da = new SqlDataAdapter("Select * from Cruise", c);
-                da.Fill(virtdb, "cruise");
-                DataTable t = new DataTable();
-                t = virtdb.Tables["cruise"];
+                da.Fill(virtdb, "cruise");      //It introduces the information returned from the select into this virtual DB 
+                DataTable t = new DataTable();  //Creates a table
+                t = virtdb.Tables["cruise"];    //Fills it with the information of the select
 
                 //t.Rows[i]["Id"] = b.id;
 
                 t.Rows[i]["Id"] = b.id;
                 t.Rows[i]["departureTime"] = b.DepartureTime;
-                t.Rows[i]["arrivalTime"] = b.ArrivalTime;
+                t.Rows[i]["arrivalTime"] = b.ArrivalTime;       //Updates the information
                 t.Rows[i]["city"] = b.city;
                 t.Rows[i]["route"] = b.route;
                 t.Rows[i]["price"] = b.Price;
@@ -186,8 +186,8 @@ namespace TopTravel
                 t.Rows[i]["extras"] = b.Extras;
 
 
-                SqlCommandBuilder cbuilder = new SqlCommandBuilder(da);
-                da.Update(virtdb, "cruise");
+                SqlCommandBuilder cbuilder = new SqlCommandBuilder(da); //Elaborates the SQL command needed to make the changes
+                da.Update(virtdb, "cruise");        //Updates the DB with the new information added
             }
             catch (Exception ex)
             {

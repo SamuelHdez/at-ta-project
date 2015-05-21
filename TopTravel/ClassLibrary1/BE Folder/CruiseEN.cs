@@ -14,42 +14,42 @@ namespace TopTravel
         public CruiseEN() //constructor
         {
         }
-
-        public DataSet add_Cruise() //new cruise
+        //Adds a new Cruise to the DB
+        public DataSet add_Cruise()
         {
             CruiseCAD c = new CruiseCAD();
             DataSet ds = c.addCruise(this);
             return ds;
         }
-
-        public DataSet delete_Cruise(int i) //delete cruise
+        //Removes a cruise from the DB given its id
+        public DataSet delete_Cruise(int i)
         {
             CruiseCAD c = new CruiseCAD();
             DataSet ds = c.deleteCruise(this, i);
             return ds;
         }
-
-        public DataSet update_Cruise(int i) //update cruise
+        //Updates the information about a cruise from the DB provided its id
+        public DataSet update_Cruise(int i)
         {
             CruiseCAD c = new CruiseCAD();
             DataSet ds = c.updateCruise(this, i);
             return ds;
         }
-
-        public DataSet searchAllCruises(String region, String city) //search cruises by origin and destination
+        //Show the information about the crouises that match with the region and city provided
+        public DataSet searchAllCruises(String region, String city)
         {
             CruiseCAD c = new CruiseCAD();
             DataSet ds = c.searchCruises(region, city);
             return ds;
         }
-
-        public DataSet searchIDCruises(String idc) //search cruises by id
+        //Shearch information about a cruise given its id
+        public DataSet searchIDCruises(String idc)
         {
             CruiseCAD c = new CruiseCAD();
             DataSet ds = c.searchIDCruises(idc);
             return ds;
         }
-
+        //Shows all the information about all the cruises from the DB
         public DataSet showAllCruises() //show all cruises
         {
             CruiseCAD c = new CruiseCAD();
@@ -58,67 +58,67 @@ namespace TopTravel
         }
 
         // PROPERTIES
-        private int Id;
-        private string departureTime;
-        private string arrivalTime;
-        private string City;
-        private string Route;
-        private int price;
-        private int company;
-        private int extras;
-        private string image;
+        private int Id;                 //Its unique id
+        private string departureTime;   //The time the cruise departures
+        private string arrivalTime;     //The rime the crouse arrives
+        private string City;            //The city where it departures and arrives after doing its route
+        private string Route;           //The route the crouise is going to do
+        private int price;              //Its price for the clients
+        private int company;            //The company tha t provides the cruise
+        private int extras;             //THe extras the cruise might have
+        private string image;           //A representative image about the cruise
 
         //getters and setters
 
-        public int id
+        public int id                   //Privides the tools for setting and getting the values of the id
         {
             get { return Id; }
             set { Id = value; }
         }
 
-        public string DepartureTime
+        public string DepartureTime     //Privides the tools for setting and getting the values of the departure time
         {
             get { return departureTime; }
             set { departureTime = value; }
         }
 
-        public string ArrivalTime
+        public string ArrivalTime       //Privides the tools for setting and getting the values of the arrival time
         {
             get { return arrivalTime; }
             set { arrivalTime = value; }
         }
 
-        public string city
+        public string city              //Privides the tools for setting and getting the values of the city
         {
             get { return City; }
             set { City = value; }
         }
 
-        public string route
+        public string route             //Privides the tools for setting and getting the values of the route
         {
             get { return Route; }
             set { Route = value; }
         }
 
-        public int Price
+        public int Price                //Privides the tools for setting and getting the values of the price
         {
             get { return price; }
             set { price = value; }
         }
 
-        public int Company
+        public int Company              //Privides the tools for setting and getting the values of the company
         {
             get { return company; }
             set { company = value; }
         }
 
-        public int Extras
+        public int Extras               //Privides the tools for setting and getting the values of the extras
         {
             get { return extras; }
             set { extras = value; }
         }
 
-        public string Image
+        public string Image             //Privides the tools for setting and getting the values of the image
         {
             get { return image; }
             set { image = value; }
