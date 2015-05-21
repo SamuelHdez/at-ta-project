@@ -15,7 +15,7 @@ namespace TopTravel
 {
     public partial class prueba : System.Web.UI.Page
     {
-        ClientEN CL = new ClientEN();
+        ClientEN CL = new ClientEN(); // client entity
         DataSet DS = new DataSet();
 
         protected void Page_Load(object sender, EventArgs e)
@@ -23,7 +23,7 @@ namespace TopTravel
             
         }
 
-        protected void send(object sender, EventArgs e)
+        protected void send(object sender, EventArgs e) //send button
         {
             DS = CL.searchDNIClient(UserName.Text, pass.Text);
             int encontrado = Convert.ToInt32(DS.Tables[0].Rows[0][0]); //if there is a client, we return 1

@@ -15,11 +15,11 @@ namespace TopTravel
 {
     public partial class Train : Page
     {
-        TrainEN T = new TrainEN();
-        CompanyEN c = new CompanyEN();
-        ExtrasEN x = new ExtrasEN();
+        TrainEN T = new TrainEN(); //train entity
+        CompanyEN c = new CompanyEN(); //company entity 
+        ExtrasEN x = new ExtrasEN(); //extras entity
         DataSet count = new DataSet();
-        OrderEN O = new OrderEN();
+        OrderEN O = new OrderEN(); //order entity
         DataSet d = new DataSet();
 
 
@@ -28,24 +28,24 @@ namespace TopTravel
         {
             if (!Page.IsPostBack)
             {
-                d = T.showAllTrains();
+                d = T.showAllTrains(); //show list of trains
                 GridView1.DataSource = d;
                 GridView1.DataBind();
-                ButtonLogin.Visible = false;
+                ButtonLogin.Visible = false; //change button visibility
                 ButtonBuy.Visible = false;
 
             }
         }
 
-        protected void send(object sender, EventArgs e)
+        protected void send(object sender, EventArgs e) //send button
         {
-            d = T.searchAllTrains(from.Text, to.Text);
+            d = T.searchAllTrains(from.Text, to.Text); //filter by origin and destination
             GridView1.DataSource = d;
             GridView1.DataBind();
 
         }
 
-        protected void GridView1_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        protected void GridView1_PageIndexChanging(object sender, GridViewPageEventArgs e) //when change the page index
         {
             this.GridView1.PageIndex = e.NewPageIndex;
             //LLenarDatosConsejera();
@@ -54,20 +54,20 @@ namespace TopTravel
             this.GridView1.DataBind();
         }
 
-        protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
+        protected void GridView1_SelectedIndexChanged(object sender, EventArgs e) //when the row index changes
         {
-            if (Session["login"] != null)
+            if (Session["login"] != null) //if user is logged
             {
-                ButtonLogin.Visible = false;
-                ButtonBuy.Visible = true;
+                ButtonLogin.Visible = false; //change visibility
+                ButtonBuy.Visible = true; 
             }
             else
             {
-                ButtonLogin.Visible = true;
+                ButtonLogin.Visible = true; 
                 ButtonBuy.Visible = false;
             }
-            d = T.searchIDTrains(GridView1.SelectedRow.Cells[5].Text);
-
+            d = T.searchIDTrains(GridView1.SelectedRow.Cells[5].Text); //filter results
+            //show data
             GridView2.DataSource = d;
             GridView2.DataBind();
 
@@ -86,17 +86,17 @@ namespace TopTravel
             Label11.Visible = true;
         }
 
-        protected void SendButtonLogin(object sender, EventArgs e)
+        protected void SendButtonLogin(object sender, EventArgs e) //login button
         {
-            Response.Redirect("/Login.aspx");
+            Response.Redirect("/Login.aspx"); //redirect
         }
 
-        protected void SendButtonBuy(object sender, EventArgs e)
+        protected void SendButtonBuy(object sender, EventArgs e) //buy button
         {
             int adults = int.Parse(Adults.Text);
             int children = int.Parse(Children.Text);
             int price = int.Parse(GridView2.Rows[0].Cells[5].Text);
-            count = O.countOrders();
+            count = O.countOrders(); //calculate id
 
             O.id = Convert.ToInt32(count.Tables[0].Rows[0][0]);
             O.product = int.Parse(GridView2.Rows[0].Cells[4].Text);
@@ -106,10 +106,10 @@ namespace TopTravel
             O.adults = adults;
             O.children = children;
             O.buy = 0;
-            O.totalPrice = price * adults + price * children * 80 / 100;
-            d = O.add_Order();
+            O.totalPrice = price * adults + price * children * 80 / 100; //calculate price
+            d = O.add_Order(); //insert into history
 
-            Response.Redirect("Order.aspx");
+            Response.Redirect("Order.aspx"); //redirect
         }
 
     }

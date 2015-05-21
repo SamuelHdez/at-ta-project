@@ -15,16 +15,16 @@ namespace TopTravel
 {
     public partial class Register : System.Web.UI.Page
     {
-        ClientEN CL = new ClientEN();
+        ClientEN CL = new ClientEN(); //client entity
         DataSet DS = new DataSet();
         protected void Page_Load(object sender, EventArgs e)
         {
 
         }
 
-        protected void sendR(object sender, EventArgs e)
+        protected void sendR(object sender, EventArgs e) //send button
         {
-            CL.Dni = dniR.Text;
+            CL.Dni = dniR.Text; //put data in the fields
             CL.Name = nameR.Text;
             CL.Surname = surnameR.Text;
             CL.Phone = phoneR.Text;
@@ -35,9 +35,9 @@ namespace TopTravel
             CL.Password = passR.Text;
             CL.Avatar = avatarR.Text;
 
-            DS = CL.add_Client();
+            DS = CL.add_Client(); //insert client
 
-            Response.Redirect("/Login.aspx");
+            Response.Redirect("/Login.aspx"); //redirect
 
         }
     }

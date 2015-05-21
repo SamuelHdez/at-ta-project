@@ -11,9 +11,9 @@ namespace TopTravel
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["login"] != null)
+            if (Session["login"] != null) // if there is a user
             {
-                Session.Abandon();
+                Session.Abandon(); //close the session
             }
 
             Response.Redirect("Default.aspx");

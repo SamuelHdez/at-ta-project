@@ -15,12 +15,12 @@ namespace TopTravel
 {
     public partial class Flight : Page
     {
-        FlightEN F = new FlightEN();
-        CompanyEN c = new CompanyEN();
-        ExtrasEN x = new ExtrasEN();
-        DataSet d = new DataSet();
+        FlightEN F = new FlightEN(); //flight entity
+        CompanyEN c = new CompanyEN(); //company entity
+        ExtrasEN x = new ExtrasEN(); //extras entity
+        DataSet d = new DataSet(); //dataset
         DataSet count = new DataSet();
-        OrderEN O = new OrderEN();
+        OrderEN O = new OrderEN(); //order entity
         
         
 
@@ -54,11 +54,11 @@ namespace TopTravel
             this.GridView1.DataBind();
         }
 
-        protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
+        protected void GridView1_SelectedIndexChanged(object sender, EventArgs e) //when selected row changes
         {
-            if (Session["login"] != null)
+            if (Session["login"] != null) //if the user is logged
             {
-                ButtonLogin.Visible = false;
+                ButtonLogin.Visible = false; //change visibilities
                 ButtonBuy.Visible = true;
             }
             else
@@ -68,7 +68,7 @@ namespace TopTravel
             }
 
             d = F.searchIDFlights(GridView1.SelectedRow.Cells[6].Text);
-           
+           //show info in different grids
             GridView2.DataSource = d;
             GridView2.DataBind();
 
@@ -87,19 +87,19 @@ namespace TopTravel
             Label11.Visible = true;
         }
 
-        protected void SendButtonLogin(object sender, EventArgs e)
+        protected void SendButtonLogin(object sender, EventArgs e) //login button
         {
-            Response.Redirect("/Login.aspx");
+            Response.Redirect("/Login.aspx"); //redirect to loggin
         }
 
-        protected void SendButtonBuy(object sender, EventArgs e)
+        protected void SendButtonBuy(object sender, EventArgs e) //buy button
         {
             int adults = int.Parse(Adults.Text);
             int children = int.Parse(Children.Text);
             int price = int.Parse(GridView2.Rows[0].Cells[6].Text);
-            count = O.countOrders();
+            count = O.countOrders(); //calculate id
 
-            O.id = Convert.ToInt32(count.Tables[0].Rows[0][0]);
+            O.id = Convert.ToInt32(count.Tables[0].Rows[0][0]); 
             O.product = int.Parse(GridView2.Rows[0].Cells[5].Text);
             O.productName = "Flight";
             O.price = price;
@@ -107,8 +107,8 @@ namespace TopTravel
             O.adults = adults;
             O.children = children;
             O.buy = 0;
-            O.totalPrice = price * adults + price * children * 80 / 100;
-            d = O.add_Order();
+            O.totalPrice = price * adults + price * children * 80 / 100; //calculte price
+            d = O.add_Order(); //insert data into the shopping cart
 
             Response.Redirect("Order.aspx");
         }

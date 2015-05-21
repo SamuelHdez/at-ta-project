@@ -11,33 +11,33 @@ namespace TopTravel
 {
     public partial class Cruise : Page
     {
-        CruiseEN cr = new CruiseEN();
-        CompanyEN c = new CompanyEN();
-        ExtrasEN x = new ExtrasEN();
-        DataSet d = new DataSet();
+        CruiseEN cr = new CruiseEN(); //cruise entity
+        CompanyEN c = new CompanyEN(); //company entity
+        ExtrasEN x = new ExtrasEN(); //extras entity
+        DataSet d = new DataSet(); //dataset
         DataSet count = new DataSet();
-        OrderEN O = new OrderEN();
+        OrderEN O = new OrderEN(); //order entity
 
-        protected void Page_Load(object sender, EventArgs e)
+        protected void Page_Load(object sender, EventArgs e) //when page loads
         {
             if (!Page.IsPostBack)
             {
-                d = cr.showAllCruises();
+                d = cr.showAllCruises(); //list of the cruises
                 GridView1.DataSource = d;
                 GridView1.DataBind();
-                ButtonLogin.Visible = false;
+                ButtonLogin.Visible = false; //change buttons visibility
                 ButtonBuy.Visible = false;
             }
         }
 
-        protected void send(object sender, EventArgs e)
+        protected void send(object sender, EventArgs e) //send button
         {
-            d = cr.searchAllCruises(region.Text, dep.Text);
+            d = cr.searchAllCruises(region.Text, dep.Text); //filter by region and city
             GridView1.DataSource = d;
             GridView1.DataBind();
         }
 
-        protected void GridView1_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        protected void GridView1_PageIndexChanging(object sender, GridViewPageEventArgs e) //when the page index changes
         {
             this.GridView1.PageIndex = e.NewPageIndex;
             d = cr.showAllCruises();
@@ -45,11 +45,11 @@ namespace TopTravel
             this.GridView1.DataBind();
         }
 
-        protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
+        protected void GridView1_SelectedIndexChanged(object sender, EventArgs e) //when the selected index changes
         {
-            if (Session["login"] != null)
+            if (Session["login"] != null) //when the user is logged
             {
-                ButtonLogin.Visible = false;
+                ButtonLogin.Visible = false; //change the visibiliyy of the buttons
                 ButtonBuy.Visible = true;
             }
             else
@@ -59,6 +59,7 @@ namespace TopTravel
             }
             d = cr.searchIDCruises(GridView1.SelectedRow.Cells[5].Text);
 
+            //show diferent info in grids
             GridView2.DataSource = d;
             GridView2.DataBind();
 
@@ -77,17 +78,17 @@ namespace TopTravel
             Label11.Visible = true;
         }
 
-        protected void SendButtonLogin(object sender, EventArgs e)
+        protected void SendButtonLogin(object sender, EventArgs e) //login button
         {
-            Response.Redirect("/Login.aspx");
+            Response.Redirect("/Login.aspx"); //redirect
         }
 
-        protected void SendButtonBuy(object sender, EventArgs e)
+        protected void SendButtonBuy(object sender, EventArgs e) //send button
         {
             int adults = int.Parse(Adults.Text);
             int children = int.Parse(Children.Text);
             int price = int.Parse(GridView2.Rows[0].Cells[5].Text);
-            count = O.countOrders();
+            count = O.countOrders(); //calculte the id
 
             O.id = Convert.ToInt32(count.Tables[0].Rows[0][0]);
             O.product = int.Parse(GridView2.Rows[0].Cells[4].Text);
@@ -97,8 +98,8 @@ namespace TopTravel
             O.adults = adults;
             O.children = children;
             O.buy = 0;
-            O.totalPrice = price * adults + price * children * 80 / 100;
-            d = O.add_Order();
+            O.totalPrice = price * adults + price * children * 80 / 100; //calculate the price
+            d = O.add_Order(); //add to the shopping cart
 
             Response.Redirect("Order.aspx");
         }
