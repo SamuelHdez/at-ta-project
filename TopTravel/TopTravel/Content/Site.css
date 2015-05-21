@@ -1154,3 +1154,8 @@ select {
 {
 display: none;
 }
+
+.hideValidationSummary ul
+{
+    display: none;
+}
