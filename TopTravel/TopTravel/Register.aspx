@@ -44,19 +44,22 @@
         <label>Avatar (Link)</label>
         <asp:TextBox ID="avatarR" runat="server" CssClass="input" />
 
-        <asp:Button ID="Button1" runat="server" Text="Register" OnClick="sendR" CssClass="inputBottom" />
+        <asp:Button ID="Button1" runat="server" Text="Register" OnClick="sendR" CssClass="inputBottom" validationgroup="1" />
     </section>
 
     <section id="Section2">
-        <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="You must introdude an ID." ControlToValidate="dniR" forecolor="Red" CssClass="validator"></asp:RequiredFieldValidator>
-        <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="You must introdude a name." ControlToValidate="nameR" forecolor="Red" CssClass="validator"></asp:RequiredFieldValidator>
-        <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="You must introdude a surname." ControlToValidate="surnameR" forecolor="Red" CssClass="validator"></asp:RequiredFieldValidator>
-        <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ErrorMessage="You must introdude a phone number." ControlToValidate="phoneR" forecolor="Red" CssClass="validator"></asp:RequiredFieldValidator>
-        <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ErrorMessage="You must introdude an adress." ControlToValidate="addressR" forecolor="Red" CssClass="validator"></asp:RequiredFieldValidator>
-        <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ErrorMessage="You must introdude a gender." ControlToValidate="gender" forecolor="Red" CssClass="validator"></asp:RequiredFieldValidator>
-        <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ErrorMessage="You must introdude a credit card." ControlToValidate="cardR" forecolor="Red" CssClass="validator"></asp:RequiredFieldValidator>
-        <asp:RegularExpressionValidator ID="Regex1" runat="server" ControlToValidate="passR" ValidationExpression="^.{4,8}$" ErrorMessage="Password must contain between 4 and 8 characters" ForeColor="Red" CssClass="validator" />
-        <asp:CompareValidator ID="CompareValidator1" runat="server" ErrorMessage="Passwords do not match." ControlToCompare="passR" ControlToValidate="pass2R" ForeColor="Red" CssClass="validator"></asp:CompareValidator>
+        <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="You must introdude an ID." ControlToValidate="dniR" validationgroup="1" forecolor="Red" CssClass="validator" Display="None"></asp:RequiredFieldValidator>
+        <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="You must introdude a name." ControlToValidate="nameR" validationgroup="1" forecolor="Red" CssClass="validator" Display="None"></asp:RequiredFieldValidator>
+        <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="You must introdude a surname." ControlToValidate="surnameR" validationgroup="1" forecolor="Red" CssClass="validator" Display="None"></asp:RequiredFieldValidator>
+        <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ErrorMessage="You must introdude a phone number." ControlToValidate="phoneR" validationgroup="1" forecolor="Red" CssClass="validator" Display="None"></asp:RequiredFieldValidator>
+        <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ErrorMessage="You must introdude an adress." ControlToValidate="addressR" validationgroup="1" forecolor="Red" CssClass="validator" Display="None"></asp:RequiredFieldValidator>
+        <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ErrorMessage="You must introdude a gender." ControlToValidate="gender" validationgroup="1" forecolor="Red" CssClass="validator" Display="None"></asp:RequiredFieldValidator>
+        <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ErrorMessage="You must introdude a credit card." ControlToValidate="cardR" validationgroup="1" forecolor="Red" CssClass="validator" Display="None"></asp:RequiredFieldValidator>
+        <asp:CompareValidator ID="CompareValidator2" runat="server" Operator="DataTypeCheck" Type="Integer" ControlToValidate="cardR" ErrorMessage="Credit card must be a number" validationgroup="1"  Display="None"/>
+        <asp:RegularExpressionValidator ID="Regex1" runat="server" ControlToValidate="passR" ValidationExpression="^.{4,8}$" ErrorMessage="Password must contain between 4 and 8 characters" validationgroup="1" ForeColor="Red" CssClass="validator"  Display="None" />
+        <asp:CompareValidator ID="CompareValidator1" runat="server" ErrorMessage="Passwords do not match." ControlToCompare="passR" ControlToValidate="pass2R" validationgroup="1" ForeColor="Red" CssClass="validator" Display="None"></asp:CompareValidator>
+
+         <asp:ValidationSummary ID="ValidationSummary3" runat="server" DisplayMode="BulletList" ShowSummary="True" validationgroup="1" forecolor="Red" ShowValidationErrors="True" />
     </section>
 
 </asp:Content>
