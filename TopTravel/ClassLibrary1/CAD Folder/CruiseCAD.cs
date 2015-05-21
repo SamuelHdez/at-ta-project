@@ -11,15 +11,16 @@ using System.Configuration;
 
 namespace TopTravel
 {
+    //This class represents the entity of the Cruise
     public class CruiseCAD
     {
-
+        //Shows all the information about all the cruises of the DB
         public DataSet showCruises(CruiseEN b)
         {
             string s;
-            s = ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString();
-            DataSet virtdb = new DataSet();
-            SqlConnection c = new SqlConnection(s);
+            s = ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString(); //String where it's stored the instructions for the connecton for the DB
+            SqlConnection c = new SqlConnection(s); //The connection is effectuated
+            DataSet virtdb = new DataSet();         //Created the DataSet that is going to be returned with the information asked
 
             try
             {
@@ -29,23 +30,23 @@ namespace TopTravel
             }
             catch (Exception ex)
             {
-                ex.ToString();
+                ex.ToString();      //In case of an error it is printed here
                 Console.WriteLine("ERROR: show cruise");
             }
             finally
             {
-                c.Close();
+                c.Close();      //Closes the connection to the DB
             }
-            return virtdb;
+            return virtdb;      //It returns the virtual DB with all the information asked inside
 
         }
 
         public DataSet searchCruises(String reg, String ci)
         {
             string s;
-            s = ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString();
-            DataSet virtdb = new DataSet();
-            SqlConnection c = new SqlConnection(s);
+            s = ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString(); //String where it's stored the instructions for the connecton for the DB
+            SqlConnection c = new SqlConnection(s); //The connection is effectuated
+            DataSet virtdb = new DataSet();         //Created the DataSet that is going to be returned with the information asked
 
             try
             {
@@ -55,22 +56,22 @@ namespace TopTravel
             }
             catch (Exception ex)
             {
-                ex.ToString();
+                ex.ToString();      //In case of an error it is printed here
                 Console.WriteLine("ERROR: show cruise");
             }
             finally
             {
-                c.Close();
+                c.Close();      //Closes the connection to the DB
             }
-            return virtdb;
+            return virtdb;      //It returns the virtual DB with all the information asked inside
         }
 
         public DataSet searchIDCruises(String IDc)
         {
             string s;
-            s = ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString();
-            DataSet virtdb = new DataSet();
-            SqlConnection c = new SqlConnection(s);
+            s = ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString(); //String where it's stored the instructions for the connecton for the DB
+            SqlConnection c = new SqlConnection(s); //The connection is effectuated
+            DataSet virtdb = new DataSet();         //Created the DataSet that is going to be returned with the information asked
 
             try
             {
@@ -80,23 +81,23 @@ namespace TopTravel
             }
             catch (Exception ex)
             {
-                ex.ToString();
+                ex.ToString();      //In case of an error it is printed here
                 Console.WriteLine("ERROR: show cruise");
             }
             finally
             {
-                c.Close();
+                c.Close();      //Closes the connection to the DB
             }
-            return virtdb;
+            return virtdb;      //It returns the virtual DB with all the information asked inside
         }
 
 
         public DataSet addCruise(CruiseEN b)
         {
             string s;
-            s = ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString();
-            SqlConnection c = new SqlConnection(s);
-            DataSet virtdb = new DataSet();
+            s = ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString(); //String where it's stored the instructions for the connecton for the DB
+            SqlConnection c = new SqlConnection(s); //The connection is effectuated
+            DataSet virtdb = new DataSet();         //Created the DataSet that is going to be returned with the information asked
             try
             {
                 SqlDataAdapter da = new SqlDataAdapter("Select * from Cruise", c);
@@ -118,24 +119,24 @@ namespace TopTravel
             }
             catch (Exception ex)
             {
-                ex.ToString();
+                ex.ToString();      //In case of an error it is printed here
                 Console.WriteLine("ERROR: Add cruise");
             }
             finally
             {
-                c.Close();
+                c.Close();      //Closes the connection to the DB
             }
 
-            return virtdb;
+            return virtdb;      //It returns the virtual DB with all the information asked inside
         }
 
 
         public DataSet deleteCruise(CruiseEN b, int i) // It will delete the index passed in the view
         {
             string s;
-            s = ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString();
-            SqlConnection c = new SqlConnection(s);
-            DataSet virtdb = new DataSet();
+            s = ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString(); //String where it's stored the instructions for the connecton for the DB
+            SqlConnection c = new SqlConnection(s); //The connection is effectuated
+            DataSet virtdb = new DataSet();         //Created the DataSet that is going to be returned with the information asked
             try
             {
                 SqlDataAdapter da = new SqlDataAdapter("Select * from Cruise", c);
@@ -150,22 +151,22 @@ namespace TopTravel
             }
             catch (Exception ex)
             {
-                ex.ToString();
+                ex.ToString();      //In case of an error it is printed here
                 Console.WriteLine("ERROR: Delete cruise");
             }
             finally
             {
-                c.Close();
+                c.Close();      //Closes the connection to the DB
             }
-            return virtdb;
+            return virtdb;      //It returns the virtual DB with all the information asked inside
         }
 
         public DataSet updateCruise(CruiseEN b, int i)
         {
             string s;
-            s = ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString();
-            SqlConnection c = new SqlConnection(s);
-            DataSet virtdb = new DataSet();
+            s = ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString(); //String where it's stored the instructions for the connecton for the DB
+            SqlConnection c = new SqlConnection(s); //The connection is effectuated
+            DataSet virtdb = new DataSet();         //Created the DataSet that is going to be returned with the information asked
             try
             {
                 SqlDataAdapter da = new SqlDataAdapter("Select * from Cruise", c);
@@ -190,14 +191,14 @@ namespace TopTravel
             }
             catch (Exception ex)
             {
-                ex.ToString();
+                ex.ToString();      //In case of an error it is printed here
                 Console.WriteLine("ERROR: Delete cruise");
             }
             finally
             {
-                c.Close();
+                c.Close();      //Closes the connection to the DB
             }
-            return virtdb;
+            return virtdb;      //It returns the virtual DB with all the information asked inside
         }
 
         /*
