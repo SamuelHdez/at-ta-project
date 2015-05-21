@@ -7,7 +7,6 @@
         </h2>
     </hgroup>
     <div>
-        <div>
         <asp:RadioButtonList ID="typeAdmin" runat="server" OnSelectedIndexChanged="radioChange" AutoPostBack="True" RepeatDirection="Horizontal" CssClass="radioButtonList">
             <asp:ListItem Value="Hotel">Hotel</asp:ListItem>
             <asp:ListItem Value="Cruise">Cruise</asp:ListItem>
@@ -58,6 +57,6 @@
           <asp:Button ID="EditButton" runat="server" Text="Edit" OnClick="GridView1_sendUpdate" CssClass="inputBottom" />
           <asp:Button ID="InsertButton" runat="server" Text="Insert" OnClick="sendInsert" CssClass="inputBottom" />
       </div>
-        </div>
+
         </div>
 </asp:Content>

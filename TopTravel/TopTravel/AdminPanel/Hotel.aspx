@@ -58,9 +58,27 @@
             <asp:TextBox id="companyH" TextMode="SingleLine" Columns="30" runat="server" CssClass="input" />
            <label>Extras</label>
             <asp:TextBox id="extrasH" TextMode="SingleLine" Columns="30" runat="server" CssClass="input" />
-          <asp:Button ID="EditButton" runat="server" Text="Edit" OnClick="GridView1_sendUpdate" CssClass="inputBottom" />
-          <asp:Button ID="InsertButton" runat="server" Text="Insert" OnClick="sendInsert" CssClass="inputBottom" />
-      </div>
+          <asp:Button ID="EditButton" runat="server" Text="Edit" OnClick="GridView1_sendUpdate" CssClass="inputBottom" validationgroup="2" />
+          <asp:Button ID="InsertButton" runat="server" Text="Insert" OnClick="sendInsert" CssClass="inputBottom" validationgroup="2" />
+      </div>     
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="You must specify the id." ControlToValidate="idH" validationgroup="2" forecolor="Red" CssClass="validator" Display="None"></asp:RequiredFieldValidator>
+         <asp:CompareValidator ID="CompareValidator2" runat="server" Operator="DataTypeCheck" Type="Integer" ControlToValidate="idH" ErrorMessage="Id must be a number" validationgroup="2"  Display="None"/>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="You must specify the name." ControlToValidate="nameH" validationgroup="2" forecolor="Red" CssClass="validator" Display="None"></asp:RequiredFieldValidator>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="You must specify the city." ControlToValidate="cityH" validationgroup="2" forecolor="Red" CssClass="validator" Display="None"></asp:RequiredFieldValidator>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="You must specify the phone number." ControlToValidate="phoneH" validationgroup="2" forecolor="Red" CssClass="validator" Display="None"></asp:RequiredFieldValidator>
+         <asp:CompareValidator ID="CompareValidator3" runat="server" Operator="DataTypeCheck" Type="Integer" ControlToValidate="phoneH" ErrorMessage="Phone must be a number" validationgroup="2" Display="None" />
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="You must specify the address." ControlToValidate="addressH" validationgroup="2" forecolor="Red" CssClass="validator" Display="None"></asp:RequiredFieldValidator>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ErrorMessage="You must specify the email." ControlToValidate="emailH" validationgroup="2" forecolor="Red" CssClass="validator" Display="None"></asp:RequiredFieldValidator>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ErrorMessage="You must specify the numer of stars." ControlToValidate="starsH" validationgroup="2" forecolor="Red" CssClass="validator" Display="None"></asp:RequiredFieldValidator>
+         <asp:CompareValidator ID="CompareValidator4" runat="server" Operator="DataTypeCheck" Type="Integer" ControlToValidate="starsH" ErrorMessage="Stars must be a number" validationgroup="2" Display="None" />
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ErrorMessage="You must specify the numer of bedrooms." ControlToValidate="bedroomsH" validationgroup="2" forecolor="Red" CssClass="validator" Display="None"></asp:RequiredFieldValidator>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ErrorMessage="You must specify the price." ControlToValidate="priceH" validationgroup="2" forecolor="Red" CssClass="validator" Display="None"></asp:RequiredFieldValidator>
+         <asp:CompareValidator ID="CompareValidator5" runat="server" Operator="DataTypeCheck" Type="Integer" ControlToValidate="priceH" ErrorMessage="Price must be a number" validationgroup="2" Display="None" />
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" ErrorMessage="You must specify the number of the company." ControlToValidate="companyH" validationgroup="2" forecolor="Red" CssClass="validator" Display="None"></asp:RequiredFieldValidator>
+         <asp:CompareValidator ID="CompareValidator6" runat="server" Operator="DataTypeCheck" Type="Integer" ControlToValidate="companyH" ErrorMessage="Company must be a number" validationgroup="2" Display="None" />
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator11" runat="server" ErrorMessage="You must specify the numer of the extra." ControlToValidate="extrasH" validationgroup="2" forecolor="Red" CssClass="validator" Display="None"></asp:RequiredFieldValidator>
+         <asp:CompareValidator ID="CompareValidator7" runat="server" Operator="DataTypeCheck" Type="Integer" ControlToValidate="extrasH" ErrorMessage="Extras must be a number" validationgroup="2" Display="None" />
 
+            <asp:ValidationSummary ID="ValidationSummary3" runat="server" DisplayMode="BulletList" ShowSummary="True" validationgroup="2" forecolor="Red" ShowValidationErrors="True" />
     </div>  
 </asp:Content>
