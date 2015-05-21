@@ -51,32 +51,32 @@ namespace TopTravel
        } 
 
         //propierties
-        private int id;
-        private string wifi;
-        private string food;
-        private int discount;
+        private int id;         //Its unique id
+        private string wifi;    //Indicates wheter it has WiFi
+        private string food;    //The type of food it offers
+        private int discount;   //The discount at the price
 
         //getters and setters
 
-        public int Id
+        public int Id           //Privides the tools for setting and getting the values of the id
         {
             get { return id; }
             set { id = value; }
         }
 
-        public string WiFi
+        public string WiFi      //Privides the tools for setting and getting the values of the WiFi
         {
             get { return wifi; }
             set { wifi = value; }
         }
 
-        public string Food
+        public string Food      //Privides the tools for setting and getting the values of the food
         {
             get { return food; }
             set { food = value; }
         }
 
-        public int Discount
+        public int Discount     //Privides the tools for setting and getting the values of the discount
         {
             get { return discount; }
             set { discount = value; }
