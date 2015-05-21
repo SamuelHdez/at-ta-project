@@ -73,67 +73,67 @@ namespace TopTravel
         }
 
         // PROPERTIES
-        private int Id;
-        private int Product;
-        private string ProductName;
-        private int Price;
-        private string UserN;
-        private int Adults;
-        private int Children;
-        private int Buy;
-        private int TotalPrice;
+        private int Id;             //Its unique id
+        private int Product;        //Its associated product
+        private string ProductName; //Its product name
+        private int Price;          //Its Price
+        private string UserN;       //The user that bought it
+        private int Adults;         //Number of adults
+        private int Children;       //Number of children
+        private int Buy;            //Indicates wheter i is in the shopping chart or in the history
+        private int TotalPrice;     //The price once applied the discount
 
         //getters and setters
 
-        public int id
+        public int id                       //Privides the tools for setting and getting the values of the id
         {
             get { return Id; }
             set { Id = value; }
         }
 
-        public int product
+        public int product                  //Privides the tools for setting and getting the values of the product
         {
             get { return Product; }
             set { Product = value; }
         }
 
-        public string productName
+        public string productName           //Privides the tools for setting and getting the values of the product name
         {
             get { return ProductName; }
             set { ProductName = value; }
         }
 
-        public int price
+        public int price                    //Privides the tools for setting and getting the values of the price
         {
             get { return Price; }
             set { Price = value; }
         }
 
-        public string userN
+        public string userN                 //Privides the tools for setting and getting the values of the user name
         {
             get { return UserN; }
             set { UserN = value; }
         }
 
-        public int adults
+        public int adults                   //Privides the tools for setting and getting the values of the number of adults
         {
             get { return Adults; }
             set { Adults = value; }
         }
 
-        public int children
+        public int children                 //Privides the tools for setting and getting the values of the number of children
         {
             get { return Children; }
             set { Children = value; }
         }
 
-        public int buy
+        public int buy                      //Privides the tools for setting and getting the values of the variable buy
         {
             get { return Buy; }
             set { Buy = value; }
         }
 
-        public int totalPrice
+        public int totalPrice               //Privides the tools for setting and getting the values of the total price
         {
             get { return TotalPrice; }
             set { TotalPrice = value; }
