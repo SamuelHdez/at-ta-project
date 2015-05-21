@@ -10,61 +10,62 @@ using System.Data;
 
 namespace TopTravel
 {
+    //This clsass represents the entity Order
     public class OrderEN
     {
-        public OrderEN()
+        public OrderEN() //constructor
         {
         }
 
-        public DataSet add_Order()
+        public DataSet add_Order() //insert new order
         {
             OrderCAD c = new OrderCAD();
             DataSet ds = c.addOrder(this);
             return ds;
         }
 
-        public DataSet delete_Order(int i)
+        public DataSet delete_Order(int i) //delete an existing order
         {
             OrderCAD c = new OrderCAD();
             DataSet ds = c.deleteOrder(this, i);
             return ds;
         }
 
-        public DataSet update_Order(int i)
+        public DataSet update_Order(int i) //update an existing order
         {
             OrderCAD c = new OrderCAD();
             DataSet ds = c.updateOrder(this, i);
             return ds;
         }
 
-        public void buy_Order(int i)
+        public void buy_Order(int i) //from the shopping cart to the history
         {
             OrderCAD c = new OrderCAD();
             c.buyOrder(this, i);
         }
 
-        public DataSet searchOrders(String user)
+        public DataSet searchOrders(String user) //search orders filter by users
         {
             OrderCAD c = new OrderCAD();
             DataSet ds = c.searchUserOrders(user);
             return ds;
         }
 
-        public DataSet searchHistory(String user)
+        public DataSet searchHistory(String user) //search history cart filter by users
         {
             OrderCAD c = new OrderCAD();
             DataSet ds = c.searchUserHistory(user);
             return ds;
         }
 
-        public DataSet showAllOrders()
+        public DataSet showAllOrders() //show all the orders
         {
             OrderCAD c = new OrderCAD();
             DataSet ds = c.showOrders(this);
             return ds;
         }
 
-        public DataSet countOrders()
+        public DataSet countOrders() //for create the id
         {
             OrderCAD c = new OrderCAD();
             DataSet ds = c.countOrders();

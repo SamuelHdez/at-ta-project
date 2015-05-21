@@ -74,6 +74,11 @@
                                   <img src="../Images/cart.png" height="25" width="25">
                                 </a>
                      &nbsp;</li>
+                            <li>
+                                <a id="adminpanel" visible="false" runat="server" href="/AdminPanel/Hotel.aspx">
+                                  <img src="../Images/admin.png" height="25" width="25">
+                                </a>
+                     &nbsp;</li>
                            <li>
                                 <a id="logoutLink" visible="false" runat="server" href="/Logout.aspx">
                                   <img src="../Images/logout.png" height="25" width="25">
@@ -119,7 +124,6 @@
         <div class="content-wrapper">
             <div class="float-left">
                 <ul id="menuFooter">
-                    <li><a runat="server" href="~/About.aspx"> <img src="../images/about.png" height="25" width="25"> More about us</a></li>
                      <li><a runat="server" href="~/Companies.aspx"> <img src="../images/about.png" height="25" width="25"> Partners</a></li>
                     <li><a runat="server" href="~/Contact.aspx"><img src="../images/contact.png" height="25" width="25"> Contact</a></li>
                 </ul>

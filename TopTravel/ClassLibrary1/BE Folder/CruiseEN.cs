@@ -8,48 +8,49 @@ using System.Data;
 
 namespace TopTravel
 {
+    //This clsass represents the entity Cruise
     public class CruiseEN
     {
-        public CruiseEN()
+        public CruiseEN() //constructor
         {
         }
 
-        public DataSet add_Cruise()
+        public DataSet add_Cruise() //new cruise
         {
             CruiseCAD c = new CruiseCAD();
             DataSet ds = c.addCruise(this);
             return ds;
         }
 
-        public DataSet delete_Cruise(int i)
+        public DataSet delete_Cruise(int i) //delete cruise
         {
             CruiseCAD c = new CruiseCAD();
             DataSet ds = c.deleteCruise(this, i);
             return ds;
         }
 
-        public DataSet update_Cruise(int i)
+        public DataSet update_Cruise(int i) //update cruise
         {
             CruiseCAD c = new CruiseCAD();
             DataSet ds = c.updateCruise(this, i);
             return ds;
         }
 
-        public DataSet searchAllCruises(String region, String city)
+        public DataSet searchAllCruises(String region, String city) //search cruises by origin and destination
         {
             CruiseCAD c = new CruiseCAD();
             DataSet ds = c.searchCruises(region, city);
             return ds;
         }
 
-        public DataSet searchIDCruises(String idc)
+        public DataSet searchIDCruises(String idc) //search cruises by id
         {
             CruiseCAD c = new CruiseCAD();
             DataSet ds = c.searchIDCruises(idc);
             return ds;
         }
 
-        public DataSet showAllCruises()
+        public DataSet showAllCruises() //show all cruises
         {
             CruiseCAD c = new CruiseCAD();
             DataSet ds = c.showCruises(this);

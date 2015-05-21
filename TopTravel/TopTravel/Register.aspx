@@ -24,7 +24,7 @@
         <label>Phone</label>
         <asp:TextBox ID="phoneR" runat="server" CssClass="input" />
 
-        <label>Address</label>
+        <label>Email</label>
         <asp:TextBox ID="addressR" runat="server" CssClass="input" />
 
             <asp:RadioButtonList ID="gender" runat="server" CssClass="radioButtonList2">

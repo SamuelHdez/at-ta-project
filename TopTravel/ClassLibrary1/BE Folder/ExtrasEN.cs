@@ -9,32 +9,33 @@ using System.Data;
 
 namespace TopTravel
 {
+    //This clsass represents the entity Extras
     public class ExtrasEN
     {
-        public ExtrasEN()
+        public ExtrasEN() //constructor
         {
         }
 
-       public void add_extra()
+       public void add_extra() //new extra
        {
            ExtrasCAD c = new ExtrasCAD();
            c.addExtra(this);
        }
 
-       public void delete_extra()
+       public void delete_extra() //delete extra
        {
            ExtrasCAD c = new ExtrasCAD();
            c.deleteExtra(this);
        }
 
-       public void update_extra()
+       public void update_extra() //update extra
        {
            ExtrasCAD c = new ExtrasCAD();
            c.updateExtra(this);
        }
 
 
-       public ArrayList showAllExtras()
+       public ArrayList showAllExtras() //show all extras
        {
            ArrayList a = new ArrayList();
            ExtrasCAD c = new ExtrasCAD();
@@ -42,7 +43,7 @@ namespace TopTravel
            return a;
        }
 
-       public DataSet searchExtrasID(string idx)
+       public DataSet searchExtrasID(string idx) //search extra by id
        {
            ExtrasCAD c = new ExtrasCAD();
            DataSet ds = c.searchExtrasID(idx);

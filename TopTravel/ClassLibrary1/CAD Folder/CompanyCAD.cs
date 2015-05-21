@@ -16,13 +16,13 @@ namespace TopTravel
         public DataSet showCompanies(CompanyEN b)
         {
             string s;
-            s = ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString();
+            s = ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString(); //Connection string
             DataSet virtdb = new DataSet();
             SqlConnection c = new SqlConnection(s);
 
             try
             {
-                SqlDataAdapter da = new SqlDataAdapter("select * from Company", c);
+                SqlDataAdapter da = new SqlDataAdapter("select * from Company", c); //The select in SQL language that is processed in the DB which will return all the rows from the table 
                 da.Fill(virtdb, "company");
 
             }
@@ -42,13 +42,13 @@ namespace TopTravel
         public DataSet searchCompanies(String ty)
         {
             string s;
-            s = ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString();
+            s = ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString(); //Connection string
             DataSet virtdb = new DataSet();
             SqlConnection c = new SqlConnection(s);
 
             try
             {
-                SqlDataAdapter da = new SqlDataAdapter("Select * from Company where Type LIKE '%" + ty + "%'", c);
+                SqlDataAdapter da = new SqlDataAdapter("Select * from Company where Type LIKE '%" + ty + "%'", c); //select statement filter by type
                 da.Fill(virtdb, "company");
 
             }
@@ -68,13 +68,13 @@ namespace TopTravel
         public DataSet searchCompanyID(string idC)
         {
             string s;
-            s = ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString();
+            s = ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString(); //Connection string
             DataSet virtdb = new DataSet();
             SqlConnection c = new SqlConnection(s);
 
             try
             {
-                SqlDataAdapter da = new SqlDataAdapter("Select * from Company where ID = '" + idC + "'", c);
+                SqlDataAdapter da = new SqlDataAdapter("Select * from Company where ID = '" + idC + "'", c); //select statement filter by id
                 da.Fill(virtdb, "company");
 
             }
@@ -94,7 +94,7 @@ namespace TopTravel
 
         public void addCompany(CompanyEN com)
         {
-            string s = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
+            string s = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString(); //Connection string
             SqlConnection c = new SqlConnection(s);
             DataSet virtdb = new DataSet();
             try
@@ -103,7 +103,7 @@ namespace TopTravel
                 da.Fill(virtdb, "company");
                 DataTable dt = new DataTable();
                 dt = virtdb.Tables["company"];
-                DataRow newRow = dt.NewRow();
+                DataRow newRow = dt.NewRow(); //insert new values in a new row
                 newRow[0] = com.Id;
                 newRow[1] = com.name;
                 newRow[2] = com.type;
@@ -130,7 +130,7 @@ namespace TopTravel
 
         public DataSet deleteCompany(CompanyEN com, int i) // It will delete the index passed in the view
         {
-            string s = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
+            string s = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString(); //Connection string
             SqlConnection c = new SqlConnection(s);
             DataSet virtdb = new DataSet();
             try
@@ -140,7 +140,7 @@ namespace TopTravel
                 DataTable t = new DataTable();
                 t = virtdb.Tables["company"];
 
-                t.Rows[i].Delete();
+                t.Rows[i].Delete(); //delete row
 
                 SqlCommandBuilder cbuilder = new SqlCommandBuilder(da);
                 da.Update(virtdb, "company");
@@ -159,7 +159,7 @@ namespace TopTravel
 
         public DataSet updateCompany(CompanyEN com, int i)
         {
-            string s = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
+            string s = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString(); //Connection string
             SqlConnection c = new SqlConnection(s);
             DataSet virtdb = new DataSet();
             try
@@ -169,7 +169,7 @@ namespace TopTravel
                 DataTable t = new DataTable();
                 t = virtdb.Tables["company"];
 
-                t.Rows[i]["ID"] = com.Id;
+                t.Rows[i]["ID"] = com.Id;   //update rows
 
                 t.Rows[i]["ID"] = com.Id;
                 t.Rows[i]["Name"] = com.name;
@@ -196,103 +196,5 @@ namespace TopTravel
             }
             return virtdb;
         }
-        /*
-        public ArrayList showCompanies()
-        {
-            ArrayList a = new ArrayList();
-            string s = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
-            SqlConnection c = new SqlConnection(s);
-            try
-            {
-                c.Open();
-                SqlCommand com = new SqlCommand("Select * from Company", c);
-                SqlDataReader dr = com.ExecuteReader();
-                while (dr.Read())
-                {
-                    a.Add(dr["Name"].ToString());
-                }
-                dr.Close();
-            }
-            catch (Exception ex) 
-            {  
-                ex.ToString();
-                Console.WriteLine("ERROR: Show companies");
-            }
-            finally
-            {
-                c.Close();
-            }
-            return a;
-        }
-
-        public void addCompany(CompanyEN co)
-        {
-            string s = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
-            SqlConnection c = new SqlConnection(s);
-            try
-            {
-                c.Open();
-                SqlCommand com = new SqlCommand("Insert Into Company (ID,Name,Type,Phone,Email,Country,Website,Description) VALUES ('" + co.ID + "','" + co.Name + "','" + co.Type + "','" +
-                    co.Phone + "','" + co.Email + "','" + co.Country + "','" + co.Website + "','" + co.Description + "')", c);
-
-                com.ExecuteNonQuery();
-            }
-            catch (Exception ex)
-            {
-                ex.ToString();
-                Console.WriteLine("ERROR: Add company");
-            }
-            finally
-            {
-                c.Close();
-            }
-
-        }
-
-        public void deleteCompany(CompanyEN co)
-        {
-            string s = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
-            SqlConnection c = new SqlConnection(s);
-         
-            try
-            {
-                c.Open();
-                SqlCommand com = new SqlCommand("Delete From Company Where id = " + co.ID , c);
-                com.ExecuteNonQuery();
-            }
-            catch (Exception ex)
-            {
-                ex.ToString();
-                Console.WriteLine("ERROR: Delete company");
-            }
-            finally
-            {
-                c.Close();
-            }
-        }
-
-        public void updateCompany(CompanyEN co)
-        {
-            string s = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
-            SqlConnection c = new SqlConnection(s);
-            try
-            {
-                c.Open();
-                SqlCommand com = new SqlCommand("Update Company Set Name = '" + co.Name + "', Type = '" + co.Type + "', Phone ='" +
-                    co.Phone + "', Email = '" + co.Email + "', County = '" + co.Country + "', Website = '" + co.Website + "', Description = '" + 
-                    co.Description + "' Where ID = " + co.ID, c);
-                com.ExecuteNonQuery();
-            }
-            catch (Exception ex)
-            {
-                ex.ToString();
-                Console.WriteLine("ERROR: Update company");
-            }
-            finally
-            {
-                c.Close();
-            }
-        }
-         */
     }
 }

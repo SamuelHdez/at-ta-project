@@ -31,6 +31,8 @@ namespace TopTravel
                 d = car.showAllCarRental();
                 GridView1.DataSource = d;
                 GridView1.DataBind();
+                ButtonLogin.Visible = false;
+                ButtonBuy.Visible = false;
 
             }
         }
@@ -54,6 +56,16 @@ namespace TopTravel
 
         protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (Session["login"] != null)
+            {
+                ButtonLogin.Visible = false;
+                ButtonBuy.Visible = true;
+            }
+            else
+            {
+                ButtonLogin.Visible = true;
+                ButtonBuy.Visible = false;
+            }
             d = car.searchIDCarRental(GridView1.SelectedRow.Cells[6].Text);
 
             GridView2.DataSource = d;
@@ -76,7 +88,7 @@ namespace TopTravel
 
         protected void SendButtonLogin(object sender, EventArgs e)
         {
-            Response.Redirect("/Account/Login.aspx");
+            Response.Redirect("/Login.aspx");
         }
 
         protected void SendButtonBuy(object sender, EventArgs e)

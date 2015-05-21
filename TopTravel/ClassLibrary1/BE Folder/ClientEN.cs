@@ -8,56 +8,57 @@ using System.Data;
 
 namespace TopTravel
 {
+    //This clsass represents the entity Client
     public class ClientEN
     {
 
-        public ClientEN()
+        public ClientEN() //constructor
         {
         }
 
-        public DataSet add_Client()
+        public DataSet add_Client() //new client
         {
             ClientCAD c = new ClientCAD();
             DataSet ds = c.addClient(this);
             return ds;
         }
 
-        public DataSet delete_Client(int i)
+        public DataSet delete_Client(int i) //delete client
         {
             ClientCAD c = new ClientCAD();
             DataSet ds = c.deleteClient(this, i);
             return ds;
         }
 
-        public DataSet update_Client(int i)
+        public DataSet update_Client(int i) //update client by index
         {
             ClientCAD c = new ClientCAD();
             DataSet ds = c.updateClient(this, i);
             return ds;
         }
 
-        public void update_Client2(String ID, String pass)
+        public void update_Client2(String ID, String pass) //update client 2 by id and password
         {
             ClientCAD c = new ClientCAD();
             c.updateClient2(this, ID, pass);
             
         }
 
-        public DataSet searchDNIClient(String dni, string pass)
+        public DataSet searchDNIClient(String dni, string pass) //search client by dni and password
         {
             ClientCAD c = new ClientCAD();
             DataSet ds = c.searchClients(dni, pass);
             return ds;
         }
 
-        public DataSet showAllClient()
+        public DataSet showAllClient() //show all the clients
         {
             ClientCAD c = new ClientCAD();
             DataSet ds = c.showClient(this);
             return ds;
         }
 
-        public DataSet showClientData(string ID)
+        public DataSet showClientData(string ID) //show client info by filter ID
         {
             ClientCAD c = new ClientCAD();
             DataSet ds = c.showClientInfo(ID);

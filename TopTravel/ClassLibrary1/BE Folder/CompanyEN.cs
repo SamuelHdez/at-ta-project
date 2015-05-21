@@ -8,48 +8,49 @@ using System.Data;
 
 namespace TopTravel
 {
+    //This clsass represents the entity Company
     public class CompanyEN
     {        
         
-        public CompanyEN()
+        public CompanyEN() //constructor
         {
         }
 
-        public void add_Company()
+        public void add_Company() //new company
         {
             CompanyCAD c = new CompanyCAD();
             c.addCompany(this);
         }
 
-        public DataSet delete_Company(int i)
+        public DataSet delete_Company(int i) //delete company
         {
             CompanyCAD c = new CompanyCAD();
             DataSet ds = c.deleteCompany(this, i);
             return ds;
         }
 
-        public DataSet update_Company(int i)
+        public DataSet update_Company(int i) //update company
         {
             CompanyCAD c = new CompanyCAD();
             DataSet ds = c.updateCompany(this, i);
             return ds;
         }
 
-        public DataSet searchAllCompanies(String ty)
+        public DataSet searchAllCompanies(String ty) //search company  by type
         {
             CompanyCAD c = new CompanyCAD();
             DataSet ds = c.searchCompanies(ty);
             return ds;
         }
 
-        public DataSet searchCompanyID(string idC)
+        public DataSet searchCompanyID(string idC) //search company by id
         {
             CompanyCAD c = new CompanyCAD();
             DataSet ds = c.searchCompanyID(idC);
             return ds;
         }
 
-        public DataSet showAllCompanies()
+        public DataSet showAllCompanies() //show all the companies
         {
             CompanyCAD c = new CompanyCAD();
             DataSet ds = c.showCompanies(this);

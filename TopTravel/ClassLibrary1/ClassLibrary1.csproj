@@ -50,8 +50,6 @@
     <Compile Include="BE Folder\FlightEN.cs" />
     <Compile Include="BE Folder\HotelEN.cs" />
     <Compile Include="BE Folder\OrderEN.cs" />
-    <Compile Include="BE Folder\PackagesEN.cs" />
-    <Compile Include="BE Folder\ProductEN.cs" />
     <Compile Include="BE Folder\SpaceTravelEN.cs" />
     <Compile Include="BE Folder\TrainEN.cs" />
     <Compile Include="CAD Folder\AdminCAD.cs" />
@@ -64,8 +62,6 @@
     <Compile Include="CAD Folder\FlightCAD.cs" />
     <Compile Include="CAD Folder\HotelCAD.cs" />
     <Compile Include="CAD Folder\OrderCAD.cs" />
-    <Compile Include="CAD Folder\PackagesCAD.cs" />
-    <Compile Include="CAD Folder\ProductCAD.cs" />
     <Compile Include="CAD Folder\SpaceTravelCAD.cs" />
     <Compile Include="CAD Folder\TrainCAD.cs" />
     <Compile Include="Class1.cs" />

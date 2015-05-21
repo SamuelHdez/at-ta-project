@@ -31,6 +31,8 @@ namespace TopTravel
                 d = F.showAllFlights();
                 GridView1.DataSource = d;
                 GridView1.DataBind();
+                ButtonLogin.Visible = false;
+                ButtonBuy.Visible = false;
 
             }
         }
@@ -54,6 +56,17 @@ namespace TopTravel
 
         protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (Session["login"] != null)
+            {
+                ButtonLogin.Visible = false;
+                ButtonBuy.Visible = true;
+            }
+            else
+            {
+                ButtonLogin.Visible = true;
+                ButtonBuy.Visible = false;
+            }
+
             d = F.searchIDFlights(GridView1.SelectedRow.Cells[6].Text);
            
             GridView2.DataSource = d;

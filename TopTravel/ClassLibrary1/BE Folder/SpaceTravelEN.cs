@@ -8,48 +8,49 @@ using System.Data;
 
 namespace TopTravel
 {
+    //This clsass represents the entity Space Travel
     public class SpaceTravelEN
     {
-        public SpaceTravelEN()
+        public SpaceTravelEN() //constructor
         {
         }
 
-        public DataSet add_SpaceTravels()
+        public DataSet add_SpaceTravels() //insert a new space travel
        {
            SpaceTravelCAD c = new SpaceTravelCAD();
            DataSet ds = c.addSpaceTravel(this);
            return ds;
        }
 
-       public DataSet delete_SpaceTravels(int i)
+       public DataSet delete_SpaceTravels(int i) //delete an existing space travel
        {
            SpaceTravelCAD c = new SpaceTravelCAD();
            DataSet ds = c.deleteSpaceTravel(this, i);
            return ds;
        }
 
-       public DataSet update_SpaceTravels(int i)
+       public DataSet update_SpaceTravels(int i) //update an existing space travel
        {
            SpaceTravelCAD c = new SpaceTravelCAD();
            DataSet ds = c.updateSpaceTravel(this, i);
            return ds;
        }
 
-       public DataSet searchAllSpaceTravels(String city)
+       public DataSet searchAllSpaceTravels(String city) //search space travels filter by city
        {
            SpaceTravelCAD c = new SpaceTravelCAD();
            DataSet ds = c.searchSpaceTravels(city);
            return ds;
        }
 
-       public DataSet searchIDSpaceTravels(String idH)
+       public DataSet searchIDSpaceTravels(String idH) //search space travels filter by id
        {
            SpaceTravelCAD c = new SpaceTravelCAD();
            DataSet ds = c.searchIDSpaceTravels(idH);
            return ds;
        }
 
-       public DataSet showAllSpaceTravels()
+       public DataSet showAllSpaceTravels() //show all the space travels
        {
            SpaceTravelCAD c = new SpaceTravelCAD();
            DataSet ds = c.showSpaceTravels(this);
@@ -68,6 +69,7 @@ namespace TopTravel
         private string images;
 
 
+        //getters and setters
         public int id
         {
             get { return Id; }

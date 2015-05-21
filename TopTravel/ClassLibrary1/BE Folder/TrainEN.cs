@@ -8,48 +8,49 @@ using System.Data;
 
 namespace TopTravel
 {
+    //This clsass represents the entity Train
     public class TrainEN
     {
-        public TrainEN()
+        public TrainEN() //constructor
         {
         }
 
-        public DataSet add_Train()
+        public DataSet add_Train() //insert a new train
         {
             TrainCAD c = new TrainCAD();
             DataSet ds = c.addTrain(this);
             return ds;
         }
 
-        public DataSet delete_train(int i)
+        public DataSet delete_train(int i) //delete an existing train
         {
             TrainCAD c = new TrainCAD();
             DataSet ds = c.deleteTrain(this, i);
             return ds;
         }
 
-        public DataSet update_train(int i)
+        public DataSet update_train(int i) //update an existing train
         {
             TrainCAD c = new TrainCAD();
             DataSet ds = c.updateTrain(this, i);
             return ds;
         }
 
-        public DataSet searchAllTrains(String city1, String city2)
+        public DataSet searchAllTrains(String city1, String city2) //search trains filter by origin and destination
         {
             TrainCAD c = new TrainCAD();
             DataSet ds = c.searchTrains(city1, city2);
             return ds;
         }
 
-        public DataSet searchIDTrains(String IDT)
+        public DataSet searchIDTrains(String IDT) //search trains filter by id
         {
             TrainCAD c = new TrainCAD();
             DataSet ds = c.searchIDTrains(IDT);
             return ds;
         }
 
-        public DataSet showAllTrains()
+        public DataSet showAllTrains() //show all the trains
         {
             TrainCAD c = new TrainCAD();
             DataSet ds = c.showTrains(this);
@@ -67,7 +68,6 @@ namespace TopTravel
         private int extras;
         private string images;
 
-        //Data
         //getters and setters
 
         public int id

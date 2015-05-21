@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Data;
 using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Configuration;
 
 namespace TopTravel
 {
@@ -13,6 +15,8 @@ namespace TopTravel
         private const string AntiXsrfTokenKey = "__AntiXsrfToken";
         private const string AntiXsrfUserNameKey = "__AntiXsrfUserName";
         private string _antiXsrfTokenValue;
+        AdminEN A = new AdminEN();
+        DataSet d = new DataSet();
 
         protected void Page_Init(object sender, EventArgs e)
         {
@@ -69,6 +73,13 @@ namespace TopTravel
         {
             if (Session["Login"] != null)
             {
+                d = A.searchAdmin(Session["login"].ToString());
+                int encontrado = Convert.ToInt32(d.Tables[0].Rows[0][0]); //if there is a client, we return 1
+
+                if (encontrado == 1)
+                {
+                    adminpanel.Visible = true;
+                }
                 sess.Text = Session["Login"].ToString();
                 MyAccount.Visible = true;
                 logoutLink.Visible = true;

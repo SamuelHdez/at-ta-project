@@ -3,7 +3,7 @@
 <asp:Content runat="server" ID="FeaturedContent" ContentPlaceHolderID="FeaturedContent">
     <section>
         <div class="apps">
-            <a class="app" href="Product.aspx">
+            <a class="app" href="#">
                     <img src="images/cities/Berlin.jpg" height=100% width=100%>
                     <div class="footerImg">
                         <div class="place">Berlin</div>
@@ -11,7 +11,7 @@
                         <p>Description here</p>
                     </div>
             </a>
-                <a class="app" href="Product.aspx">
+                <a class="app" href="#">
                     <img src="images/cities/Moon.jpg" height=100% width=100%>
                     <div class="footerImg">
                         <div class="place">Moon</div>

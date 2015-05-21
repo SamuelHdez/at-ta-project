@@ -8,13 +8,14 @@ using System.Data;
 
 namespace TopTravel
 {
+    //This clsass represents the entity ADdmin
     public class AdminEN
     {
-        public AdminEN()
+        public AdminEN() //constructor
         {
         }
 
-        public DataSet searchAdmin(String ad)
+        public DataSet searchAdmin(String ad) //search the admin in the db
         {
             AdminCAD c = new AdminCAD();
             DataSet ds = c.searchAdmin(ad);
@@ -22,10 +23,14 @@ namespace TopTravel
         }
 
         // PROPERTIES
-        public int Id { get; set; }
-        public string name { get; set; }
-        public string dni { get; set; }
-        public string email { get; set; }
-        public string password { get; set; }
+        private int id;
+
+        //getter and setter
+        public int Id                   //Privides the tools for setting and getting the values of the 
+        {
+            get { return id; }
+            set { id = value; }
+        }
+
     }
 }

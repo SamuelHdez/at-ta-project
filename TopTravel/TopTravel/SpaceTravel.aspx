@@ -79,7 +79,7 @@
     </section>
 
      <hgroup class="title">
-       <h1><asp:Label ID="Label10" runat="server" Text="Flights" Visible="false"></asp:Label></h1> 
+       <h1><asp:Label ID="Label10" runat="server" Text="Space Travels" Visible="false"></asp:Label></h1> 
        <h2><asp:Label ID="Label11" runat="server" Text="Details" Visible="false"></asp:Label></h2> 
     </hgroup>
 
