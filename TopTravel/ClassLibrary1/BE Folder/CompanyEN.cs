@@ -58,60 +58,60 @@ namespace TopTravel
         }
 
         // PROPERTIES
-        private int ID;
-        private string Name;
-        private string Type;
-        private int Phone;
-        private string Email;
-        private string Country;
-        private string Website;
-        private string Description;
+        private int ID;             //Its unique id
+        private string Name;        //Its name
+        private string Type;        //Its type
+        private int Phone;          //Its phone number
+        private string Email;       //Its email
+        private string Country;     //Its country
+        private string Website;     //Its website
+        private string Description; //Its description
 
 
         //Getters and setters
-        public int Id
+        public int Id               //Privides the tools for setting and getting the values of the 
         {
             get { return ID; }
             set { ID = value; }
         }
 
-        public string name
+        public string name          //Privides the tools for setting and getting the values of the 
         {
             get { return Name; }
             set { Name = value; }
         }
 
-        public string type
+        public string type          //Privides the tools for setting and getting the values of the 
         {
             get { return Type; }
             set { Type = value; }
         }
 
-         public int phone
+         public int phone           //Privides the tools for setting and getting the values of the 
         {
             get { return Phone; }
             set { Phone = value; }
         }
 
-         public string email
+         public string email        //Privides the tools for setting and getting the values of the 
         {
             get { return Email; }
             set { Email = value; }
         }
 
-         public string country
+         public string country      //Privides the tools for setting and getting the values of the 
          {
              get { return Country; }
              set { Country = value; }
          }
 
-         public string website
+         public string website      //Privides the tools for setting and getting the values of the 
          {
              get { return Website; }
              set { Website = value; }
          }
 
-         public string description
+         public string description  //Privides the tools for setting and getting the values of the 
          {
              get { return Description; }
              set { Description = value; }

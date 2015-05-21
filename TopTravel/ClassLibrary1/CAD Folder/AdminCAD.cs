@@ -14,7 +14,7 @@ namespace TopTravel
     //This class represents the entity of a admin with its methods and atributes listed below
     class AdminCAD
     {
-        //method for check that the user is an administrator
+        //Method used to check wether the user is administrator
         public DataSet searchAdmin(String nameAd)
         {
             string s;
@@ -23,21 +23,21 @@ namespace TopTravel
             SqlConnection c = new SqlConnection(s); //The connection is effectuated
 
             try
-            {
-                SqlDataAdapter da = new SqlDataAdapter("select count(*) from Admin where Id = '" + nameAd + "'", c); //select statement
+            {                   //The select in SQL language that is processed in the DB which will return all the rows from the table "Admin"
+                SqlDataAdapter da = new SqlDataAdapter("select count(*) from Admin where Id = '" + nameAd + "'", c);
                 da.Fill(virtdb, "admin"); //It introduces the information returned from the select into this virtual DB 
 
             }
             catch (Exception ex) //exception management
             {
-                ex.ToString();
+                ex.ToString();      //In case of an error it is printed here
                 Console.WriteLine("ERROR: show admin");
             }
             finally
             {
                 c.Close();  //Closes the connection to the DB
             }
-            return virtdb; //return the solution
+            return virtdb;              //It returns the virtual DB with all the information asked inside
         }
     }
 }
