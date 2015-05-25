@@ -51,6 +51,10 @@ namespace TopTravel
             {
                 ButtonLogin.Visible = false; //change the visibiliyy of the buttons
                 ButtonBuy.Visible = true;
+                Adults.Visible = true;
+                LAdults.Visible = true;
+                Children.Visible = true;
+                LChildren.Visible = true;
             }
             else
             {
@@ -76,6 +80,13 @@ namespace TopTravel
 
             Label10.Visible = true;
             Label11.Visible = true;
+
+            GridView1.Visible = false;
+            CityText.Visible = false;
+            RegionText.Visible = false;
+            SendButton.Visible = false;
+            dep.Visible = false;
+            region.Visible = false;
         }
 
         protected void SendButtonLogin(object sender, EventArgs e) //login button

@@ -24,40 +24,19 @@
              <legend>Search your train</legend>
 
 
-            <!--<asp:Label ID="Label2" runat="server" Text="Label">Flying from: </asp:Label>--><label>From</label>
+            <!--<asp:Label ID="Label2" runat="server" Text="Label">Flying from: </asp:Label>-->
+             <asp:Label runat="server" ID="FromText">From</asp:Label>
             <asp:TextBox id="from" TextMode="SingleLine" Columns="30" runat="server" CssClass="input" />
 
-            <!--<asp:Label ID="Label3" runat="server" Text="Label">Going to:</asp:Label>--><label>Going to</label>
+             <br />
+            <!--<asp:Label ID="Label3" runat="server" Text="Label">Going to:</asp:Label>-->
+             <asp:Label runat="server" ID="toText">Going to</asp:Label>
             <asp:TextBox id="to" TextMode="SingleLine" Columns="30" runat="server" CssClass="input" />
 
-            <!--<asp:Label ID="Label4" runat="server" Text="Label">Outbound:</asp:Label>--><label>Outbound</label>
-            <asp:Calendar ID="FechaIda" runat="server" CssClass="inputCal">
-                <TitleStyle BackColor="#353E49" BorderColor="#353E49" 
-                BorderWidth="1px" Font-Bold="True"
-                Font-Size="10pt" Height="25px" />
-            </asp:Calendar><br />
+             <br />
 
-            <!--<asp:CheckBox ID="VueltaCheck" runat="server" />-->
-            <!--<asp:Label ID="Label5" runat="server" Text="Label">Return:</asp:Label>--><label>Return</label>
-            <asp:Calendar ID="FechaVuelta" runat="server" CssClass="inputCal">
-                <TitleStyle BackColor="#353E49" BorderColor="#353E49" 
-                BorderWidth="1px" Font-Bold="True"
-                Font-Size="10pt" Height="25px" />
-            </asp:Calendar><br />
+            <asp:Button ID="SendButton" runat="server" Text="Search" OnClick="send" CssClass="inputBottom" />
 
-            <label>Adults</label>
-            <asp:TextBox ID="Adults" runat="server" CssClass="input" />
-
-            <label>Children</label>
-            <asp:TextBox ID="Children" runat="server" CssClass="input" />
-
-            <asp:Button ID="SendButton" runat="server" Text="Send" OnClick="send" CssClass="inputBottom" />
-
-            <asp:RangeValidator ID="RangeValidator2" controltovalidate="Adults" validationgroup="2" runat="server" ErrorMessage="Please enter value between 0-20 in adults." MinimumValue="0" MaximumValue="20" Type="Integer" forecolor="Red" CssClass="validator" Display="None"></asp:RangeValidator>
-            <asp:RangeValidator ID="RangeValidator3" controltovalidate="Children" validationgroup="2" runat="server" ErrorMessage="Please enter value between 0-20 in children." MinimumValue="0" MaximumValue="20" Type="Integer" forecolor="Red" CssClass="validator" Display="None"></asp:RangeValidator>        
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="You must specify the numer of adults." ControlToValidate="Adults" validationgroup="2" forecolor="Red" CssClass="validator" Display="None"></asp:RequiredFieldValidator>
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="You must specify the numer of children." ControlToValidate="Children" validationgroup="2" forecolor="Red" CssClass="validator" Display="None"></asp:RequiredFieldValidator>
-            <asp:ValidationSummary ID="ValidationSummary3" runat="server" DisplayMode="BulletList" ShowSummary="True"  validationgroup="2" forecolor="Red" ShowValidationErrors="True" />
         </fieldset>
 
     </section>
@@ -133,8 +112,23 @@
         </asp:GridView>
         </section> 
 
+         <br />
+
+            <asp:Label ID="LAdults" runat="server" Text="Adults" Visible="false"></asp:Label>
+            <asp:TextBox ID="Adults" runat="server" CssClass="input" Visible="false" />
+
+            <br />
+
+            <asp:Label ID="LChildren" runat="server" Text="Children" Visible="false"></asp:Label>
+            <asp:TextBox ID="Children" runat="server" CssClass="input" Visible="false" />
+
+            <asp:RangeValidator ID="RangeValidator2" controltovalidate="Adults" validationgroup="2" runat="server" ErrorMessage="Please enter value between 0-20 in adults." MinimumValue="0" MaximumValue="20" Type="Integer" forecolor="Red" CssClass="validator" Display="None"></asp:RangeValidator>
+            <asp:RangeValidator ID="RangeValidator3" controltovalidate="Children" validationgroup="2" runat="server" ErrorMessage="Please enter value between 0-20 in children." MinimumValue="0" MaximumValue="20" Type="Integer" forecolor="Red" CssClass="validator" Display="None"></asp:RangeValidator>        
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="You must specify the numer of adults." ControlToValidate="Adults" validationgroup="2" forecolor="Red" CssClass="validator" Display="None"></asp:RequiredFieldValidator>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="You must specify the numer of children." ControlToValidate="Children" validationgroup="2" forecolor="Red" CssClass="validator" Display="None"></asp:RequiredFieldValidator>
+            <asp:ValidationSummary ID="ValidationSummary3" runat="server" DisplayMode="BulletList" ShowSummary="True"  validationgroup="2" forecolor="Red" ShowValidationErrors="True" />
         <br />
-        <asp:ValidationSummary ID="ValidationSummary2" runat="server" HeaderText="You some errors above." ShowMessageBox="false" DisplayMode="BulletList" ShowSummary="true"  validationgroup="2" forecolor="Red" CssClass="hideValidationSummary" />
+        <asp:ValidationSummary ID="ValidationSummary2" runat="server" HeaderText="You have some errors." ShowMessageBox="false" DisplayMode="BulletList" ShowSummary="true"  validationgroup="2" forecolor="Red" CssClass="hideValidationSummary" />
         <asp:Button ID="ButtonLogin" runat="server" Text="Login" OnClick="SendButtonLogin" CssClass="inputBottom" />
         <asp:Button ID="ButtonBuy" runat="server" validationgroup="2" Text="Buy" OnClick="SendButtonBuy" CssClass="inputBottom" />
     </section>  

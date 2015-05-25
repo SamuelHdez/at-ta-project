@@ -24,30 +24,17 @@
              <legend>Search your Car</legend>
 
 
-            <!--<asp:Label ID="Label2" runat="server" Text="Label">Flying from: </asp:Label>--><label>City</label>
+            <!--<asp:Label ID="Label2" runat="server" Text="Label">Flying from: </asp:Label>-->
+             <asp:Label runat="server" ID="CityText">City</asp:Label>
             <asp:TextBox id="from" TextMode="SingleLine" Columns="30" runat="server" CssClass="input" />
 
-             <label>Brand</label>
+             <br />
+             <asp:Label runat="server" ID="brandText">Brand</asp:Label>
             <asp:TextBox id="brandcar" TextMode="SingleLine" Columns="30" runat="server" CssClass="input" />
 
-            <!--<asp:Label ID="Label4" runat="server" Text="Label">Outbound:</asp:Label>--><label>Calendar</label>
-            <asp:Calendar ID="cal" runat="server" CssClass="inputCal">
-                <TitleStyle BackColor="#353E49" BorderColor="#353E49" 
-                BorderWidth="1px" Font-Bold="True"
-                Font-Size="10pt" Height="25px" />
-            </asp:Calendar><br />
-
-            <!--<asp:CheckBox ID="VueltaCheck" runat="server" />-->
-            <!--<asp:Label ID="Label5" runat="server" Text="Label">Return:</asp:Label>--><label>Return</label>
-            <asp:Calendar ID="FechaVuelta" runat="server" CssClass="inputCal">
-                <TitleStyle BackColor="#353E49" BorderColor="#353E49" 
-                BorderWidth="1px" Font-Bold="True"
-                Font-Size="10pt" Height="25px" />
-            </asp:Calendar><br />
-
-            <asp:Button ID="SendButton" runat="server" Text="Send" OnClick="send" CssClass="inputBottom" />
+             <br />
+            <asp:Button ID="SendButton" runat="server" Text="Search" OnClick="send" CssClass="inputBottom" />
             
-             <asp:Label id="ProcessVuelo" runat="server" Text="" CssClass="process" />
         </fieldset>
 
     </section>

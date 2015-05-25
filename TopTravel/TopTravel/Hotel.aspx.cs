@@ -22,7 +22,10 @@ namespace TopTravel
         protected void Page_Load(object sender, EventArgs e)
         {
           if (!Page.IsPostBack)
+
+              
             {
+                //Page.MaintainScrollPositionOnPostback = false;
                 d = h.showAllHotels(); //list of hotels
                 GridView1.DataSource = d;
                 GridView1.DataBind();
@@ -55,6 +58,13 @@ namespace TopTravel
             {
                 ButtonLogin.Visible = false;
                 ButtonBuy.Visible = true;
+
+                Nights.Visible = true;
+                LNights.Visible = true;
+                Adults.Visible = true;
+                LAdults.Visible = true;
+                Children.Visible = true;
+                LChildren.Visible = true;
             }
             else
             {
@@ -79,6 +89,17 @@ namespace TopTravel
 
             Label10.Visible = true;
             Label11.Visible = true;
+
+          //  ClientScript.RegisterStartupScript(GetType(), "ScrollScript", "window.onload = function() {document.getElementById('objectid').scrollIntoView(true);}", true);
+
+          // Response.Redirect("~/Hotel.aspx#Middle");
+            
+            GridView1.Visible = false;
+            hCity.Visible = false;
+            Place2.Visible = false;
+            SendButton.Visible = false;
+           // Form.Visible = false;
+            
         }
 
         protected void SendButtonLogin(object sender, EventArgs e) //login button

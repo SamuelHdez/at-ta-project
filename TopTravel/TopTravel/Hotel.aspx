@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Hotels" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Hotel.aspx.cs" Inherits="TopTravel.Hotel" %>
+﻿<%@ Page  Title="Hotels" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Hotel.aspx.cs" Inherits="TopTravel.Hotel" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="FeaturedContent" runat="server">
@@ -22,37 +22,11 @@
          <fieldset>
             <legend>Search your hotel</legend>
 
-            <label>Place/hotel</label>
+            <asp:Label runat="server" ID="hCity">City</asp:Label>
             <asp:TextBox id="Place2" TextMode="SingleLine" Columns="30" runat="server" CssClass="input" />
-
-            <label>Date</label>
-            <asp:Calendar ID="Date" runat="server" CssClass="inputCal">
-                <TitleStyle BackColor="#353E49" BorderColor="#353E49" 
-                BorderWidth="1px" Font-Bold="True"
-                Font-Size="10pt" Height="25px" />
-            </asp:Calendar><br />
-
-
-            <label>Nights</label>
-            <asp:TextBox ID="Nights" runat="server" CssClass="input" />
-            <!--<input class="input" type="number" min="0" max="10" step="1" value="5">-->
-
-            <label>Adults</label>
-            <asp:TextBox ID="Adults" runat="server" CssClass="input" />
-
-            <label>Children</label>
-            <asp:TextBox ID="Children" runat="server" CssClass="input" />
-
-            <asp:Button ID="SendButton" runat="server" Text="Send" OnClick="send" CssClass="inputBottom" />
-            
-            <asp:RangeValidator ID="RangeValidator1" controltovalidate="Nights" validationgroup="2" runat="server" ErrorMessage="Please enter value between 1-50 in nights." MinimumValue="1" MaximumValue="50" Type="Integer" forecolor="Red" CssClass="validator" Display="None"></asp:RangeValidator>
-            <asp:RangeValidator ID="RangeValidator2" controltovalidate="Adults" validationgroup="2" runat="server" ErrorMessage="Please enter value between 0-20 in adults." MinimumValue="0" MaximumValue="20" Type="Integer" forecolor="Red" CssClass="validator" Display="None"></asp:RangeValidator>
-            <asp:RangeValidator ID="RangeValidator3" controltovalidate="Children" validationgroup="2" runat="server" ErrorMessage="Please enter value between 0-20 in children." MinimumValue="0" MaximumValue="20" Type="Integer" forecolor="Red" CssClass="validator" Display="None"></asp:RangeValidator>        
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="You must specify the numer of nights." ControlToValidate="Nights" validationgroup="2" forecolor="Red" CssClass="validator" Display="None"></asp:RequiredFieldValidator>
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="You must specify the numer of adults." ControlToValidate="Adults" validationgroup="2" forecolor="Red" CssClass="validator" Display="None"></asp:RequiredFieldValidator>
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="You must specify the numer of children." ControlToValidate="Children" validationgroup="2" forecolor="Red" CssClass="validator" Display="None"></asp:RequiredFieldValidator>
-            <asp:ValidationSummary ID="ValidationSummary3" runat="server" DisplayMode="BulletList" ShowSummary="True"  validationgroup="2" forecolor="Red" ShowValidationErrors="True" />
-             
+             <br />
+            <asp:Button ID="SendButton" runat="server" Text="Search" OnClick="send" CssClass="inputBottom" />
+                                    
         </fieldset>
 
     </section>
@@ -133,7 +107,30 @@
         </asp:GridView>
         </section>
         <br />
-        <asp:ValidationSummary ID="ValidationSummary2" runat="server" HeaderText="You some errors above." ShowMessageBox="false" DisplayMode="BulletList" ShowSummary="true"  validationgroup="2" forecolor="Red" CssClass="hideValidationSummary" />
+            <asp:Label ID="LNights" runat="server" Text="Nights" Visible="false" CssClass="valInput"></asp:Label>
+            <asp:TextBox ID="Nights" runat="server" CssClass="input" Visible="false" />
+
+            <br />
+
+            <asp:Label ID="LAdults" runat="server" Text="Adults" Visible="false"></asp:Label>
+            <asp:TextBox ID="Adults" runat="server" CssClass="input" Visible="false" />
+
+            <br />
+
+            <asp:Label ID="LChildren" runat="server" Text="Children" Visible="false"></asp:Label>
+            <asp:TextBox ID="Children" runat="server" CssClass="input" Visible="false" />
+
+            
+        <asp:RangeValidator ID="RangeValidator1" controltovalidate="Nights" validationgroup="2" runat="server" ErrorMessage="Please enter value between 1-50 in nights." MinimumValue="1" MaximumValue="50" Type="Integer" forecolor="Red" CssClass="validator" Display="None"></asp:RangeValidator>
+            <asp:RangeValidator ID="RangeValidator2" controltovalidate="Adults" validationgroup="2" runat="server" ErrorMessage="Please enter value between 0-20 in adults." MinimumValue="0" MaximumValue="20" Type="Integer" forecolor="Red" CssClass="validator" Display="None"></asp:RangeValidator>
+            <asp:RangeValidator ID="RangeValidator3" controltovalidate="Children" validationgroup="2" runat="server" ErrorMessage="Please enter value between 0-20 in children." MinimumValue="0" MaximumValue="20" Type="Integer" forecolor="Red" CssClass="validator" Display="None"></asp:RangeValidator>        
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="You must specify the numer of nights." ControlToValidate="Nights" validationgroup="2" forecolor="Red" CssClass="validator" Display="None"></asp:RequiredFieldValidator>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="You must specify the numer of adults." ControlToValidate="Adults" validationgroup="2" forecolor="Red" CssClass="validator" Display="None"></asp:RequiredFieldValidator>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="You must specify the numer of children." ControlToValidate="Children" validationgroup="2" forecolor="Red" CssClass="validator" Display="None"></asp:RequiredFieldValidator>
+            <asp:ValidationSummary ID="ValidationSummary3" runat="server" DisplayMode="BulletList" ShowSummary="True"  validationgroup="2" forecolor="Red" ShowValidationErrors="True" />
+         <br />
+              
+        <asp:ValidationSummary ID="ValidationSummary2" runat="server" HeaderText="You have some errors." ShowMessageBox="false" DisplayMode="BulletList" ShowSummary="true"  validationgroup="2" forecolor="Red" CssClass="hideValidationSummary" />
         <asp:Button ID="ButtonLogin" runat="server" Text="Login" OnClick="SendButtonLogin" CssClass="inputBottom" />
         <asp:Button ID="ButtonBuy" Visible ="false" runat="server" validationgroup="2" Text="Buy" OnClick="SendButtonBuy" CssClass="inputBottom" />
 

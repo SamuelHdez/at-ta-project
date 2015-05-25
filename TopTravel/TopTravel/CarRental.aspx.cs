@@ -86,6 +86,13 @@ namespace TopTravel
 
             Label10.Visible = true;
             Label11.Visible = true;
+
+            GridView1.Visible = false;
+            CityText.Visible = false;
+            from.Visible = false;
+            brandcar.Visible = false;
+            brandText.Visible = false;
+            SendButton.Visible = false;
         }
 
         protected void SendButtonLogin(object sender, EventArgs e) //login button
