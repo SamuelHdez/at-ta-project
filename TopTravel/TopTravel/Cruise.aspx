@@ -21,7 +21,7 @@
          <fieldset>
             <legend>Search your hotel</legend>
 
-            <asp:Label runat="server" ID="RegionText">Region</asp:Label>
+            <asp:Label runat="server" ID="RegionText" CssClass="aspLabel">Region</asp:Label>
              <asp:DropDownList ID="region" runat="server" CssClass="input">
                 <asp:ListItem Text="All" Value=""></asp:ListItem>
                 <asp:ListItem Text="Mediterranean" Value="Mediterranean"></asp:ListItem>
@@ -38,7 +38,7 @@
 
             <!--<asp:Label ID="Label2" runat="server" Text="Label">Flying from: </asp:Label>-->
              <br />
-             <asp:Label runat="server" ID="CityText">Departure</asp:Label>
+             <asp:Label runat="server" ID="CityText" CssClass="aspLabel">Departure</asp:Label>
             <asp:TextBox id="dep" TextMode="SingleLine" Columns="30" runat="server" CssClass="input" />
              <br />
 
@@ -123,12 +123,12 @@
         
          <br />
 
-            <asp:Label ID="LAdults" runat="server" Text="Adults" Visible="false"></asp:Label>
+            <asp:Label ID="LAdults" runat="server" Text="Adults" Visible="false" CssClass="aspLabel"></asp:Label>
             <asp:TextBox ID="Adults" runat="server" CssClass="input" Visible="false" />
 
             <br />
 
-            <asp:Label ID="LChildren" runat="server" Text="Children" Visible="false"></asp:Label>
+            <asp:Label ID="LChildren" runat="server" Text="Children" Visible="false" CssClass="aspLabel"></asp:Label>
             <asp:TextBox ID="Children" runat="server" CssClass="input" Visible="false" />
              <asp:RangeValidator ID="RangeValidator2" controltovalidate="Adults" validationgroup="2" runat="server" ErrorMessage="Please enter value between 0-20 in adults." MinimumValue="0" MaximumValue="20" Type="Integer" forecolor="Red" CssClass="validator" Display="None"></asp:RangeValidator>
             <asp:RangeValidator ID="RangeValidator3" controltovalidate="Children" validationgroup="2" runat="server" ErrorMessage="Please enter value between 0-20 in children." MinimumValue="0" MaximumValue="20" Type="Integer" forecolor="Red" CssClass="validator" Display="None"></asp:RangeValidator>        

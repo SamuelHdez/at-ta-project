@@ -22,7 +22,7 @@
          <fieldset>
             <legend>Search your hotel</legend>
 
-            <asp:Label runat="server" ID="hCity">City</asp:Label>
+            <asp:Label runat="server" ID="hCity" CssClass="aspLabel">City</asp:Label>
             <asp:TextBox id="Place2" TextMode="SingleLine" Columns="30" runat="server" CssClass="input" />
              <br />
             <asp:Button ID="SendButton" runat="server" Text="Search" OnClick="send" CssClass="inputBottom" />
@@ -107,17 +107,17 @@
         </asp:GridView>
         </section>
         <br />
-            <asp:Label ID="LNights" runat="server" Text="Nights" Visible="false" CssClass="valInput"></asp:Label>
+            <asp:Label ID="LNights" runat="server" Text="Nights" Visible="false" CssClass="aspLabel"></asp:Label>
             <asp:TextBox ID="Nights" runat="server" CssClass="input" Visible="false" />
 
             <br />
 
-            <asp:Label ID="LAdults" runat="server" Text="Adults" Visible="false"></asp:Label>
+            <asp:Label ID="LAdults" runat="server" Text="Adults" Visible="false" CssClass="aspLabel"></asp:Label>
             <asp:TextBox ID="Adults" runat="server" CssClass="input" Visible="false" />
 
             <br />
 
-            <asp:Label ID="LChildren" runat="server" Text="Children" Visible="false"></asp:Label>
+            <asp:Label ID="LChildren" runat="server" Text="Children" Visible="false" CssClass="aspLabel"></asp:Label>
             <asp:TextBox ID="Children" runat="server" CssClass="input" Visible="false" />
 
             

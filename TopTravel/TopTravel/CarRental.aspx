@@ -25,11 +25,11 @@
 
 
             <!--<asp:Label ID="Label2" runat="server" Text="Label">Flying from: </asp:Label>-->
-             <asp:Label runat="server" ID="CityText">City</asp:Label>
+             <asp:Label runat="server" ID="CityText" CssClass="aspLabel">City</asp:Label>
             <asp:TextBox id="from" TextMode="SingleLine" Columns="30" runat="server" CssClass="input" />
 
              <br />
-             <asp:Label runat="server" ID="brandText">Brand</asp:Label>
+             <asp:Label runat="server" ID="brandText" CssClass="aspLabel">Brand</asp:Label>
             <asp:TextBox id="brandcar" TextMode="SingleLine" Columns="30" runat="server" CssClass="input" />
 
              <br />

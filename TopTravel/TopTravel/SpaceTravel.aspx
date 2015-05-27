@@ -25,7 +25,7 @@
 
 
             <!--<asp:Label ID="Label2" runat="server" Text="Label">Flying from: </asp:Label>-->
-            <asp:Label runat="server" ID="City">City</asp:Label>
+            <asp:Label runat="server" ID="City" CssClass="aspLabel">City</asp:Label>
             <asp:TextBox id="from" TextMode="SingleLine" Columns="30" runat="server" CssClass="input" />
              <br />
             <asp:Button ID="SendButton" runat="server" Text="Search" OnClick="send" CssClass="inputBottom" />
@@ -107,12 +107,12 @@
     
          <br />
 
-            <asp:Label ID="LAdults" runat="server" Text="Adults" Visible="false"></asp:Label>
+            <asp:Label ID="LAdults" runat="server" Text="Adults" Visible="false" CssClass="aspLabel"></asp:Label>
             <asp:TextBox ID="Adults" runat="server" CssClass="input" Visible="false" />
 
             <br />
 
-            <asp:Label ID="LChildren" runat="server" Text="Children" Visible="false"></asp:Label>
+            <asp:Label ID="LChildren" runat="server" Text="Children" Visible="false" CssClass="aspLabel"></asp:Label>
             <asp:TextBox ID="Children" runat="server" CssClass="input" Visible="false" />
 
         

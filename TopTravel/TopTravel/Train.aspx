@@ -25,12 +25,12 @@
 
 
             <!--<asp:Label ID="Label2" runat="server" Text="Label">Flying from: </asp:Label>-->
-             <asp:Label runat="server" ID="FromText">From</asp:Label>
+             <asp:Label runat="server" ID="FromText" CssClass="aspLabel">From</asp:Label>
             <asp:TextBox id="from" TextMode="SingleLine" Columns="30" runat="server" CssClass="input" />
 
              <br />
             <!--<asp:Label ID="Label3" runat="server" Text="Label">Going to:</asp:Label>-->
-             <asp:Label runat="server" ID="toText">Going to</asp:Label>
+             <asp:Label runat="server" ID="toText" CssClass="aspLabel">Going to</asp:Label>
             <asp:TextBox id="to" TextMode="SingleLine" Columns="30" runat="server" CssClass="input" />
 
              <br />
@@ -114,12 +114,12 @@
 
          <br />
 
-            <asp:Label ID="LAdults" runat="server" Text="Adults" Visible="false"></asp:Label>
+            <asp:Label ID="LAdults" runat="server" Text="Adults" Visible="false" CssClass="aspLabel"></asp:Label>
             <asp:TextBox ID="Adults" runat="server" CssClass="input" Visible="false" />
 
             <br />
 
-            <asp:Label ID="LChildren" runat="server" Text="Children" Visible="false"></asp:Label>
+            <asp:Label ID="LChildren" runat="server" Text="Children" Visible="false" CssClass="aspLabel"></asp:Label>
             <asp:TextBox ID="Children" runat="server" CssClass="input" Visible="false" />
 
             <asp:RangeValidator ID="RangeValidator2" controltovalidate="Adults" validationgroup="2" runat="server" ErrorMessage="Please enter value between 0-20 in adults." MinimumValue="0" MaximumValue="20" Type="Integer" forecolor="Red" CssClass="validator" Display="None"></asp:RangeValidator>
