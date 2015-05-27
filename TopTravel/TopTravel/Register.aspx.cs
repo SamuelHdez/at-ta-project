@@ -30,7 +30,7 @@ namespace TopTravel
             CL.Phone = phoneR.Text;
             CL.Address = addressR.Text;
             CL.Gender = gender.Text;
-            CL.CreditCard = int.Parse(cardR.Text);
+            CL.CreditCard = cardR.Text;
             CL.Admin = 0;
             CL.Password = passR.Text;
             CL.Avatar = avatarR.Text;

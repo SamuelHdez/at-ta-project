@@ -12,7 +12,7 @@
 
     <section id="Section1" style>
         
-        <label>ID</label>
+        <label>User name</label>
         <asp:TextBox ID="dniR" runat="server" CssClass="input" />
 
         <label>Name</label>
@@ -51,11 +51,19 @@
         <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="You must introdude an ID." ControlToValidate="dniR" validationgroup="1" forecolor="Red" CssClass="validator" Display="None"></asp:RequiredFieldValidator>
         <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="You must introdude a name." ControlToValidate="nameR" validationgroup="1" forecolor="Red" CssClass="validator" Display="None"></asp:RequiredFieldValidator>
         <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="You must introdude a surname." ControlToValidate="surnameR" validationgroup="1" forecolor="Red" CssClass="validator" Display="None"></asp:RequiredFieldValidator>
+
         <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ErrorMessage="You must introdude a phone number." ControlToValidate="phoneR" validationgroup="1" forecolor="Red" CssClass="validator" Display="None"></asp:RequiredFieldValidator>
-        <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ErrorMessage="You must introdude an adress." ControlToValidate="addressR" validationgroup="1" forecolor="Red" CssClass="validator" Display="None"></asp:RequiredFieldValidator>
+        <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Phone number must be 9 numbers" ControlToValidate="phoneR" ValidationExpression="^[0-9]{9,9}$" validationgroup="1" forecolor="Red" CssClass="validator" Display="None"/>
+
+        <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ErrorMessage="You must introdude an email." ControlToValidate="addressR" validationgroup="1" forecolor="Red" CssClass="validator" Display="None"></asp:RequiredFieldValidator>
+        <asp:RegularExpressionValidator ID="regexEmailValid" runat="server" ValidationExpression="\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ControlToValidate="addressR" ErrorMessage="Invalid Email Format" validationgroup="1" forecolor="Red" CssClass="validator" Display="None"></asp:RegularExpressionValidator>
         <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ErrorMessage="You must introdude a gender." ControlToValidate="gender" validationgroup="1" forecolor="Red" CssClass="validator" Display="None"></asp:RequiredFieldValidator>
+        
         <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ErrorMessage="You must introdude a credit card." ControlToValidate="cardR" validationgroup="1" forecolor="Red" CssClass="validator" Display="None"></asp:RequiredFieldValidator>
         <asp:CompareValidator ID="CompareValidator2" runat="server" Operator="DataTypeCheck" Type="Integer" ControlToValidate="cardR" ErrorMessage="Credit card must be a number" validationgroup="1"  Display="None"/>
+        <asp:RegularExpressionValidator ID="RegExp1" runat="server" ErrorMessage="Credit card must be 12 numbers" ControlToValidate="cardR" ValidationExpression="^[0-9]{12,12}$" validationgroup="1" forecolor="Red" CssClass="validator" Display="None"/>
+
+        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="You must introdude a password." ControlToValidate="passR" validationgroup="1" forecolor="Red" CssClass="validator" Display="None"></asp:RequiredFieldValidator>
         <asp:RegularExpressionValidator ID="Regex1" runat="server" ControlToValidate="passR" ValidationExpression="^.{4,8}$" ErrorMessage="Password must contain between 4 and 8 characters" validationgroup="1" ForeColor="Red" CssClass="validator"  Display="None" />
         <asp:CompareValidator ID="CompareValidator1" runat="server" ErrorMessage="Passwords do not match." ControlToCompare="passR" ControlToValidate="pass2R" validationgroup="1" ForeColor="Red" CssClass="validator" Display="None"></asp:CompareValidator>
 
