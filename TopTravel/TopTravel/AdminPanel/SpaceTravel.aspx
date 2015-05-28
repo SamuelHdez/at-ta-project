@@ -6,6 +6,13 @@
         <h2>Control Panel.<br />
         </h2>
     </hgroup>
+
+    <style type="text/css">
+      .hiddencol
+      {
+        display: none;
+      }
+    </style>
         <div>
         <asp:RadioButtonList ID="typeAdmin" runat="server" OnSelectedIndexChanged="radioChange" AutoPostBack="True" RepeatDirection="Horizontal" CssClass="radioButtonList">
             <asp:ListItem Value="Hotel">Hotel</asp:ListItem>
@@ -27,7 +34,7 @@
                     <asp:boundfield datafield="price" headertext="Price"/>
                     <asp:boundfield datafield="company" headertext="Company"/>
                     <asp:boundfield datafield="extras" headertext="Extras"/>  
-                    <asp:boundfield datafield="images" headertext="Images"/>        
+                    <asp:boundfield datafield="images" headertext="Images" ItemStyle-CssClass="hiddencol" HeaderStyle-CssClass="hiddencol"/>        
                 </columns>
                 <PagerStyle HorizontalAlign="Center" CssClass="GridPager" />
      </asp:GridView>
@@ -54,5 +61,17 @@
           <asp:Button ID="EditButton" runat="server" Text="Edit" OnClick="GridView1_sendUpdate" CssClass="inputBottom" />
           <asp:Button ID="InsertButton" runat="server" Text="Insert" OnClick="sendInsert" CssClass="inputBottom" />
       </div>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="You must specify the id." ControlToValidate="ids" forecolor="Red" CssClass="validator"></asp:RequiredFieldValidator>
+         <asp:CompareValidator ID="CompareValidator2" runat="server" Operator="DataTypeCheck" Type="Integer" ControlToValidate="ids" ErrorMessage="Id must be a number"  />
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="You must specify the departure time." ControlToValidate="depTimes" forecolor="Red" CssClass="validator" ></asp:RequiredFieldValidator>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="You must specify the arrival time." ControlToValidate="arTimes"  forecolor="Red" CssClass="validator" ></asp:RequiredFieldValidator>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ErrorMessage="You must specify the departure city." ControlToValidate="depCis"  forecolor="Red" CssClass="validator"></asp:RequiredFieldValidator>
+        <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="You must specify the departure Preparation center." ControlToValidate="PrepCenterS"  forecolor="Red" CssClass="validator"></asp:RequiredFieldValidator>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ErrorMessage="You must specify the price." ControlToValidate="priceS" forecolor="Red" CssClass="validator" ></asp:RequiredFieldValidator>
+         <asp:CompareValidator ID="CompareValidator5" runat="server" Operator="DataTypeCheck" Type="Integer" ControlToValidate="priceS" ErrorMessage="Price must be a number" />
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" ErrorMessage="You must specify the number of the company." ControlToValidate="companyS"  forecolor="Red" CssClass="validator"></asp:RequiredFieldValidator>
+         <asp:CompareValidator ID="CompareValidator6" runat="server" Operator="DataTypeCheck" Type="Integer" ControlToValidate="companyS" ErrorMessage="Company must be a number"  Display="None" />
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator11" runat="server" ErrorMessage="You must specify the numer of the extra." ControlToValidate="extrasS"  forecolor="Red" CssClass="validator" ></asp:RequiredFieldValidator>
+         <asp:CompareValidator ID="CompareValidator7" runat="server" Operator="DataTypeCheck" Type="Integer" ControlToValidate="extrasS" ErrorMessage="Extras must be a number" />
    </div>
 </asp:Content>

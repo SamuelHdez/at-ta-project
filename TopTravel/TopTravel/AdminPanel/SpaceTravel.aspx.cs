@@ -20,16 +20,17 @@ namespace TopTravel
         DataSet d = new DataSet();
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["login"] != null)
+            if (Session["login"] != null) //not user logged = redirect to login page
             {
                 d = A.searchAdmin(Session["login"].ToString());
-                int encontrado = Convert.ToInt32(d.Tables[0].Rows[0][0]); //if there is a client, we return 1
+                int encontrado = Convert.ToInt32(d.Tables[0].Rows[0][0]); //if there is a admin, we return 1
 
-                if (encontrado == 1)
+                if (encontrado == 1) //admin has access, client will be redirect to the default page
                 {
                     d = t.showAllSpaceTravels();
                     GridView1.DataSource = d;
                     GridView1.DataBind();
+                    EditButton.Visible = false;
                 }
                 else
                 {
@@ -43,7 +44,7 @@ namespace TopTravel
         }
 
 
-        protected void radioChange(object sender, EventArgs e)
+        protected void radioChange(object sender, EventArgs e) //change the category of the admin panel
         {
             if (typeAdmin.Text == "Hotel")
             {
@@ -87,9 +88,12 @@ namespace TopTravel
             extrasS.Text = GridView1.SelectedRow.Cells[8].Text;
             imageS.Text = GridView1.SelectedRow.Cells[9].Text;
             idS.Enabled = false;
+
+            EditButton.Visible = true; //change visibility of the buttons
+            InsertButton.Visible = false;
         }
 
-        protected void GridView1_sendUpdate(object sender, EventArgs e)
+        protected void GridView1_sendUpdate(object sender, EventArgs e) //update a product
         {
             t.id = int.Parse(idS.Text);
             t.DepartureDate = depTimeS.Text;
@@ -102,11 +106,10 @@ namespace TopTravel
             t.Images = imageS.Text;
 
             d = t.update_SpaceTravels(GridView1.SelectedIndex);
-            GridView1.DataSource = d;
-            GridView1.DataBind();
+            Response.Redirect("SpaceTravel.aspx");
         }
 
-        protected void sendInsert(object sender, EventArgs e)
+        protected void sendInsert(object sender, EventArgs e) //insert a new product
         {
             t.id = int.Parse(idS.Text);
             t.DepartureDate = depTimeS.Text;
@@ -124,7 +127,7 @@ namespace TopTravel
 
         }
 
-        protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e) //delete a product
         {
             d = t.delete_SpaceTravels(e.RowIndex);
             GridView1.DataSource = d;

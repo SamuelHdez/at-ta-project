@@ -7,6 +7,13 @@
         </h2>
     </hgroup>
 
+    <style type="text/css">
+      .hiddencol
+      {
+        display: none;
+      }
+    </style>
+
      <div>
         <asp:RadioButtonList ID="typeAdmin" runat="server" OnSelectedIndexChanged="radioChange" AutoPostBack="True" RepeatDirection="Horizontal" CssClass="radioButtonList">
             <asp:ListItem Value="Hotel">Hotel</asp:ListItem>
@@ -30,7 +37,8 @@
                     <asp:boundfield datafield="Bedrooms" headertext="Bedrooms"/>
                     <asp:boundfield datafield="Price" headertext="Price"/>
                     <asp:boundfield datafield="company" headertext="Company"/>
-                    <asp:boundfield datafield="extras" headertext="Extras"/>           
+                    <asp:boundfield datafield="extras" headertext="Extras"/>  
+                    <asp:boundfield datafield="image" headertext="Images" ItemStyle-CssClass="hiddencol" HeaderStyle-CssClass="hiddencol"/>          
                 </columns>
                 <PagerStyle HorizontalAlign="Center" CssClass="GridPager" />
      </asp:GridView>
@@ -58,6 +66,8 @@
             <asp:TextBox id="companyH" TextMode="SingleLine" Columns="30" runat="server" CssClass="input" />
            <label>Extras</label>
             <asp:TextBox id="extrasH" TextMode="SingleLine" Columns="30" runat="server" CssClass="input" />
+           <label>Image</label>
+            <asp:TextBox id="imageT" TextMode="SingleLine" Columns="30" runat="server" CssClass="input" />
           <asp:Button ID="EditButton" runat="server" Text="Edit" OnClick="GridView1_sendUpdate" CssClass="inputBottom" validationgroup="2" />
           <asp:Button ID="InsertButton" runat="server" Text="Insert" OnClick="sendInsert" CssClass="inputBottom" validationgroup="2" />
       </div>     

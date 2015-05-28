@@ -160,7 +160,7 @@ namespace TopTravel
             return virtdb; //It returns the virtual DB with all the information needed inside
         }
 
-        public void updateClient2(ClientEN b, string ID, String pass)
+        public void updateClient2(ClientEN b, string ID)
         {
             string s;
             s = ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString(); //String where it's stored the instructions for the connecton for the DB
@@ -168,7 +168,7 @@ namespace TopTravel
             try
             {
                 c.Open();   //The select in SQL language that is processed in the DB which will return all the rows from the table "Client"
-                SqlCommand com = new SqlCommand("Update Client Set name = '" + b.Name + "', surname ='" +b.Surname + "', phone = '" + b.Phone + "', address = '" + b.Address + "', creditCard = '" +b.CreditCard + "', admin = '" + 0 + "' Where dni = '" + ID + "' and password = '" + b.Password + "'", c);
+                SqlCommand com = new SqlCommand("Update Client Set name = '" + b.Name + "', surname ='" +b.Surname + "', phone = '" + b.Phone + "', address = '" + b.Address + "', creditCard = '" +b.CreditCard + "', admin = '" + 0 + "', avatar = '"+ b.Avatar +"', password = '"+ b.Password +"' Where dni = '" + ID + "'", c);
 
                 com.ExecuteNonQuery();      //Executes the SQL statement
             }

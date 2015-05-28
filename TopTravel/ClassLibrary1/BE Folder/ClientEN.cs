@@ -37,10 +37,10 @@ namespace TopTravel
             return ds;
         }
         //Updates the information about the client by id and password
-        public void update_Client2(String ID, String pass)
+        public void update_Client2(String ID)
         {
             ClientCAD c = new ClientCAD();
-            c.updateClient2(this, ID, pass);
+            c.updateClient2(this, ID);
             
         }
         //Searches a client provided its dni and password
@@ -72,7 +72,7 @@ namespace TopTravel
         private string phone;       //Its phone number
         private string address;     //Its address
         private string gender;      //Its gender
-        private int creditCard;     //Its credit card
+        private string creditCard;     //Its credit card
         private int admin;          //Indicates wheter it is an admin
         private string password;    //Its password
         private string avatar;      //Its avatar
@@ -115,7 +115,7 @@ namespace TopTravel
             set { gender = value; }
         }
 
-        public int CreditCard       //Privides the tools for setting and getting the values of the credit card
+        public string CreditCard       //Privides the tools for setting and getting the values of the credit card
         {
             get { return creditCard; }
             set { creditCard = value; }

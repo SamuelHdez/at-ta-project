@@ -121,7 +121,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="About.aspx" />
     <Content Include="AdminPanel\Bus.aspx" />
     <Content Include="AdminPanel\CarRental.aspx" />
     <Content Include="AdminPanel\Cruise.aspx" />
@@ -233,7 +232,6 @@
     <Content Include="Flight.aspx" />
     <Content Include="Cruise.aspx" />
     <Content Include="Hotel.aspx" />
-    <Content Include="Package.aspx" />
     <None Include="Scripts\jquery-1.7.1.intellisense.js" />
     <Content Include="Login.aspx" />
     <Content Include="Register.aspx" />
@@ -317,13 +315,6 @@
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\AuthConfig.cs" />
-    <Compile Include="About.aspx.cs">
-      <DependentUpon>About.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="About.aspx.designer.cs">
-      <DependentUpon>About.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Bus.aspx.cs">
       <DependentUpon>Bus.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -432,13 +423,6 @@
     </Compile>
     <Compile Include="Hotel.aspx.designer.cs">
       <DependentUpon>Hotel.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Package.aspx.cs">
-      <DependentUpon>Package.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Package.aspx.designer.cs">
-      <DependentUpon>Package.aspx</DependentUpon>
     </Compile>
     <Compile Include="SpaceTravel.aspx.cs">
       <DependentUpon>SpaceTravel.aspx</DependentUpon>

@@ -41,7 +41,7 @@
         <label>Repeat yor pass</label>
         <asp:TextBox ID="pass2R" TextMode="Password" runat="server" CssClass="input" />
 
-        <label>Avatar (Link)</label>
+        <label>Image profile (Link)</label>
         <asp:TextBox ID="avatarR" runat="server" CssClass="input" />
 
         <asp:Button ID="Button1" runat="server" Text="Register" OnClick="sendR" CssClass="inputBottom" validationgroup="1" />
